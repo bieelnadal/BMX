@@ -1,0 +1,275 @@
+/* General */
+.mainSeparador {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+
+}
+
+.separador1 {
+    max-width: 32.25rem;
+    padding: 2.5rem 3.75rem 2.5rem 0.5rem;
+    border-right: 1px solid rgb(204, 204, 204);
+    flex: 1 1 0%;
+
+}
+
+.separador2 {
+    max-width: 32.25rem;
+    padding: 2rem 1rem;
+    flex: 1 1 0%;
+}
+
+.headerAcceder {
+    padding: 4.5rem 1rem 3.5rem;
+    width: 100%;
+    -webkit-box-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: none;
+    -webkit-box-pack: center;
+}
+
+h2 {
+    font-size: 1.8125rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    color: var(--black);
+}
+
+h4 {
+    font-size: 1.0625rem;
+    line-height: 1.5rem;
+    font-weight: 700;
+}
+
+span {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    letter-spacing: normal;
+}
+
+.iconsvg {
+    display: inline-flex;
+    align-self: center;
+    width: 64px;
+    height: 64px;
+    margin-right: 20px;
+}
+
+.textoSpan {
+    flex: 1 1 0%;
+}
+
+.escogerRegistro {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin: 2rem 0px;
+    min-height: 22px;
+}
+
+.escogerRegistro::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    background: rgb(204, 204, 204);
+    left: 0px;
+}
+
+.textoEscoger {
+    display: inline-block;
+    margin: 0px auto;
+    background: rgb(255, 255, 255);
+    padding: 0px 1rem;
+    position: relative;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    letter-spacing: normal;
+}
+
+.textoEscoger::before {
+    box-sizing: inherit;
+
+}
+
+.info1 {
+    width: 100%;
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+
+.info2 {
+    width: 100%;
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+
+
+.aButtonRegistro {
+    display: inline-flex;
+    position: relative;
+    outline: 0px;
+    text-align: center;
+    -webkit-box-align: center;
+    align-items: center;
+    user-select: none;
+    vertical-align: middle;
+    text-decoration: none;
+    border-radius: 4px;
+    background: rgb(255, 255, 255);
+    transition: background 0.3s ease 0s, box-shadow 0.3s ease 0s, border-color 0.3s ease 0s;
+    cursor: pointer;
+    font-size: 1.0625rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    font-family: 'Playfair Display', serif;
+    padding: 0px 0rem;
+    min-height: 3rem;
+    color: rgb(51, 51, 51);
+    border: 1px solid rgb(204, 204, 204);
+    width: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.buttonRegistro {
+    display: inline-flex;
+    color: var(--black);
+}
+
+
+input[type="email"] {
+    height: 3rem;
+    background-clip: padding-box;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.25rem;
+    border: 1px solid rgb(204, 204, 204);
+    color: rgb(51, 51, 51);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 1.0625rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    outline: none;
+    font-family: 'Playfair Display', serif;
+    padding: 0px -1.5rem;
+    text-align: left;
+    transition: border 0.3s ease 0s, background-color 0.3s ease 0s, color 0.3s ease 0s, box-shadow 0.3s ease 0s;
+    width: 100%;
+}
+
+input[type="password"] {
+    height: 3rem;
+    background-clip: padding-box;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.25rem;
+    border: 1px solid rgb(204, 204, 204);
+    color: rgb(51, 51, 51);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 1.0625rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    outline: none;
+    padding: 0px -1.5rem;
+    font-family: 'Playfair Display', serif;
+    text-align: left;
+    transition: border 0.3s ease 0s, background-color 0.3s ease 0s, color 0.3s ease 0s, box-shadow 0.3s ease 0s;
+    width: 100%;
+}
+
+input[type="submit"] {
+    display: inline-flex;
+    position: relative;
+    outline: 0px;
+    text-align: center;
+    -webkit-box-align: center;
+    align-items: center;
+    user-select: none;
+    vertical-align: middle;
+    text-decoration: none;
+    color: var(--white);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: var(--verdeprincipal);
+    transition: background 0.3s ease 0s, box-shadow 0.3s ease 0s, border-color 0.3s ease 0s;
+    cursor: pointer;
+    font-size: 1.0625rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    padding: 0px 16.25rem;
+    font-family: 'Playfair Display', serif;
+    min-height: 3rem;
+    width: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+/* Register */
+
+input[type="text"] {
+    height: 3rem;
+    background-clip: padding-box;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.25rem;
+    border: 1px solid rgb(204, 204, 204);
+    color: rgb(51, 51, 51);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 1.0625rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    outline: none;
+    padding: 0px -1.5rem;
+    font-family: 'Playfair Display', serif;
+    text-align: left;
+    transition: border 0.3s ease 0s, background-color 0.3s ease 0s, color 0.3s ease 0s, box-shadow 0.3s ease 0s;
+    width: 100%;
+}
+
+.file-select {
+    position: relative;
+    display: inline-block;
+}
+
+.file-select::before {
+    background-color: var(--verdeprincipal);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Seleccionar';
+    /* testo por defecto */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.file-select input[type="file"] {
+    opacity: 0;
+    width: 200px;
+    height: 32px;
+    display: inline-block;
+}
+
+#src-file1::before {
+    content: 'Seleccionar Foto';
+}

@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap');
+
+:root {
+    --dorado: #b4975a;
+    --verdeprincipal: #00471bff;
+    --dark-spring-green: #336c49ff;
+    --viridian: #5c896dff;
+    --morning-blue: #7da18aff;
+    --white: rgb(221, 221, 221);
+    --black: rgb(26, 25, 25) ;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', serif;
+}
+*{
+    font-family: 'Playfair Display', serif;
+}
