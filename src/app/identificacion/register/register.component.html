@@ -37,34 +37,48 @@
                 class="Icon-inside" enctype="multipart/form-data">
                 <h2>Registrarse</h2>
                 <p>
-                    <input id="Nombre" name="Nombre" formControlName="id_usuario" type="text" maxlength="20" minlength="3" required
+                    <input id="Nombre" formControlName="id_usuario" type="text" maxlength="20" minlength="3" required
                         placeholder="Nombre*" />
                 </p>
+
                 <p>
-                    <input id="Nombre" name="Nombre" formControlName="nombre" type="text" maxlength="20" minlength="3" required
+                    <input id="Nombre" formControlName="nombre" type="text" maxlength="20" minlength="3" required
                         placeholder="Nombre*" />
                 </p>
+                <div *ngIf="submitted && form.username.errors" class="invalid-feedback">
+                    <div *ngIf="form.username.errors.required">El nombre de usuario es necesario</div>
+                    <div *ngIf="form.username.errors.pattern">Solo se permiten letras, números y guiones bajos</div>
+                </div>
+
                 <p>
-                    <input id="Apellidos" name="Apellidos" formControlName="apellidos" type="text" maxlength="50" minlength="3" required
+                    <input id="Apellidos" formControlName="apellidos" type="text" maxlength="50" minlength="3" required
                         placeholder="Apellidos*" />
                 </p>
                 <p>
-                    <input id="Email" name="Email" type="email" maxlength="30" minlength="4" required
+                    <input id="Email" type="email" formControlName="email" maxlength="30" minlength="4" required
                         placeholder="E-mail*" />
                 </p>
                 <p>
-                    <input id="Dni" name="Dni" type="text" maxlength="9" minlength="9" required placeholder="DNI*" />
-                </p>
-                <p>
-                    <input name="Passcode" type="password" maxlength="100" minlength="3" required
+                    <input id="passcode" type="text" formControlName="passcode" maxlength="100" minlength="3" required
                         placeholder="Contraseña*" />
                 </p>
                 <p>
-                    <input name="ConfirmPasscode" type="password" maxlength="100" minlength="3" required
-                        placeholder="Confirmar contraseña*" />
+                    <input id="confirmPasscode" type="text" formControlName="confirmPasscode" maxlength="100"
+                        minlength="3" required placeholder="Confirmar Contraseña*" />
                 </p>
                 <p>
-                    <input id="Imagen" name="Imagen" type="file" accept=".jpg, .png, .gif" style="color: white;" unique>
+                    <input type="text" formControlName="dni" maxlength="9" minlength="9" required placeholder="Dni*" />
+                </p>
+                <p>
+                    <input type="number" formControlName="id_direccion" required hidden />
+                </p>
+
+                <p>
+                    <input type="number" formControlName="id_admin" maxlength="100" minlength="3" required hidden />
+                </p>
+                <p>
+                    <input id="Imagen" type="file" formControlName="imagen" accept=".jpg, .png, .gif"
+                        style="color: white;" unique>
                 </p><br>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>

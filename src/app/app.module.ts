@@ -7,6 +7,8 @@ import { RegisterComponent } from './identificacion/register/register.component'
 import { LoginComponent } from './identificacion/login/login.component';
 import { HeaderComponent } from './plantillas/header/header.component';
 import { FooterComponent } from './plantillas/footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminHeaderComponent } from './plantillas/admin-header/admin-header.component';
 
 @NgModule({
   declarations: [
@@ -14,10 +16,13 @@ import { FooterComponent } from './plantillas/footer/footer.component';
     RegisterComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AdminHeaderComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],

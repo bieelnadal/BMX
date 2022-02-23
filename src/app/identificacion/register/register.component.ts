@@ -30,9 +30,9 @@ export class RegisterComponent implements OnInit {
   imgSrc: string = '/assets/avatardefault.png';
 
   constructor(
-    public formBuilder: FormBuilder,
-    private authService: AuthService
-  ) {}
+    public formBuilder: FormBuilder
+  ) //private authService: AuthService
+  {}
 
   ngOnInit() {
     this.crearForm();
@@ -57,10 +57,11 @@ export class RegisterComponent implements OnInit {
           [Validators.required, Validators.email, Validators.minLength(3)],
         ],
         passcode: ['', [Validators.required, Validators.minLength(6)]],
+        confirmPasscode: ['', Validators.required],
         id_direccion: [''],
         dni: ['', Validators.required],
         imagen: [''],
-        id_admin:['',]
+        id_admin: [''],
       },
       {
         //Validador que passa a la funció MustMatch els valors de 'password' i de 'confirmPassword' per a comparar-los i verificar-los
@@ -136,7 +137,7 @@ export class RegisterComponent implements OnInit {
         dni: form.dni,
         id_admin: form.centro,
       };
-      this.authService.registroProfesor(nuevoProfesor);
+      //this.authService.registroProfesor(nuevoProfesor);
     }
   }
 }
