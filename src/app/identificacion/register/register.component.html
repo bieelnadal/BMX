@@ -37,38 +37,55 @@
                 class="Icon-inside" enctype="multipart/form-data">
                 <h2>Registrarse</h2>
                 <p>
-                    <input id="Nombre" formControlName="id_usuario" type="text" maxlength="20" minlength="3" required
-                        placeholder="Nombre*" />
+                    <input id="Nombre" formControlName="id_usuario" type="number" maxlength="20" minlength="3" required
+                       hidden />
                 </p>
 
                 <p>
                     <input id="Nombre" formControlName="nombre" type="text" maxlength="20" minlength="3" required
                         placeholder="Nombre*" />
                 </p>
-                <div *ngIf="submitted && form.username.errors" class="invalid-feedback">
-                    <div *ngIf="form.username.errors.required">El nombre de usuario es necesario</div>
-                    <div *ngIf="form.username.errors.pattern">Solo se permiten letras, números y guiones bajos</div>
+                <div *ngIf="submitted && form.nombre.errors" class="invalid-feedback">
+                    <div *ngIf="form.nombre.errors.required">El nombre de usuario es necesario</div>
                 </div>
 
                 <p>
                     <input id="Apellidos" formControlName="apellidos" type="text" maxlength="50" minlength="3" required
                         placeholder="Apellidos*" />
                 </p>
+                <div *ngIf="submitted && form.apellidos.errors" class="invalid-feedback">
+                    <div *ngIf="form.apellidos.errors.required">Los apellidos son necesarios</div>
+                </div>
                 <p>
                     <input id="Email" type="email" formControlName="email" maxlength="30" minlength="4" required
                         placeholder="E-mail*" />
                 </p>
+                <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+                    <div *ngIf="form.email.errors.required">El email es necesario</div>
+                    <div *ngIf="form.email.errors.email">No es un correo electrónico</div>
+                </div>
                 <p>
                     <input id="passcode" type="text" formControlName="passcode" maxlength="100" minlength="3" required
                         placeholder="Contraseña*" />
                 </p>
+                <div *ngIf="submitted && form.passcode.errors" class="invalid-feedback">
+                    <div *ngIf="form.passcode.errors.required">La contraseña es necesaria</div>
+                    <div *ngIf="form.passcode.errors.minlength">La contraseña debe contener al menos 6 carácteres</div>
+                </div>
                 <p>
                     <input id="confirmPasscode" type="text" formControlName="confirmPasscode" maxlength="100"
                         minlength="3" required placeholder="Confirmar Contraseña*" />
                 </p>
+                <div *ngIf="submitted && form.confirmPasscode.errors" class="invalid-feedback">
+                    <div *ngIf="form.confirmPasscode.errors.required">Confirmar la contraseña es necesario</div>
+                    <div *ngIf="form.confirmPasscode.errors.mustMatch">Las contraseñas deben de coincidir</div>
+                </div>
                 <p>
                     <input type="text" formControlName="dni" maxlength="9" minlength="9" required placeholder="Dni*" />
                 </p>
+                <div *ngIf="submitted && form.dni.errors" class="invalid-feedback">
+                    <div *ngIf="form.dni.errors.required">El dni es necesario</div>
+                </div>
                 <p>
                     <input type="number" formControlName="id_direccion" required hidden />
                 </p>
