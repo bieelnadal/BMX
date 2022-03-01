@@ -1,0 +1,115 @@
+    body {
+        background-color: var(--white);
+    }
+
+    .contenedor-perfil {
+        display: flex;
+        padding-bottom: 150px;
+        margin: 10%;
+    }
+
+    .separador1 {
+        border-radius: 10px 0px 0px 10px;
+        width: 30%;
+        background-color: var(--verdeprincipal);
+    }
+
+    .separador2 {
+        border-radius: 0px 10px 10px 0px;
+        width: 80%;
+        background-color: var(--morning-blue);
+    }
+
+    .posicion-imagen-perfil {
+        width: 30%;
+        margin: 11px;
+    }
+
+    .imagen-perfil {
+        margin: 5%;
+    }
+
+    img {
+        margin: 25%;
+        width: 100%;
+    }
+
+    h1 {
+        color: white;
+        margin: 0;
+        margin-bottom: 50px;
+    }
+
+    .button-direciones{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0398EC ;
+        border: none;
+        border-radius: 5px;
+        text-align: center; 
+        font-size: 15px;
+        padding: 10px;
+        color: white;
+        width: 90%;
+        margin-left: 11px;
+        transition: 1s;
+        cursor: pointer;
+        margin: 11px ;
+    }
+
+    .button-editar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #31EC03;
+        border: none;
+        border-radius: 5px;
+        text-align: center; 
+        font-size: 15px;
+        padding: 10px;
+        color: white;
+        width: 90%;
+        margin-left: 11px;
+        transition: 1s;
+        cursor: pointer;
+    }
+    .button-cerrar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #EC1C03;
+        border: none;
+        border-radius: 5px;
+        text-align: center; 
+        font-size: 15px;
+        padding: 10px;
+        color: white;
+        width: 90%;
+        cursor: pointer;
+        margin: 11px ;
+    }
+
+    .button-editar:hover{
+        transition: 0.5s;
+        background-color: var(--dorado);
+    }
+
+    .button-cerrar:hover{
+        transition: 0.5s;
+        background-color: var(--dorado);
+    }
+    .button-direciones:hover{
+        transition: 0.5s;
+        background-color: var(--dorado);
+    }
+
+    h3{
+        color: white;
+        margin: 11px;
+    }
+
+    p{
+        color: white;
+        margin-left: 20px;
+    }
