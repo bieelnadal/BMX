@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
   confirmPassType: string = 'password';
 
   // ngIf en caso de querer registrarnos como profesor
-  registroProfe: boolean = false;
+  //registroProfe: boolean = false;
 
   // input para acceder como profesor
   passAcceso: string = '';
@@ -59,7 +59,7 @@ export class RegisterComponent implements OnInit {
         passcode: ['', [Validators.required, Validators.minLength(6)]],
         confirmPasscode: ['', Validators.required],
         id_direccion: [''],
-        dni: ['', Validators.required],
+        dni: ['', [Validators.required, Validators.minLength(9)]],
         imagen: [''],
         id_admin: [''],
       },
@@ -138,6 +138,9 @@ export class RegisterComponent implements OnInit {
         id_admin: form.centro,
       };
       //this.authService.registroProfesor(nuevoProfesor);
+    }else{
+      console.log("hola");
+      
     }
   }
 }

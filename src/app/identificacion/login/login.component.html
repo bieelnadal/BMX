@@ -1,3 +1,6 @@
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" /> -->
 <body>
     <header class="headerAcceder">
         <a class="imagenHeader" href="#">
@@ -32,16 +35,29 @@
             </div>
         </section>
         <section class="separador2">
-            <form action="" method="POST">
+            <form action="" [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
                 <h2>Iniciar Sesión</h2>
                 <p>
-                    <input id="Email" name="Email" type="email" maxlength="100" minlength="3" required
-                        placeholder="E-mail*" />
+                    <input id="Email" name="Email" formControlName="email" type="text" maxlength="100" minlength="3" required
+                        placeholder="E-mail*" [ngClass]="{ 'is-invalid': form.email.errors }" />
                 </p>
+                <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+                    <div *ngIf="form.email.errors.required" class="validator-error">El correo electrónico es necesario</div>
+                    <div *ngIf="form.email.errors.email" class="validator-error">El correo electrónico no es correcto</div>
+                </div>
                 <p>
-                    <input id="Password" name="Password" type="password" maxlength="100" minlength="3" required
-                        placeholder="Contraseña*" />
+                    <input id="Password" name="Password" formControlName="passcode" type="password" maxlength="100" minlength="3" required
+                        placeholder="Contraseña*" [ngClass]="{ 'is-invalid': form.passcode.errors }"/>
+                        <i *ngIf="this.passShown" (click)="togglePass()" class="material-icons">
+                            visibility
+                        </i>
+                        <i *ngIf="!this.passShown" (click)="togglePass()" class="material-icons">
+                            visibility_off
+                        </i>
                 </p>
+                <div *ngIf="submitted && form.passcode.errors" class="invalid-feedback">
+                    <div *ngIf="form.passcode.errors.required" class="validator-error">La contraseña es necesaria</div>
+                </div>
                 <p>
                     <input type="submit" href="login.php" value="Entrar" id="submit" />
                 </p>
