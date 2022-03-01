@@ -289,3 +289,7 @@ i{
   padding: 10px;
   min-width: 40px;
 }
+
+.invalid-feedback{
+  display: block;
+}
