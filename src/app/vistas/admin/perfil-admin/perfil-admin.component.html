@@ -1,23 +1,45 @@
-
 <div class="contenedor-perfil">
   <div class="separador1">
     <div class="posicion-imagen-perfil">
       <img class="imagen-perfil" src="../../../../assets/avatardefault.png" alt="">
-      <h1>Hola</h1>
+      <h1>Nombre</h1>
     </div>
-    <button class="button-direciones">Direciones</button>
-    <button class="button-editar" >Editar perfil</button>
-    <button class="button-cerrar" >Cerrar sesión</button>
+    <button class="button-direciones" (click)="mostrarDesplegableDireciones()">Direciones</button>
+    <button class="button-editar">Editar perfil</button>
+    <button class="button-cerrar">Cerrar sesión</button>
   </div>
   <div class="separador2">
-    <h3>informacion</h3>
-    <hr>
-    <p>Nombre:</p>
-    <p>Apellidos:</p>
-    <p>Nombre:</p>
-    <p>Apellidos:</p>
-    <p>Nombre:</p>
-    <p>Apellidos:</p>
-
+    
+      <div class="informacion">
+        <h3>Perfil</h3>
+        <hr>
+      </div>
+      <div class="alinar-contenido">
+      <div class="direciones" *ngIf="this.mostrarDesplegableVisual">
+        <!--button para agregar deirecon a  la tabla-->
+        <button class="agregarDirecion" (click)="mostrarDesplegableAgregarDirecion()">Nueva Direcion</button>
+        <div class="formulario-direcion" *ngIf="this.mostrarAgregarDirecion">
+          <h5>Añadir Direciones</h5>
+          <form action="">
+            <!--Direcion-->
+            <label for="">Direcion:</label>
+            <input type="text" name="direcion" placeholder="Direcion">
+            <!--Pais-->
+            <label for="">Pais:</label>
+            <select name="Pais">
+              <option value="0" selected>Pais</option>
+              <option value="1">España</option>
+            </select>
+            <!--Codigo postal-->
+            <label for="">Codigo postal:</label>
+            <input type="number" name="codigo-postal" minlength="1" maxlength="5" placeholder="Codigo postal">
+            <!--Localidad-->
+            <label for="">Localidad:</label>
+            <input type="text" name="localidad" placeholder="Localidad">
+            <input type="submit" value="Añadir direcion">
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

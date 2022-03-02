@@ -9,6 +9,8 @@ import { HeaderComponent } from './plantillas/header/header.component';
 import { FooterComponent } from './plantillas/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminHeaderComponent } from './plantillas/admin-header/admin-header.component';
+import {PerfilAdminComponent } from './vistas/admin/perfil-admin/perfil-admin.component';
+import { PerfilUsuarioComponent } from './vistas/usuario/perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { AdminHeaderComponent } from './plantillas/admin-header/admin-header.com
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    AdminHeaderComponent
+    AdminHeaderComponent,
+    PerfilAdminComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,
