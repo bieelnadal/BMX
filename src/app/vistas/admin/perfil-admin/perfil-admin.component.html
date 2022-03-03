@@ -5,19 +5,43 @@
       <h1>Nombre</h1>
     </div>
     <button class="button-direciones" (click)="mostrarDesplegableDireciones()">Direciones</button>
-    <button class="button-editar">Editar perfil</button>
+    <button class="button-editar" (click)="mostrarDesplegableEditarPerfil()">Editar perfil</button>
     <button class="button-cerrar">Cerrar sesión</button>
   </div>
   <div class="separador2">
-    
-      <div class="informacion">
-        <h3>Perfil</h3>
-        <hr>
-      </div>
-      <div class="alinar-contenido">
+    <div class="informacion">
+      <h3>Perfil</h3>
+      <hr>
+    </div>
+    <div class="alinar-contenido">
+      <!--
+        Direciones
+      -->
       <div class="direciones" *ngIf="this.mostrarDesplegableVisual">
         <!--button para agregar deirecon a  la tabla-->
         <button class="agregarDirecion" (click)="mostrarDesplegableAgregarDirecion()">Nueva Direcion</button>
+
+        <!--Card direciones ya creadas-->
+
+        <div class="card-direcion" *ngIf="this.esconderDirecion">
+          <a href="">
+            <div class="contenido-card">
+              <h4 class="texto-card">direcion</h4>
+              <hr>
+              <div class="agregar-card">
+                <!--borrar dicecion-->
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" style="float: right;"
+                  class="bi bi-trash-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                </svg>
+
+              </div>
+              <p>Direcion text text</p>
+            </div>
+          </a>
+        </div>
         <div class="formulario-direcion" *ngIf="this.mostrarAgregarDirecion">
           <h5>Añadir Direciones</h5>
           <form action="">
@@ -32,7 +56,7 @@
             </select>
             <!--Codigo postal-->
             <label for="">Codigo postal:</label>
-            <input type="number" name="codigo-postal" minlength="1" maxlength="5" placeholder="Codigo postal">
+            <input type="number" name="codigo-postal" minlength="5" maxlength="5" placeholder="Codigo postal">
             <!--Localidad-->
             <label for="">Localidad:</label>
             <input type="text" name="localidad" placeholder="Localidad">
@@ -41,5 +65,28 @@
         </div>
       </div>
     </div>
+
+
+<!--
+  editar perfil
+-->
+    <div class="alinar-contenido">
+      <div class="editar-perfil" *ngIf="this.mostrarDesplegableEditarPerfilVisual">
+      <form action="">
+        <label for="">Nombre:</label>
+          <input type="text" name="nombre" placeholder="Nombre" minlength="3" maxlength="30">
+        <label for="">Apellidos:</label>
+          <input type="text" name="Apellidos" placeholder="Apellidos" minlength="3" maxlength="30">
+        <label for="">Email:</label>
+          <input type="email" name="email" placeholder="Email">
+        <label for="">DNI:</label>
+        <input type="text" name="DNI" placeholder="DNI">
+        <label for="">Contraseña</label>
+        <input type="text" name="" id="">
+        <input type="submit" value="Enviar">
+      </form>
+      </div>
+    </div>
+
   </div>
 </div>
