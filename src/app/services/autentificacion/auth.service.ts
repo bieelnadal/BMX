@@ -18,7 +18,7 @@ export class AuthService {
       .post(URL_LOGIN, JSON.stringify(usuario))
       .subscribe((val: any) => {
         if (val.resultado == 'error') {
-          console.log();
+          console.log(val.resultado);
         } else {
           //guardar sesion funcion
         }

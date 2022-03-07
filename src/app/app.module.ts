@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminHeaderComponent } from './plantillas/admin-header/admin-header.component';
 import {PerfilAdminComponent } from './vistas/admin/perfil-admin/perfil-admin.component';
 import { PerfilUsuarioComponent } from './vistas/usuario/perfil-usuario/perfil-usuario.component';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,8 +30,16 @@ import { PerfilUsuarioComponent } from './vistas/usuario/perfil-usuario/perfil-u
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [  
+
+  {
+    provide: JWT_OPTIONS,
+    useValue: JWT_OPTIONS
+  },
+    JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

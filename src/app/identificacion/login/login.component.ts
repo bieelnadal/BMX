@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from '../../interfaces/Usuario';
+import { AuthService } from 'src/app/services/autentificacion/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   submitted: boolean = false;
 
-  constructor(public formBuilder: FormBuilder) {}
+  constructor(public formBuilder: FormBuilder, private auth: AuthService) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -40,7 +41,7 @@ export class LoginComponent implements OnInit {
     console.log(this.form.passcode.errors);
     
     if (this.loginForm.valid) {
-      //this.authService.loginUser(user);
+      this.auth.login(user);
     }
   }
 

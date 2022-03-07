@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/interfaces/Usuario';
+import { AuthService } from 'src/app/services/autentificacion/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -30,9 +31,9 @@ export class RegisterComponent implements OnInit {
   imgSrc: string = '/assets/avatardefault.png';
 
   constructor(
-    public formBuilder: FormBuilder
-  ) //private authService: AuthService
-  {}
+    public formBuilder: FormBuilder,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.crearForm();
@@ -42,7 +43,6 @@ export class RegisterComponent implements OnInit {
     //Validadors registre
     this.registerForm = this.formBuilder.group(
       {
-        id_usuario: [],
         nombre: [
           '',
           [
@@ -58,10 +58,8 @@ export class RegisterComponent implements OnInit {
         ],
         passcode: ['', [Validators.required, Validators.minLength(6)]],
         confirmPasscode: ['', Validators.required],
-        id_direccion: [''],
         dni: ['', [Validators.required, Validators.minLength(9)]],
-        imagen: [''],
-        id_admin: [''],
+        imagen: ['',]
       },
       {
         //Validador que passa a la funció MustMatch els valors de 'password' i de 'confirmPassword' per a comparar-los i verificar-los
@@ -124,23 +122,29 @@ export class RegisterComponent implements OnInit {
   //Funció que executa quan s'apreta el botó registre
   onRegistro(form: any) {
     this.submitted = true;
+    console.log(this.imgSrc);
+
+    console.log(this.registerForm.valid);
+    
+    console.log(form);
+    
     //Comprobar si es cumpleixen o no tots els errors
     if (this.registerForm.valid) {
-      const nuevoProfesor: Usuario = {
+      const nuevoUsuario: Usuario = {
         id_usuario: 0,
-        nombre: form.username,
-        apellidos: form.email,
-        email: form.password,
-        passcode: form.nombre,
+        nombre: form.nombre,
+        apellidos: form.apellidos,
+        email: form.email,
+        passcode: form.passcode,
         id_direccion: 0,
         imagen: this.imgSrc,
         dni: form.dni,
-        id_admin: form.centro,
+        id_admin: 0,
       };
-      //this.authService.registroProfesor(nuevoProfesor);
-    }else{
-      console.log("hola");
-      
+      this.authService.register(nuevoUsuario);
+      this.registerForm.reset();
+    } else {
+      console.log('No se ha podido registrar el usuario');
     }
   }
 }

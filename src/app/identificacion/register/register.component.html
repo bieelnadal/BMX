@@ -40,11 +40,6 @@
                 class="Icon-inside" enctype="multipart/form-data">
                 <h2>Registrarse</h2>
                 <p>
-                    <input id="Nombre" formControlName="id_usuario" type="number" maxlength="20" minlength="3" required
-                        hidden />
-                </p>
-
-                <p>
                     <input id="Nombre" formControlName="nombre" type="text" maxlength="20" minlength="3" required
                         placeholder="Nombre*" />
                 </p>
@@ -108,15 +103,8 @@
                     <div *ngIf="form.dni.errors.minlength" class="validator-error">El dni debe tener 9 dígitos</div>
                 </div>
                 <p>
-                    <input type="number" formControlName="id_direccion" required hidden />
-                </p>
-
-                <p>
-                    <input type="number" formControlName="id_admin" maxlength="100" minlength="3" required hidden />
-                </p>
-                <p>
                     <input id="file-input" type="file" (change)="readURL($event)"
-                        accept="image/png, image/gif, image/jpeg" formControlName="userImage">
+                        accept="image/png, image/gif, image/jpeg" formControlName="imagen">
                 </p><br>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
