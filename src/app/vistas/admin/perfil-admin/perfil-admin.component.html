@@ -6,12 +6,23 @@
     </div>
     <button class="button-direciones" (click)="mostrarDesplegableDireciones()">Direciones</button>
     <button class="button-editar" (click)="mostrarDesplegableEditarPerfil()">Editar perfil</button>
-    <button class="button-cerrar">Cerrar sesión</button>
+    <button class="button-cerrar" (click)="swalsalir()">Cerrar sesión</button>
+
   </div>
   <div class="separador2">
     <div class="informacion">
       <h3>Perfil</h3>
+
       <hr>
+      <div *ngIf="this.esconderPerfil">
+        <p class="info-perfil">Nombre:</p>
+        <br>
+        <p class="info-perfil">Apellidos:</p>
+        <br>
+        <p class="info-perfil">Email:</p>
+        <br>
+        <p class="info-perfil">Codigo postal:</p>
+      </div>
     </div>
     <div class="alinar-contenido">
       <!--
@@ -44,106 +55,117 @@
         </div>
         <div class="formulario-direcion" *ngIf="this.mostrarAgregarDirecion">
           <h5>Añadir Direciones</h5>
-          <form ][formGroup]="direciones">
+          <form [formGroup]="direciones" (ngSubmit)="onSubmit()">
             <!--Direcion-->
             <label for="">Direcion:</label>
-            <input type="text" formControlName="Direcion" placeholder="Direcion">
+            <input type="text" formControlName="direcion" placeholder="Direcion">
             <div>
-              <div *ngIf="form.Direcion.errors">
-                  <p class="validaciones" *ngIf="form.Direcion.errors.required">Mmmmm... parece que este campo es obligatorio*</p>
-                  <br>
+              <div *ngIf="form.direcion.errors">
+                <p class="validaciones" *ngIf="form.direcion.errors.required">Mmmmm... parece que este campo es
+                  obligatorio*</p>
+                <br>
               </div>
-          </div>
+            </div>
             <!--Pais-->
             <label for="">Pais:</label>
             <select name="Pais">
               <option value="0" selected>Pais</option>
-              <option value="1">España</option>
+              <option value="1">Spain</option>
             </select>
             <!--Codigo postal-->
             <label for="">Codigo postal:</label>
-            <input type="number" formControlName="codigoPostal"  minlength="5" maxlength="5" placeholder="Codigo postal">
+            <input type="number" formControlName="codigoPostal" minlength="5" maxlength="5" placeholder="Codigo postal">
             <div>
               <div *ngIf="form.codigoPostal.errors">
-                  <p class="validaciones" *ngIf="form.codigoPostal.errors.required">Mmmmm... parece que este campo es obligatorio*</p>
-                  <br>
+                <p class="validaciones" *ngIf="form.codigoPostal.errors.required">Mmmmm... parece que este campo es
+                  obligatorio*</p>
+                <p class="validaciones" *ngIf="form.codigoPostal.errors.minlength">faltan numeros</p>
+                <p class="validaciones" *ngIf="form.codigoPostal.errors.maxlength">superas el maximo de numeros
+                  permitidas</p>
+                <br>
               </div>
-          </div>
+            </div>
             <!--Localidad-->
             <label for="">Localidad:</label>
-            <input type="text" formControlName="localidad"  placeholder="Localidad">
+            <input type="text" formControlName="localidad" placeholder="Localidad">
             <div>
               <div *ngIf="form.localidad.errors">
-                  <p class="validaciones" *ngIf="form.localidad.errors.required">Mmmmm... parece que este campo es obligatorio*</p>
-                  <br>
+                <p class="validaciones" *ngIf="form.localidad.errors.required">Mmmmm... parece que este campo es
+                  obligatorio*</p>
+                <br>
               </div>
-          </div>
-            <input type="submit" (ngSubmit)="onSubmit()" value="Añadir direcion">
+            </div>
+            <input type="submit" value="Añadir direcion">
           </form>
         </div>
       </div>
     </div>
 
 
-<!--
+    <!--
   editar perfil
 -->
     <div class="alinar-contenido">
       <div class="editar-perfil" *ngIf="this.mostrarDesplegableEditarPerfilVisual">
-      <form [formGroup]="EditarPefil" >
-        <label>Nombre:</label>
+        <form [formGroup]="EditarPefil" (ngSubmit)="onSubmit()">
+          <label>Nombre:</label>
           <input type="text" formControlName="nombre" placeholder="Nombre" minlength="3" maxlength="30">
           <div>
             <div *ngIf="form.nombre.errors">
-                <p class="validaciones" *ngIf="form.nombre.errors.required">Mmmmm... parece que este campo es obligatorio*</p>
-                <p class="validaciones" *ngIf="form.nombre.errors.minlength">faltan letras</p>
-                <p class="validaciones" *ngIf="form.nombre.errors.maxlength">superas el maximo de letras permitidas</p>
-                <br>
-            </div>
-        </div>
-        <label>Apellidos:</label>
-          <input type="text"  formControlName="apellidos" placeholder="Apellidos" minlength="3" maxlength="30">
-          <div>
-            <div *ngIf="form.apellidos.errors">
-                <p class="validaciones" *ngIf="form.apellidos.errors.required">Mmmmm... parece que este campo es obligatorio*</p>
-                <p class="validaciones" *ngIf="form.apellidos.errors.minlength">faltan letras</p>
-                <p class="validaciones" *ngIf="form.apellidos.errors.maxlength">superas el maximo de letras permitidas</p>
-                
-                <br>
+              <p class="validaciones" *ngIf="form.nombre.errors.required">Mmmmm... parece que este campo es obligatorio*
+              </p>
+              <p class="validaciones" *ngIf="form.nombre.errors.minlength">faltan letras</p>
+              <p class="validaciones" *ngIf="form.nombre.errors.maxlength">superas el maximo de letras permitidas</p>
+              <br>
             </div>
           </div>
-        <label>Email:</label>
+          <label>Apellidos:</label>
+          <input type="text" formControlName="apellidos" placeholder="Apellidos" minlength="3" maxlength="30">
+          <div>
+            <div *ngIf="form.apellidos.errors">
+              <p class="validaciones" *ngIf="form.apellidos.errors.required">Mmmmm... parece que este campo es
+                obligatorio*</p>
+              <p class="validaciones" *ngIf="form.apellidos.errors.minlength">faltan letras</p>
+              <p class="validaciones" *ngIf="form.apellidos.errors.maxlength">superas el maximo de letras permitidas</p>
+
+              <br>
+            </div>
+          </div>
+          <label>Email:</label>
           <input type="email" formControlName="email" name="email" placeholder="Email">
           <div>
             <div *ngIf="form.email.errors">
-                <p class="validaciones" *ngIf="form.email.errors.required">Mmmmm... parece que este campo es obligatorio*</p>
-                <p class="validaciones" *ngIf="form.email.errors.email">faltan parámetros obligatorios</p>
-                <br>
+              <p class="validaciones" *ngIf="form.email.errors.required">Mmmmm... parece que este campo es obligatorio*
+              </p>
+              <p class="validaciones" *ngIf="form.email.errors.email">faltan parámetros obligatorios</p>
+              <br>
             </div>
           </div>
-        <label>DNI:</label>
-        <input type="text" formControlName="DNI" name="DNI" minlength="9" maxlength="9" placeholder="DNI">
-        <div>
-          <div *ngIf="form.DNI.errors">
-              <p class="validaciones" *ngIf="form.DNI.errors.required">Mmmmm... parece que este campo es obligatorio*</p>
+          <label>DNI:</label>
+          <input type="text" formControlName="DNI" name="DNI" minlength="9" maxlength="9" placeholder="DNI">
+          <div>
+            <div *ngIf="form.DNI.errors">
+              <p class="validaciones" *ngIf="form.DNI.errors.required">Mmmmm... parece que este campo es obligatorio*
+              </p>
               <p class="validaciones" *ngIf="form.DNI.errors.minlength">faltan letras</p>
               <p class="validaciones" *ngIf="form.DNI.errors.maxlength">superas el maximo de letras permitidas</p>
               <br>
+            </div>
           </div>
-        </div>
-        <label>Contraseña</label>
-        <input type="password" formControlName="password" id="" minlength="3" maxlength="50" placeholder="Contraseña">
-        <div>
-          <div *ngIf="form.password.errors">
-              <p class="validaciones" *ngIf="form.password.errors.required">Mmmmm... parece que este campo es obligatorio*</p>
+          <label>Contraseña</label>
+          <input type="password" formControlName="password" id="" minlength="3" maxlength="50" placeholder="Contraseña">
+          <div>
+            <div *ngIf="form.password.errors">
+              <p class="validaciones" *ngIf="form.password.errors.required">Mmmmm... parece que este campo es
+                obligatorio*</p>
               <p class="validaciones" *ngIf="form.password.errors.minlength">faltan letras</p>
               <p class="validaciones" *ngIf="form.password.errors.maxlength">superas el maximo de letras permitidas</p>
               <br>
+            </div>
           </div>
-        </div>
 
-        <input type="submit" (ngSubmit)="onSubmit()" value="Enviar">
-      </form>
+          <input type="submit" value="Enviar">
+        </form>
       </div>
     </div>
 

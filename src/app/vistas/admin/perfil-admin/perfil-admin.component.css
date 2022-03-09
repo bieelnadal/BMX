@@ -340,3 +340,13 @@
             color: #af1402;
             text-align: center;
         }
+
+        .info-perfil{
+            font-size: 18px;
+            margin-left: 35px;
+        }
+
+
+        body {
+            font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+          }
