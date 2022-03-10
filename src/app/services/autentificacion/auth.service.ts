@@ -11,53 +11,69 @@ const URL_REGISTER = 'http://localhost:8080/identificacion/register.php';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient, private router: Router, private servicioToken: TokenSesionService) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private servicioToken: TokenSesionService
+  ) {}
 
   login(usuario: Usuario) {
     return this.http
       .post(URL_LOGIN, JSON.stringify(usuario))
       .subscribe((val: any) => {
-        if (val.resultado == 'error') {
-          console.log(val.resultado);
+        if (val.resultado == "error") {
+          console.log(val.mensaje);
         } else {
           //guardar sesion funcion
+          this.guardarSesion(val);
         }
       });
   }
 
-  cerrarSesion(){
+  cerrarSesion() {
     this.servicioToken.cerrarSesion();
   }
 
-  rolUsuario(){
+  isAuthenticated(): boolean {
+    if (this.servicioToken.getToken() != '') {
+      return true;
+    }
+    return false;
+  }
+
+  rolUsuario() {
     const usuario = this.servicioToken.getUsuario();
     return usuario.id_admin;
   }
 
-  register(usuario: Usuario){
-    this.http.post(URL_REGISTER, JSON.stringify(usuario)).subscribe((val:any) => {
-      if (val.resultado == 'error') {
-        //tal tal
-      }else{
-        //funciona bien
-        //guardar sesion
-      }
-    })
+  register(usuario: Usuario) {
+    this.http
+      .post(URL_REGISTER, JSON.stringify(usuario))
+      .subscribe((val: any) => {
+        if (val.resultado == 'error') {
+          //tal tal
+        } else {
+          //funciona bien
+          //guardar sesion
+          this.guardarSesion(val);
+        }
+      });
   }
 
-  guardarSesion(data:any){
+  guardarSesion(data: any) {
     //Sesion para usuario normal
+    console.log(data.data.id_admin);
+    
     if (data.data.id_admin == 0) {
       this.servicioToken.guardarToken(data.accessToken);
       this.servicioToken.guardarUsuario(data.data);
-      this.router.navigate(['home']);
+      this.router.navigate(['perfil-usuario']);
     }
     //Sesion para usuario administrador
-    else{
+    else {
       this.servicioToken.guardarToken(data.accessToken);
       this.servicioToken.guardarUsuario(data.data);
-      this.router.navigate(['home/admin'])
+      this.router.navigate(['perfil-admin']);
     }
-
   }
 }

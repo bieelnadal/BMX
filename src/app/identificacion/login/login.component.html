@@ -38,7 +38,7 @@
             <form action="" [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
                 <h2>Iniciar Sesión</h2>
                 <p>
-                    <input id="Email" name="Email" formControlName="email" type="text" maxlength="100" minlength="3" required
+                    <input id="Email" name="Email" formControlName="email" type="text" maxlength="50" minlength="3" required
                         placeholder="E-mail*" [ngClass]="{ 'is-invalid': form.email.errors }" />
                 </p>
                 <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
@@ -46,7 +46,7 @@
                     <div *ngIf="form.email.errors.email" class="validator-error">El correo electrónico no es correcto</div>
                 </div>
                 <p>
-                    <input id="Password" name="Password" formControlName="passcode" type="password" maxlength="100" minlength="3" required
+                    <input id="Password" name="Password" formControlName="passcode" [type]="passType" maxlength="50" minlength="3" required
                         placeholder="Contraseña*" [ngClass]="{ 'is-invalid': form.passcode.errors }"/>
                         <i *ngIf="this.passShown" (click)="togglePass()" class="material-icons">
                             visibility

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 const TOKEN_KEY = 'auth-token';
-const USER_KEY = ' auth-user';
-const REFRESCAR_TOKEN = 'http://localhost:8080/tokenJWT/refrescarToken.php';
+const USER_KEY = 'auth-user';
+const REFRESCAR_TOKEN = 'http://localhost:8080/JWT/refrescarToken.php';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +26,7 @@ export class TokenSesionService {
     return sessionStorage.getItem(TOKEN_KEY) || '';
   }
 
-  guardarUsuario(usuario: any) {
+  guardarUsuario(usuario: any):void {
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(usuario));
   }

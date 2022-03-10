@@ -3,7 +3,7 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Authorization, Origin, X-Requested-With, Content-Type, Accept");
 header('Content-Type: application/json');
 
-include_once('../JWT/generarToken.php');
+include_once('./generarToken.php');
 
 class Result
 {

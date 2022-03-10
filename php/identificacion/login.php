@@ -7,33 +7,35 @@ header('Content-Type: application/json');
 $json = file_get_contents('php://input');
 $user = json_decode($json);
 
-// includes
-include_once("../conexion/db.php");
-//include_once("../tokenJWT/generarToken.php");
 
-// clases
-$bd = new claseBD();
-$con = $bd->obtenerConexion();
+include_once("../conexion/db.php");
+include_once("../JWT/generarToken.php");
+
+
+$db = new claseBD();
+$con = $db->obtenerConexion();
 class Result
 {
 }
 $response = new Result();
 
-$hash = $user->pass;
+$hash = $user->passcode;
+// echo json_encode("Hash passcode ".$hash);
 $hash = sha1($hash);
-// query
+// echo json_encode("Passcode ".$user->passcode);
+// echo json_encode("hash ".$hash);
+
 $queryLogin = "SELECT * FROM usuarios WHERE Email='$user->email' and Passcode='$hash'";
 
 $resulta = mysqli_query($con, $queryLogin);
 
-// si la query ha sido correcta entramos
 if ($resulta) {
-  $dataAlumno = mysqli_fetch_array($resulta);
+  $data = mysqli_fetch_array($resulta);
   $response->select = 'Select a base de datos correcto';
 
   $response->resultado = 'ok';
   $response->mensaje = 'Se encontró al usuario';
-  $response->data = $dataAlumno;
+  $response->data = $data;
   $response->accessToken = json_encode($jwt);
   echo json_encode($response);
 } else {

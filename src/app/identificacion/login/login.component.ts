@@ -29,16 +29,23 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
+  onReset(){
+    this.loginForm.reset();
+  }
+
   onLogin(form: any) {
     const user: Usuario = {
       email: form.email,
       passcode: form.passcode,
-    };
-    console.log(this.submitted);
-    console.log(this.form.passcode.errors);
+      id_usuario: 0,
+      nombre: '',
+      apellidos: '',
+      imagen: '',
+      dni: '',
+      id_admin: 0,
+      id_direccion: 0
+    }
     this.submitted = true;
-    console.log(this.submitted);
-    console.log(this.form.passcode.errors);
     
     if (this.loginForm.valid) {
       this.auth.login(user);
