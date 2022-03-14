@@ -13,6 +13,8 @@ import {PerfilAdminComponent } from './vistas/admin/perfil-admin/perfil-admin.co
 import { PerfilUsuarioComponent } from './vistas/usuario/perfil-usuario/perfil-usuario.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './vistas/home/home.component';
+import { Header2Component } from './plantillas/header2/header2.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     AdminHeaderComponent,
     PerfilAdminComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    HomeComponent,
+    Header2Component
   ],
   imports: [
     BrowserModule,

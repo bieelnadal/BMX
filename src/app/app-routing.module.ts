@@ -7,6 +7,8 @@ import { FooterComponent } from './plantillas/footer/footer.component';
 import { AdminHeaderComponent } from './plantillas/admin-header/admin-header.component';
 import { PerfilUsuarioComponent } from './vistas/usuario/perfil-usuario/perfil-usuario.component';
 import { PerfilAdminComponent } from './vistas/admin/perfil-admin/perfil-admin.component';
+import { HomeComponent } from './vistas/home/home.component';
+import { Header2Component } from './plantillas/header2/header2.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -16,7 +18,9 @@ const routes: Routes = [
   { path: 'footer', component: FooterComponent },
   { path: 'admin-header', component: AdminHeaderComponent},
   { path: 'perfil-usuario', component: PerfilUsuarioComponent},
-  { path: 'perfil-admin', component: PerfilAdminComponent}
+  { path: 'perfil-admin', component: PerfilAdminComponent},
+  { path: 'home', component: HomeComponent},
+  { path: 'header2', component: Header2Component}
 ];
 
 @NgModule({
