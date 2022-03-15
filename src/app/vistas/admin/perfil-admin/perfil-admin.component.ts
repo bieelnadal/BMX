@@ -12,15 +12,15 @@ import { AuthService } from 'src/app/services/autentificacion/auth.service';
 })
 export class PerfilAdminComponent implements OnInit {
   datosUsuario: Usuario = {
-    id_usuario: 0,
-    nombre: '',
-    apellidos: '',
-    email: '',
-    passcode: '',
-    id_direccion: 0,
-    imagen: '',
-    dni: '',
-    id_admin: 1,
+    idUsuario: 0,
+    Nombre: '',
+    Apellidos: '',
+    Email: '',
+    Passcode: '',
+    idDireccion: 0,
+    Imagen: '',
+    DNI: '',
+    idAdmin: 1,
   };
 
   nombre: string = 'afas';
@@ -86,9 +86,7 @@ export class PerfilAdminComponent implements OnInit {
   }
 
   obtenerDatos() {
-    this.datosUsuario = this.tokenServ.getUsuario();
-
-    this.nombre = this.datosUsuario.nombre;
+    this.datosUsuario = this.tokenServ.getUsuario();        
   }
 
   cerrarSesion() {
@@ -136,7 +134,7 @@ export class PerfilAdminComponent implements OnInit {
     }
   }
 
-  swalsalir() {
+  swalSalir() {
     Swal.fire({
       title: 'Estas seguro?',
       text: 'Seguro que quieres cerrar la sesion!',
@@ -148,6 +146,7 @@ export class PerfilAdminComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire('Sesion Cerrada!', 'Hasta la proxima!!.', 'success');
+        this.cerrarSesion();
       }
     });
   }

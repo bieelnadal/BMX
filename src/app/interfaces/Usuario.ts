@@ -1,11 +1,11 @@
 export interface Usuario {
-  id_usuario: number;
-  nombre: string;
-  apellidos: string;
-  email: string;
-  passcode: string;
-  id_direccion: number;
-  imagen: string;
-  dni: string;
-  id_admin: number;
+  idUsuario: number;
+  Nombre: string;
+  Apellidos: string;
+  Email: string;
+  Passcode: string;
+  idDireccion: number;
+  Imagen: string;
+  DNI: string;
+  idAdmin: number;
 }

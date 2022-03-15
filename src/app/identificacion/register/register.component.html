@@ -40,7 +40,7 @@
                 class="Icon-inside" enctype="multipart/form-data">
                 <h2>Registrarse</h2>
                 <p>
-                    <input id="Nombre" formControlName="nombre" type="text" maxlength="20" minlength="3" required
+                    <input id="Nombre" formControlName="nombre" type="text" maxlength="25" minlength="3" required
                         placeholder="Nombre*" />
                 </p>
                 <div *ngIf="submitted && form.nombre.errors" class="invalid-feedback">
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <p>
-                    <input id="Email" type="email" formControlName="email" maxlength="30" minlength="4" required
+                    <input id="Email" type="email" formControlName="email" maxlength="50" minlength="4" required
                         placeholder="E-mail*" />
                 </p>
                 <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
@@ -65,7 +65,7 @@
                     <div *ngIf="form.email.errors.email" class="validator-error">No es un correo electrónico</div>
                 </div>
                 <p>
-                    <input id="passcode" [type]="passType" formControlName="passcode" maxlength="100" minlength="3" required
+                    <input id="passcode" [type]="passType" formControlName="passcode" maxlength="50" minlength="3" required
                         placeholder="Contraseña*" />
                         <i *ngIf="this.passShown" (click)="togglePass()" class="material-icons">
                             visibility
@@ -80,7 +80,7 @@
                         menos 6 carácteres</div>
                 </div>
                 <p>
-                    <input id="confirmPasscode" [type]="confirmPassType" formControlName="confirmPasscode" maxlength="100"
+                    <input id="confirmPasscode" [type]="confirmPassType" formControlName="confirmPasscode" maxlength="50"
                         minlength="3" required placeholder="Confirmar Contraseña*" />
                         <i *ngIf="this.confirmPassShown" (click)="toggleConfirmPass()" class="material-icons">
                             visibility

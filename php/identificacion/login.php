@@ -19,25 +19,34 @@ class Result
 }
 $response = new Result();
 
-$hash = $user->passcode;
-// echo json_encode("Hash passcode ".$hash);
-$hash = sha1($hash);
-// echo json_encode("Passcode ".$user->passcode);
-// echo json_encode("hash ".$hash);
+$hash = $user->Passcode;
 
-$queryLogin = "SELECT * FROM usuarios WHERE Email='$user->email' and Passcode='$hash'";
+$hash = sha1($hash);
+
+$queryLogin = "SELECT * FROM usuarios WHERE Email='$user->Email' and Passcode='$hash'";
 
 $resulta = mysqli_query($con, $queryLogin);
 
 if ($resulta) {
+
   $data = mysqli_fetch_array($resulta);
   $response->select = 'Select a base de datos correcto';
 
-  $response->resultado = 'ok';
-  $response->mensaje = 'Se encontró al usuario';
-  $response->data = $data;
-  $response->accessToken = json_encode($jwt);
-  echo json_encode($response);
+
+  if (!is_null($data)) {
+    $response->resultado = 'ok';
+    $response->mensaje = 'Se encontró al usuario';
+
+    $response->resultado = 'ok';
+    $response->mensaje = 'Se encontró al usuario';
+    $response->data = $data;
+    $response->accessToken = json_encode($jwt);
+    echo json_encode($response);
+  } else {
+    $response->resultado = 'error';
+    $response->mensaje = 'error';
+    echo json_encode($response);
+  }
 } else {
   $response->resultado = 'error';
   $response->mensaje = 'No se pudo realizar el select a base de datos';

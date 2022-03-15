@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from '../../interfaces/Usuario';
 import { AuthService } from 'src/app/services/autentificacion/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -35,21 +36,31 @@ export class LoginComponent implements OnInit {
 
   onLogin(form: any) {
     const user: Usuario = {
-      email: form.email,
-      passcode: form.passcode,
-      id_usuario: 0,
-      nombre: '',
-      apellidos: '',
-      imagen: '',
-      dni: '',
-      id_admin: 0,
-      id_direccion: 0
+      Email: form.email,
+      Passcode: form.passcode,
+      idUsuario: 0,
+      Nombre: '',
+      Apellidos: '',
+      Imagen: '',
+      DNI: '',
+      idAdmin: 0,
+      idDireccion: 0
     }
     this.submitted = true;
     
     if (this.loginForm.valid) {
       this.auth.login(user);
+    }else{
+      this.swalError();
     }
+  }
+
+  swalError(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: '¡Las credenciales son incorrectas!',
+    })
   }
 
   public togglePass() {

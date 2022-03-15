@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Usuario } from '../../interfaces/Usuario';
 import { TokenSesionService } from '../tokenSesion/token-sesion.service';
+import Swal from 'sweetalert2';
 
 const URL_LOGIN = 'http://localhost:8080/identificacion/login.php';
 const URL_REGISTER = 'http://localhost:8080/identificacion/register.php';
@@ -22,7 +23,7 @@ export class AuthService {
       .post(URL_LOGIN, JSON.stringify(usuario))
       .subscribe((val: any) => {
         if (val.resultado == "error") {
-          console.log(val.mensaje);
+          this.swalError();
         } else {
           //guardar sesion funcion
           this.guardarSesion(val);
@@ -52,6 +53,7 @@ export class AuthService {
       .subscribe((val: any) => {
         if (val.resultado == 'error') {
           //tal tal
+          this.swalError();
         } else {
           //funciona bien
           //guardar sesion
@@ -62,9 +64,10 @@ export class AuthService {
 
   guardarSesion(data: any) {
     //Sesion para usuario normal
-    console.log(data.data.id_admin);
-    
+    console.log(data.data.DNI);
     if (data.data.id_admin == 0) {
+      
+      
       this.servicioToken.guardarToken(data.accessToken);
       this.servicioToken.guardarUsuario(data.data);
       this.router.navigate(['perfil-usuario']);
@@ -76,4 +79,13 @@ export class AuthService {
       this.router.navigate(['perfil-admin']);
     }
   }
+
+  swalError(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: '¡Las credenciales son incorrectas!',
+    })
+  }
+
 }

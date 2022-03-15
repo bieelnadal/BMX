@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/interfaces/Usuario';
 import { AuthService } from 'src/app/services/autentificacion/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -119,6 +120,14 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  swalError(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: '¡Existen campos incorrectos o incompletos!',
+    })
+  }
+
   //Funció que executa quan s'apreta el botó registre
   onRegistro(form: any) {
     this.submitted = true;
@@ -131,19 +140,20 @@ export class RegisterComponent implements OnInit {
     //Comprobar si es cumpleixen o no tots els errors
     if (this.registerForm.valid) {
       const nuevoUsuario: Usuario = {
-        id_usuario: 0,
-        nombre: form.nombre,
-        apellidos: form.apellidos,
-        email: form.email,
-        passcode: form.passcode,
-        id_direccion: 0,
-        imagen: this.imgSrc,
-        dni: form.dni,
-        id_admin: 0,
+        idUsuario: 0,
+        Nombre: form.nombre,
+        Apellidos: form.apellidos,
+        Email: form.email,
+        Passcode: form.passcode,
+        idDireccion: 0,
+        Imagen: this.imgSrc,
+        DNI: form.dni,
+        idAdmin: 0,
       };
       this.authService.register(nuevoUsuario);
       this.registerForm.reset();
     } else {
+      this.swalError();
       console.log('No se ha podido registrar el usuario');
     }
   }
