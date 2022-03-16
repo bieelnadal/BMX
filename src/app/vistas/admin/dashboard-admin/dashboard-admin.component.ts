@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -10,15 +11,35 @@ export class DashboardAdminComponent implements OnInit {
   constructor() { }
 
   validarproductosVisual:boolean =false;
+  gestionarusuariosVisual:boolean =false;
 
   ngOnInit() {
   }
 
   mostrarValidarProductos(){
-    if (this.validarproductosVisual=false) {
+    if (this.validarproductosVisual==false) {
         this.validarproductosVisual=true;
+        this.gestionarusuariosVisual=false;
     }else{
       this.validarproductosVisual=false;
     }
+  }
+
+  mostrarGestionProductos(){
+    if(this.gestionarusuariosVisual==false){
+      this.gestionarusuariosVisual=true;
+      this.validarproductosVisual=false;
+    }else{
+      this.gestionarusuariosVisual=false
+    }
+  }
+
+
+  swal(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'En estos momentos no está disponible la opción escogida, por favor inténtalo más tarde!',
+    })
   }
 }
