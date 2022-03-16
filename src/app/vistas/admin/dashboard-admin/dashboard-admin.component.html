@@ -3,33 +3,18 @@
 
   <div class="separador1">
     <div class="sidebar">
-      <div class="menu-sidebar"><button class="contenido-sidebar" (click)="mostrarValidarProductos()">Soporte Admin</button></div>
-      <div class="menu-sidebar"><button class="contenido-sidebar">Autentificación productos</button></div>
-      <div class="menu-sidebar"><button class="contenido-sidebar">Gestion Usuarios</button></div>
+      <div class="menu-sidebar"><button class="contenido-sidebar" (click)="swal()">Soporte Admin</button></div>
+      <div class="menu-sidebar"><button class="contenido-sidebar" (click)="mostrarValidarProductos()">Autentificación productos</button></div>
+      <div class="menu-sidebar"><button class="contenido-sidebar" (click)="mostrarGestionProductos()">Gestion Usuarios</button></div>
     </div>
   </div>
   <div class="separador2">
     <div class="body-text">
-      <div class="validar-productos">
-        <table class="info-table" *ngIf="this.validarproductosVisual">
-          <thead>
-              <tr>
-                  <th></th>
-                  <th>Email Usuario</th>
-                  <th>Tipo de Ayuda</th>
-                  <th>Estado</th>
-                  <th></th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                      <td class="first"></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td class="last"></td>
-              </tr>
-</table>
+      <div *ngIf="this.validarproductosVisual">
+        <app-tabla-verificar-productos></app-tabla-verificar-productos>
+      </div>
+      <div *ngIf="this.gestionarusuariosVisual">
+        <app-gestion-usuarios></app-gestion-usuarios>
       </div>
     </div>
   </div>

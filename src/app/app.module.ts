@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './vistas/home/home.component';
 import { Header2Component } from './plantillas/header2/header2.component';
 import { DashboardAdminComponent } from './vistas/admin/dashboard-admin/dashboard-admin.component';
+import { TablaVerificarProductosComponent } from './vistas/admin/tabla-verificar-productos/tabla-verificar-productos.component';
+import { GestionUsuariosComponent } from './vistas/admin/gestion-usuarios/gestion-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { DashboardAdminComponent } from './vistas/admin/dashboard-admin/dashboar
     PerfilUsuarioComponent,
     HomeComponent,
     Header2Component,
-    DashboardAdminComponent
+    DashboardAdminComponent,
+    TablaVerificarProductosComponent,
+    GestionUsuariosComponent
   ],
   imports: [
     BrowserModule,
