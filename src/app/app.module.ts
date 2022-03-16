@@ -15,6 +15,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './vistas/home/home.component';
 import { Header2Component } from './plantillas/header2/header2.component';
+import { DashboardAdminComponent } from './vistas/admin/dashboard-admin/dashboard-admin.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { Header2Component } from './plantillas/header2/header2.component';
     PerfilAdminComponent,
     PerfilUsuarioComponent,
     HomeComponent,
-    Header2Component
+    Header2Component,
+    DashboardAdminComponent
   ],
   imports: [
     BrowserModule,
