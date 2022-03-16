@@ -1,0 +1,106 @@
+.separador1{
+    width: 30%;
+}
+.separador2{
+    width: 100%;
+    margin-left: 300px;
+}
+
+
+.sidebar {
+    margin-top: 100px;
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 40px;
+    background-color: var(--verdeprincipal);
+    z-index: 99;
+}
+
+.contenido-sidebar{
+    color: var(--dorado);
+    border: none;
+    background-color: transparent;
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    padding: 15px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.contenido-sidebar:hover{
+    transition: 1s;
+    cursor: pointer;
+    background-color: var(--dark-spring-green);
+}
+
+
+/*taula autenificar productos */
+
+
+
+.info-table {
+    border-spacing: 0;
+    border-collapse: separate;
+    width: 83%;
+    color: #314351;
+    font-size: 0.857em;
+    line-height: 1em;
+    margin-bottom: 17px;
+    font-family: "museo-sans", sans-serif;
+  }
+  .info-table a {
+    color: var(--black);
+    text-decoration: none;
+  }
+  .info-table a:hover {
+    color: var(--dorado);
+    text-decoration: none;
+    background-color: inherit;
+  }
+  .info-table th,
+  .info-table td {
+    border: 1px solid #bcbaba;
+    border-top-color: #fff;
+    border-right: none;
+    padding: 8px 20px 8px 23px;
+    text-align: left;
+    vertical-align: middle;
+    background: #eee;
+    margin: 0;
+  }
+  
+  .info-table th {
+    background: var(--verdeprincipal);
+    text-align: left;
+    font-size: 1.083em;
+    line-height: 1.538em;
+    padding: 6px 20px 5px 23px;
+    color: var(--dorado);
+    border-color: none;
+    font-weight: 900;
+  }
+  
+  .info-table th:last-child {
+    border-right: 1px solid #bcbaba;
+    text-align: center;
+  }
+  
+  .info-table td.last,
+  .info-table td:last-child {
+    border-right: 1px solid #c2cad0;
+  }
+  
+  .info-table .even td,
+  .info-table tr:nth-child(even) td {
+    background: #e7e7e7;
+  }
+  
+  h1{
+    text-align: center;
+    color: var(--dorado);
+    margin: 15px;
+  }

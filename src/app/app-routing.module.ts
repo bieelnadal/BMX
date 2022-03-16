@@ -9,6 +9,7 @@ import { PerfilUsuarioComponent } from './vistas/usuario/perfil-usuario/perfil-u
 import { PerfilAdminComponent } from './vistas/admin/perfil-admin/perfil-admin.component';
 import { HomeComponent } from './vistas/home/home.component';
 import { Header2Component } from './plantillas/header2/header2.component';
+import { DashboardAdminComponent } from './vistas/admin/dashboard-admin/dashboard-admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'perfil-usuario', component: PerfilUsuarioComponent},
   { path: 'perfil-admin', component: PerfilAdminComponent},
   { path: 'home', component: HomeComponent},
-  { path: 'header2', component: Header2Component}
+  { path: 'header2', component: Header2Component},
+  { path: 'dashboard-admin', component: DashboardAdminComponent}
 ];
 
 @NgModule({
