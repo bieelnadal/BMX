@@ -17,7 +17,7 @@
   $response = new Result();
   
   // query
-  $query = "SELECT * FROM `usuarios` WHERE Email='$_GET[Email]'";
+  $query = "SELECT * FROM `usuarios` WHERE DNI='$_GET[DNI]'";
   $res = mysqli_query($con, $query);
 
   // validación de la query
@@ -25,11 +25,11 @@
       $datosEmail = mysqli_fetch_assoc($res);
       if ($datosEmail == '' || $datosEmail == null) {
         $response->resultado = 'ok';
-        $response->mensaje = 'Este email no está en uso';
+        $response->mensaje = 'Este dni no está en uso';
         echo json_encode($response);
       } else {
         $response->resultado = 'error';
-        $response->mensaje = 'Este email está en uso';
+        $response->mensaje = 'Este dni está en uso';
         echo json_encode($response);  
       }
   } else {

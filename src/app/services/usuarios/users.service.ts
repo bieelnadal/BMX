@@ -1,23 +1,56 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from 'src/app/interfaces/Usuario';
 import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2';
+import { TokenSesionService } from '../tokenSesion/token-sesion.service';
+import { Router } from '@angular/router';
 
 const URL = 'http://localhost:8080/';
 
 // URLS CREAR, LEER, EDITAR, BORRAR
-
+const URL_REGISTRAR_USUARIO =
+  'http://localhost:8080/identificacion/register.php'; //URL REGISTRAR USUARIO
 // URL SELECCION EMAIL
 const URL_EMAIL_EXISTE = 'http://localhost:8080/usuarios/emailExiste.php';
+const URL_DNI_EXISTE = 'http://localhost:8080/usuarios/dniExiste.php';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  register(usuario: Usuario) {
+    this.http
+      .post(URL_REGISTRAR_USUARIO, JSON.stringify(usuario))
+      .subscribe((val: any) => {
+        if (val.resultado == 'error') {
+          //tal tal
+          this.swalError();
+        } else {
+          //funciona bien
+          //guardar sesion
+          this.swalCreado();
+        }
+      });
+  }
 
+  swalError() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: '¡Las credenciales son incorrectas!',
+    });
+  }
+  swalCreado() {
+    Swal.fire('¡Usuario creado!', '¡Se ha creado el nuevo usuario!', 'success');
+  }
 
-  validarEmailExisteAlumnos(email: string) {
-    return this.http.get(URL_EMAIL_EXISTE + `?email=${email}`);
+  validarEmailExiste(email: string) {
+    return this.http.get(URL_EMAIL_EXISTE + `?Email=${email}`);
+  }
+
+  validarDniExiste(dni: string) {
+    return this.http.get(URL_DNI_EXISTE + `?DNI=${dni}`);
   }
 }

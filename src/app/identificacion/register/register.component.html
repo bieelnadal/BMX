@@ -40,7 +40,7 @@
                 class="Icon-inside" enctype="multipart/form-data">
                 <h2>Registrarse</h2>
                 <p>
-                    <input id="Nombre" formControlName="nombre" type="text" maxlength="25" minlength="3" required
+                    <input id="Nombre" formControlName="nombre" type="text" maxlength="25" [ngClass]="{ 'is-invalid': form.nombre.errors }" minlength="3" required
                         placeholder="Nombre*" />
                 </p>
                 <div *ngIf="submitted && form.nombre.errors" class="invalid-feedback">
@@ -49,7 +49,7 @@
                 </div>
 
                 <p>
-                    <input id="Apellidos" formControlName="apellidos" type="text" maxlength="50" minlength="3" required
+                    <input id="Apellidos" formControlName="apellidos" type="text" maxlength="50" [ngClass]="{ 'is-invalid': form.apellidos.errors }" minlength="3" required
                         placeholder="Apellidos*" />
                 </p>
                 <div *ngIf="submitted && form.apellidos.errors" class="invalid-feedback">
@@ -57,15 +57,19 @@
                     </div>
                 </div>
                 <p>
-                    <input id="Email" type="email" formControlName="email" maxlength="50" minlength="4" required
+                    <input id="Email" type="email" formControlName="email" maxlength="50" [ngClass]="{ 'is-invalid': form.email.errors }" minlength="4" required
                         placeholder="E-mail*" />
                 </p>
                 <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
                     <div *ngIf="form.email.errors.required" class="validator-error">El email es necesario</div>
                     <div *ngIf="form.email.errors.email" class="validator-error">No es un correo electrónico</div>
                 </div>
+                <div *ngIf="form.email.errors" class="invalid-feedback">
+                    <div *ngIf="form.email.errors.notUnique">El correo electrónico ya existe</div>
+                    <div *ngIf="form.email.pending">Consultando disponibilidad del correo electrónico</div>
+                </div>
                 <p>
-                    <input id="passcode" [type]="passType" formControlName="passcode" maxlength="50" minlength="3" required
+                    <input id="passcode" [type]="passType" formControlName="passcode" [ngClass]="{ 'is-invalid': form.passcode.errors }" maxlength="50" minlength="3" required
                         placeholder="Contraseña*" />
                         <i *ngIf="this.passShown" (click)="togglePass()" class="material-icons">
                             visibility
@@ -80,7 +84,7 @@
                         menos 6 carácteres</div>
                 </div>
                 <p>
-                    <input id="confirmPasscode" [type]="confirmPassType" formControlName="confirmPasscode" maxlength="50"
+                    <input id="confirmPasscode" [type]="confirmPassType" [ngClass]="{ 'is-invalid': form.confirmPasscode.errors }" formControlName="confirmPasscode" maxlength="50"
                         minlength="3" required placeholder="Confirmar Contraseña*" />
                         <i *ngIf="this.confirmPassShown" (click)="toggleConfirmPass()" class="material-icons">
                             visibility
@@ -96,11 +100,15 @@
                         coincidir</div>
                 </div>
                 <p>
-                    <input type="text" formControlName="dni" maxlength="9" minlength="9" required placeholder="Dni*" />
+                    <input type="text" formControlName="dni" maxlength="9" minlength="9" [ngClass]="{ 'is-invalid': form.dni.errors }" required placeholder="Dni*" />
                 </p>
                 <div *ngIf="submitted && form.dni.errors" class="invalid-feedback">
                     <div *ngIf="form.dni.errors.required" class="validator-error">El dni es necesario</div>
                     <div *ngIf="form.dni.errors.minlength" class="validator-error">El dni debe tener 9 dígitos</div>
+                </div>
+                <div *ngIf="form.dni.errors" class="invalid-feedback">
+                    <div *ngIf="form.dni.errors.notUnique">El dni ya existe</div>
+                    <div *ngIf="form.dni.pending">Consultando disponibilidad del dni</div>
                 </div>
                 <p>
                     <input id="file-input" type="file" (change)="readURL($event)"

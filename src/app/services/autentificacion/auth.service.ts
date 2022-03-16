@@ -64,8 +64,10 @@ export class AuthService {
 
   guardarSesion(data: any) {
     //Sesion para usuario normal
-    console.log(data.data.DNI);
-    if (data.data.id_admin == 0) {
+    
+    //console.log(data.data.idAdmin);
+    
+    if (data.data.idAdmin == 0) {
       
       
       this.servicioToken.guardarToken(data.accessToken);

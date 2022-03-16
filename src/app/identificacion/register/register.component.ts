@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Usuario } from 'src/app/interfaces/Usuario';
 import { AuthService } from 'src/app/services/autentificacion/auth.service';
 import Swal from 'sweetalert2';
 import { UsersService } from '../../services/usuarios/users.service';
+import { debounceTime, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-register',
@@ -35,12 +41,13 @@ export class RegisterComponent implements OnInit {
   constructor(
     public formBuilder: FormBuilder,
     private authService: AuthService,
-    private usersService : UsersService
+    private usersService: UsersService
   ) {}
 
   ngOnInit() {
     this.crearForm();
     this.checkEmail();
+    this.checkDni();
   }
 
   crearForm() {
@@ -63,7 +70,7 @@ export class RegisterComponent implements OnInit {
         passcode: ['', [Validators.required, Validators.minLength(6)]],
         confirmPasscode: ['', Validators.required],
         dni: ['', [Validators.required, Validators.minLength(9)]],
-        imagen: ['',]
+        imagen: [''],
       },
       {
         //Validador que passa a la funció MustMatch els valors de 'password' i de 'confirmPassword' per a comparar-los i verificar-los
@@ -98,17 +105,60 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get('email') as FormControl;
   }
 
-  checkEmail() {
-    this.email.valueChanges.subscribe((email) => {
-      this.usersService.validarEmailExisteAlumnos(email).subscribe((val: any) => {
-        if (val.resultado == 'error') {
-          this.email.markAsPending({ onlySelf: false });
-          this.email.setErrors({ notUnique: true });
-        }
-      });
-    });
+  get dni() {
+    return this.registerForm.get('dni') as FormControl;
   }
 
+  checkEmail() {
+    this.email.valueChanges
+      .pipe(
+        debounceTime(200),
+        tap((email) => {
+          console.log('comprobando');
+          if (email !== '' && this.email.invalid) {
+            this.email.markAsPending({ emitEvent: true });
+          } else {
+            this.email.setErrors({ invalid: true });
+          }
+        })
+      )
+      .subscribe((email) => {
+        this.usersService.validarEmailExiste(email).subscribe((val: any) => {
+          if (val.resultado == 'error') {
+            this.email.markAsPending({ onlySelf: false });
+            this.email.setErrors({ notUnique: true });
+          } else {
+            this.email.markAsPending({ onlySelf: false });
+            this.email.setErrors(null);
+          }
+        });
+      });
+  }
+
+  checkDni() {
+    this.dni.valueChanges
+      .pipe(
+        debounceTime(200),
+        tap((dni) => {
+          console.log('comprobando');
+          if (dni !== '' && this.dni.invalid) {
+            this.dni.markAsPending({ emitEvent: true });
+          } else {
+            this.dni.setErrors({ invalid: true });
+          }
+        })
+      )
+      .subscribe((dni) => {
+        this.usersService.validarDniExiste(dni).subscribe((val: any) => {
+          if (val.resultado == 'error') {
+            this.dni.markAsPending({ onlySelf: false });
+            this.dni.setErrors({ notUnique: true });
+          } else {
+            this.dni.markAsPending({ onlySelf: false });
+          }
+        });
+      });
+  }
 
   // Permitir visualizar la contraseña o no
   public togglePass() {
@@ -143,23 +193,24 @@ export class RegisterComponent implements OnInit {
   }
 
   // Alerta sweetalert error
-  swalError(){
+  swalError() {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
       text: '¡Existen campos incorrectos o incompletos!',
-    })
+    });
   }
 
   //Funció que executa quan s'apreta el botó registre
   onRegistro(form: any) {
+    console.log(this.email.value);
     this.submitted = true;
     console.log(this.imgSrc);
 
     console.log(this.registerForm.valid);
-    
+
     console.log(form);
-    
+
     //Comprobar si es cumpleixen o no tots els errors
     if (this.registerForm.valid) {
       const nuevoUsuario: Usuario = {

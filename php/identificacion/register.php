@@ -20,19 +20,19 @@ $json = file_get_contents('php://input');
 $usuario = json_decode($json);
 
 // Hash pwd
-$hash = sha1($usuario->passcode);
+$hash = sha1($usuario->Passcode);
 
 // query
 $queryInsert = "INSERT INTO `usuarios`(`idUsuario`, `Nombre`, `Apellidos`, `Email`, `Passcode`, `idDireccion`, `Imagen`, `DNI`, `idAdmin`) VALUES 
-(NULL,'$usuario->nombre','$usuario->apellidos','$usuario->email','$hash',0,'$usuario->imagen','$usuario->dni',0)";
+(NULL,'$usuario->Nombre','$usuario->Apellidos','$usuario->Email','$hash',0,'$usuario->Imagen','$usuario->DNI',0)";
 
 
 
-//$querySelect = "SELECT * FROM `usuario` WHERE nick = '$usuario->nombre' OR email = '$usuario->email'";
-
-
+$querySelect = "SELECT * FROM `usuarios` WHERE Email = '$usuario->Email'";
 
 $resInsert = mysqli_query($con, $queryInsert);
+
+$resSelect = mysqli_query($con, $querySelect);
 
 if ($resSelect) {
   $response->resultado = 'ok';
