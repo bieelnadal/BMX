@@ -58,10 +58,10 @@
           <form [formGroup]="direciones" (ngSubmit)="onSubmit()">
             <!--Direcion-->
             <label for="">Direcion:</label>
-            <input type="text" formControlName="direcion" placeholder="Direcion">
+            <input type="text" formControlName="direccion" placeholder="Direcion">
             <div>
-              <div *ngIf="form.direcion.errors">
-                <p class="validaciones" *ngIf="form.direcion.errors.required">Mmmmm... parece que este campo es
+              <div *ngIf="form.direccion.errors">
+                <p class="validaciones" *ngIf="form.direccion.errors.required">Mmmmm... parece que este campo es
                   obligatorio*</p>
                 <br>
               </div>
@@ -109,40 +109,21 @@
       <div class="editar-perfil" *ngIf="this.mostrarDesplegableEditarPerfilVisual">
         <form [formGroup]="EditarPefil" (ngSubmit)="onSubmit()">
           <label>Nombre:</label>
-          <input type="text" formControlName="nombre" placeholder="{{this.datosUsuario.Nombre}}" minlength="3" maxlength="30">
-          <div>
-            <div *ngIf="form.nombre.errors">
-              <p class="validaciones" *ngIf="form.nombre.errors.required">Mmmmm... parece que este campo es obligatorio*
-              </p>
-              <p class="validaciones" *ngIf="form.nombre.errors.minlength">faltan letras</p>
-              <p class="validaciones" *ngIf="form.nombre.errors.maxlength">superas el maximo de letras permitidas</p>
-              <br>
-            </div>
-          </div>
-          <label>Apellidos:</label>
-          <input type="text" formControlName="apellidos" placeholder="{{this.datosUsuario.Apellidos}}" minlength="3" maxlength="30">
-          <div>
-            <div *ngIf="form.apellidos.errors">
-              <p class="validaciones" *ngIf="form.apellidos.errors.required">Mmmmm... parece que este campo es
-                obligatorio*</p>
-              <p class="validaciones" *ngIf="form.apellidos.errors.minlength">faltan letras</p>
-              <p class="validaciones" *ngIf="form.apellidos.errors.maxlength">superas el maximo de letras permitidas</p>
+          <input type="text" formControlName="nombre" [value]="this.datosUsuario.Nombre" [placeholder]="this.datosUsuario.Nombre" minlength="3" maxlength="30">
 
-              <br>
-            </div>
-          </div>
+          <label>Apellidos:</label>
+          <input type="text" formControlName="apellidos" [placeholder]="this.datosUsuario.Apellidos" [value]="this.datosUsuario.Apellidos" minlength="3" maxlength="30">
+
           <label>Email:</label>
-          <input type="email" formControlName="email" name="email" placeholder="{{this.datosUsuario.Email}}">
+          <input type="email" formControlName="email" name="email" [value]="this.datosUsuario.Email" [placeholder]="this.datosUsuario.Email" [ngClass]="{ 'is-invalid': form.email.errors }">
           <div>
             <div *ngIf="form.email.errors">
-              <p class="validaciones" *ngIf="form.email.errors.required">Mmmmm... parece que este campo es obligatorio*
-              </p>
               <p class="validaciones" *ngIf="form.email.errors.email">faltan parámetros obligatorios</p>
               <br>
             </div>
           </div>
           <label>DNI:</label>
-          <input type="text" formControlName="DNI" name="DNI" minlength="9" maxlength="9" placeholder="{{this.datosUsuario.DNI}}">
+          <input type="text" formControlName="DNI" name="DNI" minlength="9" maxlength="9" [value]="this.datosUsuario.DNI" [placeholder]="this.datosUsuario.DNI">
           <div>
             <div *ngIf="form.DNI.errors">
               <p class="validaciones" *ngIf="form.DNI.errors.required">Mmmmm... parece que este campo es obligatorio*
@@ -153,40 +134,18 @@
             </div>
           </div>
 
-          <label>Contraseña</label>
-          <input type="password" formControlName="password" id="" minlength="3" maxlength="50" placeholder="******">
-          <div>
-            <div *ngIf="form.password.errors">
-              <p class="validaciones" *ngIf="form.password.errors.required">Mmmmm... parece que este campo es
-                obligatorio*</p>
-              <p class="validaciones" *ngIf="form.password.errors.minlength">faltan letras</p>
-              <p class="validaciones" *ngIf="form.password.errors.maxlength">superas el maximo de letras permitidas</p>
-              <br>
-            </div>
-          </div>
-
-
+          <label>Antigua Contraseña</label>
+          <input type="password" formControlName="oldPasscode" id="" minlength="3" maxlength="50" placeholder="******">
 
           <label>Nueva Contraseña</label>
-          <input type="password" formControlName="password" id="" minlength="3" maxlength="50" placeholder="******">
-          <div>
-            <div *ngIf="form.password.errors">
-              <p class="validaciones" *ngIf="form.password.errors.required">Mmmmm... parece que este campo es
-                obligatorio*</p>
-              <p class="validaciones" *ngIf="form.password.errors.minlength">faltan letras</p>
-              <p class="validaciones" *ngIf="form.password.errors.maxlength">superas el maximo de letras permitidas</p>
-              <br>
-            </div>
-          </div>
+          <input type="password" formControlName="newPasscode" id="" minlength="3" maxlength="50" placeholder="******">
 
           <label>Confirmar Nueva Contraseña</label>
-          <input type="password" formControlName="password" id="" minlength="3" maxlength="50" placeholder="******">
+          <input type="password" formControlName="confirmNewPasscode" minlength="3" maxlength="50" placeholder="******">
           <div>
-            <div *ngIf="form.password.errors">
-              <p class="validaciones" *ngIf="form.password.errors.required">Mmmmm... parece que este campo es
-                obligatorio*</p>
-              <p class="validaciones" *ngIf="form.password.errors.minlength">faltan letras</p>
-              <p class="validaciones" *ngIf="form.password.errors.maxlength">superas el maximo de letras permitidas</p>
+            <div *ngIf="form.confirmNewPasscode.errors">
+              <p class="validaciones" *ngIf="form.confirmNewPasscode.errors.mustMatch">Las contraseñas deben de
+                coincidir</p>
               <br>
             </div>
           </div>

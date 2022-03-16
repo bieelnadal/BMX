@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/interfaces/Usuario';
 import { AuthService } from 'src/app/services/autentificacion/auth.service';
 import Swal from 'sweetalert2';
+import { UsersService } from '../../services/usuarios/users.service';
 
 @Component({
   selector: 'app-register',
@@ -33,11 +34,13 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     public formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private usersService : UsersService
   ) {}
 
   ngOnInit() {
     this.crearForm();
+    this.checkEmail();
   }
 
   crearForm() {
@@ -91,6 +94,23 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.controls;
   }
 
+  get email() {
+    return this.registerForm.get('email') as FormControl;
+  }
+
+  checkEmail() {
+    this.email.valueChanges.subscribe((email) => {
+      this.usersService.validarEmailExisteAlumnos(email).subscribe((val: any) => {
+        if (val.resultado == 'error') {
+          this.email.markAsPending({ onlySelf: false });
+          this.email.setErrors({ notUnique: true });
+        }
+      });
+    });
+  }
+
+
+  // Permitir visualizar la contraseña o no
   public togglePass() {
     if (this.passShown) {
       this.passShown = false;
@@ -101,6 +121,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  // Permitir visualizar confirmar contraseña contraseña o no
   public toggleConfirmPass() {
     if (this.confirmPassShown) {
       this.confirmPassShown = false;
@@ -111,6 +132,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  // Imagen
   readURL(event: any) {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
@@ -120,6 +142,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  // Alerta sweetalert error
   swalError(){
     Swal.fire({
       icon: 'error',

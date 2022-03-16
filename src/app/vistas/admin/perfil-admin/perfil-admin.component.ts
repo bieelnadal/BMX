@@ -42,37 +42,6 @@ export class PerfilAdminComponent implements OnInit {
   esconderPerfil: boolean = true;
 
   ngOnInit(): void {
-    this.EditarPefil = this.fb.group({
-      nombre: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(30),
-        ],
-      ],
-      apellidos: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(30),
-        ],
-      ],
-      email: ['', [Validators.required, Validators.email]],
-      DNI: [
-        '',
-        [Validators.required, Validators.minLength(9), Validators.maxLength(9)],
-      ],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(6),
-          Validators.maxLength(50),
-        ],
-      ],
-    });
     this.direciones = this.fc.group({
       direcion: ['', [Validators.required]],
       codigoPostal: [
@@ -81,12 +50,43 @@ export class PerfilAdminComponent implements OnInit {
       ],
       localidad: ['', [Validators.required]],
     });
-
+    this.crearFormPerfil();
     this.obtenerDatos();
   }
 
+  crearFormPerfil() {
+    this.EditarPefil = this.fb.group({
+      nombre: [this.datosUsuario.Nombre],
+      apellidos: [this.datosUsuario.Apellidos],
+      email: [this.datosUsuario.Email],
+      DNI: [this.datosUsuario.DNI],
+      oldPasscode: [''],
+      newPasscode: ['',[Validators.minLength(6),Validators.maxLength(50)]],
+      confirmNewPasscode: ['']
+    }, {
+      validator: this.mustMatch("newPasscode", "confirmNewPasscode")
+    });
+  }
+
+  mustMatch(controlName: string, matchingControlName: string) {
+    return (formGroup: FormGroup) => {
+      const control = formGroup.controls[controlName];
+      const matchingControl = formGroup.controls[matchingControlName];
+
+      if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+        return;
+      }
+
+      if (control.value !== matchingControl.value) {
+        matchingControl.setErrors({ mustMatch: true });
+      } else {
+        matchingControl.setErrors(null);
+      }
+    };
+  }
+
   obtenerDatos() {
-    this.datosUsuario = this.tokenServ.getUsuario();        
+    this.datosUsuario = this.tokenServ.getUsuario();
   }
 
   cerrarSesion() {
