@@ -1,0 +1,69 @@
+<div class="alinar-contenido">
+  <div class="editar-perfil">
+    <form [formGroup]="EditarPefil" (ngSubmit)="onSubmit(EditarPefil)">
+
+      <!-- Nombre -->
+      <label>Nombre:</label>
+      <input type="text" formControlName="nombre" [value]="this.datosUsuario.Nombre"
+        [placeholder]="this.datosUsuario.Nombre" minlength="3" maxlength="30">
+
+
+      <!-- Apellidos -->
+      <label>Apellidos:</label>
+      <input type="text" formControlName="apellidos" [placeholder]="this.datosUsuario.Apellidos"
+        [value]="this.datosUsuario.Apellidos" minlength="3" maxlength="30">
+
+
+      <!-- Email -->
+      <label>Email:</label>
+      <input type="email" formControlName="email" name="email" [value]="this.datosUsuario.Email"
+        [placeholder]="this.datosUsuario.Email" [ngClass]="{ 'is-invalid': form.email.errors }">
+      <div>
+        <div *ngIf="form.email.errors">
+          <p class="validaciones" *ngIf="form.email.errors.email">faltan parámetros obligatorios</p>
+          <br>
+        </div>
+      </div>
+
+      
+      <!-- DNI -->
+      <label>DNI:</label>
+      <input type="text" formControlName="DNI" name="DNI" minlength="9" maxlength="9" [value]="this.datosUsuario.DNI"
+        [placeholder]="this.datosUsuario.DNI">
+      <div>
+        <div *ngIf="form.DNI.errors">
+          <p class="validaciones" *ngIf="form.DNI.errors.required">Mmmmm... parece que este campo es obligatorio*.
+          </p>
+          <p class="validaciones" *ngIf="form.DNI.errors.minlength">Faltan letras.</p>
+          <p class="validaciones" *ngIf="form.DNI.errors.maxlength">Superas el máximo de letras permitidas.</p>
+          <br>
+        </div>
+      </div>
+
+      <!-- Antiga pass -->
+      <label>Antigua Contraseña</label>
+      <input type="password" formControlName="oldPasscode" id="" minlength="3" maxlength="50" placeholder="******">
+
+      <!-- Nova pass -->
+      <label>Nueva Contraseña</label>
+      <input type="password" formControlName="newPasscode" id="" minlength="3" maxlength="50" placeholder="******">
+      <div *ngIf="form.newPasscode.errors">
+        <p class="validaciones" *ngIf="form.newPasscode.errors.minLength">La contraseña tiene que tener como mínimo 6
+          carácteres.</p>
+        <br>
+      </div>
+
+      <!-- Nova pass confirmar -->
+      <label>Confirmar Nueva Contraseña</label>
+      <input type="password" formControlName="confirmNewPasscode" minlength="3" maxlength="50" placeholder="******">
+      <div *ngIf="form.confirmNewPasscode.errors">
+        <p class="validaciones" *ngIf="form.confirmNewPasscode.errors.mustMatch">Las contraseñas deben de
+          coincidir</p>
+        <p class="validaciones" *ngIf="form.confirmNewPasscode.errors.minLength">La contraseña tiene que tener como
+          mínimo 6 carácteres.</p>
+        <br>
+      </div>
+      <button>Confirmar</button>
+    </form>
+  </div>
+</div>

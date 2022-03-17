@@ -1,0 +1,71 @@
+<div class="direciones">
+    <!--button para agregar deirecon a  la tabla-->
+    <button class="agregarDirecion" (click)="mostrarDesplegableAgregarDirecion()">Nueva Direcion</button>
+
+    <!--Card direciones ya creadas-->
+
+    <div class="card-direcion" *ngIf="this.esconderDirecion">
+        <a href="">
+            <div class="contenido-card">
+                <h4 class="texto-card">direcion</h4>
+                <hr>
+                <div class="agregar-card">
+                    <!--borrar dicecion-->
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                        style="float: right;" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                    </svg>
+
+                </div>
+                <p>Direcion text text</p>
+            </div>
+        </a>
+    </div>
+    <div class="formulario-direcion" *ngIf="this.mostrarAgregarDirecion">
+        <h5>Añadir Direciones</h5>
+        <form [formGroup]="direciones" (ngSubmit)="onSubmit()">
+            <!--Direcion-->
+            <label for="">Direcion:</label>
+            <input type="text" formControlName="direccion" placeholder="Direcion">
+            <div>
+                <div *ngIf="form.direccion.errors">
+                    <p class="validaciones" *ngIf="form.direccion.errors.required">Mmmmm... parece que este campo es
+                        obligatorio*</p>
+                    <br>
+                </div>
+            </div>
+            <!--Pais-->
+            <label for="">Pais:</label>
+            <select name="Pais">
+                <option value="0" selected>Pais</option>
+                <option value="1">Spain</option>
+            </select>
+            <!--Codigo postal-->
+            <label for="">Codigo postal:</label>
+            <input type="number" formControlName="codigoPostal" minlength="5" maxlength="5" placeholder="Codigo postal">
+            <div>
+                <div *ngIf="form.codigoPostal.errors">
+                    <p class="validaciones" *ngIf="form.codigoPostal.errors.required">Mmmmm... parece que este campo es
+                        obligatorio*</p>
+                    <p class="validaciones" *ngIf="form.codigoPostal.errors.minlength">faltan numeros</p>
+                    <p class="validaciones" *ngIf="form.codigoPostal.errors.maxlength">superas el maximo de numeros
+                        permitidas</p>
+                    <br>
+                </div>
+            </div>
+            <!--Localidad-->
+            <label for="">Localidad:</label>
+            <input type="text" formControlName="localidad" placeholder="Localidad">
+            <div>
+                <div *ngIf="form.localidad.errors">
+                    <p class="validaciones" *ngIf="form.localidad.errors.required">Mmmmm... parece que este campo es
+                        obligatorio*</p>
+                    <br>
+                </div>
+            </div>
+            <input type="submit" value="Añadir direcion">
+        </form>
+    </div>
+</div>

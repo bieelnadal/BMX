@@ -23,9 +23,6 @@ export class PerfilAdminComponent implements OnInit {
     idAdmin: 1,
   };
 
-  nombre: string = 'afas';
-
-  EditarPefil!: FormGroup;
   direciones!: FormGroup;
 
   constructor(
@@ -50,39 +47,7 @@ export class PerfilAdminComponent implements OnInit {
       ],
       localidad: ['', [Validators.required]],
     });
-    this.crearFormPerfil();
     this.obtenerDatos();
-  }
-
-  crearFormPerfil() {
-    this.EditarPefil = this.fb.group({
-      nombre: [this.datosUsuario.Nombre],
-      apellidos: [this.datosUsuario.Apellidos],
-      email: [this.datosUsuario.Email],
-      DNI: [this.datosUsuario.DNI],
-      oldPasscode: [''],
-      newPasscode: ['',[Validators.minLength(6),Validators.maxLength(50)]],
-      confirmNewPasscode: ['']
-    }, {
-      validator: this.mustMatch("newPasscode", "confirmNewPasscode")
-    });
-  }
-
-  mustMatch(controlName: string, matchingControlName: string) {
-    return (formGroup: FormGroup) => {
-      const control = formGroup.controls[controlName];
-      const matchingControl = formGroup.controls[matchingControlName];
-
-      if (matchingControl.errors && !matchingControl.errors.mustMatch) {
-        return;
-      }
-
-      if (control.value !== matchingControl.value) {
-        matchingControl.setErrors({ mustMatch: true });
-      } else {
-        matchingControl.setErrors(null);
-      }
-    };
   }
 
   obtenerDatos() {
@@ -94,7 +59,6 @@ export class PerfilAdminComponent implements OnInit {
   }
 
   get form() {
-    return this.EditarPefil.controls;
     return this.direciones.controls;
   }
 
