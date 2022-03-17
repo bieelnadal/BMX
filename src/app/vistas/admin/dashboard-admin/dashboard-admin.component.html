@@ -3,13 +3,44 @@
 
   <div class="separador1">
     <div class="sidebar">
+      <div class="menu-sidebar"><button class="contenido-sidebar">home</button></div>
       <div class="menu-sidebar"><button class="contenido-sidebar" (click)="swal()">Soporte Admin</button></div>
-      <div class="menu-sidebar"><button class="contenido-sidebar" (click)="mostrarValidarProductos()">Autentificación productos</button></div>
-      <div class="menu-sidebar"><button class="contenido-sidebar" (click)="mostrarGestionProductos()">Gestion Usuarios</button></div>
+      <div class="menu-sidebar"><button class="contenido-sidebar" (click)="mostrarValidarProductos()">Autentificación
+          productos</button></div>
+      <div class="menu-sidebar"><button class="contenido-sidebar" (click)="mostrarGestionProductos()">Gestion
+          Usuarios</button></div>
     </div>
   </div>
   <div class="separador2">
     <div class="body-text">
+
+      <div class="contenido-dashboard">
+        <div class="separador-divs">
+          <div class="retangulo">
+            <h2> Clientes Registrados</h2>
+            <div class="centrar-grafico">
+              <div class="piechart">
+                <div class="contenido-grafico-texto">
+                  <h3>52%</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="retangulo">
+            <h2>Producctos en venta</h2>
+
+
+          </div>
+          <div class="retangulo">
+            <h2>Productos en subasta</h2>
+
+
+          </div>
+        </div>
+      </div>
+
+
+
       <div *ngIf="this.validarproductosVisual">
         <app-tabla-verificar-productos></app-tabla-verificar-productos>
       </div>
