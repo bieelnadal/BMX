@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/interfaces/Usuario';
 import Swal from 'sweetalert2';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.service';
 import { AuthService } from 'src/app/services/autentificacion/auth.service';
+import { UsersService } from '../../services/usuarios/users.service';
+
 
 @Component({
   selector: 'app-editar-datos-usuario',
@@ -31,12 +33,14 @@ export class EditarDatosUsuarioComponent implements OnInit {
     public fb: FormBuilder,
     public fc: FormBuilder,
     private tokenServ: TokenSesionService,
-    private authServ: AuthService
+    private authServ: AuthService,
+    private usersServ: UsersService,
   ) {}
 
   ngOnInit(): void {
     this.crearFormPerfil();
     this.obtenerDatos();
+    this.checkPass();
   }
 
   crearFormPerfil() {
@@ -80,29 +84,47 @@ export class EditarDatosUsuarioComponent implements OnInit {
     return this.EditarPefil.controls;
   }
 
-  obtenerDatos() {
-    this.datosUsuario = this.tokenServ.getUsuario();
+  get passForm() {
+    return this.EditarPefil.get('oldPasscode') as FormControl;
   }
 
+  obtenerDatos() {
+    this.datosUsuario = this.tokenServ.getUsuario();
+   
+  }
+
+
   onSubmit(form: any) {
-  let usuarioMod : Usuario;
-  if (form.valid) {
-    if (form.controls.newPasscode.value != '') {
-      usuarioMod = {
-        idUsuario: this.datosUsuario.idUsuario,
-        Nombre: form.controls.nombre.value,
-        Apellidos: form.controls.apellidos.value,
-        Email: form.controls.email.value,
-        Passcode: form.controls.newPasscode.value,
-        idDireccion: this.datosUsuario.idDireccion,
-        Imagen: this.datosUsuario.Imagen,
-        DNI: form.controls.DNI.value,
-        idAdmin: 1,
+    let usuarioMod: Usuario;
+    if (form.valid) {
+      if (form.controls.newPasscode.value != '') {
+        usuarioMod = {
+          idUsuario: this.datosUsuario.idUsuario,
+          Nombre: form.controls.nombre.value,
+          Apellidos: form.controls.apellidos.value,
+          Email: form.controls.email.value,
+          Passcode: form.controls.newPasscode.value,
+          idDireccion: this.datosUsuario.idDireccion,
+          Imagen: this.datosUsuario.Imagen,
+          DNI: form.controls.DNI.value,
+          idAdmin: this.datosUsuario.idAdmin,
+        };
       }
     }
   }
 
-  }
-  
 
+  checkPass() {
+    this.form.oldPasscode.valueChanges.subscribe((passForm) => {
+      if (passForm != '') {
+        this.usersServ.validarPasscode(passForm, this.datosUsuario.idUsuario).subscribe((val: any) => {
+          if (val.resultado == 'error') {
+            this.passForm.setErrors({ notUnique: true });
+          }
+        });
+      } else {
+        this.passForm.setErrors(null);
+      }
+    });
+  }
 }

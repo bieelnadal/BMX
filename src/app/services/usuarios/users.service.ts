@@ -13,6 +13,7 @@ const URL_REGISTRAR_USUARIO =
 // URL SELECCION EMAIL
 const URL_EMAIL_EXISTE = 'http://localhost:8080/usuarios/emailExiste.php';
 const URL_DNI_EXISTE = 'http://localhost:8080/usuarios/dniExiste.php';
+const URL_PASS_USER_EXISTE = 'http://localhost:8080/usuarios/passcodeExiste.php';
 
 @Injectable({
   providedIn: 'root',
@@ -52,5 +53,13 @@ export class UsersService {
 
   validarDniExiste(dni: string) {
     return this.http.get(URL_DNI_EXISTE + `?DNI=${dni}`);
+  }
+
+  validarPasscode(pass:string, id:number){
+    var user = {
+      "pass": pass,
+      "id": id
+    }
+    return this.http.post(URL_PASS_USER_EXISTE, JSON.stringify(user));
   }
 }
