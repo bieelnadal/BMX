@@ -21,7 +21,6 @@ li {
   padding: 12px 29px 12px 12px;
   background-color: var(--verdeprincipal);;
   color: #fff;
-  border-bottom: 1px solid #eceef3;
 }
 .nav-links a {
   color: var(--dorado);

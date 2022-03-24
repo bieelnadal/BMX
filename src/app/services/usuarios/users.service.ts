@@ -14,6 +14,7 @@ const URL_REGISTRAR_USUARIO =
 const URL_EMAIL_EXISTE = 'http://localhost:8080/usuarios/emailExiste.php';
 const URL_DNI_EXISTE = 'http://localhost:8080/usuarios/dniExiste.php';
 const URL_PASS_USER_EXISTE = 'http://localhost:8080/usuarios/passcodeExiste.php';
+const URL_CONTAR_USER= 'http://localhost:8080/usuarios/contarUsuarios.php';
 
 @Injectable({
   providedIn: 'root',
@@ -49,6 +50,10 @@ export class UsersService {
 
   validarEmailExiste(email: string) {
     return this.http.get(URL_EMAIL_EXISTE + `?Email=${email}`);
+  }
+
+  contarUsuariosRegistrados(){
+    return this.http.get(URL_CONTAR_USER);
   }
 
   validarDniExiste(dni: string) {

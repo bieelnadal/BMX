@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
+import { UsersService } from 'src/app/services/usuarios/users.service';
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -8,38 +9,47 @@ import Swal from 'sweetalert2';
 })
 export class DashboardAdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private UsersService: UsersService) { }
 
-  validarproductosVisual:boolean =false;
-  gestionarusuariosVisual:boolean =false;
-
+  validarproductosVisual: boolean = false;
+  gestionarusuariosVisual: boolean = false;
+  contarUsuarios: any;
   ngOnInit() {
   }
 
-  mostrarValidarProductos(){
-    if (this.validarproductosVisual==false) {
-        this.validarproductosVisual=true;
-        this.gestionarusuariosVisual=false;
-    }else{
-      this.validarproductosVisual=false;
+  mostrarValidarProductos() {
+    if (this.validarproductosVisual == false) {
+      this.validarproductosVisual = true;
+      this.gestionarusuariosVisual = false;
+    } else {
+      this.validarproductosVisual = false;
     }
   }
 
-  mostrarGestionProductos(){
-    if(this.gestionarusuariosVisual==false){
-      this.gestionarusuariosVisual=true;
-      this.validarproductosVisual=false;
-    }else{
-      this.gestionarusuariosVisual=false
+  mostrarGestionProductos() {
+    if (this.gestionarusuariosVisual == false) {
+      this.gestionarusuariosVisual = true;
+      this.validarproductosVisual = false;
+    } else {
+      this.gestionarusuariosVisual = false
     }
   }
 
 
-  swal(){
+  swal() {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
       text: 'En estos momentos no está disponible la opción escogida, por favor inténtalo más tarde!',
     })
   }
+
+
+  obtenerDatos():any {
+    this.UsersService.contarUsuariosRegistrados().subscribe(val => this.contarUsuarios = val);
+    console.log(this.contarUsuarios);
+
+
+  }
+
 }
