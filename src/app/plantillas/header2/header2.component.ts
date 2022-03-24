@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Header2Component implements OnInit {
 
+  mostrardesplegableVisual:boolean =false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  mostrarMenu(){
+    if(this.mostrardesplegableVisual==false){
+        this.mostrardesplegableVisual=true;
+    }else{
+      this.mostrardesplegableVisual=false;
+    }
+
   }
 
 }
