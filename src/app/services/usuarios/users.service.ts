@@ -57,9 +57,10 @@ export class UsersService {
 
   validarPasscode(pass:string, id:number){
     var user = {
-      "pass": pass,
-      "id": id
-    }
+      "Passcode": pass,
+      "idUsuario": id
+    }    
+    
     return this.http.post(URL_PASS_USER_EXISTE, JSON.stringify(user));
   }
 }

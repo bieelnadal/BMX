@@ -21,10 +21,10 @@ $json = file_get_contents('php://input');
 $user = json_decode($json);
 
 // encriptar pass
-$encryptedPass = sha1($user->pass);
+$encryptedPass = sha1($user->Passcode);
 
 // query
-$query = "SELECT Passcode FROM `usuario` WHERE idUsuario='$user->id'";
+$query = "SELECT Passcode FROM `usuarios` WHERE idUsuario='$user->idUsuario'";
 $res = mysqli_query($con, $query);
 
 // validación de la query
