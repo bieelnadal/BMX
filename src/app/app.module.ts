@@ -14,10 +14,13 @@ import { PerfilUsuarioComponent } from './vistas/usuario/perfil-usuario/perfil-u
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './vistas/home/home.component';
-import { Header2Component } from './plantillas/header2/header2.component';
-import { DashboardAdminComponent } from './vistas/admin/dashboard-admin/dashboard-admin.component';
-import { TablaVerificarProductosComponent } from './vistas/admin/tabla-verificar-productos/tabla-verificar-productos.component';
-import { GestionUsuariosComponent } from './vistas/admin/gestion-usuarios/gestion-usuarios.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
+import { SharkDirective } from './shark.directive';
 import { EditarDatosUsuarioComponent } from './plantillas/editar-datos-usuario/editar-datos-usuario.component';
 import { EditarDireccionComponent } from './plantillas/editar-direccion/editar-direccion.component';
 
@@ -32,21 +35,25 @@ import { EditarDireccionComponent } from './plantillas/editar-direccion/editar-d
     PerfilAdminComponent,
     PerfilUsuarioComponent,
     HomeComponent,
-    Header2Component,
-    DashboardAdminComponent,
-    TablaVerificarProductosComponent,
-    GestionUsuariosComponent,
+    SharkDirective,
     EditarDatosUsuarioComponent,
-    EditarDireccionComponent
+    EditarDireccionComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+
   ],
-  providers: [  
+  providers: [
 
   {
     provide: JWT_OPTIONS,

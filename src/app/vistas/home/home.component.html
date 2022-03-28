@@ -1,1 +1,109 @@
-<p>home works!</p>
+<html>
+<div>
+  <app-header></app-header>
+</div>
+
+<div>
+  <nav class="navbar">
+    <button for="checkbox_toggle" class="hamburger" (click)="opened = true" > &#9776;</button>
+     <!-- USING CHECKBOX HACK -->
+      <input type="checkbox" id="checkbox_toggle" />
+
+      <!-- NAVIGATION MENU -->
+      <ul class="nav-links">
+
+          <!-- NAVIGATION MENUS -->
+          <div class="menu">
+              <li class="services">
+                  <a href="/">Subastas</a>
+                  <ul class="dropdown">
+                      <li><a href="/">Poner Articulo en subasta</a></li>
+                      <li><a href="/">Pujar por articulo</a></li>
+                  </ul>
+              </li>
+              <li><a href="/">Sobre Nosotros</a></li>
+              <li class="services"><a href="/">Contacto</a></li>
+              <li><a href="/">Ayuda</a></li>
+              <li class="services">
+                  <a href="/">Mi Cuenta</a>
+                  <ul class="dropdown">
+                      <li><a href="/">Mi Perfil</a></li>
+                      <li><a href="/">Mis Tiquets</a></li>
+                      <li><a href="/">Pedidos</a></li>
+                      <li><a href="/">Cerrar Sesión</a></li>
+                  </ul>
+              </li>
+          </div>
+      </ul>
+  </nav>
+
+  <div id="side" class="nav-box" style="display: none;">
+    <nav class="caja_nav">
+      <h1>Buscar por Categorias</h1>
+      <ul>
+        <li>Categoria1</li>
+        <li>Categoria2</li>
+        <li>Categoria3</li>
+      </ul>
+
+      <h1>Comprar/Vender</h1>
+      <ul>
+        <li>Comprar</li>
+        <li>Vender</li>
+      </ul>
+
+      <h1>Ayuda</h1>
+      <ul>
+        <li>Reclamaciones</li>
+        <li>Atención al cliente</li>
+        <li>Notificar bugs/errores</li>
+      </ul>
+
+    </nav>
+
+  </div>
+
+  <mat-sidenav-container>
+    <mat-sidenav [(opened)]="opened">
+      <h1>Buscar por categoria</h1>
+      <ul>
+        <li>Motor</li>
+        <li>Videojuegos</li>
+        <li>Colección</li>
+      </ul>
+      <h1>Compra/Venta</h1>
+      <ul>
+        <li>Comprar</li>
+        <li>Vender</li>
+      </ul>
+      <h1>Ayuda</h1>
+      <ul>
+        <li>Reclamaciones</li>
+        <li>Atencion al cliente</li>
+        <li> Notificar bugs o errores</li>
+      </ul>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="articulos">
+        <div>Bid&Go</div>
+     <div>Bid&Go</div>
+     <div>Bid&Go</div>
+     <div>Bid&Go</div>
+     <div>Bid&Go</div>
+     <div>Bid&Go</div>
+     <div>Bid&Go</div>
+     <div>Bid&Go</div>
+     <div>Bid&Go</div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+<div>
+
+</div>
+
+
+
+
+</html>
