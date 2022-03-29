@@ -30,7 +30,7 @@ export class EditarDatosUsuarioComponent implements OnInit {
   };
 
   nombre: string = '';
-  email: string = '';
+  // email: string = '';
 
   EditarPefil!: FormGroup;
 
@@ -94,6 +94,10 @@ export class EditarDatosUsuarioComponent implements OnInit {
     return this.EditarPefil.get('inputPasscode') as FormControl;
   }
 
+  get email() {
+    return this.EditarPefil.get('inputEmail') as FormControl;
+  }
+
   obtenerDatos() {
     this.datosUsuario = this.tokenServ.getUsuario();
     this.nombre = this.datosUsuario.Nombre;
@@ -132,6 +136,22 @@ export class EditarDatosUsuarioComponent implements OnInit {
           });
       } else {
         this.oldPasscode.setErrors(null);
+      }
+    });
+  }
+
+  checkEmail() {
+    this.form.inputEmail.valueChanges.subscribe((email) => {
+      if (email != '') {
+        this.usersServ
+          .validarPasscode(email, this.datosUsuario.idUsuario)
+          .subscribe((val: any) => {
+            if (val.resultado == 'error') {
+              this.email.setErrors({ notUnique: true });
+            }
+          });
+      } else {
+        this.email.setErrors(null);
       }
     });
   }
