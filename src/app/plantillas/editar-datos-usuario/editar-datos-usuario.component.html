@@ -4,24 +4,31 @@
 
       <!-- Nombre -->
       <label>Nombre:</label>
-      <input type="text" formControlName="inputNombre" [value]="this.datosUsuario.Nombre"
+      <input type="text" formControlName="inputNombre" [ngClass]="{ 'is-invalid': form.inputNombre.errors }" [value]="this.datosUsuario.Nombre"
         [placeholder]="this.datosUsuario.Nombre" minlength="3" maxlength="30">
+        <div *ngIf="form.inputNombre.errors" class="invalid-feedback">
+          <div *ngIf="form.inputNombre.errors.required">El email es obligatorio.</div>
+        </div>
 
 
       <!-- Apellidos -->
       <label>Apellidos:</label>
       <input type="text" formControlName="inputApellidos" [placeholder]="this.datosUsuario.Apellidos"
-        [value]="this.datosUsuario.Apellidos" minlength="3" maxlength="30">
+        [value]="this.datosUsuario.Apellidos" minlength="3" [ngClass]="{ 'is-invalid': form.inputApellidos.errors }" maxlength="30">
+        <div *ngIf="form.inputApellidos.errors" class="invalid-feedback">
+          <div *ngIf="form.inputApellidos.errors.required">El email es obligatorio.</div>
+        </div>
 
 
       <!-- Email -->
       <label>Email:</label>
-      <input type="email" formControlName="inputEmail" name="email" [value]="this.datosUsuario.Email"
-        [placeholder]="this.datosUsuario.Email">
+      <input type="email" formControlName="inputEmail" name="email"
+        [placeholder]="this.datosUsuario.Email" [ngClass]="{ 'is-invalid': form.inputEmail.errors }">
 
       <div *ngIf="form.inputEmail.errors" class="invalid-feedback">
         <div *ngIf="form.inputEmail.errors.required">El email es obligatorio.</div>
         <div *ngIf="form.inputEmail.errors.email">El email no es correcto.</div>
+        <div *ngIf="form.inputEmail.errors.notUnique">El email ya está en uso.</div>
       </div>
 
 
@@ -37,8 +44,7 @@
       <input type="password" formControlName="inputPasscode" minlength="3" maxlength="50" placeholder="******" [ngClass]="{ 'is-invalid': form.inputPasscode.errors }">
 
       <div *ngIf="form.inputPasscode.errors" class="invalid-feedback">
-        <div *ngIf="form.inputPasscode.errors.required">La contraseña es obligatoria.</div>
-        <div *ngIf="form.inputPasscode.errors.notUnique">La contraseña no es correcta</div>
+        <div *ngIf="form.inputPasscode.errors.notUnique">La contraseña no es correcta.</div>
       </div>
 
 
@@ -50,7 +56,7 @@
       <!-- Nova pass confirmar -->
       <label>Confirmar Nueva Contraseña</label>
       <input type="password" formControlName="inputConfirmNewPasscode" minlength="3" maxlength="50"
-        placeholder="******a">
+        placeholder="******">
 
 
       <button>Confirmar</button>

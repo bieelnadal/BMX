@@ -8,7 +8,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.service';
-import { AuthService } from 'src/app/services/autentificacion/auth.service';
 import { UsersService } from '../../services/usuarios/users.service';
 
 @Component({
@@ -29,7 +28,7 @@ export class EditarDatosUsuarioComponent implements OnInit {
     idAdmin: 1,
   };
 
-  nombre: string = '';
+  // nombre: string = 'adfas';
   // email: string = '';
 
   EditarPefil!: FormGroup;
@@ -37,7 +36,6 @@ export class EditarDatosUsuarioComponent implements OnInit {
   constructor(
     public fb: FormBuilder,
     private tokenServ: TokenSesionService,
-    private authServ: AuthService,
     private usersServ: UsersService
   ) {}
 
@@ -45,6 +43,7 @@ export class EditarDatosUsuarioComponent implements OnInit {
     this.obtenerDatos();
     this.crearFormPerfil();
     this.checkPass();
+    this.checkEmail();
   }
 
   crearFormPerfil() {
@@ -100,8 +99,6 @@ export class EditarDatosUsuarioComponent implements OnInit {
 
   obtenerDatos() {
     this.datosUsuario = this.tokenServ.getUsuario();
-    this.nombre = this.datosUsuario.Nombre;
-    console.log(this.nombre);
   }
 
   onSubmit(form: any) {
@@ -120,7 +117,41 @@ export class EditarDatosUsuarioComponent implements OnInit {
           idAdmin: this.datosUsuario.idAdmin,
         };
         console.log(usuarioMod);
+      } else{
+        usuarioMod = {
+          idUsuario: this.datosUsuario.idUsuario,
+          Nombre: form.controls.inputNombre.value,
+          Apellidos: form.controls.inputApellidos.value,
+          Email: form.controls.inputEmail.value,
+          idDireccion: this.datosUsuario.idDireccion,
+          Imagen: this.datosUsuario.Imagen,
+          DNI: form.controls.inputDNI.value,
+          idAdmin: this.datosUsuario.idAdmin,
+        };
       }
+      Swal.fire({
+        title: '¿Quiéres guardar los cambios?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Ok',
+            text: 'Se han guardaron los cambios',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ok'
+          }).then((result) => {
+            
+          });
+        }
+      });
+      console.log(form.value);
+      
     }
   }
 
@@ -142,9 +173,9 @@ export class EditarDatosUsuarioComponent implements OnInit {
 
   checkEmail() {
     this.form.inputEmail.valueChanges.subscribe((email) => {
-      if (email != '') {
+      if (email != '' && this.datosUsuario.Email!=this.form.inputEmail.value) {
         this.usersServ
-          .validarPasscode(email, this.datosUsuario.idUsuario)
+          .validarEmail(email, this.datosUsuario.idUsuario)
           .subscribe((val: any) => {
             if (val.resultado == 'error') {
               this.email.setErrors({ notUnique: true });
