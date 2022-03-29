@@ -9,6 +9,11 @@ export class HomeComponent implements OnInit {
 
   opened = false;
 
+  closeSidenav(){
+      this.opened = !this.opened;
+    }
+
+
   constructor() { }
 
   ngOnInit(): void {

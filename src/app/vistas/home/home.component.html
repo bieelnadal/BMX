@@ -5,7 +5,10 @@
 
 <div>
   <nav class="navbar">
-    <button for="checkbox_toggle" class="hamburger" (click)="opened = true"> &#9776;</button>
+    <div (click)="closeSidenav()">
+      <button for="checkbox_toggle" class="hamburger" *ngIf="!opened"> &#9776;</button>
+    </div>
+
     <!-- USING CHECKBOX HACK -->
     <input type="checkbox" id="checkbox_toggle" />
 
@@ -75,8 +78,80 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <div class="articulos">
+        <div class="art">
 
+        </div>
+        <div class="art">
+
+        </div>
+        <div class="art">
+
+        </div>
+        <div class="art">
+
+        </div>
+        <div class="art">
+
+        </div>
       </div>
+
+
+      <div class="articulos">
+        <div class="art">
+
+        </div>
+        <div class="art">
+
+        </div>
+        <div class="art">
+
+        </div>
+        <div class="art">
+
+        </div>
+        <div class="art">
+
+        </div>
+      </div>
+
+
+      <div class="articulos">
+        <div class="art">
+
+        </div>
+        <div class="art">
+
+        </div>
+        <div class="art">
+
+        </div>
+        <div class="art">
+
+        </div>
+        <div class="art">
+
+        </div>
+      </div>
+
+      <div class="articulos">
+        <div class="art">
+
+        </div>
+        <div class="art">
+
+        </div>
+        <div class="art">
+
+        </div>
+        <div class="art">
+
+        </div>
+        <div class="art">
+
+        </div>
+      </div>
+
+
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
