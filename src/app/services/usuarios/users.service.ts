@@ -68,4 +68,13 @@ export class UsersService {
     
     return this.http.post(URL_PASS_USER_EXISTE, JSON.stringify(user));
   }
+
+  validarEmail(pass:string, id:number){
+    var user = {
+      "Passcode": pass,
+      "idUsuario": id
+    }    
+    
+    return this.http.post(URL_PASS_USER_EXISTE, JSON.stringify(user));
+  }
 }
