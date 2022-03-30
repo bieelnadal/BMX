@@ -65,7 +65,7 @@ export class AuthService {
   guardarSesion(data: any) {
     //Sesion para usuario normal
     
-    //console.log(data.data.idAdmin);
+    console.log(data.data.idAdmin);
     
     if (data.data.idAdmin == 0) {
       

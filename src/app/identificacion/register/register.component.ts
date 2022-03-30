@@ -155,6 +155,7 @@ export class RegisterComponent implements OnInit {
             this.dni.setErrors({ notUnique: true });
           } else {
             this.dni.markAsPending({ onlySelf: false });
+            this.dni.setErrors(null);
           }
         });
       });

@@ -1,29 +1,45 @@
 <div class="alinar-contenido">
   <div class="editar-perfil">
+    <button class="btn-editar" (click)="modificarForm()" *ngIf="this.editar">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" />
+        <path fill-rule="evenodd"
+          d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z" />
+      </svg>
+    </button>
+    <button class="btn-editar" (click)="modificarForm()" *ngIf="!this.editar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-pencil-fill" viewBox="0 0 16 16">
+        <path
+          d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+      </svg></button>
     <form [formGroup]="EditarPefil" (ngSubmit)="onSubmit(EditarPefil)" enctype="multipart/form-data">
 
       <!-- Nombre -->
       <label>Nombre:</label>
-      <input type="text" formControlName="inputNombre" [ngClass]="{ 'is-invalid': form.inputNombre.errors }" [value]="this.datosUsuario.Nombre"
-        [placeholder]="this.datosUsuario.Nombre" minlength="3" maxlength="30">
-        <div *ngIf="form.inputNombre.errors" class="invalid-feedback">
-          <div *ngIf="form.inputNombre.errors.required">El email es obligatorio.</div>
-        </div>
+      <input type="text" formControlName="inputNombre" [ngClass]="{ 'is-invalid': form.inputNombre.errors }"
+        [value]="this.datosUsuario.Nombre" [placeholder]="this.datosUsuario.Nombre" minlength="3" maxlength="30"
+        [readOnly]="!this.editar">
+      <div *ngIf="form.inputNombre.errors" class="invalid-feedback">
+        <div *ngIf="form.inputNombre.errors.required">El email es obligatorio.</div>
+      </div>
 
 
       <!-- Apellidos -->
       <label>Apellidos:</label>
       <input type="text" formControlName="inputApellidos" [placeholder]="this.datosUsuario.Apellidos"
-        [value]="this.datosUsuario.Apellidos" minlength="3" [ngClass]="{ 'is-invalid': form.inputApellidos.errors }" maxlength="30">
-        <div *ngIf="form.inputApellidos.errors" class="invalid-feedback">
-          <div *ngIf="form.inputApellidos.errors.required">El email es obligatorio.</div>
-        </div>
+        [value]="this.datosUsuario.Apellidos" minlength="3" [ngClass]="{ 'is-invalid': form.inputApellidos.errors }"
+        maxlength="30" [readOnly]="!this.editar">
+      <div *ngIf="form.inputApellidos.errors" class="invalid-feedback">
+        <div *ngIf="form.inputApellidos.errors.required">El email es obligatorio.</div>
+      </div>
 
 
       <!-- Email -->
       <label>Email:</label>
-      <input type="email" formControlName="inputEmail" name="email"
-        [placeholder]="this.datosUsuario.Email" [ngClass]="{ 'is-invalid': form.inputEmail.errors }">
+      <input type="email" formControlName="inputEmail" name="email" [placeholder]="this.datosUsuario.Email"
+        [ngClass]="{ 'is-invalid': form.inputEmail.errors }" [readOnly]="!this.editar">
 
       <div *ngIf="form.inputEmail.errors" class="invalid-feedback">
         <div *ngIf="form.inputEmail.errors.required">El email es obligatorio.</div>
@@ -36,12 +52,13 @@
       <!-- DNI -->
       <label>DNI:</label>
       <input type="text" formControlName="inputDNI" name="DNI" minlength="9" maxlength="9"
-        [value]="this.datosUsuario.DNI" [placeholder]="this.datosUsuario.DNI">
+        [value]="this.datosUsuario.DNI" [placeholder]="this.datosUsuario.DNI" [readOnly]="!this.editar">
 
 
       <!-- Antiga pass -->
       <label>Antigua Contraseña</label>
-      <input type="password" formControlName="inputPasscode" minlength="3" maxlength="50" placeholder="******" [ngClass]="{ 'is-invalid': form.inputPasscode.errors }">
+      <input type="password" formControlName="inputPasscode" minlength="3" maxlength="50" placeholder="******"
+        [ngClass]="{ 'is-invalid': form.inputPasscode.errors }" [readOnly]="!this.editar">
 
       <div *ngIf="form.inputPasscode.errors" class="invalid-feedback">
         <div *ngIf="form.inputPasscode.errors.notUnique">La contraseña no es correcta.</div>
@@ -50,13 +67,14 @@
 
       <!-- Nova pass -->
       <label>Nueva Contraseña</label>
-      <input type="password" formControlName="inputNewPasscode" minlength="3" maxlength="50" placeholder="******">
+      <input type="password" formControlName="inputNewPasscode" minlength="3" maxlength="50" placeholder="******"
+        [readOnly]="!this.editar">
 
 
       <!-- Nova pass confirmar -->
       <label>Confirmar Nueva Contraseña</label>
-      <input type="password" formControlName="inputConfirmNewPasscode" minlength="3" maxlength="50"
-        placeholder="******">
+      <input type="password" formControlName="inputConfirmNewPasscode" minlength="3" maxlength="50" placeholder="******"
+        [readOnly]="!this.editar">
 
 
       <button>Confirmar</button>

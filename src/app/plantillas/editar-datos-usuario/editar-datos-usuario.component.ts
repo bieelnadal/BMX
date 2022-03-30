@@ -28,6 +28,8 @@ export class EditarDatosUsuarioComponent implements OnInit {
     idAdmin: 1,
   };
 
+  editar:boolean = false;
+
   // nombre: string = 'adfas';
   // email: string = '';
 
@@ -185,5 +187,18 @@ export class EditarDatosUsuarioComponent implements OnInit {
         this.email.setErrors(null);
       }
     });
+  }
+
+  modificarForm(){
+    if (this.editar==false) {
+      this.editar=true;
+    }else{
+      this.editar=false;
+      this.EditarPefil.reset();
+      this.EditarPefil.get('inputNombre')?.setValue(this.datosUsuario.Nombre);
+      this.EditarPefil.get('inputApellidos')?.setValue(this.datosUsuario.Apellidos);
+      this.EditarPefil.get('inputEmail')?.setValue(this.datosUsuario.Email);
+      this.EditarPefil.get('inputDNI')?.setValue(this.datosUsuario.DNI);
+    }
   }
 }

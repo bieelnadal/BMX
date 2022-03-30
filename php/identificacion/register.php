@@ -35,8 +35,11 @@ $resInsert = mysqli_query($con, $queryInsert);
 $resSelect = mysqli_query($con, $querySelect);
 
 if ($resSelect) {
+  
   $response->resultado = 'ok';
   $response->mensaje = 'Se ha registrado correctamente';
+  $response->data = mysqli_fetch_array($resSelect);
+  echo json_encode($response);
 } else {
   $response->resultado = 'error';
   $response->mensaje = 'Hubo un error con la base de datos';
