@@ -25,10 +25,11 @@
     </div>
     <div class="formulario-direcion" *ngIf="this.mostrarAgregarDirecion">
         <h5>Añadir Direciones</h5>
-        <form [formGroup]="direciones" (ngSubmit)="onSubmit()">
+        <form [formGroup]="direcciones" (ngSubmit)="onSubmit()">
             <!--Direcion-->
-            <label for="">Direcion:</label>
-            <input type="text" formControlName="direccion" placeholder="Direcion">
+            <label>Direcion:</label>
+            <input type="text" formControlName="direccion" placeholder="Dirección"
+                [ngClass]="{ 'is-invalid': form.direccion.errors }">
             <div>
                 <div *ngIf="form.direccion.errors">
                     <p class="validaciones" *ngIf="form.direccion.errors.required">Mmmmm... parece que este campo es
@@ -37,27 +38,28 @@
                 </div>
             </div>
             <!--Pais-->
-            <label for="">Pais:</label>
-            <select name="Pais">
-                <option value="0" selected>Pais</option>
-                <option value="1">Spain</option>
+            <label>Pais:</label>
+            <select name="Pais" (change)="cambiarPais($event)">
+                <option>-- Selecciona --</option>
+                <option *ngFor="let pais of paises" [value]="pais.idPais">{{pais.nombrePais}}</option>
             </select>
+
             <!--Codigo postal-->
-            <label for="">Codigo postal:</label>
-            <input type="number" formControlName="codigoPostal" minlength="5" maxlength="5" placeholder="Codigo postal">
+            <label>Codigo postal:</label>
+            <input type="number" formControlName="codigoPostal" minlength="5" maxlength="5" placeholder="Codigo postal"
+                [ngClass]="{ 'is-invalid': form.codigoPostal.errors }">
             <div>
                 <div *ngIf="form.codigoPostal.errors">
                     <p class="validaciones" *ngIf="form.codigoPostal.errors.required">Mmmmm... parece que este campo es
                         obligatorio*</p>
                     <p class="validaciones" *ngIf="form.codigoPostal.errors.minlength">faltan numeros</p>
-                    <p class="validaciones" *ngIf="form.codigoPostal.errors.maxlength">superas el maximo de numeros
-                        permitidas</p>
                     <br>
                 </div>
             </div>
             <!--Localidad-->
-            <label for="">Localidad:</label>
-            <input type="text" formControlName="localidad" placeholder="Localidad">
+            <label>ocalidad:</label>
+            <input type="text" formControlName="Localidad" placeholder="Localidad"
+                [ngClass]="{ 'is-invalid': form.localidad.errors }">
             <div>
                 <div *ngIf="form.localidad.errors">
                     <p class="validaciones" *ngIf="form.localidad.errors.required">Mmmmm... parece que este campo es

@@ -148,12 +148,14 @@ export class EditarDatosUsuarioComponent implements OnInit {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Ok'
           }).then((result) => {
-            
+            this.usersServ.modificarUsuario(usuarioMod).subscribe((val: any) => {
+              this.tokenServ.guardarUsuario(val.data);
+              this.obtenerDatos();
+              window.location.reload();
+            });
           });
         }
       });
-      console.log(form.value);
-      
     }
   }
 

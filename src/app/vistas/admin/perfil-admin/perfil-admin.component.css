@@ -279,11 +279,6 @@
             margin: 10px;
         }
 
-        .alinar-contenido {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
 
         .agregarDirecion{
             box-shadow: 0 3px 6px 0 rgb(32 33 36 / 28%);

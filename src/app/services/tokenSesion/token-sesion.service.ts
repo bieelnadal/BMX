@@ -28,7 +28,6 @@ export class TokenSesionService {
   }
 
   guardarUsuario(usuario: any):void {
-    
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(usuario));
   }
