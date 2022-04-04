@@ -20,7 +20,7 @@ $json = file_get_contents('php://input');
 $direccion = json_decode($json);
 
 // query
-$queryInsert = "INSERT INTO `direccion`(`idDireccion`, `Direccion`, `Pais`, `Localidad`, `codigoPostal`, `idUsuario`) VALUES (null,'$direccion->Direccion',$direccion->Pais,'$direccion->Localidad','$direccion->codigoPostal',$direccion->idUsuario";
+$queryInsert = "INSERT INTO `direccion`(`idDireccion`, `Direccion`, `Pais`, `Localidad`, `codigoPostal`, `idUsuario`, `Predeterminado`) VALUES (null,'$direccion->Direccion','$direccion->Pais','$direccion->Localidad',$direccion->codigoPostal,'$direccion->idUsuario', 0)";
 
 
 

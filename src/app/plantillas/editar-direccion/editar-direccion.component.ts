@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/interfaces/Usuario';
 import { AuthService } from 'src/app/services/autentificacion/auth.service';
 import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.service';
-import { PAIS } from 'src/app/interfaces/Pais-mock';
+import { DireccService } from 'src/app/services/direcciones/direcc.service';
+import { Direccion } from '../../interfaces/Direccion';
 
 @Component({
   selector: 'app-editar-direccion',
@@ -24,30 +25,29 @@ export class EditarDireccionComponent implements OnInit {
   };
 
   direcciones!: FormGroup;
-  paises:any;
-  selectedValue:any;
+  idUsuario: number = 0;
+
+  direccion: any;
+  listaDirecciones: any[] = [];
 
   mostrarAgregarDirecion: boolean = false;
   esconderDirecion: boolean = true;
 
-  cambiarPais(e:any){
-    console.log(e.target.value);
-  }
-
   constructor(
     public fb: FormBuilder,
     private tokenServ: TokenSesionService,
-    private authServ: AuthService
+    private direccService: DireccService
   ) {}
 
   ngOnInit(): void {
     this.obtenerDatos();
+    this.obtenerDirecciones();
     this.crearForm();
   }
 
   crearForm() {
     this.direcciones = this.fb.group({
-      direcion: ['', [Validators.required]],
+      direccion: ['', [Validators.required]],
       pais: ['', [Validators.required]],
       codigoPostal: [
         '',
@@ -65,7 +65,41 @@ export class EditarDireccionComponent implements OnInit {
     this.datosUsuario = this.tokenServ.getUsuario();
   }
 
-  onSubmit() {}
+  obtenerDirecciones() {
+    this.listaDirecciones = [];
+    this.direccService.obtenerDirecciones().subscribe((val: any) => {
+      this.direccion = val;
+      if (this.direccion == null) {
+      } else {
+        console.log('entra');
+
+        val.forEach((element: any) => {
+          console.log('entra for each');
+
+          if (element.idUsuario == this.datosUsuario.idUsuario) {
+            this.listaDirecciones.push(element);
+            console.log(this.listaDirecciones);
+          }
+        });
+      }
+    });
+  }
+
+  onSubmit(form: any) {
+    if (this.direcciones.valid) {
+      const nuevaDireccion: Direccion = {
+        idDireccion: 0,
+        Direccion: form.direccion,
+        Pais: form.pais,
+        Localidad: form.localidad,
+        codigoPostal: form.codigoPostal,
+        idUsuario: this.datosUsuario.idUsuario,
+      };
+      this.direccService.registrarDireccion(nuevaDireccion);
+      this.direcciones.reset();
+      console.log(nuevaDireccion);
+    }
+  }
 
   mostrarDesplegableAgregarDirecion() {
     if (this.mostrarAgregarDirecion == false) {

@@ -1,33 +1,34 @@
 <div class="direciones">
     <!--button para agregar deirecon a  la tabla-->
+    <div>
     <button class="agregarDirecion" (click)="mostrarDesplegableAgregarDirecion()">Nueva Direcion</button>
-
+</div>
     <!--Card direciones ya creadas-->
+    <div *ngIf="this.esconderDirecion">
+        <div class="card-direcion" *ngFor="let direcc of listaDirecciones; let i = index">
+            <a href="">
+                <div class="contenido-card">
+                    <h4 class="texto-card">{{direcc.Direccion}}</h4>
+                    <hr>
+                    <div class="agregar-card">
+                        <!--borrar dicecion-->
 
-    <div class="card-direcion" *ngIf="this.esconderDirecion">
-        <a href="">
-            <div class="contenido-card">
-                <h4 class="texto-card">direcion</h4>
-                <hr>
-                <div class="agregar-card">
-                    <!--borrar dicecion-->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                            style="float: right;" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                        </svg>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                        style="float: right;" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                        <path
-                            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
-                    </svg>
-
+                    </div>
                 </div>
-                <p>Direcion text text</p>
-            </div>
-        </a>
+            </a>
+        </div>
     </div>
     <div class="formulario-direcion" *ngIf="this.mostrarAgregarDirecion">
         <h5>Añadir Direciones</h5>
-        <form [formGroup]="direcciones" (ngSubmit)="onSubmit()">
+        <form [formGroup]="direcciones" (ngSubmit)="onSubmit(direcciones.value)">
             <!--Direcion-->
-            <label>Direcion:</label>
+            <label>Direccion:</label>
             <input type="text" formControlName="direccion" placeholder="Dirección"
                 [ngClass]="{ 'is-invalid': form.direccion.errors }">
             <div>
@@ -39,26 +40,24 @@
             </div>
             <!--Pais-->
             <label>Pais:</label>
-            <select name="Pais" (change)="cambiarPais($event)">
-                <option>-- Selecciona --</option>
-                <option *ngFor="let pais of paises" [value]="pais.idPais">{{pais.nombrePais}}</option>
+            <select formControlName="pais">
+                <option [value]="1" selected>España</option>
             </select>
 
             <!--Codigo postal-->
             <label>Codigo postal:</label>
-            <input type="number" formControlName="codigoPostal" minlength="5" maxlength="5" placeholder="Codigo postal"
-                [ngClass]="{ 'is-invalid': form.codigoPostal.errors }">
+            <input type="number" formControlName="codigoPostal" [minLength]="5" [maxLength]="5"
+                placeholder="Codigo postal" [ngClass]="{ 'is-invalid': form.codigoPostal.errors }">
             <div>
                 <div *ngIf="form.codigoPostal.errors">
                     <p class="validaciones" *ngIf="form.codigoPostal.errors.required">Mmmmm... parece que este campo es
                         obligatorio*</p>
-                    <p class="validaciones" *ngIf="form.codigoPostal.errors.minlength">faltan numeros</p>
                     <br>
                 </div>
             </div>
             <!--Localidad-->
-            <label>ocalidad:</label>
-            <input type="text" formControlName="Localidad" placeholder="Localidad"
+            <label>Localidad:</label>
+            <input type="text" formControlName="localidad" placeholder="Localidad"
                 [ngClass]="{ 'is-invalid': form.localidad.errors }">
             <div>
                 <div *ngIf="form.localidad.errors">

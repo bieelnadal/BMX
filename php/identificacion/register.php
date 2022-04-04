@@ -23,8 +23,8 @@ $usuario = json_decode($json);
 $hash = sha1($usuario->Passcode);
 
 // query
-$queryInsert = "INSERT INTO `usuarios`(`idUsuario`, `Nombre`, `Apellidos`, `Email`, `Passcode`, `idDireccion`, `Imagen`, `DNI`, `idAdmin`) VALUES 
-(NULL,'$usuario->Nombre','$usuario->Apellidos','$usuario->Email','$hash',0,'$usuario->Imagen','$usuario->DNI',0)";
+$queryInsert = "INSERT INTO `usuarios`(`idUsuario`, `Nombre`, `Apellidos`, `Email`, `Passcode`, `Imagen`, `DNI`, `idAdmin`) VALUES 
+(NULL,'$usuario->Nombre','$usuario->Apellidos','$usuario->Email','$hash','$usuario->Imagen','$usuario->DNI',0)";
 
 
 

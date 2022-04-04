@@ -12,6 +12,8 @@ const URL_MODIFICAR_DIRECCION =
 const URL_BORRAR_DIRECCION =
   'http://localhost:8080/direcciones/borrarDireccion.php';
 
+  const URL_LEER_DIRECCION = 'http://localhost:8080/direcciones/obtenerDireccion.php';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -32,6 +34,12 @@ export class DireccService {
         }
       });
   }
+
+  //Obtener direcciones
+  obtenerDirecciones(){
+    return this.http.get(URL_LEER_DIRECCION);
+  }
+
 
   swalError() {
     Swal.fire({
