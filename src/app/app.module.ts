@@ -23,6 +23,7 @@ import {MatListModule} from '@angular/material/list';
 import { SharkDirective } from './shark.directive';
 import { EditarDatosUsuarioComponent } from './plantillas/editar-datos-usuario/editar-datos-usuario.component';
 import { EditarDireccionComponent } from './plantillas/editar-direccion/editar-direccion.component';
+import { PlantillaProductoComponent } from './plantillas/plantilla-producto/plantilla-producto.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { EditarDireccionComponent } from './plantillas/editar-direccion/editar-d
     SharkDirective,
     EditarDatosUsuarioComponent,
     EditarDireccionComponent,
+    PlantillaProductoComponent,
   ],
   imports: [
     BrowserModule,

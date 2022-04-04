@@ -10,6 +10,7 @@ import { PerfilAdminComponent } from './vistas/admin/perfil-admin/perfil-admin.c
 import { HomeComponent } from './vistas/home/home.component';
 import { EditarDatosUsuarioComponent } from './plantillas/editar-datos-usuario/editar-datos-usuario.component';
 import { EditarDireccionComponent } from './plantillas/editar-direccion/editar-direccion.component';
+import { PlantillaProductoComponent } from './plantillas/plantilla-producto/plantilla-producto.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'perfil-admin', component: PerfilAdminComponent},
   { path: 'home', component: HomeComponent},
   { path: 'editar-datos-usuarios', component: EditarDatosUsuarioComponent},
-  { path: 'editar-direccion', component: EditarDireccionComponent}
+  { path: 'editar-direccion', component: EditarDireccionComponent},
+  { path: 'producto', component: PlantillaProductoComponent},
 ];
 
 @NgModule({

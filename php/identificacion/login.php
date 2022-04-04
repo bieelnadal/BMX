@@ -1,9 +1,10 @@
 <?php
 // headers
-header('Access-Control-Allow-Origin: *');
+
 header("Access-Control-Allow-Headers: Authorization, Origin, X-Requested-With, Content-Type, Accept");
 header('Content-Type: application/json');
-
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Method: POST');
 $json = file_get_contents('php://input');
 $user = json_decode($json);
 

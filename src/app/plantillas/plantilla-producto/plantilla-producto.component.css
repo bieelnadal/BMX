@@ -1,0 +1,13 @@
+.seccion1{
+  float: left;
+  text-align: center;
+  border-right-style: solid;
+  padding-right: 450px;
+  margin: 0, auto;
+  padding-left: 200px;
+}
+.seccion2{
+  float: right;
+  text-align: center;
+  align-items: center;
+}
