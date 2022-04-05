@@ -26,6 +26,7 @@ import { EditarDireccionComponent } from './plantillas/editar-direccion/editar-d
 import { PlantillaProductoComponent } from './plantillas/plantilla-producto/plantilla-producto.component';
 import { EditarDireccionModalComponent } from './plantillas/editar-direccion-modal/editar-direccion-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CrearProductoComponent } from './vistas/usuario/crearProducto/crearProducto.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EditarDireccionComponent,
     PlantillaProductoComponent,
     EditarDireccionModalComponent,
+    CrearProductoComponent
   ],
   imports: [
     BrowserModule,
