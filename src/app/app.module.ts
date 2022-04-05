@@ -24,6 +24,8 @@ import { SharkDirective } from './shark.directive';
 import { EditarDatosUsuarioComponent } from './plantillas/editar-datos-usuario/editar-datos-usuario.component';
 import { EditarDireccionComponent } from './plantillas/editar-direccion/editar-direccion.component';
 import { PlantillaProductoComponent } from './plantillas/plantilla-producto/plantilla-producto.component';
+import { EditarDireccionModalComponent } from './plantillas/editar-direccion-modal/editar-direccion-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { PlantillaProductoComponent } from './plantillas/plantilla-producto/plan
     EditarDatosUsuarioComponent,
     EditarDireccionComponent,
     PlantillaProductoComponent,
+    EditarDireccionModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ import { PlantillaProductoComponent } from './plantillas/plantilla-producto/plan
     MatToolbarModule,
     MatIconModule,
     MatListModule,
+    NgbModule,
 
   ],
   providers: [
