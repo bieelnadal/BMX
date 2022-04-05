@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/services/autentificacion/auth.service';
 import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.service';
 import { DireccService } from 'src/app/services/direcciones/direcc.service';
 import { Direccion } from '../../interfaces/Direccion';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-direccion',
@@ -97,8 +98,31 @@ export class EditarDireccionComponent implements OnInit {
       };
       this.direccService.registrarDireccion(nuevaDireccion);
       this.direcciones.reset();
-      console.log(nuevaDireccion);
+      window.location.reload();
     }
+  }
+
+  borrarDireccion(idDirecc:any){
+    console.log(idDirecc);
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "¡No vas a poder revertir el cambio!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '¡Borrar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          '¡Dirección borrada!',
+          'La dirección ha sido borrado con éxito.',
+          'success'
+        )
+        this.direccService.borrarDireccion(idDirecc);
+      }
+    })
+    
   }
 
   mostrarDesplegableAgregarDirecion() {

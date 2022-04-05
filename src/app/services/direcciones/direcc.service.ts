@@ -12,7 +12,8 @@ const URL_MODIFICAR_DIRECCION =
 const URL_BORRAR_DIRECCION =
   'http://localhost:8080/direcciones/borrarDireccion.php';
 
-  const URL_LEER_DIRECCION = 'http://localhost:8080/direcciones/obtenerDireccion.php';
+const URL_LEER_DIRECCION =
+  'http://localhost:8080/direcciones/obtenerDireccion.php';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,7 @@ const URL_BORRAR_DIRECCION =
 export class DireccService {
   constructor(private http: HttpClient) {}
 
-  registrarDireccion(direccion : Direccion){
+  registrarDireccion(direccion: Direccion) {
     this.http
       .post(URL_CREAR_DIRECCION, JSON.stringify(direccion))
       .subscribe((val: any) => {
@@ -35,11 +36,24 @@ export class DireccService {
       });
   }
 
-  //Obtener direcciones
-  obtenerDirecciones(){
-    return this.http.get(URL_LEER_DIRECCION);
+  borrarDireccion(idDireccion: any) {
+    console.log('Entra funcion');
+    console.log(idDireccion);
+
+    return this.http.delete(URL_BORRAR_DIRECCION+ `?idDireccion=${idDireccion}`).subscribe((val:any)=>{
+      console.log(val);
+
+    });
   }
 
+  editarDireccion(){
+    
+  }
+
+  //Obtener direcciones
+  obtenerDirecciones() {
+    return this.http.get(URL_LEER_DIRECCION);
+  }
 
   swalError() {
     Swal.fire({
