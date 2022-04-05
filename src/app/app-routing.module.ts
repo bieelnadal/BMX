@@ -11,6 +11,8 @@ import { HomeComponent } from './vistas/home/home.component';
 import { EditarDatosUsuarioComponent } from './plantillas/editar-datos-usuario/editar-datos-usuario.component';
 import { EditarDireccionComponent } from './plantillas/editar-direccion/editar-direccion.component';
 import { PlantillaProductoComponent } from './plantillas/plantilla-producto/plantilla-producto.component';
+import { CrearProductoComponent } from './vistas/usuario/crearProducto/crearProducto.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -25,6 +27,7 @@ const routes: Routes = [
   { path: 'editar-datos-usuarios', component: EditarDatosUsuarioComponent},
   { path: 'editar-direccion', component: EditarDireccionComponent},
   { path: 'producto', component: PlantillaProductoComponent},
+  { path: 'crearProducto', component: CrearProductoComponent}
 ];
 
 @NgModule({

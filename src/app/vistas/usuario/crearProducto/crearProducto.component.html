@@ -1,0 +1,14 @@
+<form [formGroup]="crearProdutoForm" (ngSubmit)="onSubmit()">
+  <p>Registro Producto:</p>
+  <input type="text" maxlength="60" formControlName="NombreProducto" class="" placeholder="Nombre del Producto"><br><br>
+ <input type="file"  formControlName="imagenProducto" class=""><br><br>
+  <input type="text" maxlength="60" formControlName="DescripcionProducto" class="" placeholder="Descripcion Producto"><br><br>
+  <input type="number" maxlength="1" formControlName="idCategoriaProducto" class="" placeholder="Categoria Producto"><br><br>
+<!--  <input type="date" maxlength="1" formControlName="FechaProducto" class="" placeholder="Fecha Producto"><br><br>  --> 
+  <input type="number" maxlength="5" formControlName="PrecioProducto" class="" placeholder="Precio Producto"><br><br>
+  <input type="number" maxlength="1" formControlName="SubastaProducto" class="" placeholder="Subasta Producto"><br><br>
+
+  <button type="submit" class="crear-ranking">Crear Producto</button>
+</form>
+
+
