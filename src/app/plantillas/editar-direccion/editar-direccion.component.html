@@ -6,19 +6,20 @@
     <!--Card direciones ya creadas-->
     <div *ngIf="this.esconderDirecion">
         <div class="card-direcion" *ngFor="let direcc of listaDirecciones; let i = index">
-                <div class="contenido-card">
-                    <h4 class="texto-card">{{direcc.Direccion}}</h4>
-                    <hr>
-                    <div class="agregar-card">
-                        <!--borrar dicecion-->
-                        <svg xmlns="http://www.w3.org/2000/svg" (click)="borrarDireccion(direcc.idDireccion)" width="25" height="25" fill="currentColor"
-                            style="float: right;" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
-                        </svg>
-
-                    </div>
+            <div class="contenido-card">
+                <h4 class="texto-card">{{direcc.Direccion}}</h4>
+                <hr>
+                <div class="agregar-card">
+                    <!--borrar dicecion-->
+                    <svg xmlns="http://www.w3.org/2000/svg" (click)="borrarDireccion(direcc.idDireccion)" width="25"
+                        height="25" fill="currentColor" style="float: right;" class="bi bi-trash-fill"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                    </svg>            
+                        <app-editar-direccion-modal [direccSelecc]="direcc.idDireccion"></app-editar-direccion-modal>
                 </div>
+            </div>
         </div>
     </div>
     <div class="formulario-direcion" *ngIf="this.mostrarAgregarDirecion">
@@ -40,6 +41,13 @@
             <select formControlName="pais">
                 <option [value]="1" selected>España</option>
             </select>
+            <div>
+                <div *ngIf="form.pais.errors">
+                    <p class="validaciones" *ngIf="form.pais.errors.required">Mmmmm... parece que este campo es
+                        obligatorio*</p>
+                    <br>
+                </div>
+            </div>
 
             <!--Codigo postal-->
             <label>Codigo postal:</label>

@@ -129,9 +129,12 @@ export class EditarDireccionComponent implements OnInit {
     if (this.mostrarAgregarDirecion == false) {
       this.mostrarAgregarDirecion = true;
       this.esconderDirecion = false;
+      
     } else {
       this.mostrarAgregarDirecion = false;
       this.esconderDirecion = true;
     }
   }
+
+
 }

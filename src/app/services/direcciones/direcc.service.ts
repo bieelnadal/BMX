@@ -15,10 +15,18 @@ const URL_BORRAR_DIRECCION =
 const URL_LEER_DIRECCION =
   'http://localhost:8080/direcciones/obtenerDireccion.php';
 
+const URL_OBTENER_DIRECCION_ID =
+  'http://localhost:8080/direcciones/obtenerDireccionId.php';
+
+
+
 @Injectable({
   providedIn: 'root',
 })
 export class DireccService {
+
+  dataDireccion:any;
+
   constructor(private http: HttpClient) {}
 
   registrarDireccion(direccion: Direccion) {
@@ -26,7 +34,7 @@ export class DireccService {
       .post(URL_CREAR_DIRECCION, JSON.stringify(direccion))
       .subscribe((val: any) => {
         if (val.resultado == 'error') {
-          //tal tal
+          this.setDataDireccionId(val);
           this.swalError();
         } else {
           //funciona bien
@@ -36,18 +44,34 @@ export class DireccService {
       });
   }
 
+  getDataDireccionId(){
+    return this.dataDireccion;
+  }
+
+  setDataDireccionId(val:any){
+    this.dataDireccion=val;
+  }
+
   borrarDireccion(idDireccion: any) {
     console.log('Entra funcion');
     console.log(idDireccion);
 
-    return this.http.delete(URL_BORRAR_DIRECCION+ `?idDireccion=${idDireccion}`).subscribe((val:any)=>{
-      console.log(val);
-
-    });
+    return this.http
+      .delete(URL_BORRAR_DIRECCION + `?idDireccion=${idDireccion}`)
+      .subscribe((val: any) => {
+        console.log(val);
+      });
   }
 
-  editarDireccion(){
-    
+  editarDireccion() {}
+
+  // Obtener la direccion por ID
+  obtenerDireccionId(idDireccion: any) {
+    return this.http
+      .get(URL_OBTENER_DIRECCION_ID + `?idDireccion=${idDireccion}`)
+      .subscribe((val: any) => {
+        console.log(val);
+      });
   }
 
   //Obtener direcciones
