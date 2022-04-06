@@ -34,7 +34,8 @@ export class DireccService {
       .post(URL_CREAR_DIRECCION, JSON.stringify(direccion))
       .subscribe((val: any) => {
         if (val.resultado == 'error') {
-          this.setDataDireccionId(val);
+          console.log(val.data);
+          
           this.swalError();
         } else {
           //funciona bien
@@ -43,15 +44,6 @@ export class DireccService {
         }
       });
   }
-
-  getDataDireccionId(){
-    return this.dataDireccion;
-  }
-
-  setDataDireccionId(val:any){
-    this.dataDireccion=val;
-  }
-
   borrarDireccion(idDireccion: any) {
     console.log('Entra funcion');
     console.log(idDireccion);
@@ -68,10 +60,7 @@ export class DireccService {
   // Obtener la direccion por ID
   obtenerDireccionId(idDireccion: any) {
     return this.http
-      .get(URL_OBTENER_DIRECCION_ID + `?idDireccion=${idDireccion}`)
-      .subscribe((val: any) => {
-        console.log(val);
-      });
+      .get(URL_OBTENER_DIRECCION_ID + `?idDireccion=${idDireccion}`);
   }
 
   //Obtener direcciones

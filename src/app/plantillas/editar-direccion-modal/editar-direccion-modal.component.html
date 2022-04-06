@@ -23,8 +23,8 @@
             <select formControlName="pais">
                 <option [value]="1" selected>España</option>
             </select>
-            <div *ngIf="form.direccion.errors" class="invalid-feedback">
-                <div *ngIf="form.direccion.errors.required">La direccion es obligatoria</div>
+            <div *ngIf="form.pais.errors" class="invalid-feedback">
+                <div *ngIf="form.pais.errors.required">El pais es obligatorio</div>
             </div>
 
             <label>Código Postal</label>

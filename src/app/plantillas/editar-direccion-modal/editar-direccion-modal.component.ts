@@ -6,24 +6,26 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-editar-direccion-modal',
   templateUrl: './editar-direccion-modal.component.html',
-  styleUrls: ['./editar-direccion-modal.component.css']
+  styleUrls: ['./editar-direccion-modal.component.css'],
 })
 export class EditarDireccionModalComponent implements OnInit {
+  modEditarDirecc!: FormGroup;
 
-  modEditarDirecc!:FormGroup;
+  submitted: boolean = false;
+  modalClick: boolean = false;
+  datosDireccion: any;
 
-  submitted:boolean = false;
-  modalClick:boolean = false;
+  constructor(
+    private modalService: NgbModal,
+    private direccServ: DireccService,
+    private formBuilder: FormBuilder
+  ) {}
 
-  constructor(private modalService: NgbModal,private direccServ: DireccService, private formBuilder: FormBuilder) { }
+  @Input() direccSelecc: any;
 
-  @Input() direccSelecc:any;
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  this.crearForm();
-  }
-
-  crearForm(){
+  crearForm() {
     this.modEditarDirecc = this.formBuilder.group({
       direccion: ['', [Validators.required]],
       pais: ['', [Validators.required]],
@@ -32,45 +34,35 @@ export class EditarDireccionModalComponent implements OnInit {
         [Validators.required, Validators.minLength(5), Validators.maxLength(5)],
       ],
       localidad: ['', [Validators.required]],
-    })
+    });
   }
 
-  get form(){
+  get form() {
     return this.modEditarDirecc.controls;
   }
 
-  retornar(){
+  retornar() {
     this.modalService.dismissAll();
     this.submitted = false;
   }
 
-  enviar(modal:any){
-    this.modalClick=true;
+  enviar(modal: any) {
+    this.modalClick = true;
     this.modalService.open(modal);
     this.recogerDatos();
-  }
-
-  onSubmit(){
-
-  }
-
-  recogerDatos(){
-    this.direccServ.obtenerDireccionId(this.direccSelecc);
+    console.log(this.datosDireccion.Direccion);
+    console.log(this.datosDireccion);
     
-    console.log(this.direccServ.getDataDireccionId());
-    
+    this.crearForm();
   }
 
-  clickModal(){
-    if (this.modalClick == true) {
-      this.modalClick = false;
-      console.log(this.direccSelecc);
-            
-    }else{
-      this.modalClick = true;
-      console.log(this.direccSelecc);
-    }
-
+  recogerDatos() {
+    this.direccServ
+      .obtenerDireccionId(this.direccSelecc)
+      .subscribe((val: any) => {
+        this.datosDireccion = val.data;
+      });
   }
 
+  onSubmit() {}
 }
