@@ -3,15 +3,23 @@
   <form [formGroup]="crearProdutoForm" (ngSubmit)="onSubmit()">
     <h1>Registro Producto:</h1>
     <input type="text" maxlength="60" formControlName="NombreProducto" class=""
-      placeholder="Nombre del Producto"><br><br>
-   
+      placeholder="Nombre del Producto*"><br><br>
     <input type="text" maxlength="60" formControlName="DescripcionProducto" class=""
-      placeholder="Descripcion Producto"><br><br>
-    <input type="number" maxlength="1" formControlName="idCategoriaProducto" class=""
-      placeholder="Categoria Producto"><br><br>
-    <input type="number" maxlength="5" formControlName="PrecioProducto" class="" placeholder="Precio Producto"><br><br>
+      placeholder="Descripcion Producto*"><br><br>
+<!--    <input type="number" maxlength="1" formControlName="idCategoriaProducto" class=""
+      placeholder="Categoria Producto*"><br><br>-->
+
+    <select class="option-select" formControlName="Categoria" id="">
+      <option value="" selected disabled class="option-select">Escoge una Categoria*</option>
+      <option value="2" class="option-select">Relojes</option>
+      <option value="3" class="option-select">Cámaras y fotografia</option>
+      <option value="4" class="option-select">Electrodomésticos</option>
+      <option value="5" class="option-select">Ropa</option>
+    </select><br><br>
+
+    <input type="number" maxlength="5" formControlName="PrecioProducto" class="" placeholder="Precio Producto*"><br><br>
     <input type="number" maxlength="1" formControlName="SubastaProducto" class=""
-      placeholder="Subasta Producto"><br><br>
+      placeholder="Precio minimo Para la subastar el produto*"><br><br>
     <input type="file" formControlName="imagenProducto" class=""><br><br>
     <button type="submit" class="crear-ranking">Crear Producto</button>
   </form>

@@ -61,13 +61,12 @@ export class CrearProductoComponent implements OnInit {
 
   crearForm() {
     this.crearProdutoForm = this.formBuilder.group({
-      NombreProducto: ['', Validators.required],
+      NombreProducto: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       imagenProducto: ['', Validators.required],
-      DescripcionProducto: ['', Validators.required],
-      idCategoriaProducto: ['', Validators.required],
-      //FechaProducto: ['', Validators.required],
+      DescripcionProducto: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(150 )]],
       PrecioProducto: ['', Validators.required],
       SubastaProducto: ['', Validators.required],
+      Categoria: ['', Validators.required]
     });
   }
 
@@ -80,9 +79,6 @@ export class CrearProductoComponent implements OnInit {
   get DescripcionProducto() {
     return this.crearProdutoForm.get('DescripcionProducto') as FormControl;
   }
-  get idCategoriaProducto() {
-    return this.crearProdutoForm.get('idCategoriaProducto') as FormControl;
-  }
   get FechaProducto() {
     return this.crearProdutoForm.get('FechaProducto') as FormControl;
   }
@@ -92,6 +88,9 @@ export class CrearProductoComponent implements OnInit {
   get SubastaProducto() {
     return this.crearProdutoForm.get('SubastaProducto') as FormControl;
   }
+ get CategoriaProducto() {
+    return this.crearProdutoForm.get('Categoria') as FormControl;
+  }
 
 
   crearProductoNuevo():any { 
@@ -99,7 +98,7 @@ export class CrearProductoComponent implements OnInit {
     this.producto.Nombre = this.nombreProducto.value;
     this.producto.Imagen = this.imagenProducto.value;
     this.producto.Descripcion = this.DescripcionProducto.value;
-    this.producto.idCategoria = this.idCategoriaProducto.value;
+    this.producto.idCategoria = this.CategoriaProducto.value;
     this.producto.Precio = this.PrecioProducto.value;
     this.producto.Subasta = this.SubastaProducto.value;
 
