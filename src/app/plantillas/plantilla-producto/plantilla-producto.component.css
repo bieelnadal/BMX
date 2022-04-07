@@ -1,13 +1,53 @@
 .seccion1{
   float: left;
   text-align: center;
-  border-right-style: solid;
-  padding-right: 450px;
   margin: 0, auto;
-  padding-left: 200px;
+  background-color: tomato;
+  height: 100%;
+  width: 50%;
 }
 .seccion2{
   float: right;
-  text-align: center;
+  text-align: left;
   align-items: center;
+  background-color: darkgoldenrod;
+  float: right;
+  padding-left: 10%;
+  padding-top: 7%;
+  height: 100%;
+  width: 50%;
+  padding-left: 0;
+}
+
+.artBox{
+  text-align: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.nomArt{
+  padding-top: 4%;
+  float: left;
+}
+
+.contenedorImg{
+  background-color: gray;
+  max-width: 500px;
+
+
+}
+
+.imgArt{
+  padding-top: 10%;
+}
+
+.desc{
+  padding-top: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.titulo-desc{
+  padding-left: 10%;
 }
