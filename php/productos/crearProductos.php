@@ -22,7 +22,7 @@ $Producto = json_decode($json);
 
 // query
 $queryInsert = "INSERT INTO `producto`(`idProducto`, `idVendedor`, `Nombre`, `Imagen`, `Descripcion`, `idCategoria`, `Fecha`, `Estado`, `Activo`, `Precio`, `Subasta`) 
-VALUES ( 2, 6,'$Producto->Nombre','$Producto->Imagen', '$Producto->Descripcion' ,$Producto->idCategoria ,'1992-09-14',0,0,$Producto->Precio,$Producto->Subasta)";
+VALUES ( NULL, 6,'$Producto->Nombre','$Producto->Imagen', '$Producto->Descripcion' ,$Producto->idCategoria ,'1992-09-14',0,0,$Producto->Precio,$Producto->Subasta)";
 
 
 $resInsert = mysqli_query($con, $queryInsert);
