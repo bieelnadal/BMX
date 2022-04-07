@@ -95,6 +95,7 @@ export class EditarDireccionComponent implements OnInit {
         Localidad: form.localidad,
         codigoPostal: form.codigoPostal,
         idUsuario: this.datosUsuario.idUsuario,
+        Predeterminado: 0,
       };
       this.direccService.registrarDireccion(nuevaDireccion);
       this.direcciones.reset();
@@ -102,39 +103,36 @@ export class EditarDireccionComponent implements OnInit {
     }
   }
 
-  borrarDireccion(idDirecc:any){
+  borrarDireccion(idDirecc: any) {
     console.log(idDirecc);
     Swal.fire({
       title: '¿Estás seguro?',
-      text: "¡No vas a poder revertir el cambio!",
+      text: '¡No vas a poder revertir el cambio!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: '¡Borrar!'
+      confirmButtonText: '¡Borrar!',
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
           '¡Dirección borrada!',
           'La dirección ha sido borrado con éxito.',
           'success'
-        )
+        );
         this.direccService.borrarDireccion(idDirecc);
+        window.location.reload();
       }
-    })
-    
+    });
   }
 
   mostrarDesplegableAgregarDirecion() {
     if (this.mostrarAgregarDirecion == false) {
       this.mostrarAgregarDirecion = true;
       this.esconderDirecion = false;
-      
     } else {
       this.mostrarAgregarDirecion = false;
       this.esconderDirecion = true;
     }
   }
-
-
 }

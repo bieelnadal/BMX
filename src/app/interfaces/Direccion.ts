@@ -5,4 +5,5 @@ export interface Direccion {
   Localidad?: string;
   codigoPostal?: number;
   idUsuario?: number;
+  Predeterminado?:number;
 }

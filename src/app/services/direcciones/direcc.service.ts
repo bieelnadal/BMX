@@ -18,14 +18,11 @@ const URL_LEER_DIRECCION =
 const URL_OBTENER_DIRECCION_ID =
   'http://localhost:8080/direcciones/obtenerDireccionId.php';
 
-
-
 @Injectable({
   providedIn: 'root',
 })
 export class DireccService {
-
-  dataDireccion:any;
+  dataDireccion: any;
 
   constructor(private http: HttpClient) {}
 
@@ -35,7 +32,7 @@ export class DireccService {
       .subscribe((val: any) => {
         if (val.resultado == 'error') {
           console.log(val.data);
-          
+
           this.swalError();
         } else {
           //funciona bien
@@ -55,12 +52,15 @@ export class DireccService {
       });
   }
 
-  editarDireccion() {}
+  editarDireccion(direccion: Direccion) {
+    return this.http.put(URL_MODIFICAR_DIRECCION, JSON.stringify(direccion)).subscribe();
+  }
 
   // Obtener la direccion por ID
   obtenerDireccionId(idDireccion: any) {
-    return this.http
-      .get(URL_OBTENER_DIRECCION_ID + `?idDireccion=${idDireccion}`);
+    return this.http.get(
+      URL_OBTENER_DIRECCION_ID + `?idDireccion=${idDireccion}`
+    );
   }
 
   //Obtener direcciones

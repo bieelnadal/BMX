@@ -12,38 +12,46 @@
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-        <form [formGroup]="modEditarDirecc" *ngIf="modalClick">
+        <form [formGroup]="modEditarDirecc" (ngSubmit)="onSubmit(modEditarDirecc.value)" *ngIf="modalClick">
             <label>Dirección</label>
             <input type="text" formControlName="direccion" [ngClass]="{ 'is-invalid': form.direccion.errors }">
             <div *ngIf="form.direccion.errors" class="invalid-feedback">
                 <div *ngIf="form.direccion.errors.required">La direccion es obligatoria</div>
             </div>
+            <br>
 
             <label>Pais:</label>
-            <select formControlName="pais">
-                <option [value]="1" selected>España</option>
+            <select formControlName="pais" [ngClass]="{ 'is-invalid' : form.pais.errors}">
+                <option [value]="1" [selected]>España</option>
             </select>
             <div *ngIf="form.pais.errors" class="invalid-feedback">
                 <div *ngIf="form.pais.errors.required">El pais es obligatorio</div>
             </div>
+            <br>
 
             <label>Código Postal</label>
             <input type="text" formControlName="codigoPostal" [ngClass]="{ 'is-invalid': form.codigoPostal.errors }">
             <div *ngIf="form.codigoPostal.errors" class="invalid-feedback">
                 <div *ngIf="form.codigoPostal.errors.required">El código postal es obligatorio</div>
+                <div *ngIf="form.codigoPostal.errors.maxLength">El código postal no puede contener más de 5 carácteres.
+                </div>
+                <div *ngIf="form.codigoPostal.errors.minLength">El código postal no puede contener menos de 5
+                    carácteres.</div>
             </div>
+            <br>
 
             <label>Localidad</label>
             <input type="text" formControlName="localidad" [ngClass]="{ 'is-invalid': form.localidad.errors }">
             <div *ngIf="form.localidad.errors" class="invalid-feedback">
                 <div *ngIf="form.localidad.errors.required">La localidad es obligatoria</div>
             </div>
-            <!-- <button class="modificar-nombre" (click)="onSubmit()">Editar Direccion</button> -->
+            <br>
+            <button type="submit" class="btn btn-light" style="float: right;">Aplicar Cambios</button>
         </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-light" (click)="onSubmit()">Aplicar Cambios</button>
+
         <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>
-        
+
     </div>
 </ng-template>
