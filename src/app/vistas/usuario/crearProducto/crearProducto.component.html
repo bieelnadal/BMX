@@ -4,11 +4,21 @@
     <h1>Registro Producto:</h1>
     <input type="text" maxlength="60" formControlName="NombreProducto" class=""
       placeholder="Nombre del Producto*"><br><br>
+    <div>
+      <div *ngIf="form.NombreProducto.errors">
+        <p *ngIf="form.NombreProducto.errors.required" class="color-validators">Campo obligatorio*</p>
+        <p *ngIf="form.NombreProducto.errors.minLength" class="color-validators">¡Ay! Tu nombre debe tener al menos 3 caracteres*</p>
+      </div>
+    </div>
+
     <input type="text" maxlength="60" formControlName="DescripcionProducto" class=""
       placeholder="Descripcion Producto*"><br><br>
-<!--    <input type="number" maxlength="1" formControlName="idCategoriaProducto" class=""
-      placeholder="Categoria Producto*"><br><br>-->
-
+      <div>
+        <div *ngIf="form.DescripcionProducto.errors">
+          <p *ngIf="form.DescripcionProducto.errors.required" class="color-validators"> Campoobligatorio*</p>
+          <p *ngIf="form.DescripcionProducto.errors.minLength" class="color-validators">¡Ay! Tu nombre debe tener al menos 5 caracteres*</p>
+        </div>
+      </div>
     <select class="option-select" formControlName="Categoria" id="">
       <option value="" selected disabled class="option-select">Escoge una Categoria*</option>
       <option value="2" class="option-select">Relojes</option>
@@ -16,11 +26,30 @@
       <option value="4" class="option-select">Electrodomésticos</option>
       <option value="5" class="option-select">Ropa</option>
     </select><br><br>
-
+    <div>
+      <div *ngIf="form.Categoria.errors">
+        <p *ngIf="form.Categoria.errors.required" class="color-validators">Campo obligatorio*</p>
+      </div>
+    </div>
     <input type="number" maxlength="5" formControlName="PrecioProducto" class="" placeholder="Precio Producto*"><br><br>
+    <div>
+      <div *ngIf="form.PrecioProducto.errors">
+        <p *ngIf="form.PrecioProducto.errors.required" class="color-validators">Campo obligatorio*</p>
+      </div>
+    </div>
     <input type="number" maxlength="1" formControlName="SubastaProducto" class=""
       placeholder="Precio minimo Para la subastar el produto*"><br><br>
+      <div>
+        <div *ngIf="form.SubastaProducto.errors">
+          <p *ngIf="form.SubastaProducto.errors.required" class="color-validators">Campo obligatorio*</p>
+        </div>
+      </div>
     <input type="file" formControlName="imagenProducto" class=""><br><br>
+    <div>
+      <div *ngIf="form.imagenProducto.errors">
+        <p *ngIf="form.imagenProducto.errors.required" class="color-validators">Campo obligatorio*</p>
+      </div>
+    </div>
     <button type="submit" class="crear-ranking">Crear Producto</button>
   </form>
 </div>

@@ -70,6 +70,10 @@ export class CrearProductoComponent implements OnInit {
     });
   }
 
+  get form(){
+    return this.crearProdutoForm.controls;
+   }
+ 
   get nombreProducto() {
     return this.crearProdutoForm.get('NombreProducto') as FormControl;
   }

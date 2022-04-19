@@ -24,7 +24,7 @@ echo $mifecha;
 
 // query
 $queryInsert = "INSERT INTO `producto`(`idProducto`, `idVendedor`, `Nombre`, `Imagen`, `Descripcion`, `idCategoria`, `Fecha`, `Estado`, `Activo`, `Precio`, `Subasta`) 
-VALUES ( NULL,'$Producto->idVendedor','$Producto->Nombre','$Producto->Imagen', '$Producto->Descripcion' ,$Producto->idCategoria ,'$mifecha',1,1,$Producto->Precio,$Producto->Subasta)";
+VALUES ( NULL,'$Producto->idVendedor','$Producto->Nombre','$Producto->Imagen', '$Producto->Descripcion' ,$Producto->idCategoria ,'$mifecha',0,0,$Producto->Precio,$Producto->Subasta)";
 
 
 $resInsert = mysqli_query($con, $queryInsert);
