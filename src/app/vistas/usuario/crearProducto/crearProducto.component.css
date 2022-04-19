@@ -61,3 +61,7 @@ button:hover{
 .option-select{
     color: rgb(51, 51, 51);
 }
+
+.color-validators{
+    color:red;
+}
