@@ -52,7 +52,7 @@ export class EditarDireccionComponent implements OnInit {
       pais: ['', [Validators.required]],
       codigoPostal: [
         '',
-        [Validators.required, Validators.minLength(5), Validators.maxLength(5)],
+        [Validators.required, Validators.maxLength(5)],
       ],
       localidad: ['', [Validators.required]],
     });
@@ -82,6 +82,27 @@ export class EditarDireccionComponent implements OnInit {
             console.log(this.listaDirecciones);
           }
         });
+      }
+    });
+  }
+
+  direccPredeterminada(direccion: Direccion) {
+    Swal.fire({
+      title: '¿Quieres hacer de esta tu dirección predeterminada?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: '¡Establecer Predeterminada!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          '¡Dirección actualizada!',
+          'Tu dirección predeterminada ha sido cambiada con éxito.',
+          'success'
+        );
+        this.direccService.editarPredeterminado(direccion);
+        window.location.reload();
       }
     });
   }

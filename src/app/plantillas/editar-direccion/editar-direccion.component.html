@@ -8,6 +8,7 @@
         <div class="card-direcion" *ngFor="let direcc of listaDirecciones; let i = index">
             <div class="contenido-card">
                 <h4 class="texto-card">{{direcc.Direccion}}</h4>
+                <h5 class="texto-card">{{direcc.Localidad}} {{direcc.codigoPostal}}</h5>
                 <hr>
                 <div class="agregar-card">
                     <!--borrar dicecion-->
@@ -16,14 +17,17 @@
                         viewBox="0 0 16 16">
                         <path
                             d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
-                    </svg>            
-                        <app-editar-direccion-modal [direccSelecc]="direcc.idDireccion"></app-editar-direccion-modal>
+                    </svg>
+
+                    <app-editar-direccion-modal [direccSelecc]="direcc.idDireccion"></app-editar-direccion-modal>
+                    <button *ngIf="this.direcc.Predeterminado==0" (click)="direccPredeterminada(direcc)">
+                        Predet.
+                    </button>
                 </div>
             </div>
         </div>
     </div>
     <div class="formulario-direcion" *ngIf="this.mostrarAgregarDirecion">
-        <h5>Añadir Direciones</h5>
         <form [formGroup]="direcciones" (ngSubmit)="onSubmit(direcciones.value)">
             <!--Direcion-->
             <label>Direccion:</label>
@@ -49,17 +53,6 @@
                 </div>
             </div>
 
-            <!--Codigo postal-->
-            <label>Codigo postal:</label>
-            <input type="number" formControlName="codigoPostal" [minLength]="5" [maxLength]="5"
-                placeholder="Codigo postal" [ngClass]="{ 'is-invalid': form.codigoPostal.errors }">
-            <div>
-                <div *ngIf="form.codigoPostal.errors">
-                    <p class="validaciones" *ngIf="form.codigoPostal.errors.required">Mmmmm... parece que este campo es
-                        obligatorio*</p>
-                    <br>
-                </div>
-            </div>
             <!--Localidad-->
             <label>Localidad:</label>
             <input type="text" formControlName="localidad" placeholder="Localidad"
@@ -71,6 +64,19 @@
                     <br>
                 </div>
             </div>
+
+            <!--Codigo postal-->
+            <label>Codigo postal:</label>
+            <input type="number" formControlName="codigoPostal" [minLength]="5" [maxLength]="5"
+                placeholder="Codigo postal" [ngClass]="{ 'is-invalid': form.codigoPostal.errors }">
+            <div>
+                <div *ngIf="form.codigoPostal.errors">
+                    <p class="validaciones" *ngIf="form.codigoPostal.errors.required">Mmmmm... parece que este campo es
+                        obligatorio*</p>
+                    <br>
+                </div>
+            </div>
+
             <input type="submit" value="Añadir direcion">
         </form>
     </div>

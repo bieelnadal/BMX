@@ -27,6 +27,9 @@ import { PlantillaProductoComponent } from './plantillas/plantilla-producto/plan
 import { EditarDireccionModalComponent } from './plantillas/editar-direccion-modal/editar-direccion-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CrearProductoComponent } from './vistas/usuario/crearProducto/crearProducto.component';
+import { DashboardAdminComponent } from './vistas/admin/dashboard-admin/dashboard-admin.component';
+import { GestionUsuariosComponent } from './vistas/admin/gestion-usuarios/gestion-usuarios.component';
+import { TablaVerificarProductosComponent } from './vistas/admin/tabla-verificar-productos/tabla-verificar-productos.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { CrearProductoComponent } from './vistas/usuario/crearProducto/crearProd
     EditarDireccionComponent,
     PlantillaProductoComponent,
     EditarDireccionModalComponent,
-    CrearProductoComponent
+    CrearProductoComponent,
+    DashboardAdminComponent,
+    GestionUsuariosComponent,
+    TablaVerificarProductosComponent
   ],
   imports: [
     BrowserModule,

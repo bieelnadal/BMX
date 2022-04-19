@@ -23,14 +23,23 @@ $direccion = json_decode($json);
 $queryInsert = "INSERT INTO `direccion`(`idDireccion`, `Direccion`, `Pais`, `Localidad`, `codigoPostal`, `idUsuario`, `Predeterminado`) VALUES (null,'$direccion->Direccion','$direccion->Pais','$direccion->Localidad',$direccion->codigoPostal,'$direccion->idUsuario', 0)";
 
 
+$queryComprobarPredeterminado = "SELECT `idDireccion` FROM `direccion` WHERE `idUsuario`='$direccion->idUsuario'";
 
 $querySelect = "SELECT * FROM `direccion` WHERE `Direccion` = '$direccion->Direccion'";
+
+$resComprobar = mysqli_query($con, $queryComprobarPredeterminado);
 
 $resInsert = mysqli_query($con, $queryInsert);
 
 $resSelect = mysqli_query($con, $querySelect);
 
 if ($resSelect) {
+
+    if (mysqli_num_rows($resComprobar) == 1) {
+    } else {
+        $queryUpdate = "UPDATE `direccion` SET `Predeterminado`=1 WHERE `idUsuario`='$direccion->idUsuario'";
+        mysqli_query($con, $queryUpdate);
+    }
 
     $response->resultado = 'ok';
     $response->mensaje = 'Se ha registrado correctamente';

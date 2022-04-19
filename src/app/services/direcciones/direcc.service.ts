@@ -18,6 +18,9 @@ const URL_LEER_DIRECCION =
 const URL_OBTENER_DIRECCION_ID =
   'http://localhost:8080/direcciones/obtenerDireccionId.php';
 
+const URL_MODIFICAR_PREDETERMINADO =
+  'http://localhost:8080/direcciones/establecerPredeterminado.php';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -52,8 +55,16 @@ export class DireccService {
       });
   }
 
+  editarPredeterminado(direccion: Direccion) {
+    return this.http
+      .put(URL_MODIFICAR_PREDETERMINADO, JSON.stringify(direccion))
+      .subscribe();
+  }
+
   editarDireccion(direccion: Direccion) {
-    return this.http.put(URL_MODIFICAR_DIRECCION, JSON.stringify(direccion)).subscribe();
+    return this.http
+      .put(URL_MODIFICAR_DIRECCION, JSON.stringify(direccion))
+      .subscribe();
   }
 
   // Obtener la direccion por ID

@@ -8,11 +8,10 @@ import { AdminHeaderComponent } from './plantillas/admin-header/admin-header.com
 import { PerfilUsuarioComponent } from './vistas/usuario/perfil-usuario/perfil-usuario.component';
 import { PerfilAdminComponent } from './vistas/admin/perfil-admin/perfil-admin.component';
 import { HomeComponent } from './vistas/home/home.component';
-import { EditarDatosUsuarioComponent } from './plantillas/editar-datos-usuario/editar-datos-usuario.component';
 import { EditarDireccionComponent } from './plantillas/editar-direccion/editar-direccion.component';
 import { PlantillaProductoComponent } from './plantillas/plantilla-producto/plantilla-producto.component';
 import { CrearProductoComponent } from './vistas/usuario/crearProducto/crearProducto.component';
-
+import { DashboardAdminComponent } from './vistas/admin/dashboard-admin/dashboard-admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,14 +19,14 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'header', component: HeaderComponent },
   { path: 'footer', component: FooterComponent },
-  { path: 'admin-header', component: AdminHeaderComponent},
-  { path: 'perfil-usuario', component: PerfilUsuarioComponent},
-  { path: 'perfil-admin', component: PerfilAdminComponent},
-  { path: 'home', component: HomeComponent},
-  { path: 'editar-datos-usuarios', component: EditarDatosUsuarioComponent},
-  { path: 'editar-direccion', component: EditarDireccionComponent},
-  { path: 'producto', component: PlantillaProductoComponent},
-  { path: 'crear-Producto', component: CrearProductoComponent}
+  { path: 'admin-header', component: AdminHeaderComponent },
+  { path: 'perfil-usuario', component: PerfilUsuarioComponent },
+  { path: 'perfil-admin', component: PerfilAdminComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'editar-direccion', component: EditarDireccionComponent },
+  { path: 'producto', component: PlantillaProductoComponent },
+  { path: 'crear-Producto', component: CrearProductoComponent },
+  { path: 'dashboard-admin', component: DashboardAdminComponent },
 ];
 
 @NgModule({
