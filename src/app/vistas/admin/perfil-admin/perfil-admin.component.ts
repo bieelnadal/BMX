@@ -30,7 +30,7 @@ export class PerfilAdminComponent implements OnInit {
     public fc: FormBuilder,
     private tokenServ: TokenSesionService,
     private authServ: AuthService
-  ) {}
+  ) { }
 
   mostrarDesplegableVisual: boolean = false;
   mostrarDesplegableEditarPerfilVisual: boolean = false;
@@ -48,6 +48,7 @@ export class PerfilAdminComponent implements OnInit {
       localidad: ['', [Validators.required]],
     });
     this.obtenerDatos();
+
   }
 
   obtenerDatos() {
@@ -62,7 +63,7 @@ export class PerfilAdminComponent implements OnInit {
     return this.direciones.controls;
   }
 
-  onSubmit() {}
+  onSubmit() { }
 
   mostrarDesplegableDireciones() {
     if (this.mostrarDesplegableVisual == false) {
