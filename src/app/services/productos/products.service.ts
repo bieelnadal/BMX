@@ -5,7 +5,11 @@ import { Producto } from 'src/app/interfaces/Productos';
 
 
 const URL = 'http://localhost:8080/';
+
 const URL_CREAR_PRODUCTO='http://localhost:8080/productos/crearProductos.php';
+
+const URL_OBTENER_PRODUCTO="http://localhost:8080/productos/obtenerProductos.php"
+
 
 
 @Injectable({
@@ -29,10 +33,13 @@ export class ProductsService {
 
   }
 
-
-
   editarProducto(){
 
+  }
+
+  obtenerProducto() {
+    
+    return this.http.get(URL_OBTENER_PRODUCTO);
   }
 
   borrarProducto(){

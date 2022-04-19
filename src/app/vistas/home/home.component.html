@@ -78,9 +78,9 @@
       </ul>
     </mat-sidenav>
     <mat-sidenav-content>
-      <div class="articulos" >
+      <div class="articulos" *ngFor="let ProductoListado of listaProductos,  let i = index">
         <div class="art">
-
+        {{listaProductos}}
         </div>
         <div class="art">
 
