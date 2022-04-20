@@ -20,7 +20,7 @@
   global $datos;
 
   // query
-  $query = "SELECT * FROM `usuarios` WHERE `idAdmin`=0";
+  $query = "SELECT * FROM `producto` WHERE `subasta`=1";
   $registros = mysqli_query($con, $query);
   
   // si la query ha sido correcta hacemos fetch
@@ -33,3 +33,4 @@
     $response->mensaje = 'Hubo un problema con la base de datos.';
     echo json_encode($response);
   }
+?>
