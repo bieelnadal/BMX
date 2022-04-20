@@ -147,21 +147,53 @@ mat-sidenav{
   border-color: var(--verdeprincipal)
 }
 
-.articulos{
+.padre{
   display: flex;
   justify-content: center;
-  margin-bottom: 100px;
 }
 
-.art{
-  height: 300px;
-  width: 300px;
-  background-color: #111;
-  margin-right: 60px;
-  position: relative;
+.a_card{
+color: rgb(45, 44, 44);
+}
+
+.centrar{
+ margin-top: 10px;
+}
+
+/*cartas de productos*/
+
+.card {
+  border-radius: 5px    ;
+  box-shadow: var(--verdeprincipal);
+  width: 500px;
+  text-align: center;
+  display: inline-block;
+  justify-content: center;
+  margin: 15px;
+
+}
+
+.price {
+  color: var(--dorado);
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
   color: white;
-
+  background-color: var(--viridian);
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
 }
+
+.card button:hover {
+  opacity: 0.7;
+}
+
 
 /* APPLYING MEDIA QUERIES */
 @media (max-width: 768px) {

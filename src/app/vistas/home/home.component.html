@@ -6,7 +6,7 @@
 <div>
   <nav class="navbar">
     <div (click)="closeSidenav()">
-      <button for="checkbox_toggle" class="hamburger" > &#9776;</button>
+      <button for="checkbox_toggle" class="hamburger"> &#9776;</button>
     </div>
 
     <!-- USING CHECKBOX HACK -->
@@ -78,15 +78,17 @@
       </ul>
     </mat-sidenav>
     <mat-sidenav-content>
-      <div class="articulos" *ngFor="let ProductoListado of listaProductos,  let i = index">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              Column
-            </div>
+      <div class="padre">
+        <div class="centrar">
+          <div class="card" *ngFor="let ProductoListado of listaProductos,  let i = index">
+            <a href="" class="a_card">
+              <img src="{{ProductoListado.Imagen}}" alt="Denim Jeans" style="width:100%">
+              <h1>{{ProductoListado.Nombre}}</h1>
+              <p class="price">{{ProductoListado.Precio}}</p>
+              <p>{{ProductoListado.Descripcion}}</p>
+            </a>
           </div>
         </div>
-
       </div>
 
 
