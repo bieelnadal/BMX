@@ -8,23 +8,11 @@ import { ProductsService } from 'src/app/services/productos/products.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  producto: Producto = {
-    idProducto: 0,
-    idVendedor: 0,
-    Nombre: '',
-    Imagen: '',
-    Descripcion: '',
-    idCategoria: 0,
-    Fecha: '',
-    Estado: 0,
-    Activo: 0,
-    Precio: 0,
-    Subasta: 0,
-  }
+
 
   opened = false;
   listaProductos: any[] = [];
-
+  producto: any;
 
   closeSidenav(){
       this.opened = !this.opened;
@@ -42,9 +30,25 @@ export class HomeComponent implements OnInit {
 
   obtenerProductos() {
     this.listaProductos = [];
-    this.ProductsService.obtenerProducto();
+    this.ProductsService.obtenerProducto().subscribe((val: any) => {
+      this.producto = val;
+      if (this.producto == null) {
+        console.log('producto es null');
+        
+      } else {
+        console.log('entra');
+        val.forEach((element: any) => {
+          console.log('entra for each');
+            this.listaProductos.push(element);
+            console.log(this.listaProductos);
+          
+        });
+      }
+    });
+
     };
   
+
 
 
 }

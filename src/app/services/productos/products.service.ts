@@ -38,7 +38,6 @@ export class ProductsService {
   }
 
   obtenerProducto() {
-    
     return this.http.get(URL_OBTENER_PRODUCTO);
   }
 
