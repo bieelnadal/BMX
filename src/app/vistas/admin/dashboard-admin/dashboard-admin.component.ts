@@ -22,17 +22,16 @@ export class DashboardAdminComponent implements OnInit {
     idAdmin: 1,
   };
 
-  usuario: any;
-  listaUsuarios: any[] = [];
+  totalUsuarios: any;
 
   constructor(
-    private UsersService: UsersService,
+    private usersService: UsersService,
     private tokenServ: TokenSesionService
   ) {}
 
   validarproductosVisual: boolean = false;
   gestionarusuariosVisual: boolean = false;
-  contarUsuarios: any;
+
   ngOnInit() {
     this.obtenerDatos();
     this.obtenerUsuarios();
@@ -43,7 +42,9 @@ export class DashboardAdminComponent implements OnInit {
   }
 
   obtenerUsuarios(){
-
+    this.usersService.contarUsuarios().subscribe((val: any) => {
+      this.totalUsuarios=val;
+    });
   }
 
   mostrarValidarProductos() {

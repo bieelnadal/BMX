@@ -51,7 +51,7 @@ export class UsersService {
     return this.http.get(URL_VALIDAR_EMAIL + `?Email=${email}`);
   }
 
-  contarUsuariosRegistrados(){
+  contarUsuarios(){
     return this.http.get(URL_CONTAR_USER);
   }
 

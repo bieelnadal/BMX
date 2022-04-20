@@ -20,16 +20,12 @@
   global $datos;
 
   // query
-  $query = "SELECT COUNT(*) FROM `usuarios` WHERE 1";
+  $query = "SELECT * FROM `usuarios` WHERE `idAdmin`=0";
   $registros = mysqli_query($con, $query);
   
   // si la query ha sido correcta hacemos fetch
   if ($registros) {
-    while ($resultado = mysqli_fetch_array($registros))
-    {
-      $datos = $resultado;
-    }
-    echo $datos;
+    $datos=mysqli_num_rows($registros);
     $json = json_encode($datos);
     echo $json;
   } else {
