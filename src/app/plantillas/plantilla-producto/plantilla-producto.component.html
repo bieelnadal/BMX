@@ -1,39 +1,27 @@
 <app-header></app-header>
 <div class="artBox">
   <div class="seccion1">
-    <h1 class="nomArt">Camiseta de Maradona Mundial 1986 México</h1>
+    <h1 class="nomArt">{{producto.Nombre}}</h1>
 
     <div class="contenedorImg">
-      <img class="imgArt" src="../../../assets/BID&GO (1).png" alt="">
+      <img class="imgArt" src="{{producto.Imagen}}" alt="{{producto.Nombre}}">
     </div>
 
-    <div class="info">
-      <h3 class="pujaUltima">Ultima Puja: 1000000€</h3>
-
-      <h3>Tiempo restante: </h3>
-
-      <h3>10h"34m"24s</h3>
-
-    </div>
 
   </div>
 
   <div class="seccion2">
 
-    <h3 class="titulo-desc">Descripcción del producto</h3>
-
-    <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, suscipit natus? Velit necessitatibus, quos ratione, consequatur hic cum placeat eius porro sapiente esse vel aperiam dolores molestiae. Eaque, minus odio!
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, suscipit natus? Velit necessitatibus, quos ratione, consequatur hic cum placeat eius porro sapiente esse vel aperiam dolores molestiae. Eaque, minus odio!
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, suscipit natus? Velit necessitatibus, quos ratione, consequatur hic cum placeat eius porro sapiente esse vel aperiam dolores molestiae. Eaque, minus odio!
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, suscipit natus? Velit necessitatibus, quos ratione, consequatur hic cum placeat eius porro sapiente esse vel aperiam dolores molestiae. Eaque, minus odio!
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, suscipit natus? Velit necessitatibus, quos ratione, consequatur hic cum placeat eius porro sapiente esse vel aperiam dolores molestiae. Eaque, minus odio!
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, suscipit natus? Velit necessitatibus, quos ratione, consequatur hic cum placeat eius porro sapiente esse vel aperiam dolores molestiae. Eaque, minus odio!
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, suscipit natus? Velit necessitatibus, quos ratione, consequatur hic cum placeat eius porro sapiente esse vel aperiam dolores molestiae. Eaque, minus odio!
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, suscipit natus? Velit necessitatibus, quos ratione, consequatur hic cum placeat eius porro sapiente esse vel aperiam dolores molestiae. Eaque, minus odio!
+    <h3 class="titulo-desc">Descripción del producto</h3>
+    <hr>
+    <p class="desc">
+      {{producto.Descripcion}}
     </p>
 
     <div class="contBTN">
-      <button class="btnPuja">Pujar</button>
+      <hr>
+      <h3 class="Precio">Precio: {{producto.Precio}}€</h3>
+      <button class="btnPuja">Comprar</button>
     </div>
 
   </div>

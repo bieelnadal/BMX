@@ -107,9 +107,9 @@ export class CrearProductoComponent implements OnInit {
     this.producto.Precio = this.PrecioProducto.value;
     this.producto.Subasta = this.SubastaProducto.value;
 
-    console.log(this.imgSrc);
     
-    this.ProductsService.registrarProducto(this.producto)
+    this.ProductsService.registrarProducto(this.producto);
+    window.location.reload();
     
   }
 
@@ -120,7 +120,7 @@ export class CrearProductoComponent implements OnInit {
     if (this.crearProdutoForm.valid) {
       console.log('Funcion onSubmit pasa a funcion crearProducto');
       this.crearProductoNuevo();
-
+      
 
     }
   }

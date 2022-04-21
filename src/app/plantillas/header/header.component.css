@@ -29,6 +29,7 @@ li {
 .logo {
   font-size: 32px;
   color: var(--dorado);
+  cursor: pointer;
 }
 /* NAVBAR MENU */
 .menu {

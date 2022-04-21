@@ -34,29 +34,36 @@
   padding-left: 5%;
   float: left;
   color: var(--verdeprincipal);
+  width: 100%;
 }
 
 .contenedorImg .imgArt{
   background-color: gray;
   max-width: auto;
   height: auto;
-  width: auto;
+  width: 100%;
   object-fit: fill;
 }
 
-.imgArt{
-
-
+hr{
+  margin: 15px;
 }
 
 .desc{
-  padding-top: 5%;
+  font-size: 18px;
   padding-left: 10%;
   padding-right: 10%;
+  text-align: center;
 }
 
 .titulo-desc{
-  padding-left: 10%;
+  text-align: center;
+}
+
+.Precio{
+  color: var(--dorado);
+  text-align: center;
+  margin: 25px;
 }
 
 .btnPuja{
@@ -64,20 +71,22 @@
   color: white;
   justify-content: center;
   align-items: center;
-  border-radius: 3px;
-  height: 40px;
+  border-radius: 5px;
+  height: 60px;
   width: 400px;
   position: absolute;
   margin: 0 auto;
   left: 0;
   right: 0;
+  font-size: 25px;
+  border: none;
+
 
 }
 
 .contBTN{
   padding-top: 15%;
   padding-bottom: 21.4%;
-  padding-left: 10%;
   align-items: center;
   position: relative;
 }

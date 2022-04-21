@@ -14,6 +14,8 @@ const URL_CONTAR_PRODUCTOS = "http://localhost:8080/productos/contarProductos.ph
 
 const URL_CONTAR_PRODUCTOS_SUBASTA = "http://localhost:8080/productos/contarProductosSubasta.php";
 
+const URL_OBTENER_PRODUCTO_ID = "http://localhost:8080/productos/obtenerProductoId.php";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -45,6 +47,12 @@ export class ProductsService {
 
   borrarProducto(){
 
+  }
+
+  PasarProductoId(idProducto: any) {
+    return this.http.get(
+      URL_OBTENER_PRODUCTO_ID + `?idDireccion=${idProducto}`
+    );
   }
 
   contarProductos(){
