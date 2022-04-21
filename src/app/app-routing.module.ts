@@ -24,9 +24,10 @@ const routes: Routes = [
   { path: 'perfil-admin', component: PerfilAdminComponent },
   { path: 'home', component: HomeComponent },
   { path: 'editar-direccion', component: EditarDireccionComponent },
-  { path: 'producto', component: PlantillaProductoComponent },
+  { path: 'producto/:nombre/:id', component: PlantillaProductoComponent },
   { path: 'crear-Producto', component: CrearProductoComponent },
   { path: 'dashboard-admin', component: DashboardAdminComponent },
+
 ];
 
 @NgModule({

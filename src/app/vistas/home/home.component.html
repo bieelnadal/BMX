@@ -81,7 +81,8 @@
       <div class="padre">
         <div class="centrar">
           <div class="card" *ngFor="let ProductoListado of listaProductos,  let i = index">
-            <a href="" class="a_card">
+            <a [routerLink]="['/producto' ,ProductoListado.Nombre, ProductoListado.idProducto]" class="a_card">
+
               <div class="cat">
               <img src="{{ProductoListado.Imagen}}" alt="{{ProductoListado.Nombre}}">
             </div>

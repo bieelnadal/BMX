@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-plantilla-producto',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlantillaProductoComponent implements OnInit {
 
-  constructor() { }
+  nombreProducto: any;
+  idProducto:any;
+
+  constructor( private _route: ActivatedRoute) { }
+
+
 
   ngOnInit(): void {
+     this.nombreProducto = this._route.snapshot.paramMap.get('nombre');
+    this.idProducto = this._route.snapshot.paramMap.get('id'); 
+
   }
+
+
 
 }

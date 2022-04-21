@@ -34,17 +34,11 @@ export class HomeComponent implements OnInit {
     this.ProductsService.obtenerProducto().subscribe((val: any) => {
       this.producto = val;
       if (this.producto == null) {
-        console.log('producto es null');
-        
       } else {
-        console.log('entra');
         console.log(this.listaProductos);
         
         val.forEach((element: any) => {
-          console.log('entra for each');
             this.listaProductos.push(element);
-            console.log(this.listaProductos);
-          
         });
       }
     });
