@@ -15,6 +15,7 @@ export class CrearProductoComponent implements OnInit {
 
   crearProdutoForm !: FormGroup;
   submitted: boolean = false;
+  imgSrc: any;
 
   datosUsuario: Usuario = {
     idUsuario: 0,
@@ -100,13 +101,16 @@ export class CrearProductoComponent implements OnInit {
   crearProductoNuevo():any { 
     this.producto.idVendedor = this.datosUsuario.idUsuario;
     this.producto.Nombre = this.nombreProducto.value;
-    this.producto.Imagen = this.imagenProducto.value;
+    this.producto.Imagen = this.imgSrc;
     this.producto.Descripcion = this.DescripcionProducto.value;
     this.producto.idCategoria = this.CategoriaProducto.value;
     this.producto.Precio = this.PrecioProducto.value;
     this.producto.Subasta = this.SubastaProducto.value;
 
+    console.log(this.imgSrc);
+    
     this.ProductsService.registrarProducto(this.producto)
+    
   }
 
 
@@ -129,5 +133,16 @@ export class CrearProductoComponent implements OnInit {
       text: 'Algo no funciona bien, perdone la molestias!',
     })
   }
+  
+  readURL(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (e: any) => (this.imgSrc = e.target.result);
+      reader.readAsDataURL(file);
+    }
+  }
+
+
 
 }

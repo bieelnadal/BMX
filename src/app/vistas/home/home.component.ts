@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerProductos();
+    
   }
 
 
@@ -37,6 +38,8 @@ export class HomeComponent implements OnInit {
         
       } else {
         console.log('entra');
+        console.log(this.listaProductos);
+        
         val.forEach((element: any) => {
           console.log('entra for each');
             this.listaProductos.push(element);

@@ -44,7 +44,7 @@
           <p *ngIf="form.SubastaProducto.errors.required" class="color-validators">Campo obligatorio*</p>
         </div>
       </div>
-    <input type="file" formControlName="imagenProducto" class=""><br><br>
+    <input type="file" formControlName="imagenProducto" (change)="readURL($event)"><br><br>
     <div>
       <div *ngIf="form.imagenProducto.errors">
         <p *ngIf="form.imagenProducto.errors.required" class="color-validators">Campo obligatorio*</p>
