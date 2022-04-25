@@ -12,6 +12,7 @@ import { EditarDireccionComponent } from './plantillas/editar-direccion/editar-d
 import { PlantillaProductoComponent } from './plantillas/plantilla-producto/plantilla-producto.component';
 import { CrearProductoComponent } from './vistas/usuario/crearProducto/crearProducto.component';
 import { DashboardAdminComponent } from './vistas/admin/dashboard-admin/dashboard-admin.component';
+import { CarritoComponent } from './plantillas/carrito/carrito.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'producto/:nombre/:id', component: PlantillaProductoComponent },
   { path: 'crear-Producto', component: CrearProductoComponent },
   { path: 'dashboard-admin', component: DashboardAdminComponent },
+  { path: 'carrito/:id', component: CarritoComponent}
 
 ];
 

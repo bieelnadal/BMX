@@ -17,15 +17,20 @@
     <p class="desc">
       {{producto.Descripcion}}
     </p>
+    <p class="descVendedor">
+      Nombre del vendedor: {{datosUsuario.Nombre}} {{datosUsuario.Apellidos}}
+    </p>
+
 
     <div class="contBTN">
       <hr>
       <h3 class="Precio">Precio: {{producto.Precio}}€</h3>
-      <button class="btnPuja">Comprar</button>
+      <button class="btnPuja" [routerLink]="['/carrito', producto.idProducto]">Comprar</button>
     </div>
 
   </div>
 </div>
+<app-footer></app-footer>
 
 
 
