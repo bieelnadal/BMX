@@ -85,7 +85,7 @@
                 </div>
                 <p>
                     <input id="confirmPasscode" [type]="confirmPassType" [ngClass]="{ 'is-invalid': form.confirmPasscode.errors }" formControlName="confirmPasscode" maxlength="50"
-                         required placeholder="Confirmar Contraseña*" />
+                        minlength="3" required placeholder="Confirmar Contraseña*" />
                         <i *ngIf="this.confirmPassShown" (click)="toggleConfirmPass()" class="material-icons">
                             visibility
                         </i>
@@ -100,7 +100,7 @@
                         coincidir</div>
                 </div>
                 <p>
-                    <input type="text" formControlName="dni" [ngClass]="{ 'is-invalid': form.dni.errors }" placeholder="Dni*" />
+                    <input type="text" formControlName="dni" maxlength="9" minlength="9" [ngClass]="{ 'is-invalid': form.dni.errors }" required placeholder="Dni*" />
                 </p>
                 <div *ngIf="submitted && form.dni.errors" class="invalid-feedback">
                     <div *ngIf="form.dni.errors.required" class="validator-error">El dni es necesario</div>

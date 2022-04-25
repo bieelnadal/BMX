@@ -31,7 +31,6 @@ import { DashboardAdminComponent } from './vistas/admin/dashboard-admin/dashboar
 import { GestionUsuariosComponent } from './vistas/admin/gestion-usuarios/gestion-usuarios.component';
 import { TablaVerificarProductosComponent } from './vistas/admin/tabla-verificar-productos/tabla-verificar-productos.component';
 import { CarritoComponent } from './plantillas/carrito/carrito.component';
-import { EditarDatosUsuarioModalComponent } from './plantillas/editar-datos-usuario-modal/editar-datos-usuario-modal.component';
 
 @NgModule({
   declarations: [
@@ -53,8 +52,7 @@ import { EditarDatosUsuarioModalComponent } from './plantillas/editar-datos-usua
     DashboardAdminComponent,
     GestionUsuariosComponent,
     TablaVerificarProductosComponent,
-    CarritoComponent,
-    EditarDatosUsuarioModalComponent
+    CarritoComponent
   ],
   imports: [
     BrowserModule,
