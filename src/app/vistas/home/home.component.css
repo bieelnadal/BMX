@@ -158,8 +158,6 @@ color: rgb(45, 44, 44);
 
 .centrar{
  margin-top: 10px;
- display: grid;
- grid-template-columns: 1fr 1fr 1fr;
 }
 
 /*cartas de productos*/
@@ -169,6 +167,8 @@ color: rgb(45, 44, 44);
   box-shadow: var(--verdeprincipal);
   width: 500px;
   text-align: center;
+  display: inline-block;
+  justify-content: center;
   margin: 15px;
 
 }
