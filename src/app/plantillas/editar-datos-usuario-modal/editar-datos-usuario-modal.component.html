@@ -1,0 +1,108 @@
+<button>
+    <svg (click)="enviar(content)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-pencil-fill" viewBox="0 0 16 16">
+        <path
+            d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+    </svg>
+</button>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Editar Dirección</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="modEditarUsuario" (ngSubmit)="onSubmit(modEditarUsuario.value)" *ngIf="modalClick">
+            <label>Nombre</label>
+            <input type="text" formControlName="nombre" [ngClass]="{ 'is-invalid': form.nombre.errors }">
+            <div *ngIf="form.nombre.errors" class="invalid-feedback">
+                <div *ngIf="form.nombre.errors.required">El nombre es obligatorio</div>
+            </div>
+            <br>
+
+            <label>Apellidos:</label>
+            <input type="text" formControlName="apellidos" [ngClass]="{ 'is-invalid': form.apellidos.errors }">
+            <div *ngIf="form.apellidos.errors" class="invalid-feedback">
+                <div *ngIf="form.apellidos.errors.required">Los apellidos son obligatorios</div>
+            </div>
+            <br>
+
+            <label>Email</label>
+            <input type="text" formControlName="email" [ngClass]="{ 'is-invalid': form.email.errors }">
+            <div *ngIf="form.email.errors" class="invalid-feedback">
+                <div *ngIf="form.email.errors.required">El email es obligatorio.</div>
+                <div *ngIf="form.email.errors.email">Formato de email incorrecto.
+                </div>
+            </div>
+            <br>
+
+            <label>Contraseña</label>
+            <input id="passcode" [type]="passType" formControlName="passcode"
+                [ngClass]="{ 'is-invalid': form.passcode.errors }" maxlength="50" minlength="3" required
+                placeholder="Contraseña*" />
+            <i *ngIf="this.passShown" (click)="togglePass()" class="material-icons">
+                visibility
+            </i>
+            <i *ngIf="!this.passShown" (click)="togglePass()" class="material-icons">
+                visibility_off
+            </i>
+            <div *ngIf="submitted && form.passcode.errors" class="invalid-feedback">
+                <div *ngIf="form.passcode.errors.required" class="validator-error">La contraseña es necesaria</div>
+                <div *ngIf="form.passcode.errors.minlength" class="validator-error">La contraseña debe contener al
+                    menos 6 carácteres</div>
+            </div>
+            <br>
+
+
+
+            <label>Confirmar Contraseña</label>
+            <input id="confirmPasscode" [type]="confirmPassType"
+                [ngClass]="{ 'is-invalid': form.confirmPasscode.errors }" formControlName="confirmPasscode"
+                maxlength="50" required placeholder="Confirmar Contraseña*" />
+            <i *ngIf="this.confirmPassShown" (click)="toggleConfirmPass()" class="material-icons">
+                visibility
+            </i>
+            <i *ngIf="!this.confirmPassShown" (click)="toggleConfirmPass()" class="material-icons">
+                visibility_off
+            </i>
+            <div *ngIf="submitted && form.confirmPasscode.errors" class="invalid-feedback">
+                <div *ngIf="form.confirmPasscode.errors.required" class="validator-error">Confirmar la contraseña es
+                    necesario</div>
+                <div *ngIf="form.confirmPasscode.errors.mustMatch" class="validator-error">Las contraseñas deben de
+                    coincidir</div>
+            </div>
+            <br>
+
+            <label>Imagen</label>
+            <input id="file-input" type="file" (change)="readURL($event)" accept="image/png, image/gif, image/jpeg"
+                formControlName="imagen">
+            <br>
+
+            <label>DNI</label>
+            <input type="text" formControlName="dni" maxlength="9" [ngClass]="{ 'is-invalid': form.dni.errors }">
+            <div *ngIf="form.dni.errors" class="invalid-feedback">
+                <div *ngIf="form.dni.errors.required">El dni es obligatorio</div>
+                <div *ngIf="form.dni.errors.minLength">El dni debe contener un mínimo de 9 carácteres</div>
+            </div>
+            <br>
+
+            <label>Rol</label>
+            <div>
+
+                <input type="radio" id="contactChoice1" formControlName="idAdmin" value="0">
+                <label for="contactChoice1">Usuario</label>
+                <br>
+
+                <input type="radio" id="contactChoice1" formControlName="idAdmin" value="1">
+                <label for="contactChoice1">Administrador</label>
+            </div>
+
+            <button type="submit" class="btn btn-light" style="float: right;">Aplicar Cambios</button>
+        </form>
+    </div>
+    <div class="modal-footer">
+
+        <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
+
+    </div>
+</ng-template>
