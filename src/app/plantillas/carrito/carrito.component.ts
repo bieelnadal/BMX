@@ -72,13 +72,19 @@ export class CarritoComponent implements OnInit {
   pasarIdProducto(){
     this.ProductsService.PasarProductoId(this.idProducto).subscribe((val: any) => {
       this.producto = val.data;
-      console.log(this.producto);  
          
     });
   }
 
-  crearProductoNuevo():any { 
+  cambiarEstadoProducto():any{
+    this.producto.idProducto=this.idProducto;
+    this.producto.Estado= 1;
 
+    this.ProductsService.cambiarEstado(this.producto);
+  }
+
+ tramitarProducto():any { 
+    this.cambiarEstadoProducto();
     this.carrito.Precio=this.producto.Precio;
     this.carrito.idUsuario=this.datosUsuario.idUsuario;
     this.carrito.idProducto=this.producto.idProducto;

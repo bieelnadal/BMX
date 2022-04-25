@@ -21,6 +21,8 @@ const URL_OBTENER_PRODUCTO_ID = "http://localhost:8080/productos/obtenerProducto
 
 const URL_OBTENER_VENDEDOR_ID = "http://localhost:8080/productos/obtenerVendedorId.php";
 
+const URL_CAMBIAR_ESTADO_PRODUCTO ="http://localhost:8080/productos/cambiarEstado.php";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,8 +31,7 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   registrarProducto(Producto: Producto){
-    console.log('producto dentro de service');
-    console.log(Producto);
+
     
     return this.http.post(URL_CREAR_PRODUCTO, JSON.stringify(Producto)).subscribe((val: any) => {
         if (val.resultado == "error") {
@@ -41,12 +42,8 @@ export class ProductsService {
       });
 
   }
-
   
-  registrarCarrito(Carrito: Carrito){
-    console.log('producto dentro de service');
-    console.log(Carrito);
-    
+  registrarCarrito(Carrito: Carrito){ 
     return this.http.post(URL_CREAR_CARRITO, JSON.stringify(Carrito)).subscribe((val: any) => {
         if (val.resultado == "error") {
           this.swalError();
@@ -56,6 +53,20 @@ export class ProductsService {
       });
 
   }
+
+  cambiarEstado(Producto: Producto){
+    console.log(Producto.Estado);
+    console.log(Producto.idProducto);
+    return this.http.post(URL_CAMBIAR_ESTADO_PRODUCTO, JSON.stringify(Producto)).subscribe((val: any) => {
+        if (val.resultado == "error") {
+          this.swalError();
+        } else {
+          this.swalCreado();
+        }
+      });
+
+  }
+
 
   editarProducto(){
 
