@@ -20,6 +20,8 @@ const URL_MODIFICAR_USUARIO =
 
 const URL_OBTENER_USUARIOS = 'http://localhost:8080/usuarios/obtenerUsuarios.php'; // OBTENER LOS USUARIOS
 
+const URL_OBTENER_USUARIO_ID = 'http://localhost:8080/usuarios/obtenerUsuarioId.php';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -78,6 +80,12 @@ export class UsersService {
     return this.http.post(URL_PASS_EXISTE, JSON.stringify(user));
   }
 
+  obtenerUsuarioId(idUsuario:any){
+    return this.http.get(
+      URL_OBTENER_USUARIO_ID + `?idUsuario=${idUsuario}`
+    );
+  }
+
   validarEmail(email: string, id: any) {
     var user = {
       Email: email,
@@ -88,6 +96,8 @@ export class UsersService {
   }
 
   modificarUsuario(usuario: Usuario) {
+    console.log(usuario);
+    
     return this.http.put(URL_MODIFICAR_USUARIO, JSON.stringify(usuario));
   }
 }
