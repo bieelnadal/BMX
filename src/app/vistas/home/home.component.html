@@ -18,14 +18,13 @@
       <!-- NAVIGATION MENUS -->
       <div class="menu">
         <li class="services">
-          <a href="/crear-Producto">Crear Prodcuto</a>
+          <a href="/crear-Producto">Vender</a>
         </li>
-        <li><a href="/">text</a></li>
-        <li class="services"><a href="/">text</a></li>
-        <li><a href="/">text</a></li>
+
         <li class="services">
-          <a href="/">text</a>
+          <a href="/">Subastar</a>
         </li>
+
       </div>
     </ul>
   </nav>
@@ -84,8 +83,8 @@
             <a [routerLink]="['/producto' ,ProductoListado.Nombre, ProductoListado.idProducto]" class="a_card">
 
               <div class="cat">
-              <img src="{{ProductoListado.Imagen}}" alt="{{ProductoListado.Nombre}}">
-            </div>
+                <img src="{{ProductoListado.Imagen}}" alt="{{ProductoListado.Nombre}}">
+              </div>
               <h1>{{ProductoListado.Nombre}}</h1>
               <p class="price">{{ProductoListado.Precio}}</p>
               <p>{{ProductoListado.Descripcion}}</p>
