@@ -68,16 +68,16 @@
 
       <!-- Nova pass -->
       <label>Nueva Contraseña</label>
-      <input type="password" formControlName="inputNewPasscode" [minlength]="6" maxlength="50" placeholder="******"
+      <input type="password" formControlName="inputNewPasscode" [minlength]="3" maxlength="50" placeholder="******"
         [readOnly]="!this.editar" [ngClass]="{ 'is-invalid': form.inputNewPasscode.errors }">
       <div *ngIf="form.inputNewPasscode.errors" class="invalid-feedback">
-          <div *ngIf="form.inputNewPasscode.errors.minlength">La contraseña debe contener como mínimo 6 carácteres.</div>
+          <div *ngIf="form.inputNewPasscode.errors.minlength">La contraseña debe contener como mínimo 3 carácteres.</div>
       </div>
 
 
       <!-- Nova pass confirmar -->
       <label>Confirmar Nueva Contraseña</label>
-      <input type="password" formControlName="inputConfirmNewPasscode" minlength="6" maxlength="50" placeholder="******"
+      <input type="password" formControlName="inputConfirmNewPasscode" minlength="3" maxlength="50" placeholder="******"
         [readOnly]="!this.editar" [ngClass]="{ 'is-invalid': form.inputConfirmNewPasscode.errors }">
       <div *ngIf="form.inputConfirmNewPasscode.errors" class="invalid-feedback">
         <div *ngIf="form.inputConfirmNewPasscode.errors.mustMatch">Las contraseñas no coinciden.</div>

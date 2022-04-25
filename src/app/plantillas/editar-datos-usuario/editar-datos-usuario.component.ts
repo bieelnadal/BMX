@@ -58,7 +58,7 @@ export class EditarDatosUsuarioComponent implements OnInit {
         inputPasscode: [''],
         inputNewPasscode: [
           '',
-          [Validators.minLength(6), Validators.maxLength(50)],
+          [Validators.minLength(3), Validators.maxLength(50)],
         ],
         inputConfirmNewPasscode: [''],
       },
