@@ -64,17 +64,16 @@ export class CrearProductoComponent implements OnInit {
     this.crearProdutoForm = this.formBuilder.group({
       NombreProducto: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       imagenProducto: ['', Validators.required],
-      DescripcionProducto: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(150 )]],
+      DescripcionProducto: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(150)]],
       PrecioProducto: ['', Validators.required],
-      SubastaProducto: ['', Validators.required],
       Categoria: ['', Validators.required]
     });
   }
 
-  get form(){
+  get form() {
     return this.crearProdutoForm.controls;
-   }
- 
+  }
+
   get nombreProducto() {
     return this.crearProdutoForm.get('NombreProducto') as FormControl;
   }
@@ -90,29 +89,28 @@ export class CrearProductoComponent implements OnInit {
   get PrecioProducto() {
     return this.crearProdutoForm.get('PrecioProducto') as FormControl;
   }
-  get SubastaProducto() {
-    return this.crearProdutoForm.get('SubastaProducto') as FormControl;
-  }
- get CategoriaProducto() {
+  get CategoriaProducto() {
     return this.crearProdutoForm.get('Categoria') as FormControl;
   }
 
 
-  crearProductoNuevo():any { 
-    this.producto.idVendedor = this.datosUsuario.idUsuario;
-    this.producto.Nombre = this.nombreProducto.value;
-    this.producto.Imagen = this.imgSrc;
-    this.producto.Descripcion = this.DescripcionProducto.value;
-    this.producto.idCategoria = this.CategoriaProducto.value;
-    this.producto.Precio = this.PrecioProducto.value;
-    this.producto.Subasta = this.SubastaProducto.value;
+  crearProductoNuevo(): any {
+    if (this.PrecioProducto.value > 0) {
+      this.producto.idVendedor = this.datosUsuario.idUsuario;
+      this.producto.Nombre = this.nombreProducto.value;
+      this.producto.Imagen = this.imgSrc;
+      this.producto.Descripcion = this.DescripcionProducto.value;
+      this.producto.idCategoria = this.CategoriaProducto.value;
+      this.producto.Precio = this.PrecioProducto.value;
 
-    
-    this.ProductsService.registrarProducto(this.producto);
-    window.location.reload();
-    
+
+      this.ProductsService.registrarProducto(this.producto);
+    } else { 
+      this.swalError();
+    }
+
+
   }
-
 
   onSubmit() {
     this.submitted = true;
@@ -120,7 +118,7 @@ export class CrearProductoComponent implements OnInit {
     if (this.crearProdutoForm.valid) {
       console.log('Funcion onSubmit pasa a funcion crearProducto');
       this.crearProductoNuevo();
-      
+
 
     }
   }
@@ -133,7 +131,7 @@ export class CrearProductoComponent implements OnInit {
       text: 'Algo no funciona bien, perdone la molestias!',
     })
   }
-  
+
   readURL(event: any) {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];

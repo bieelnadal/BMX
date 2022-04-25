@@ -38,21 +38,6 @@
         <p *ngIf="form.PrecioProducto.errors.required" class="color-validators">Campo obligatorio*</p>
       </div>
     </div>
-
-<select class="option-select" formControlName="SubastaProducto" id="">
-      <option value="" selected disabled class="option-select">Escoge*</option>
-      <option value="0"  class="option-select">Vender Producto</option>
-      <option value="1" class="option-select">Subastar Producto</option>
-    </select><br><br>
-    <div>
-      <div *ngIf="form.SubastaProducto.errors">
-        <p *ngIf="form.SubastaProducto.errors.required" class="color-validators">Campo obligatorio*</p>
-      </div>
-    </div>
-
-
-
-
     <input type="file" formControlName="imagenProducto" (change)="readURL($event)"><br><br>
     <div>
       <div *ngIf="form.imagenProducto.errors">
