@@ -40,7 +40,6 @@ if (isset($user->Passcode)) {
     if ($resSelect) {
       $response->resultado = 'ok';
       $response->mensaje = 'Se modificó al usaurio con éxito';
-      $response->alumno = $alumno;
       $data = mysqli_fetch_array($resSelect);
       $response->data = $data;
       echo json_encode($response);
@@ -56,7 +55,6 @@ if (isset($user->Passcode)) {
 
     $response->resultado = 'error';
     $response->mensaje = 'Hubo un error al registrar al usuario';
-    $response->alumno = $alumno;
     echo json_encode($response);
     exit;
   }
@@ -73,7 +71,6 @@ if (isset($user->Passcode)) {
     if ($resSelect) {
       $response->resultado = 'ok';
       $response->mensaje = 'Se modificó al alumno con éxito';
-      $response->user = $user;
       $data = mysqli_fetch_array($resSelect);
       $response->data = $data;
       echo json_encode($response);

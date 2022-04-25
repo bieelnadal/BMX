@@ -8,7 +8,7 @@
 
 <ng-template #content let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">Editar Dirección</h4>
+        <h4 class="modal-title">Editar usuario</h4>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
@@ -38,7 +38,7 @@
 
             <label>Contraseña</label>
             <input id="passcode" [type]="passType" formControlName="passcode"
-                [ngClass]="{ 'is-invalid': form.passcode.errors }" maxlength="50" minlength="3" required
+                [ngClass]="{ 'is-invalid': form.passcode.errors }" maxlength="50"
                 placeholder="Contraseña*" />
             <i *ngIf="this.passShown" (click)="togglePass()" class="material-icons">
                 visibility
@@ -47,9 +47,8 @@
                 visibility_off
             </i>
             <div *ngIf="submitted && form.passcode.errors" class="invalid-feedback">
-                <div *ngIf="form.passcode.errors.required" class="validator-error">La contraseña es necesaria</div>
                 <div *ngIf="form.passcode.errors.minlength" class="validator-error">La contraseña debe contener al
-                    menos 6 carácteres</div>
+                    menos 3 carácteres</div>
             </div>
             <br>
 
@@ -58,7 +57,7 @@
             <label>Confirmar Contraseña</label>
             <input id="confirmPasscode" [type]="confirmPassType"
                 [ngClass]="{ 'is-invalid': form.confirmPasscode.errors }" formControlName="confirmPasscode"
-                maxlength="50" required placeholder="Confirmar Contraseña*" />
+                maxlength="50"  placeholder="Confirmar Contraseña*" />
             <i *ngIf="this.confirmPassShown" (click)="toggleConfirmPass()" class="material-icons">
                 visibility
             </i>

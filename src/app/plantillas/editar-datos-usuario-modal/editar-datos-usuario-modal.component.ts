@@ -50,12 +50,10 @@ export class EditarDatosUsuarioModalComponent implements OnInit {
       passcode: [
         '',
         [
-          Validators.required,
-          Validators.minLength(6),
           Validators.maxLength(50),
         ],
       ],
-      confirmPasscode: ['', [Validators.required]],
+      confirmPasscode: [''],
       imagen: [''],
       dni: [
         this.datosUsuarioSeleccionado.DNI,
@@ -134,7 +132,10 @@ export class EditarDatosUsuarioModalComponent implements OnInit {
 
   onSubmit(form: any) {
     this.submitted=true;
-    if (this.modEditarUsuario.valid) {
+    if (form.valid) {
+
+  
+
       console.log('Válido');
       console.log(form.idAdmin);
       
