@@ -21,6 +21,8 @@ const URL_OBTENER_PRODUCTO_ID = "http://localhost:8080/productos/obtenerProducto
 
 const URL_OBTENER_VENDEDOR_ID = "http://localhost:8080/productos/obtenerVendedorId.php";
 
+const URL_PASAR_ESTADI_PRODUCTO = "http://localhost:8080/productos/cambiarEstado.php";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -51,28 +53,37 @@ export class ProductsService {
         if (val.resultado == "error") {
           this.swalError();
         } else {
-          this.swalCreado();
+          this.swalCreadoCarrito();
         }
       });
 
   }
 
+
   editarProducto(){
 
   }
 
-  obtenerProducto() {
-    return this.http.get(URL_OBTENER_PRODUCTO);
-  }
-
+ 
   borrarProducto(){
 
+  }
+
+ obtenerProducto() {
+    return this.http.get(URL_OBTENER_PRODUCTO);
   }
 
   PasarProductoId(idProducto: any) {
     return this.http.get(
       URL_OBTENER_PRODUCTO_ID + `?idDireccion=${idProducto}`
     );
+  }
+
+  cambiarEstado(Estado:any, idProducto:any ){
+    return this.http.get(
+      URL_PASAR_ESTADI_PRODUCTO + `?Estado=${Estado}`+`?idProducto=${idProducto}`
+    );
+
   }
 
   PasarVendedorId(idVendedor: any) {

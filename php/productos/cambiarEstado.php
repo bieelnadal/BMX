@@ -22,7 +22,7 @@ $response = new Result();
 global $datos;
 
 // query
-$query = "SELECT * FROM `usuarios` WHERE idUsuario ='$_GET[Estado]'";
+$query = "UPDATE `producto` SET `Estado`='$_GET[Estado]' WHERE idProducto = $_GET[idProducto]";
 $registros = mysqli_query($con, $query);
 
 // si la query ha sido correcta hacemos fetch

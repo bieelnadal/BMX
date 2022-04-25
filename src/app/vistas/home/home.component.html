@@ -1,110 +1,107 @@
-<html>
-<div>
-  <app-header></app-header>
-</div>
+  <html>
+  <div>
+    <app-header></app-header>
+  </div>
 
-<div>
-  <nav class="navbar">
-    <div (click)="closeSidenav()">
-      <button for="checkbox_toggle" class="hamburger"> &#9776;</button>
+  <div>
+    <nav class="navbar">
+      <div (click)="closeSidenav()">
+        <button for="checkbox_toggle" class="hamburger"> &#9776;</button>
+      </div>
+
+      <!-- USING CHECKBOX HACK -->
+      <input type="checkbox" id="checkbox_toggle" />
+
+      <!-- NAVIGATION MENU -->
+      <ul class="nav-links">
+
+        <!-- NAVIGATION MENUS -->
+        <div class="menu">
+          <li class="services">
+            <a href="/crear-Producto">Vender</a>
+          </li>
+          <li class="services">
+            <a href="/">Subastas</a>
+          </li>
+        </div>
+      </ul>
+    </nav>
+
+    <div id="side" class="nav-box" style="display: none;">
+      <nav class="caja_nav">
+        <div><img src="../../Bid&Go_sin_fondo" width="150" height="150"></div>
+        <h1>Buscar por Categorias</h1>
+        <ul>
+          <li>Categoria1</li>
+          <li>Categoria2</li>
+          <li>Categoria3</li>
+        </ul>
+
+        <h1>Comprar/Vender</h1>
+        <ul>
+          <li>Comprar</li>
+          <li>Vender</li>
+        </ul>
+
+        <h1>Ayuda</h1>
+        <ul>
+          <li>Reclamaciones</li>
+          <li>Atención al cliente</li>
+          <li>Notificar bugs/errores</li>
+        </ul>
+
+      </nav>
+
     </div>
 
-    <!-- USING CHECKBOX HACK -->
-    <input type="checkbox" id="checkbox_toggle" />
+    <mat-sidenav-container>
+      <mat-sidenav [(opened)]="opened" *ngIf="opened">
+        <h1>Buscar por categoria</h1>
+        <ul>
+          <li>Motor</li>
+          <li>Videojuegos</li>
+          <li>Colección</li>
+        </ul>
+        <h1>Compra/Venta</h1>
+        <ul>
+          <li>Comprar</li>
+          <li>Vender</li>
+        </ul>
+        <h1>Ayuda</h1>
+        <ul>
+          <li>Reclamaciones</li>
+          <li>Atencion al cliente</li>
+          <li> Notificar bugs o errores</li>
+        </ul>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <div class="padre">
+          <div class="centrar">
+            <div class="card" *ngFor="let ProductoListado of listaProductos,  let i = index">
+              <a [routerLink]="['/producto' ,ProductoListado.Nombre, ProductoListado.idProducto]" class="a_card">
 
-    <!-- NAVIGATION MENU -->
-    <ul class="nav-links">
+                <div class="cat">
+                  <img src="{{ProductoListado.Imagen}}" alt="{{ProductoListado.Nombre}}">
+                </div>
+                <h1>{{ProductoListado.Nombre}}</h1>
+                <p class="price">{{ProductoListado.Precio}}</p>
+                <p>{{ProductoListado.Descripcion}}</p>
+              </a>
+            </div>
+          </div>
+        </div>
 
-      <!-- NAVIGATION MENUS -->
-      <div class="menu">
-        <li class="services">
-          <a href="/crear-Producto">Crear Prodcuto</a>
-        </li>
-        <li><a href="/">text</a></li>
-        <li class="services"><a href="/">text</a></li>
-        <li><a href="/">text</a></li>
-        <li class="services">
-          <a href="/">text</a>
-        </li>
-      </div>
-    </ul>
-  </nav>
 
-  <div id="side" class="nav-box" style="display: none;">
-    <nav class="caja_nav">
-      <div><img src="../../Bid&Go_sin_fondo" width="150" height="150"></div>
-      <h1>Buscar por Categorias</h1>
-      <ul>
-        <li>Categoria1</li>
-        <li>Categoria2</li>
-        <li>Categoria3</li>
-      </ul>
 
-      <h1>Comprar/Vender</h1>
-      <ul>
-        <li>Comprar</li>
-        <li>Vender</li>
-      </ul>
 
-      <h1>Ayuda</h1>
-      <ul>
-        <li>Reclamaciones</li>
-        <li>Atención al cliente</li>
-        <li>Notificar bugs/errores</li>
-      </ul>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
 
-    </nav>
+  <div>
 
   </div>
 
-  <mat-sidenav-container>
-    <mat-sidenav [(opened)]="opened" *ngIf="opened">
-      <h1>Buscar por categoria</h1>
-      <ul>
-        <li>Motor</li>
-        <li>Videojuegos</li>
-        <li>Colección</li>
-      </ul>
-      <h1>Compra/Venta</h1>
-      <ul>
-        <li>Comprar</li>
-        <li>Vender</li>
-      </ul>
-      <h1>Ayuda</h1>
-      <ul>
-        <li>Reclamaciones</li>
-        <li>Atencion al cliente</li>
-        <li> Notificar bugs o errores</li>
-      </ul>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <div class="padre">
-        <div class="centrar">
-          <div class="card" *ngFor="let ProductoListado of listaProductos,  let i = index">
-            <a [routerLink]="['/producto' ,ProductoListado.Nombre, ProductoListado.idProducto]" class="a_card">
-
-              <div class="cat">
-              <img src="{{ProductoListado.Imagen}}" alt="{{ProductoListado.Nombre}}">
-            </div>
-              <h1>{{ProductoListado.Nombre}}</h1>
-              <p class="price">{{ProductoListado.Precio}}</p>
-              <p>{{ProductoListado.Descripcion}}</p>
-            </a>
-          </div>
-        </div>
-      </div>
 
 
-
-
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
-
-<div>
-
-</div>
-
-
-
-</html>
+  </html>
