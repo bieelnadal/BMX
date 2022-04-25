@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 export class CarritoComponent implements OnInit {
 
   idProducto:any;
+  Estado :any;
   producto: Producto ={
     idProducto: 0,
     idVendedor: 0,
@@ -58,33 +59,39 @@ export class CarritoComponent implements OnInit {
 
   ngOnInit():void {
     this.idProducto = this._route.snapshot.paramMap.get('id'); 
+    this.Estado = 2;
     this.obtenerDatos();
-    this.pasarIdProducto();
+    this.pasarIdProducto();   
   }
 
   obtenerDatos() {
     this.datosUsuario = this.tokenServ.getUsuario();
   }
 
-
-
-
   pasarIdProducto(){
     this.ProductsService.PasarProductoId(this.idProducto).subscribe((val: any) => {
       this.producto = val.data;
-      console.log(this.producto);  
+    //  console.log(this.producto);  
          
     });
   }
 
-  crearProductoNuevo():any { 
+    pasarEstado(){
+    this.ProductsService.cambiarEstado(this.Estado, this.idProducto).subscribe((val: any) => {
+      this.producto = val.data;
+     console.log(this.Estado);  
+     console.log(this.idProducto);  
+         
+    });
+  }
 
+  venderproducto():any { 
+    this.pasarEstado();
     this.carrito.Precio=this.producto.Precio;
     this.carrito.idUsuario=this.datosUsuario.idUsuario;
     this.carrito.idProducto=this.producto.idProducto;
    
     this.ProductsService.registrarCarrito(this.carrito);
-
     
   }
  

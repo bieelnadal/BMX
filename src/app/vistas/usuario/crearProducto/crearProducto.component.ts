@@ -14,8 +14,8 @@ import { Usuario } from 'src/app/interfaces/Usuario';
 export class CrearProductoComponent implements OnInit {
 
   crearProdutoForm !: FormGroup;
-  submitted: boolean = false;
   imgSrc: any;
+  PrecioPositivo!: number;
 
   datosUsuario: Usuario = {
     idUsuario: 0,
@@ -66,7 +66,6 @@ export class CrearProductoComponent implements OnInit {
       imagenProducto: ['', Validators.required],
       DescripcionProducto: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(150 )]],
       PrecioProducto: ['', Validators.required],
-      SubastaProducto: ['', Validators.required],
       Categoria: ['', Validators.required]
     });
   }
@@ -90,40 +89,34 @@ export class CrearProductoComponent implements OnInit {
   get PrecioProducto() {
     return this.crearProdutoForm.get('PrecioProducto') as FormControl;
   }
-  get SubastaProducto() {
-    return this.crearProdutoForm.get('SubastaProducto') as FormControl;
-  }
  get CategoriaProducto() {
     return this.crearProdutoForm.get('Categoria') as FormControl;
   }
 
 
+
   crearProductoNuevo():any { 
+   if(this.PrecioProducto.value>0){
     this.producto.idVendedor = this.datosUsuario.idUsuario;
     this.producto.Nombre = this.nombreProducto.value;
     this.producto.Imagen = this.imgSrc;
     this.producto.Descripcion = this.DescripcionProducto.value;
     this.producto.idCategoria = this.CategoriaProducto.value;
     this.producto.Precio = this.PrecioProducto.value;
-    this.producto.Subasta = this.SubastaProducto.value;
 
-    
     this.ProductsService.registrarProducto(this.producto);
-    window.location.reload();
+    }else{
+      this.swalError();
+    }
     
   }
 
 
   onSubmit() {
-    this.submitted = true;
-
-    if (this.crearProdutoForm.valid) {
-      console.log('Funcion onSubmit pasa a funcion crearProducto');
       this.crearProductoNuevo();
-      
-
-    }
   }
+
+
 
 
   swalError() {
