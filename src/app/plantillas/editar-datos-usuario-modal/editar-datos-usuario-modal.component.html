@@ -12,7 +12,7 @@
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-        <form [formGroup]="modEditarUsuario" (ngSubmit)="onSubmit(modEditarUsuario.value)" *ngIf="modalClick">
+        <form [formGroup]="modEditarUsuario" (ngSubmit)="onSubmit(modEditarUsuario)" *ngIf="modalClick">
             <label>Nombre</label>
             <input type="text" formControlName="nombre" [ngClass]="{ 'is-invalid': form.nombre.errors }">
             <div *ngIf="form.nombre.errors" class="invalid-feedback">

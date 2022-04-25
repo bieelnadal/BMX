@@ -40,30 +40,30 @@ export class EditarDatosUsuarioModalComponent implements OnInit {
   }
 
   crearForm() {
-    this.modEditarUsuario = this.formBuilder.group({
-      nombre: [this.datosUsuarioSeleccionado.Nombre, [Validators.required]],
-      apellidos: [
-        this.datosUsuarioSeleccionado.Apellidos,
-        [Validators.required],
-      ],
-      email: [this.datosUsuarioSeleccionado.Email, [Validators.required, Validators.email]],
-      passcode: [
-        '',
-        [
-          Validators.maxLength(50),
+    this.modEditarUsuario = this.formBuilder.group(
+      {
+        nombre: [this.datosUsuarioSeleccionado.Nombre, [Validators.required]],
+        apellidos: [
+          this.datosUsuarioSeleccionado.Apellidos,
+          [Validators.required],
         ],
-      ],
-      confirmPasscode: [''],
-      imagen: [''],
-      dni: [
-        this.datosUsuarioSeleccionado.DNI,
-        [Validators.required, Validators.minLength(9)],
-      ],
-      idAdmin: ['', [Validators.required]],
-    },
-    {
-      validator: this.mustMatch('passcode', 'confirmPasscode'),
-    });
+        email: [
+          this.datosUsuarioSeleccionado.Email,
+          [Validators.required, Validators.email],
+        ],
+        passcode: ['', [Validators.maxLength(50)]],
+        confirmPasscode: [''],
+        imagen: [''],
+        dni: [
+          this.datosUsuarioSeleccionado.DNI,
+          [Validators.required, Validators.minLength(9)],
+        ],
+        idAdmin: ['', [Validators.required]],
+      },
+      {
+        validator: this.mustMatch('passcode', 'confirmPasscode'),
+      }
+    );
   }
 
   mustMatch(controlName: string, matchingControlName: string) {
@@ -131,28 +131,37 @@ export class EditarDatosUsuarioModalComponent implements OnInit {
   }
 
   onSubmit(form: any) {
-    this.submitted=true;
+    this.submitted = true;
+    let newUser: Usuario;
     if (form.valid) {
+      if (form.controls.passcode.value != '') {
+        newUser = {
+          idUsuario: this.datosUsuarioSeleccionado.idUsuario,
+          Nombre: form.controls.nombre.value,
+          Apellidos: form.controls.apellidos.value,
+          Email: form.controls.email.value,
+          Passcode: form.controls.passcode.value,
+          Imagen: this.imgSrc,
+          DNI: form.controls.dni.value,
+          idAdmin: form.controls.idAdmin.value,
+        };
+      } else {
+        console.log("No password valid");
+        
+        newUser = {
+          idUsuario: this.datosUsuarioSeleccionado.idUsuario,
+          Nombre: form.controls.nombre.value,
+          Apellidos: form.controls.apellidos.value,
+          Email: form.controls.email.value,
+          Imagen: this.imgSrc,
+          DNI: form.controls.dni.value,
+          idAdmin: form.controls.idAdmin.value,
+        };
+      }
 
-  
-
-      console.log('Válido');
-      console.log(form.idAdmin);
-      
-
-      const newUser: Usuario = {
-        idUsuario: this.datosUsuarioSeleccionado.idUsuario,
-        Nombre: form.nombre,
-        Apellidos: form.apellidos,
-        Email: form.email,
-        Passcode: form.passcode,
-        Imagen: this.imgSrc,
-        DNI: form.dni,
-        idAdmin: form.idAdmin,
-      };
-      this.usersServ.modificarUsuario(newUser).subscribe();
+      // this.usersServ.modificarUsuario(newUser).subscribe();
       console.log(newUser);
-      
+
       //window.location.reload();
     } else {
       console.log(form.idAdmin);
