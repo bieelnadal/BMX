@@ -29,12 +29,13 @@ strong {
 p {
   margin: 0.75rem 0 0;
   font-size: 15px;
+  margin-left: 5px;
 }
 
 h1 {
   font-size: 0.75rem;
   font-weight: normal;
-  margin: 0;
+
   padding: 0;
   font-size: 18px;
 }
@@ -257,7 +258,7 @@ aside {
   padding: 1rem;
   position: fixed;
   width: 250px;
-  height: 300px;
+  height: 400px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -336,7 +337,7 @@ aside {
   text-transform: uppercase;
   padding: 0.625rem 0;
   width: 100%;
-  margin-top: 150px;
+  margin-top: 230px;
   background-color: var(--verdeprincipal);
 }
 
@@ -415,3 +416,30 @@ aside {
     padding: 0 1rem;
   }
 }
+
+.direccion-escojer{
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 5px;
+  
+}
+
+.direccprint{
+  font-size: 17px;
+  margin-left: 5px;
+  transition: 1s;
+}
+
+ .direccprint:active {
+  color: var(--dorado);
+ /* font-size: 20px;*/
+
+}
+
+input[type="checkbox"] {
+  margin: 6px;
+}
+
+
+
+

@@ -5,6 +5,7 @@ import { Producto } from 'src/app/interfaces/Productos';
 import { Carrito } from 'src/app/interfaces/Carrito';
 import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.service';
 import { Usuario } from 'src/app/interfaces/Usuario';
+import { DireccService } from 'src/app/services/direcciones/direcc.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,6 +16,11 @@ import Swal from 'sweetalert2';
 export class CarritoComponent implements OnInit {
 
   idProducto:any;
+  direccion: any;
+  listaDirecciones: any[] = [];
+  idDireccion:any;
+  
+  
   producto: Producto ={
     idProducto: 0,
     idVendedor: 0,
@@ -47,6 +53,7 @@ export class CarritoComponent implements OnInit {
     Precio:0,
     idUsuario:0,
     idProducto:0,
+    idDireccion:0,
   }
 
 
@@ -54,12 +61,14 @@ export class CarritoComponent implements OnInit {
     private _route: ActivatedRoute,
     private ProductsService: ProductsService,
     private tokenServ: TokenSesionService,
+    private direccService: DireccService
   ) { }
 
   ngOnInit():void {
     this.idProducto = this._route.snapshot.paramMap.get('id'); 
     this.obtenerDatos();
     this.pasarIdProducto();
+    this.obtenerDirecciones();
   }
 
   obtenerDatos() {
@@ -67,7 +76,25 @@ export class CarritoComponent implements OnInit {
   }
 
 
+  obtenerDirecciones() {
+    this.listaDirecciones = [];
+    this.direccService.obtenerDirecciones().subscribe((val: any) => {
+      this.direccion = val;
+      if (this.direccion == null) {
+      } else {
+        console.log('entra');
 
+        val.forEach((element: any) => {
+          console.log('entra for each');
+
+          if (element.idUsuario == this.datosUsuario.idUsuario) {
+            this.listaDirecciones.push(element);
+            console.log(this.listaDirecciones);
+          }
+        });
+      }
+    });
+  }
 
   pasarIdProducto(){
     this.ProductsService.PasarProductoId(this.idProducto).subscribe((val: any) => {
@@ -75,6 +102,12 @@ export class CarritoComponent implements OnInit {
          
     });
   }
+
+  cojerIdDireccion(idDireccion:any){  
+
+    
+  }
+
 
   cambiarEstadoProducto():any{
     this.producto.idProducto=this.idProducto;
@@ -88,6 +121,7 @@ export class CarritoComponent implements OnInit {
     this.carrito.Precio=this.producto.Precio;
     this.carrito.idUsuario=this.datosUsuario.idUsuario;
     this.carrito.idProducto=this.producto.idProducto;
+    this.carrito.idDireccion=this.idDireccion;
    
     this.ProductsService.registrarCarrito(this.carrito);
 
