@@ -22,6 +22,8 @@ const URL_OBTENER_USUARIOS = 'http://localhost:8080/usuarios/obtenerUsuarios.php
 
 const URL_OBTENER_USUARIO_ID = 'http://localhost:8080/usuarios/obtenerUsuarioId.php';
 
+const URL_BORRAR_USUARIO = 'http://localhost:8080/usuarios/borrarUsuario.php' ;
+
 @Injectable({
   providedIn: 'root',
 })
@@ -78,6 +80,17 @@ export class UsersService {
     };
 
     return this.http.post(URL_PASS_EXISTE, JSON.stringify(user));
+  }
+
+  borrarUsuario(idUsario: any) {
+    console.log('Entra funcion');
+    console.log(idUsario);
+
+    return this.http
+      .delete(URL_BORRAR_USUARIO + `?idUsuario=${idUsario}`)
+      .subscribe((val: any) => {
+        console.log(val);
+      });
   }
 
   obtenerUsuarioId(idUsuario:any){

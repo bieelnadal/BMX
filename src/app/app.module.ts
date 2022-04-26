@@ -32,6 +32,7 @@ import { GestionUsuariosComponent } from './vistas/admin/gestion-usuarios/gestio
 import { TablaVerificarProductosComponent } from './vistas/admin/tabla-verificar-productos/tabla-verificar-productos.component';
 import { EditarDatosUsuarioModalComponent } from './plantillas/editar-datos-usuario-modal/editar-datos-usuario-modal.component';
 import { CarritoComponent } from './plantillas/carrito/carrito.component';
+import { BorrarUsuariosComponent } from './vistas/admin/borrar-usuarios/borrar-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { CarritoComponent } from './plantillas/carrito/carrito.component';
     GestionUsuariosComponent,
     TablaVerificarProductosComponent,
     EditarDatosUsuarioModalComponent,
-    CarritoComponent
+    CarritoComponent,
+    BorrarUsuariosComponent
   ],
   imports: [
     BrowserModule,

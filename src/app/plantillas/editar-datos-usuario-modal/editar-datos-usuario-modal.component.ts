@@ -216,13 +216,13 @@ export class EditarDatosUsuarioModalComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Confirmar los cambios!',
+      confirmButtonText: '¡Confirmar los cambios!',
     }).then(async (result) => {
       if (result.isConfirmed) {
         const { value: password } = await Swal.fire({
           title: 'Escribe tu contraseña',
           input: 'password',
-          inputLabel: 'Password',
+          inputLabel: 'Contraseña',
           inputPlaceholder: 'Escribe tu contraseña',
         });
         if (password) {
@@ -236,7 +236,9 @@ export class EditarDatosUsuarioModalComponent implements OnInit {
               title: 'Se modificaron los datos del usuario',
               confirmButtonColor: '#3085d6',
               confirmButtonText: 'Ok',
-            }).then((result) => {});
+            }).then((result) => {
+              window.location.reload();
+            });
           } else {
             Swal.fire({
               icon: 'error',
