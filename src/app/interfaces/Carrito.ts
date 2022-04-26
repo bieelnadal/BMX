@@ -3,4 +3,5 @@ export interface Carrito{
     Precio?:Number;
     idUsuario?:Number;
     idProducto?:Number;
+    idDireccion?:Number;
 }
