@@ -1,9 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Usuario } from 'src/app/interfaces/Usuario';
 import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.service';
 import { UsersService } from 'src/app/services/usuarios/users.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-datos-usuario-modal',
@@ -86,6 +92,30 @@ export class EditarDatosUsuarioModalComponent implements OnInit {
   get form() {
     return this.modEditarUsuario.controls;
   }
+  get email() {
+    return this.modEditarUsuario.get('email') as FormControl;
+  }
+
+  checkEmail() {
+    console.log(this.form.email.value);
+
+    this.form.email.valueChanges.subscribe((email) => {
+      if (
+        email != '' &&
+        this.datosUsuarioSeleccionado.Email != this.form.email.value
+      ) {
+        this.usersServ
+          .validarEmail(email, this.datosUsuarioSeleccionado.idUsuario)
+          .subscribe((val: any) => {
+            if (val.resultado == 'error') {
+              this.email.setErrors({ notUnique: true });
+            }
+          });
+      } else {
+        this.email.setErrors(null);
+      }
+    });
+  }
 
   retornar() {
     this.modalService.dismissAll();
@@ -119,6 +149,7 @@ export class EditarDatosUsuarioModalComponent implements OnInit {
     this.modalService.open(modal);
 
     this.crearForm();
+    this.checkEmail();
   }
 
   recogerDatos() {
@@ -146,8 +177,8 @@ export class EditarDatosUsuarioModalComponent implements OnInit {
           idAdmin: form.controls.idAdmin.value,
         };
       } else {
-        console.log("No password valid");
-        
+        console.log('No password valid');
+
         newUser = {
           idUsuario: this.datosUsuarioSeleccionado.idUsuario,
           Nombre: form.controls.nombre.value,
@@ -158,8 +189,8 @@ export class EditarDatosUsuarioModalComponent implements OnInit {
           idAdmin: form.controls.idAdmin.value,
         };
       }
-
-      // this.usersServ.modificarUsuario(newUser).subscribe();
+      this.confirmacionBorrar();
+      this.usersServ.modificarUsuario(newUser).subscribe();
       console.log(newUser);
 
       //window.location.reload();
@@ -176,5 +207,47 @@ export class EditarDatosUsuarioModalComponent implements OnInit {
       reader.onload = (e: any) => (this.imgSrc = e.target.result);
       reader.readAsDataURL(file);
     }
+  }
+
+  confirmacionBorrar() {
+    Swal.fire({
+      title: '¿Estas seguro de modificar los datos del usuario?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar los cambios!',
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const { value: password } = await Swal.fire({
+          title: 'Escribe tu contraseña',
+          input: 'password',
+          inputLabel: 'Password',
+          inputPlaceholder: 'Escribe tu contraseña',
+        });
+        if (password) {
+          Swal.fire(`Escribir contraseña: ${password}`);
+          console.log(password);
+          console.log(this.datosUsuario.Passcode);
+
+          if (password == this.datosUsuario.Passcode) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Se modificaron los datos del usuario',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'Ok',
+            }).then((result) => {});
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Ooops..',
+              text: 'No se ha modificado el usuario. La contraseña es incorrecta',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'Ok',
+            });
+          }
+        }
+      }
+    });
   }
 }

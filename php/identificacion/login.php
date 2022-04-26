@@ -33,6 +33,8 @@ if ($resulta) {
   $data = mysqli_fetch_array($resulta);
   $response->select = 'Select a base de datos correcto';
 
+  $data['Passcode']=$user->Passcode;
+
 
   if (!is_null($data)) {
     $response->resultado = 'ok';

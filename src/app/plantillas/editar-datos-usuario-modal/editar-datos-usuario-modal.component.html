@@ -33,13 +33,14 @@
                 <div *ngIf="form.email.errors.required">El email es obligatorio.</div>
                 <div *ngIf="form.email.errors.email">Formato de email incorrecto.
                 </div>
+                <div *ngIf="form.email.errors.notUnique">Este email ya está en uso.
+                </div>
             </div>
             <br>
 
             <label>Contraseña</label>
             <input id="passcode" [type]="passType" formControlName="passcode"
-                [ngClass]="{ 'is-invalid': form.passcode.errors }" maxlength="50"
-                placeholder="Contraseña*" />
+                [ngClass]="{ 'is-invalid': form.passcode.errors }" maxlength="50" placeholder="Contraseña*" />
             <i *ngIf="this.passShown" (click)="togglePass()" class="material-icons">
                 visibility
             </i>
@@ -57,7 +58,7 @@
             <label>Confirmar Contraseña</label>
             <input id="confirmPasscode" [type]="confirmPassType"
                 [ngClass]="{ 'is-invalid': form.confirmPasscode.errors }" formControlName="confirmPasscode"
-                maxlength="50"  placeholder="Confirmar Contraseña*" />
+                maxlength="50" placeholder="Confirmar Contraseña*" />
             <i *ngIf="this.confirmPassShown" (click)="toggleConfirmPass()" class="material-icons">
                 visibility
             </i>
@@ -88,12 +89,17 @@
             <label>Rol</label>
             <div>
 
-                <input type="radio" id="contactChoice1" formControlName="idAdmin" value="0">
+                <input type="radio" id="contactChoice1" formControlName="idAdmin" value="0"
+                    [ngClass]="{ 'is-invalid': form.idAdmin.errors }">
                 <label for="contactChoice1">Usuario</label>
                 <br>
 
-                <input type="radio" id="contactChoice1" formControlName="idAdmin" value="1">
+                <input type="radio" id="contactChoice1" formControlName="idAdmin" value="1"
+                    [ngClass]="{ 'is-invalid': form.idAdmin.errors }">
                 <label for="contactChoice1">Administrador</label>
+            </div>
+            <div *ngIf="form.idAdmin.errors" class="invalid-feedback">
+                <div *ngIf="form.idAdmin.errors.required">El rol del usuario es obligatorio</div>
             </div>
 
             <button type="submit" class="btn btn-light" style="float: right;">Aplicar Cambios</button>
