@@ -47,13 +47,11 @@ button {
 }
 
 button {
-  background-color: #666;
-  color: #fff;
+
 }
 
 button:hover,
 button:focus {
-  background-color: #555;
 }
 
 img,
@@ -339,6 +337,7 @@ aside {
   width: 100%;
   margin-top: 230px;
   background-color: var(--verdeprincipal);
+  color: white;
 }
 
 .summary-delivery-selection {
@@ -349,6 +348,8 @@ aside {
   height: 34px;
   width: 100%;
 }
+
+
 
 @media screen and (max-width: 640px) {
   aside,
@@ -427,18 +428,29 @@ aside {
 .direccprint{
   font-size: 17px;
   margin-left: 5px;
+  border: none;
+  border-radius: 5px;
   transition: 1s;
+  background-color: transparent;
 }
 
- .direccprint:active {
+ .direccprint:hover {
   color: var(--dorado);
+  background-color: transparent;
  /* font-size: 20px;*/
 
 }
 
-input[type="checkbox"] {
-  margin: 6px;
+.direccprint:focus {
+  color: var(--white);
+  background-color: var(--verdeprincipal);
+ /* font-size: 20px;*/
+
 }
+
+
+
+
 
 
 

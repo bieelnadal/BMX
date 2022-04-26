@@ -62,6 +62,10 @@ export class UsersService {
     return this.http.get(URL_CONTAR_USER);
   }
 
+  obtenerUsuarioIdProducto(idUsuario: number){
+    return this.http.get(URL_VALIDAR_EMAIL + `?idUsuario=${idUsuario}`);
+  }
+
   // Obtener todos los usuarios
   obtenerUsuarios() {
     return this.http.get(URL_OBTENER_USUARIOS);
@@ -80,9 +84,9 @@ export class UsersService {
     return this.http.post(URL_PASS_EXISTE, JSON.stringify(user));
   }
 
-  obtenerUsuarioId(idUsuario:any){
+  obtenerUsuarioId(idVendedor:any){
     return this.http.get(
-      URL_OBTENER_USUARIO_ID + `?idUsuario=${idUsuario}`
+      URL_OBTENER_USUARIO_ID + `?idUsuario=${idVendedor}`
     );
   }
 

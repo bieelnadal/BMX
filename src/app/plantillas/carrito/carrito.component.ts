@@ -6,6 +6,7 @@ import { Carrito } from 'src/app/interfaces/Carrito';
 import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.service';
 import { Usuario } from 'src/app/interfaces/Usuario';
 import { DireccService } from 'src/app/services/direcciones/direcc.service';
+import { UsersService } from 'src/app/services/usuarios/users.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,11 +17,11 @@ import Swal from 'sweetalert2';
 export class CarritoComponent implements OnInit {
 
   idProducto:any;
+  idVendedor:any;
   direccion: any;
   listaDirecciones: any[] = [];
   idDireccion:any;
-  
-  
+
   producto: Producto ={
     idProducto: 0,
     idVendedor: 0,
@@ -61,18 +62,24 @@ export class CarritoComponent implements OnInit {
     private _route: ActivatedRoute,
     private ProductsService: ProductsService,
     private tokenServ: TokenSesionService,
-    private direccService: DireccService
+    private direccService: DireccService,
+    private usersService: UsersService
   ) { }
 
   ngOnInit():void {
     this.idProducto = this._route.snapshot.paramMap.get('id'); 
+   
     this.obtenerDatos();
     this.pasarIdProducto();
     this.obtenerDirecciones();
+    
+
+    
   }
 
   obtenerDatos() {
     this.datosUsuario = this.tokenServ.getUsuario();
+    
   }
 
 
@@ -82,31 +89,40 @@ export class CarritoComponent implements OnInit {
       this.direccion = val;
       if (this.direccion == null) {
       } else {
-        console.log('entra');
 
         val.forEach((element: any) => {
-          console.log('entra for each');
 
           if (element.idUsuario == this.datosUsuario.idUsuario) {
-            this.listaDirecciones.push(element);
-            console.log(this.listaDirecciones);
+            this.listaDirecciones.push(element);            
           }
         });
       }
     });
   }
 
+
+
   pasarIdProducto(){
     this.ProductsService.PasarProductoId(this.idProducto).subscribe((val: any) => {
+      this.producto = val.data;
+         
+    });    
+  }
+
+  pasarIdUsuarioProducto(){
+    this.usersService.obtenerUsuarioIdProducto(this.idVendedor).subscribe((val: any) => {
       this.producto = val.data;
          
     });
   }
 
+
   cojerIdDireccion(idDireccion:any){  
 
     
   }
+
+
 
 
   cambiarEstadoProducto():any{
