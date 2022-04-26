@@ -21,8 +21,8 @@
           </div>
           <div class="product-details">
             <h1>{{producto.Nombre}}</h1>
-            <p></p>
-            <p> NumeroProducto - {{producto.idProducto}}</p>
+            <p>Nombre del Vendedor: {{datosUsuario.Nombre}} {{datosUsuario.Apellidos}} </p>
+            <br>
           </div>
         </div>
         <div class="price">{{producto.Precio}}</div>
@@ -40,7 +40,12 @@
       <div *ngFor="let direcc of listaDirecciones; let i = index">
         <a (click)="cojerIdDireccion(this.idDireccion = direcc.idDireccion)">
           
-          <div class="direccion-escojer"><p class="direccprint"><input type="checkbox" > {{direcc.Direccion}}, {{direcc.codigoPostal}} {{direcc.Localidad}}</p> </div></a>
+          <div class="direccion-escojer">
+            <button class="direccprint">
+              ·  {{direcc.Direccion}}, {{direcc.codigoPostal}} {{direcc.Localidad}}
+            </button> <br><br>
+          </div>
+        </a>
       </div>
 <hr>
 

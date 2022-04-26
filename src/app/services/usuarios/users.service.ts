@@ -64,6 +64,10 @@ export class UsersService {
     return this.http.get(URL_CONTAR_USER);
   }
 
+  obtenerUsuarioIdProducto(idUsuario: number){
+    return this.http.get(URL_VALIDAR_EMAIL + `?idUsuario=${idUsuario}`);
+  }
+
   // Obtener todos los usuarios
   obtenerUsuarios() {
     return this.http.get(URL_OBTENER_USUARIOS);
