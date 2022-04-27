@@ -62,9 +62,9 @@ export class CrearProductoComponent implements OnInit {
 
   crearForm() {
     this.crearProdutoForm = this.formBuilder.group({
-      NombreProducto: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+      NombreProducto: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
       imagenProducto: ['', Validators.required],
-      DescripcionProducto: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(150)]],
+      DescripcionProducto: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(500)]],
       PrecioProducto: ['', Validators.required],
       Categoria: ['', Validators.required]
     });
