@@ -23,6 +23,8 @@ export class DashboardAdminComponent implements OnInit {
     idAdmin: 1,
   };
 
+  productosNoVerificados: any;
+
   totalUsuarios: any;
   totalProductos: any;
   totalProductosSubasta: any;
@@ -41,6 +43,7 @@ export class DashboardAdminComponent implements OnInit {
     this.contarUsuarios();
     this.contarProductos();
     this.contarProductosSubasta();
+    this.contarProductosSinVerificar();
   }
 
   obtenerDatos(): any {
@@ -53,10 +56,16 @@ export class DashboardAdminComponent implements OnInit {
     });
   }
 
+  contarProductosSinVerificar(){
+    this.prodServ.contarProductosSinVerificar().subscribe((val: any) => {
+      this.productosNoVerificados = val;
+    });
+  }
+
   contarProductos() {
     this.prodServ.contarProductos().subscribe((val: any) => {
       this.totalProductos = val;
-    });
+    });  
   }
 
   contarProductosSubasta() {

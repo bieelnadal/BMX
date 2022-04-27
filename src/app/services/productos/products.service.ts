@@ -23,6 +23,8 @@ const URL_OBTENER_VENDEDOR_ID = "http://localhost:8080/productos/obtenerVendedor
 
 const URL_CAMBIAR_ESTADO_PRODUCTO ="http://localhost:8080/productos/cambiarEstado.php";
 
+const URL_CONTAR_PRODUCTOS_SIN_VERIFICAR = "http://localhost:8080/productos/contarProductosSinVerificar.php";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -100,6 +102,10 @@ export class ProductsService {
 
   contarProductosSubasta(){
     return this.http.get(URL_CONTAR_PRODUCTOS_SUBASTA);
+  }
+
+  contarProductosSinVerificar(){
+    return this.http.get(URL_CONTAR_PRODUCTOS_SIN_VERIFICAR);
   }
 
   swalCreado() {
