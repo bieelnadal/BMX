@@ -21,8 +21,8 @@ $Carrito = json_decode($json);
 
 
 // query
-$queryInsert = "INSERT INTO `carrito`(`idCarrito`, `Precio`, `idUsuario`, `idProducto`, `idDireccion`)
- VALUES (NULL,'$Carrito->Precio','$Carrito->idUsuario','$Carrito->idProducto','$Carrito->idDireccion')";
+$queryInsert = "INSERT INTO `compras`(`idCarrito`, `Precio`, `idUsuario`, `idProducto`, `idDireccion`, `IdVendedor`, `emailCompador`, `emailVendedor`)
+ VALUES (NULL,'$Carrito->Precio','$Carrito->idUsuario','$Carrito->idProducto','$Carrito->idDireccion','$Carrito->IdVendedor','$Carrito->emailCompador','$Carrito->emailVendedor')";
 
 
 $resInsert = mysqli_query($con, $queryInsert);
