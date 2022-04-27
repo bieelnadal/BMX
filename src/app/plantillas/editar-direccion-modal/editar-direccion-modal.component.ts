@@ -34,7 +34,7 @@ export class EditarDireccionModalComponent implements OnInit {
   crearForm() {
     this.modEditarDirecc = this.formBuilder.group({
       direccion: [this.datosDireccion.Direccion, [Validators.required]],
-      pais: ['', [Validators.required]],
+      pais: [1, [Validators.required]],
       codigoPostal: [
         this.datosDireccion.codigoPostal,
         [Validators.required, Validators.minLength(5), Validators.maxLength(5)],
