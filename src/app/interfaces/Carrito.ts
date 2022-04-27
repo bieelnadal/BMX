@@ -4,4 +4,8 @@ export interface Carrito{
     idUsuario?:Number;
     idProducto?:Number;
     idDireccion?:Number;
+    IdVendedor?:number;
+    emailCompador?:string;
+    emailVendedor?:string;
+
 }

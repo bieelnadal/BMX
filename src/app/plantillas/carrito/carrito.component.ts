@@ -55,6 +55,9 @@ export class CarritoComponent implements OnInit {
     idUsuario:0,
     idProducto:0,
     idDireccion:0,
+    IdVendedor:0,
+    emailCompador:'',
+    emailVendedor:'',
   }
 
 
@@ -138,6 +141,9 @@ export class CarritoComponent implements OnInit {
     this.carrito.idUsuario=this.datosUsuario.idUsuario;
     this.carrito.idProducto=this.producto.idProducto;
     this.carrito.idDireccion=this.idDireccion;
+    this.carrito.emailCompador=this.datosUsuario.Email;
+    this.carrito.emailVendedor=this.datosUsuario.Email;
+    this.carrito.IdVendedor=this.datosUsuario.idUsuario;
    
     this.ProductsService.registrarCarrito(this.carrito);
 
