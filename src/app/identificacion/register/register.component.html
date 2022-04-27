@@ -81,7 +81,7 @@
                 <div *ngIf="submitted && form.passcode.errors" class="invalid-feedback">
                     <div *ngIf="form.passcode.errors.required" class="validator-error">La contraseña es necesaria</div>
                     <div *ngIf="form.passcode.errors.minlength" class="validator-error">La contraseña debe contener al
-                        menos 6 carácteres</div>
+                        menos 3 carácteres</div>
                 </div>
                 <p>
                     <input id="confirmPasscode" [type]="confirmPassType" [ngClass]="{ 'is-invalid': form.confirmPasscode.errors }" formControlName="confirmPasscode" maxlength="50"
@@ -100,7 +100,7 @@
                         coincidir</div>
                 </div>
                 <p>
-                    <input type="text" formControlName="dni" [ngClass]="{ 'is-invalid': form.dni.errors }" placeholder="Dni*" />
+                    <input type="text" formControlName="dni" [ngClass]="{ 'is-invalid': form.dni.errors }" maxlength="9"placeholder="Dni*" />
                 </p>
                 <div *ngIf="submitted && form.dni.errors" class="invalid-feedback">
                     <div *ngIf="form.dni.errors.required" class="validator-error">El dni es necesario</div>
