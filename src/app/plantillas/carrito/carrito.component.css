@@ -448,6 +448,31 @@ aside {
 
 }
 
+.buttonDireccion{
+  background: transparent;
+  cursor: pointer;
+  transition: 1s;
+  float: right;
+  color: #666;
+}
+.buttonDireccion:hover{
+  color: var(--dorado);
+  transition: 0.5s;
+}
+
+.titulo-direccion{
+  float: left;
+  margin-right: 25px;
+  color: var(--dorado);
+}
+
+.texto-direccionPre{
+ margin-left: 15px;
+}
+.contenidoDireccion{
+  width: auto;
+}
+
 
 
 
