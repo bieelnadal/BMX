@@ -21,13 +21,17 @@ const URL_OBTENER_DIRECCION_ID =
 const URL_MODIFICAR_PREDETERMINADO =
   'http://localhost:8080/direcciones/establecerPredeterminado.php';
 
+const URL_OBTENER_USUARIO_ID = 
+  'http://localhost:8080/direcciones/obtenerIdUsuarioDireccion.php';
+
+
 @Injectable({
   providedIn: 'root',
 })
 export class DireccService {
   dataDireccion: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   registrarDireccion(direccion: Direccion) {
     this.http
@@ -71,6 +75,14 @@ export class DireccService {
   obtenerDireccionId(idDireccion: any) {
     return this.http.get(
       URL_OBTENER_DIRECCION_ID + `?idDireccion=${idDireccion}`
+    );
+  }
+
+  //Obtener la id usuario de direciones
+  obtenerUsuarioId(idUsuario: any) {
+    console.log(idUsuario);
+    return this.http.get(
+      URL_OBTENER_USUARIO_ID + `?idUsuario=${idUsuario}`
     );
   }
 

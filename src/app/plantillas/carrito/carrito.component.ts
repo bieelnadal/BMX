@@ -7,6 +7,7 @@ import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.se
 import { Usuario } from 'src/app/interfaces/Usuario';
 import { DireccService } from 'src/app/services/direcciones/direcc.service';
 import { UsersService } from 'src/app/services/usuarios/users.service';
+import { Direccion } from 'src/app/interfaces/Direccion';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,13 +17,16 @@ import Swal from 'sweetalert2';
 })
 export class CarritoComponent implements OnInit {
 
-  idProducto:any;
-  idVendedor:any;
+  idProducto: any;
+  idVendedor: any;
   direccion: any;
+  idUsuario: any;
   listaDirecciones: any[] = [];
-  idDireccion:any;
+  idDireccion: any;
+  direccionPredeterminado:any;
+  
 
-  producto: Producto ={
+  producto: Producto = {
     idProducto: 0,
     idVendedor: 0,
     Nombre: '',
@@ -36,6 +40,7 @@ export class CarritoComponent implements OnInit {
     Subasta: 0,
   };
 
+
   datosUsuario: Usuario = {
     idUsuario: 0,
     Nombre: '',
@@ -48,16 +53,25 @@ export class CarritoComponent implements OnInit {
     idAdmin: 1,
   };
 
+  cojerDireccion:Direccion ={
+    idDireccion: 0,
+    Direccion: '',
+    Pais: 0,
+    Localidad: '',
+    codigoPostal: 0,
+    idUsuario: 0,
+    Predeterminado:0,
+  }
 
-  carrito:Carrito={
-    idCarrito:0,
-    Precio:0,
-    idUsuario:0,
-    idProducto:0,
-    idDireccion:0,
-    IdVendedor:0,
-    emailCompador:'',
-    emailVendedor:'',
+  carrito: Carrito = {
+    idCarrito: 0,
+    Precio: 0,
+    idUsuario: 0,
+    idProducto: 0,
+    idDireccion: 0,
+    IdVendedor: 0,
+    emailCompador: '',
+    emailVendedor: '',
   }
 
 
@@ -69,20 +83,18 @@ export class CarritoComponent implements OnInit {
     private usersService: UsersService
   ) { }
 
-  ngOnInit():void {
-    this.idProducto = this._route.snapshot.paramMap.get('id'); 
-   
+  ngOnInit(): void {
+    this.idProducto = this._route.snapshot.paramMap.get('id');
     this.obtenerDatos();
+    this.idUsuario = this.datosUsuario.idUsuario;
     this.pasarIdProducto();
     this.obtenerDirecciones();
-    
-
-    
+    this.pasarIdUsuairoId();
   }
 
   obtenerDatos() {
     this.datosUsuario = this.tokenServ.getUsuario();
-    
+
   }
 
 
@@ -96,8 +108,9 @@ export class CarritoComponent implements OnInit {
         val.forEach((element: any) => {
 
           if (element.idUsuario == this.datosUsuario.idUsuario) {
-            this.listaDirecciones.push(element);            
+            this.listaDirecciones.push(element);
           }
+
         });
       }
     });
@@ -105,11 +118,11 @@ export class CarritoComponent implements OnInit {
 
 
 
-  pasarIdProducto(){
+  pasarIdProducto() {
     this.ProductsService.PasarProductoId(this.idProducto).subscribe((val: any) => {
       this.producto = val.data;
-         
-    });    
+
+    });
   }
 
   pasarIdUsuarioProducto(){
@@ -117,38 +130,56 @@ export class CarritoComponent implements OnInit {
       this.producto = val.data;
          
     });
+  } 
+  /*cojer usuario direccion*/ 
+
+  pasarIdUsuairoId() {
+    this.direccService.obtenerUsuarioId(this.idUsuario).subscribe((val: any) => {
+      this.cojerDireccion = val.data;
+
+    });
   }
 
 
-  cojerIdDireccion(idDireccion:any){  
+  cojerIdDireccion(idDireccion: any) {
 
-    
+
   }
 
-
-
-
-  cambiarEstadoProducto():any{
-    this.producto.idProducto=this.idProducto;
-    this.producto.Estado= 1;
+  cambiarEstadoProducto(): any {
+    this.producto.idProducto = this.idProducto;
+    this.producto.Estado = 1;
 
     this.ProductsService.cambiarEstado(this.producto);
   }
 
- tramitarProducto():any { 
+  tramitarProducto(): any {
     this.cambiarEstadoProducto();
-    this.carrito.Precio=this.producto.Precio;
-    this.carrito.idUsuario=this.datosUsuario.idUsuario;
-    this.carrito.idProducto=this.producto.idProducto;
-    this.carrito.idDireccion=this.idDireccion;
-    this.carrito.emailCompador=this.datosUsuario.Email;
-    this.carrito.emailVendedor=this.datosUsuario.Email;
-    this.carrito.IdVendedor=this.datosUsuario.idUsuario;
-   
-    this.ProductsService.registrarCarrito(this.carrito);
+    if (this.idDireccion == undefined) {
+      this.carrito.Precio = this.producto.Precio;
+      this.carrito.idUsuario = this.datosUsuario.idUsuario;
+      this.carrito.idProducto = this.producto.idProducto;
+      this.carrito.idDireccion = this.cojerDireccion.idDireccion;
+      this.carrito.emailCompador = this.datosUsuario.Email;
+      this.carrito.emailVendedor = this.datosUsuario.Email;
+      this.carrito.IdVendedor = this.datosUsuario.idUsuario;
 
-    
+    } else {
+      this.cambiarEstadoProducto();
+      this.carrito.Precio = this.producto.Precio;
+      this.carrito.idUsuario = this.datosUsuario.idUsuario;
+      this.carrito.idProducto = this.producto.idProducto;
+      this.carrito.idDireccion = this.idDireccion;
+      this.carrito.emailCompador = this.datosUsuario.Email;
+      this.carrito.emailVendedor = this.datosUsuario.Email;
+      this.carrito.IdVendedor = this.datosUsuario.idUsuario;
+
+      
+    }
+  this.ProductsService.registrarCarrito(this.carrito);
+
+
   }
- 
+
 
 }
