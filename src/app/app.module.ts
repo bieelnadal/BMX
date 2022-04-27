@@ -33,6 +33,7 @@ import { TablaVerificarProductosComponent } from './vistas/admin/tabla-verificar
 import { EditarDatosUsuarioModalComponent } from './plantillas/editar-datos-usuario-modal/editar-datos-usuario-modal.component';
 import { CarritoComponent } from './plantillas/carrito/carrito.component';
 import { BorrarUsuariosComponent } from './vistas/admin/borrar-usuarios/borrar-usuarios.component';
+import { GestionProductosComponent } from './vistas/admin/gestion-productos/gestion-productos.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { BorrarUsuariosComponent } from './vistas/admin/borrar-usuarios/borrar-u
     TablaVerificarProductosComponent,
     EditarDatosUsuarioModalComponent,
     CarritoComponent,
-    BorrarUsuariosComponent
+    BorrarUsuariosComponent,
+    GestionProductosComponent
   ],
   imports: [
     BrowserModule,

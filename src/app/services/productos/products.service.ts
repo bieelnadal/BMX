@@ -25,6 +25,8 @@ const URL_CAMBIAR_ESTADO_PRODUCTO ="http://localhost:8080/productos/cambiarEstad
 
 const URL_CONTAR_PRODUCTOS_SIN_VERIFICAR = "http://localhost:8080/productos/contarProductosSinVerificar.php";
 
+const URL_OBTENER_PRODUCTO_ADMIN = 'http://localhost:8080/productos/obtenerProductosAdmin.php';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -78,6 +80,13 @@ export class ProductsService {
     return this.http.get(URL_OBTENER_PRODUCTO);
   }
 
+  obtenerProductosAdmin(){
+    console.log("Hola");
+    return this.http.get(URL_OBTENER_PRODUCTO_ADMIN);
+    
+    
+  }
+
   borrarProducto(){
 
   }
@@ -93,8 +102,6 @@ export class ProductsService {
       URL_OBTENER_VENDEDOR_ID + `?idDireccion=${idVendedor}`
     );
   }
-
- 
 
   contarProductos(){
     return this.http.get(URL_CONTAR_PRODUCTOS);

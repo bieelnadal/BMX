@@ -1,0 +1,45 @@
+<h1>Gestion Productos</h1>
+<table class="info-table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Descripcion</th>
+            <th>Fecha de subida</th>
+            <th>Imagen</th>
+            <th>Subasta</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prod of listaProductos; let i = index">
+            <td>
+                <h4>{{prod.Nombre}}</h4>
+            </td>
+            <td>
+                <h4>{{prod.Precio}}€</h4>
+            </td>
+            <td>
+                <h4>{{prod.Descripcion}}</h4>
+            </td>
+            <td>
+                <h4>{{prod.Fecha}}</h4>
+            </td>
+            <td>
+                <img class="img-table" src="{{prod.Imagen}}">
+            </td>
+            <td>
+                <h4 *ngIf="prod.Subasta==0">No</h4>
+                <h4 *ngIf="prod.Subasta==1">Si</h4>
+            </td>
+            <td class="last">
+                <button>
+                    <app-editar-datos-usuario-modal [userSelecc]="prod.idUsuario"></app-editar-datos-usuario-modal>
+                </button>
+                <button>
+                    <app-borrar-usuarios [userSelecc]="prod.idUsuario"></app-borrar-usuarios>
+                </button>
+
+            </td>
+        </tr>
+</table>
