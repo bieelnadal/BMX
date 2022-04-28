@@ -35,7 +35,6 @@ export class HomeComponent implements OnInit {
       this.producto = val;
       if (this.producto == null) {
       } else {
-        console.log(this.listaProductos);
         
         val.forEach((element: any) => {
             this.listaProductos.push(element);
