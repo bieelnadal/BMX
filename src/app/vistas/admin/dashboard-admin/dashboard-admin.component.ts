@@ -35,8 +35,8 @@ export class DashboardAdminComponent implements OnInit {
     private prodServ: ProductsService
   ) {}
 
-  validarproductosVisual: boolean = false;
-  gestionarusuariosVisual: boolean = false;
+  gestionProductosVisual: boolean = false;
+  gestionUsuariosVisual: boolean = false;
 
   ngOnInit() {
     this.obtenerDatos();
@@ -75,20 +75,20 @@ export class DashboardAdminComponent implements OnInit {
   }
 
   mostrarValidarProductos() {
-    if (this.validarproductosVisual == false) {
-      this.validarproductosVisual = true;
-      this.gestionarusuariosVisual = false;
+    if (this.gestionProductosVisual == false) {
+      this.gestionProductosVisual = true;
+      this.gestionUsuariosVisual = false;
     } else {
-      this.validarproductosVisual = false;
+      this.gestionProductosVisual = false;
     }
   }
 
   mostrarGestionProductos() {
-    if (this.gestionarusuariosVisual == false) {
-      this.gestionarusuariosVisual = true;
-      this.validarproductosVisual = false;
+    if (this.gestionUsuariosVisual == false) {
+      this.gestionUsuariosVisual = true;
+      this.gestionProductosVisual = false;
     } else {
-      this.gestionarusuariosVisual = false;
+      this.gestionUsuariosVisual = false;
     }
   }
 

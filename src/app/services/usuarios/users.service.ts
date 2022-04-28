@@ -18,11 +18,13 @@ const URL_VALIDAR_EMAIL =
 const URL_MODIFICAR_USUARIO =
   'http://localhost:8080/usuarios/modificarUsuario.php'; //URL UPDATE USUARIO
 
-const URL_OBTENER_USUARIOS = 'http://localhost:8080/usuarios/obtenerUsuarios.php'; // OBTENER LOS USUARIOS
+const URL_OBTENER_USUARIOS =
+  'http://localhost:8080/usuarios/obtenerUsuarios.php'; // OBTENER LOS USUARIOS
 
-const URL_OBTENER_USUARIO_ID = 'http://localhost:8080/usuarios/obtenerUsuarioId.php';
+const URL_OBTENER_USUARIO_ID =
+  'http://localhost:8080/usuarios/obtenerUsuarioId.php';
 
-const URL_BORRAR_USUARIO = 'http://localhost:8080/usuarios/borrarUsuario.php' ;
+const URL_BORRAR_USUARIO = 'http://localhost:8080/usuarios/borrarUsuario.php';
 
 @Injectable({
   providedIn: 'root',
@@ -64,7 +66,7 @@ export class UsersService {
     return this.http.get(URL_CONTAR_USER);
   }
 
-  obtenerUsuarioIdProducto(idUsuario: number){
+  obtenerUsuarioIdProducto(idUsuario: number) {
     return this.http.get(URL_VALIDAR_EMAIL + `?idUsuario=${idUsuario}`);
   }
 
@@ -97,10 +99,8 @@ export class UsersService {
       });
   }
 
-  obtenerUsuarioId(idUsuario:any){
-    return this.http.get(
-      URL_OBTENER_USUARIO_ID + `?idUsuario=${idUsuario}`
-    );
+  obtenerUsuarioId(idUsuario: any) {
+    return this.http.get(URL_OBTENER_USUARIO_ID + `?idUsuario=${idUsuario}`);
   }
 
   validarEmail(email: string, id: any) {
@@ -114,7 +114,7 @@ export class UsersService {
 
   modificarUsuario(usuario: Usuario) {
     console.log(usuario);
-    
+
     return this.http.put(URL_MODIFICAR_USUARIO, JSON.stringify(usuario));
   }
 }

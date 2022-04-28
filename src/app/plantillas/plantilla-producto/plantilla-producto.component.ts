@@ -59,7 +59,7 @@ export class PlantillaProductoComponent implements OnInit {
   pasarIdProducto(){
     this.ProductsService.PasarProductoId(this.idProducto).subscribe((val: any) => {
       this.producto = val.data;
-       console.log(this.idVendedor=this.producto.idVendedor);
+      this.idVendedor=this.producto.idVendedor
        this.ProductsService.PasarVendedorId(this.idVendedor).subscribe((val: any) => {
         this.datosUsuario = val.data;   
       });
