@@ -165,7 +165,7 @@ color: rgb(45, 44, 44);
 /*cartas de productos*/
 
 .card {
-  border-radius: 5px    ;
+  border-radius: 15px;
   box-shadow: var(--verdeprincipal);
   width: 500px;
   text-align: center;
@@ -228,12 +228,19 @@ color: rgb(45, 44, 44);
 }
 
 img {
+  width: 275px;
+  height: 200px;
+ }
+
+.divImg{
   max-width: 100%;
   max-height: 100%;
- }
+}
+
  .cat {
   height: 200px;
   text-align: center;
   display: flex;
   justify-content: center;
+  margin-top: 50px;
  }
