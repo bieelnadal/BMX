@@ -23,6 +23,9 @@ export class DashboardAdminComponent implements OnInit {
     idAdmin: 1,
   };
 
+  flagGP:boolean = false;
+  flagGU:boolean = false;
+
   productosNoVerificados: any;
 
   totalUsuarios: any;
@@ -74,12 +77,15 @@ export class DashboardAdminComponent implements OnInit {
     });
   }
 
-  mostrarValidarProductos() {
+  mostrarValidarProductos() {    
+    
     if (this.gestionProductosVisual == false) {
       this.gestionProductosVisual = true;
       this.gestionUsuariosVisual = false;
+      this.flagGP = true;
     } else {
       this.gestionProductosVisual = false;
+      this.flagGP = false;
     }
   }
 
@@ -87,8 +93,11 @@ export class DashboardAdminComponent implements OnInit {
     if (this.gestionUsuariosVisual == false) {
       this.gestionUsuariosVisual = true;
       this.gestionProductosVisual = false;
+      this.flagGU = true;
+      this.flagGP = false;
     } else {
       this.gestionUsuariosVisual = false;
+      this.flagGU = false;
     }
   }
 

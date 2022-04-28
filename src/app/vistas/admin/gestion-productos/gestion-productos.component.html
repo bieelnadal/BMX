@@ -4,6 +4,7 @@
         <tr>
             <th>Nombre</th>
             <th>Precio</th>
+            <th>Categoria</th>
             <th>Descripcion</th>
             <th>Fecha de subida</th>
             <th>Imagen</th>
@@ -18,6 +19,9 @@
             </td>
             <td>
                 <h4>{{prod.Precio}}€</h4>
+            </td>
+            <td>
+                <h4>{{prod.nombreCategoria}}</h4>
             </td>
             <td>
                 <h4>{{prod.Descripcion}}</h4>
@@ -37,7 +41,7 @@
                     <app-editar-datos-usuario-modal [userSelecc]="prod.idUsuario"></app-editar-datos-usuario-modal>
                 </button>
                 <button>
-                    <app-borrar-usuarios [userSelecc]="prod.idUsuario"></app-borrar-usuarios>
+                    <app-borrar-producto [prodSelecc]="prod.idProducto"></app-borrar-producto>
                 </button>
 
             </td>

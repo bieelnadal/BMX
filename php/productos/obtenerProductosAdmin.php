@@ -20,7 +20,7 @@
   global $datos;
 
   // query
-  $query = "SELECT * FROM `producto` WHERE Activo =1";
+  $query = "SELECT producto.idProducto, producto.idVendedor, producto.Nombre, producto.Imagen, producto.Descripcion, categorias.nombreCategoria, producto.Fecha, producto.Estado, producto.Activo, producto.Precio, producto.Subasta FROM `producto`, `categorias` WHERE producto.Activo=1 AND producto.Estado=0 AND producto.idCategoria=categorias.idCategoria";
   $registros = mysqli_query($con, $query);
   
   // si la query ha sido correcta hacemos fetch
@@ -38,4 +38,3 @@
     $response->mensaje = 'Hubo un problema con la base de datos.';
     echo json_encode($response);
   }
-?>
