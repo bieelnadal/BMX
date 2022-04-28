@@ -9,3 +9,33 @@
 .card{
   margin: 5px;
 }
+
+
+.h3-venta{
+  width: auto;
+  float: left;
+  margin-top: 20px;
+  color: var(--verdeprincipal);
+  margin-bottom: 0px;
+}
+
+.p-venta{
+  width: auto;
+  float: right;
+  margin-top: 20px;
+  color: var(--dorado);
+}
+
+img{
+  float: left;
+  width: 150px;
+  border-radius: 5px;
+  margin: 5px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.desc-venta{
+  margin-top: -20px;
+  width: 70%;
+}

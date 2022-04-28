@@ -4,17 +4,22 @@
 <div class="container">
     <div class="row">
         <div class="col">
-                <div class="card" *ngFor="let prod of listaProductos; let i = index">
-                    <img src="" >
-                    <div class="container">
-                        <div>
-                            <h3>{{prod.Nombre}}</h3>
-                            <p> {{prod.Precio}}€</p>
+            <div class="card" *ngFor="let prod of listaProductos; let i = index">
+
+                <div class="container">
+                    <div>
+                        <img src="{{prod.Imagen}}">
+                        <div class="centrar-texto">
+                            <h3 class="h3-venta">{{prod.Nombre}}</h3>
+                            <h4 class="p-venta"> {{prod.Precio}}€</h4><br><br><br><br>
+                            <p class="desc-venta">{{prod.Descripcion}} ...</p>
                         </div>
                     </div>
-                  </div>
+
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
 
-<app-footer></app-footer>
+    <app-footer></app-footer>
