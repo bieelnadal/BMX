@@ -7,29 +7,31 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-borrar-producto',
   templateUrl: './borrar-producto.component.html',
-  styleUrls: ['./borrar-producto.component.css']
+  styleUrls: ['./borrar-producto.component.css'],
 })
 export class BorrarProductoComponent implements OnInit {
-
-  constructor(private usersServ: UsersService, private tokenServ: TokenSesionService, private prodServ: ProductsService) { }
+  constructor(
+    private usersServ: UsersService,
+    private tokenServ: TokenSesionService,
+    private prodServ: ProductsService
+  ) {}
 
   @Input() prodSelecc: any;
   datosUsuario: any;
 
   ngOnInit(): void {
-    this.recogerDatos();   
+    this.recogerDatos();
   }
 
-
-  recogerDatos(){
+  recogerDatos() {
     this.datosUsuario = this.tokenServ.getUsuario();
   }
 
-  enviar(){
+  enviar() {
     console.log(this.prodSelecc);
 
     Swal.fire({
-      title: '¿Estas seguro de que quieres borrar este usuario?',
+      title: '¿Estas seguro de que quieres borrar este producto?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -47,10 +49,10 @@ export class BorrarProductoComponent implements OnInit {
           Swal.fire(`Escribir contraseña: ${password}`);
 
           if (password == this.datosUsuario.Passcode) {
-            this.usersServ.borrarUsuario(this.prodSelecc);
+            this.prodServ.borrarProducto(this.prodSelecc);
             Swal.fire({
               icon: 'success',
-              title: 'Usuario borrado',
+              title: 'Producto borrado',
               confirmButtonColor: '#3085d6',
               confirmButtonText: 'Ok',
             }).then((result) => {
@@ -60,7 +62,7 @@ export class BorrarProductoComponent implements OnInit {
             Swal.fire({
               icon: 'error',
               title: 'Ooops..',
-              text: 'No se ha podido borrar el usuario, la contraseña es incorrecta',
+              text: 'No se ha podido borrar el producto, la contraseña es incorrecta',
               confirmButtonColor: '#3085d6',
               confirmButtonText: 'Ok',
             });
@@ -68,7 +70,5 @@ export class BorrarProductoComponent implements OnInit {
         }
       }
     });
-
   }
-
 }

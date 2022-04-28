@@ -29,6 +29,8 @@ const URL_OBTENER_PRODUCTO_ADMIN = 'http://localhost:8080/productos/obtenerProdu
 
 const URL_HISTORIAL_VENTA = "http://localhost:8080/productos/historialVentas.php";
 
+const URL_BORRAR_PRODUCTO = "http://localhost:8080/productos/borrarProducto.php";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -89,8 +91,15 @@ export class ProductsService {
 
   }
 
-  borrarProducto() {
+  borrarProducto(idProducto: any) {
+    console.log('Entra funcion');
+    console.log(idProducto);
 
+    return this.http
+      .delete(URL_BORRAR_PRODUCTO + `?idProducto=${idProducto}`)
+      .subscribe((val: any) => {
+        console.log(val);
+      });
   }
 
   PasarProductoId(idProducto: any) {
