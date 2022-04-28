@@ -21,32 +21,31 @@ export class EditarProductoModalComponent implements OnInit {
 
   modEditarProd!: FormGroup;
 
-
-  @Input() prodSelecc:any;
+  @Input() prodSelecc: any;
 
   constructor(
     private modalService: NgbModal,
-    private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder
   ) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   crearForm() {
     this.modEditarProd = this.formBuilder.group(
       {
-        Nombre: [],
-        Imagen: [],
-        Descripcion: [],
-        idCategoria: [],
-        Estado: [],
-        Activo: [],
-        Precio: [],
+        Nombre: [this.prodSelecc.Nombre, [Validators.required]],
+        Imagen: [this.prodSelecc.Imagen, [Validators.required]],
+        Descripcion: [this.prodSelecc.Descripcion, [Validators.required]],
+        idCategoria: [this.prodSelecc.idCategoria, [Validators.required]],
+        Activo: [this.prodSelecc.Activo, [Validators.required]],
+        Precio: [this.prodSelecc.Precio, [Validators.required]],
       },
-      {
-      }
+      {}
     );
+  }
+
+  get form(){
+    return this.modEditarProd.controls;
   }
 
   retornar() {
@@ -59,16 +58,11 @@ export class EditarProductoModalComponent implements OnInit {
 
     this.crearForm();
     console.log(this.prodSelecc);
-    
   }
 
-  recogerDatos() {
+  recogerDatos() {}
 
-  }
-
-  onSubmit(form: any) {
-
-  }
+  onSubmit(form: any) {}
 
   readURL(event: any) {
     if (event.target.files && event.target.files[0]) {
