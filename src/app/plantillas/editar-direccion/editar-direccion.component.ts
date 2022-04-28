@@ -33,6 +33,7 @@ export class EditarDireccionComponent implements OnInit {
 
   mostrarAgregarDirecion: boolean = false;
   esconderDirecion: boolean = true;
+  mostrarCampoRestante: boolean = false;
 
   constructor(
     public fb: FormBuilder,
@@ -108,6 +109,7 @@ export class EditarDireccionComponent implements OnInit {
   }
 
   onSubmit(form: any) {
+    this.mostrarCampoRestante = true;
     if (this.direcciones.valid) {
       const nuevaDireccion: Direccion = {
         idDireccion: 0,
@@ -122,6 +124,7 @@ export class EditarDireccionComponent implements OnInit {
       this.direcciones.reset();
       window.location.reload();
     }
+
   }
 
   borrarDireccion(idDirecc: any) {
