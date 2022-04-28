@@ -10,6 +10,54 @@
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
+
+        <form [formGroup]="modEditarProd" (ngSubmit)="onSubmit(modEditarProd)">
+            <label>Nombre</label>
+            <input type="text" formControlName="Nombre">
+            <div *ngIf="form.Nombre.errors">
+                <p *ngIf="form.Nombre.errors.required">El nombre es un campo obligatorio.</p>
+            </div>
+
+            <label>Imagen</label>
+            <input type="file" formControlName="Imagen">
+            <div *ngIf="form.Imagen.errors">
+                <p *ngIf="form.Imagen.errors.required">El nombre es un campo obligatorio.</p>
+            </div>
+
+            <label>Descripción</label>
+            <textarea formControlName="Descripcion"></textarea>
+            <div *ngIf="form.Descripcion.errors">
+                <p *ngIf="form.Descripcion.errors.required">El nombre es un campo obligatorio.</p>
+            </div>
+
+            <label>Categoria</label>
+            <select formControlName="idCategoria">
+                <option value="1">Vehículos</option>
+                <option value="2">Relojes</option>
+                <option value="3">Cámaras y fotografia</option>
+                <option value="4">Electrodomésticos</option>
+                <option value="5">Ropa</option>
+            </select>
+            <div *ngIf="form.Imagen.errors">
+                <p *ngIf="form.Imagen.errors.required">El nombre es un campo obligatorio.</p>
+            </div>
+
+            <label>Activo</label>
+            <div>
+                <input type="radio" id="contactChoice1" formControlName="Activo" value="1"
+                    [ngClass]="{ 'is-invalid': form.Activo.errors }">
+                <label for="contactChoice1">Listado</label>
+                <br>
+
+                <input type="radio" id="contactChoice1" formControlName="Activo" value="0"
+                    [ngClass]="{ 'is-invalid': form.Activo.errors }">
+                <label for="contactChoice1">Oculto</label>
+            </div>
+            <div *ngIf="form.Activo.errors">
+                <p *ngIf="form.Activo.errors.required">El nombre es un campo obligatorio.</p>
+            </div>
+
+        </form>
     </div>
     <div class="modal-footer">
 
