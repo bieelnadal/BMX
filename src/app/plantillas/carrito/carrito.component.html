@@ -35,35 +35,20 @@
         </div>
       </div>
       <!--direcciones-->
-      <br><br>
-      <div class="contenidoDireccion">
-        <h1 class="titulo-direccion">Direccion de envio predeterminado	:</h1>
-        <p class="texto-direccionPre">{{cojerDireccion.Direccion}}, {{cojerDireccion.codigoPostal}} {{cojerDireccion.Localidad}}</p>
-      </div><br>
-
-      <div class="desplegableDireccion">
-        <button class="buttonDireccion" (click)="mostrarDesplegableDireccion()">Escoger otra direccion de envio <svg
-            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill"
-            viewBox="0 0 16 16">
-            <path
-              d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-          </svg></button>
-      </div> <br>
-      <div *ngIf="this.mostrarDesplegable">
-        <div *ngFor="let direcc of listaDirecciones; let i = index">
-          <a (click)="cojerIdDireccion(this.idDireccion = direcc.idDireccion)">
-
-            <div class="direccion-escojer">
-              <button class="direccprint">
-                · {{direcc.Direccion}}, {{direcc.codigoPostal}} {{direcc.Localidad}}
-              </button> <br><br>
-            </div>
-          </a>
-
-        </div>
-      </div>
+<br><br>
+      <h1 class="titulo-carrito">Escojer direcciones de envio:</h1>
+      <div *ngFor="let direcc of listaDirecciones; let i = index">
+        <a (click)="cojerIdDireccion(this.idDireccion = direcc.idDireccion)">
+          
+          <div class="direccion-escojer">
+            <button class="direccprint">
+              ·  {{direcc.Direccion}}, {{direcc.codigoPostal}} {{direcc.Localidad}}
+            </button> <br><br>
+          </div>
+        </a>
       
-      <hr>
+      </div>
+<hr>
 
 
 
@@ -80,7 +65,6 @@
         </div>
       </div>
     </aside>
-    
   </main>
 </body>
 <app-footer></app-footer>

@@ -80,6 +80,7 @@ export class DireccService {
 
   //Obtener la id usuario de direciones
   obtenerUsuarioId(idUsuario: any) {
+    console.log(idUsuario);
     return this.http.get(
       URL_OBTENER_USUARIO_ID + `?idUsuario=${idUsuario}`
     );

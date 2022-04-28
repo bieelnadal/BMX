@@ -24,7 +24,6 @@ export class CarritoComponent implements OnInit {
   listaDirecciones: any[] = [];
   idDireccion: any;
   direccionPredeterminado:any;
-  mostrarDesplegable: boolean =false;
   
 
   producto: Producto = {
@@ -153,15 +152,6 @@ export class CarritoComponent implements OnInit {
 
     this.ProductsService.cambiarEstado(this.producto);
   }
-
-  mostrarDesplegableDireccion(){
-      if(this.mostrarDesplegable == false){
-        this.mostrarDesplegable = true;
-      }else{
-        this.mostrarDesplegable = false;
-      }
-  }
-
 
   tramitarProducto(): any {
     this.cambiarEstadoProducto();
