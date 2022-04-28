@@ -1,0 +1,20 @@
+<app-header></app-header>
+<h1 class="h1-historial">Mis Pedidos</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+                <div class="card" *ngFor="let prod of listaProductos; let i = index">
+                    <img src="" >
+                    <div class="container">
+                        <div>
+                            <h3>{{prod.Nombre}}</h3>
+                            <p> {{prod.Precio}}€</p>
+                        </div>
+                    </div>
+                  </div>
+    </div>
+</div>
+
+
+<app-footer></app-footer>

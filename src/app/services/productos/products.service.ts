@@ -7,11 +7,11 @@ import { Carrito } from 'src/app/interfaces/Carrito';
 
 const URL = 'http://localhost:8080/';
 
-const URL_CREAR_PRODUCTO='http://localhost:8080/productos/crearProductos.php';
+const URL_CREAR_PRODUCTO = 'http://localhost:8080/productos/crearProductos.php';
 
-const URL_CREAR_CARRITO='http://localhost:8080/productos/tramitesCarrito.php';
+const URL_CREAR_CARRITO = 'http://localhost:8080/productos/tramitesCarrito.php';
 
-const URL_OBTENER_PRODUCTO="http://localhost:8080/productos/obtenerProductos.php";
+const URL_OBTENER_PRODUCTO = "http://localhost:8080/productos/obtenerProductos.php";
 
 const URL_CONTAR_PRODUCTOS = "http://localhost:8080/productos/contarProductos.php";
 
@@ -21,11 +21,13 @@ const URL_OBTENER_PRODUCTO_ID = "http://localhost:8080/productos/obtenerProducto
 
 const URL_OBTENER_VENDEDOR_ID = "http://localhost:8080/productos/obtenerVendedorId.php";
 
-const URL_CAMBIAR_ESTADO_PRODUCTO ="http://localhost:8080/productos/cambiarEstado.php";
+const URL_CAMBIAR_ESTADO_PRODUCTO = "http://localhost:8080/productos/cambiarEstado.php";
 
 const URL_CONTAR_PRODUCTOS_SIN_VERIFICAR = "http://localhost:8080/productos/contarProductosSinVerificar.php";
 
 const URL_OBTENER_PRODUCTO_ADMIN = 'http://localhost:8080/productos/obtenerProductosAdmin.php';
+
+const URL_HISTORIAL_VENTA = "http://localhost:8080/productos/historialVentas.php";
 
 @Injectable({
   providedIn: 'root'
@@ -34,45 +36,45 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
-  registrarProducto(Producto: Producto){
+  registrarProducto(Producto: Producto) {
 
-    
+
     return this.http.post(URL_CREAR_PRODUCTO, JSON.stringify(Producto)).subscribe((val: any) => {
-        if (val.resultado == "error") {
-          this.swalError();
-        } else {
-          this.swalCreado();
-        }
-      });
+      if (val.resultado == "error") {
+        this.swalError();
+      } else {
+        this.swalCreado();
+      }
+    });
 
   }
-  
-  registrarCarrito(Carrito: Carrito){ 
+
+  registrarCarrito(Carrito: Carrito) {
     return this.http.post(URL_CREAR_CARRITO, JSON.stringify(Carrito)).subscribe((val: any) => {
-        if (val.resultado == "error") {
-          this.swalError();
-        } else {
-          this.swalCreado();
-        }
-      });
+      if (val.resultado == "error") {
+        this.swalError();
+      } else {
+        this.swalCreado();
+      }
+    });
 
   }
 
-  cambiarEstado(Producto: Producto){
+  cambiarEstado(Producto: Producto) {
     console.log(Producto.Estado);
     console.log(Producto.idProducto);
     return this.http.post(URL_CAMBIAR_ESTADO_PRODUCTO, JSON.stringify(Producto)).subscribe((val: any) => {
-        if (val.resultado == "error") {
-          this.swalError();
-        } else {
-          this.swalCreado();
-        }
-      });
+      if (val.resultado == "error") {
+        this.swalError();
+      } else {
+        this.swalCreado();
+      }
+    });
 
   }
 
 
-  editarProducto(){
+  editarProducto() {
 
   }
 
@@ -80,14 +82,14 @@ export class ProductsService {
     return this.http.get(URL_OBTENER_PRODUCTO);
   }
 
-  obtenerProductosAdmin(){
+  obtenerProductosAdmin() {
     console.log("Hola");
     return this.http.get(URL_OBTENER_PRODUCTO_ADMIN);
-    
-    
+
+
   }
 
-  borrarProducto(){
+  borrarProducto() {
 
   }
 
@@ -103,15 +105,23 @@ export class ProductsService {
     );
   }
 
-  contarProductos(){
+
+
+  PasarHistorialVenta(idVendedor: any) {
+    return this.http.get(
+      URL_HISTORIAL_VENTA + `?idVendedor=${idVendedor}`
+    );
+
+  }
+  contarProductos() {
     return this.http.get(URL_CONTAR_PRODUCTOS);
   }
 
-  contarProductosSubasta(){
+  contarProductosSubasta() {
     return this.http.get(URL_CONTAR_PRODUCTOS_SUBASTA);
   }
 
-  contarProductosSinVerificar(){
+  contarProductosSinVerificar() {
     return this.http.get(URL_CONTAR_PRODUCTOS_SIN_VERIFICAR);
   }
 

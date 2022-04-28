@@ -1,0 +1,11 @@
+.h1-historial{
+    text-align: center;
+    color: var(--dorado);
+    margin: 15px;
+}
+
+
+/*card*/
+.card{
+  margin: 5px;
+}
