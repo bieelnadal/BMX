@@ -38,4 +38,45 @@ img{
 .desc-venta{
   margin-top: -20px;
   width: 70%;
+  color: #666;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+  color: #666;
+  float: right;
+  cursor: pointer;
+  transition: 1s;
+  margin-top: -15px;
+}
+
+button:hover{
+  color: var(--dorado);
+  transition: 0.5s;
+}
+
+span{
+  color: #666;
+  margin-left: 5px;
+}
+
+h6{
+  margin: 15px;
+  margin-left: 60px;
+}
+
+h4{
+  margin: 15px;
+  margin-left: 40px;
+  color: var(--verdeprincipal);
+}
+
+.separador1{
+  width: 50%;
+  float: left;
+}
+.separador2{
+  float: right;
+  width: 50%;
 }

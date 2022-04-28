@@ -14,10 +14,52 @@
                             <h4 class="p-venta"> {{prod.Precio}}€</h4><br><br><br><br>
                             <p class="desc-venta">{{prod.Descripcion}} ...</p>
                         </div>
+                        <button (click)="desplegableVentas(prod)">Ver mas<svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                            </svg></button>
                     </div>
 
                 </div>
+                <div *ngIf="this.desplegableVisual && productoSelec==prod">
+                    <hr>
+                    <div class="separador1">
+                        <h4>Datos Comprador</h4>
+                        <h6><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                            </svg> Nombre Comprador: <span> {{datosUsuario.Nombre}} {{datosUsuario.Apellidos}}</span>
+                        </h6>
+                        <h6><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                            </svg> Email Comprador: <span>{{datosUsuario.Email}}</span></h6>
+                        <h4>Datos Vendedor</h4>
+                        <h6><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                            </svg> Nombre Vendedor: <span>{{datosVendedor.Nombre}} {{datosVendedor.Apellidos}}</span>
+
+                        </h6>
+                        <h6><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                            </svg> Email Vendedor: <span>{{datosVendedor.Email}}</span>
+
+                        </h6>
+                    </div>
+                    <div class="separador2">
+                        <h4>Direccion de envio</h4>
+                        {{carrito.idProducto}}
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 

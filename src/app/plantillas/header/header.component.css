@@ -57,6 +57,7 @@ li {
   border-radius: 8px;
   top: 35px;
   z-index: 99;
+  left: -45px;
 }
 .dropdown li + li {
   margin-top: 10px;

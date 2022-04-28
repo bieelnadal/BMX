@@ -31,6 +31,10 @@ const URL_HISTORIAL_VENTA = "http://localhost:8080/productos/historialVentas.php
 
 const URL_BORRAR_PRODUCTO = "http://localhost:8080/productos/borrarProducto.php";
 
+const URL_OBTENER_VENDEDOR_INFO ="http://localhost:8080/productos/obtenerVendedorInfo.php";
+
+const URL_OBTENER_DIRECCION ="http://localhost:8080/productos/obtenerDireccionCarrito.php";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -114,6 +118,12 @@ export class ProductsService {
     );
   }
 
+  PasarIdVendedorInfo(idVendedor:any){
+    return this.http.get(
+      URL_OBTENER_VENDEDOR_INFO + `?idVendedor=${idVendedor}`
+    );
+  }
+
 
 
   PasarHistorialVenta(idVendedor: any) {
@@ -122,6 +132,15 @@ export class ProductsService {
     );
 
   }
+
+
+  obtenerDireccionCarrito(idProductoInfo:any) {
+    return this.http.get(
+      URL_OBTENER_DIRECCION + `?idProductoInfo=${idProductoInfo}`
+    );
+  }
+
+
   contarProductos() {
     return this.http.get(URL_CONTAR_PRODUCTOS);
   }
