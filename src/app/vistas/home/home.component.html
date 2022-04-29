@@ -18,13 +18,11 @@
       <!-- NAVIGATION MENUS -->
       <div class="menu">
         <li class="services">
-          <a href="/crear-Producto">Vender</a>
-        </li>
-
-        <li class="services">
           <a href="/">Subastar</a>
         </li>
-
+        <li class="services">
+          <a href="/crear-Producto">Vender</a>
+        </li>
       </div>
     </ul>
   </nav>
@@ -32,24 +30,13 @@
   <div id="side" class="nav-box" style="display: none;">
     <nav class="caja_nav">
       <div><img src="../../../assets/Bid&Go_sin_fondo.png" width="150" height="150"></div>
-      <h1>Buscar por Categorias</h1>
+      <h1>Comprar por Categoria</h1>
       <ul>
-        <li>Categoria1</li>
-        <li>Categoria2</li>
-        <li>Categoria3</li>
-      </ul>
-
-      <h1>Comprar/Vender</h1>
-      <ul>
-        <li>Comprar</li>
-        <li>Vender</li>
-      </ul>
-
-      <h1>Ayuda</h1>
-      <ul>
-        <li>Reclamaciones</li>
-        <li>Atención al cliente</li>
-        <li>Notificar bugs/errores</li>
+        <li>Vehículos</li>
+        <li>Relojes</li>
+        <li>Cámaras y fotografia</li>
+        <li>Electrodomésticos</li>
+        <li>Ropa</li>
       </ul>
 
     </nav>
@@ -58,22 +45,13 @@
 
   <mat-sidenav-container>
     <mat-sidenav [(opened)]="opened" *ngIf="opened">
-      <h1>Buscar por categoria</h1>
+      <h1 class="h1-desplegable">Buscar por categoria</h1>
       <ul>
-        <li>Motor</li>
-        <li>Videojuegos</li>
-        <li>Colección</li>
-      </ul>
-      <h1>Compra/Venta</h1>
-      <ul>
-        <li>Comprar</li>
-        <li>Vender</li>
-      </ul>
-      <h1>Ayuda</h1>
-      <ul>
-        <li>Reclamaciones</li>
-        <li>Atencion al cliente</li>
-        <li> Notificar bugs o errores</li>
+        <li class="li-categoria"><button class="button-categoria" value="1">· Vehículos</button></li>
+        <li class="li-categoria"><button class="button-categoria" value="2">· Relojes</button></li>
+        <li class="li-categoria"><button class="button-categoria" value="3">· Cámaras y fotografia</button></li>
+        <li class="li-categoria"><button class="button-categoria" value="4">· Electrodomésticos</button></li>
+        <li class="li-categoria"><button class="button-categoria" value="5">· Ropa</button></li>
       </ul>
     </mat-sidenav>
     <mat-sidenav-content>

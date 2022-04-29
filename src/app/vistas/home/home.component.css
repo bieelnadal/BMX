@@ -58,6 +58,30 @@ li {
 .menu li {
   padding: 5px 14px;
 }
+
+.h1-desplegable{
+  font-size: 30px;
+}
+
+.li-categoria{
+  margin: 10px;
+}
+
+.button-categoria{
+  border: none;
+  background-color: transparent;
+  transition: 0.5s;
+  cursor: pointer;
+
+}
+
+.button-categoria:hover{
+  cursor: pointer;
+  transition: 0.5s;
+  margin-left: 5px;
+  color: var(--dorado);
+}
+
 /* DROPDOWN MENU */
 .services {
   position: relative;
@@ -228,8 +252,9 @@ color: rgb(45, 44, 44);
 }
 
 img {
-  width: 275px;
+  width: 300px;
   height: 200px;
+  border-radius: 5px;
  }
 
 .divImg{

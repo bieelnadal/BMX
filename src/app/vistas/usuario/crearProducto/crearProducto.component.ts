@@ -5,6 +5,8 @@ import { ProductsService } from 'src/app/services/productos/products.service';
 import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.service';
 import Swal from 'sweetalert2';
 import { Usuario } from 'src/app/interfaces/Usuario';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-crearProducto',
@@ -48,7 +50,9 @@ export class CrearProductoComponent implements OnInit {
   constructor(
     public formBuilder: FormBuilder,
     private ProductsService: ProductsService,
-    private tokenServ: TokenSesionService) { }
+    private tokenServ: TokenSesionService,
+    private router: Router,
+    ) { }
 
   ngOnInit() {
     this.crearForm();
@@ -102,9 +106,9 @@ export class CrearProductoComponent implements OnInit {
       this.producto.Descripcion = this.DescripcionProducto.value;
       this.producto.idCategoria = this.CategoriaProducto.value;
       this.producto.Precio = this.PrecioProducto.value;
-
-
       this.ProductsService.registrarProducto(this.producto);
+      
+      this.router.navigate(['home']);   
     } else { 
       this.swalError();
     }

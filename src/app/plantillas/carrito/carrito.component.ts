@@ -9,6 +9,7 @@ import { DireccService } from 'src/app/services/direcciones/direcc.service';
 import { UsersService } from 'src/app/services/usuarios/users.service';
 import { Direccion } from 'src/app/interfaces/Direccion';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carrito',
@@ -81,7 +82,8 @@ export class CarritoComponent implements OnInit {
     private ProductsService: ProductsService,
     private tokenServ: TokenSesionService,
     private direccService: DireccService,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -173,6 +175,7 @@ export class CarritoComponent implements OnInit {
       this.carrito.emailCompador = this.datosUsuario.Email;
       this.carrito.emailVendedor = this.datosUsuario.Email;
       this.carrito.IdVendedor = this.datosUsuario.idUsuario;
+      
 
     } else {
       this.cambiarEstadoProducto();
@@ -187,6 +190,7 @@ export class CarritoComponent implements OnInit {
       
     }
   this.ProductsService.registrarCarrito(this.carrito);
+  this.router.navigate(['home']);   
 
 
   }

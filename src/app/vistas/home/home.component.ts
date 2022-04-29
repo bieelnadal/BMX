@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
 
   obtenerProductos() {
     this.listaProductos = [];
+    
     this.ProductsService.obtenerProducto().subscribe((val: any) => {
       this.producto = val;
       if (this.producto == null) {
