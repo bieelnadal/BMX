@@ -4,6 +4,8 @@ import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.se
 import { Producto } from 'src/app/interfaces/Productos';
 import { Usuario } from 'src/app/interfaces/Usuario';
 import { Carrito } from 'src/app/interfaces/Carrito';
+import { Direccion } from 'src/app/interfaces/Direccion';
+import { DireccService } from 'src/app/services/direcciones/direcc.service';
 
 @Component({
   selector: 'app-historialVentas',
@@ -44,6 +46,15 @@ export class HistorialVentasComponent implements OnInit {
     idAdmin: 1,
   };
 
+  cojerDireccion:Direccion ={
+    idDireccion: 0,
+    Direccion: '',
+    Pais: 0,
+    Localidad: '',
+    codigoPostal: 0,
+    idUsuario: 0,
+    Predeterminado:0,
+  }
   
   carrito: Carrito = {
     idCarrito: 0,
@@ -60,6 +71,7 @@ export class HistorialVentasComponent implements OnInit {
   constructor(
     private ProductsService: ProductsService,
     private tokenServ: TokenSesionService,
+    private direccService: DireccService,
 
   ) { }
 
@@ -111,13 +123,24 @@ export class HistorialVentasComponent implements OnInit {
   
   direccionEnvio(){
     let idProductoInfo = this.productoSelec.idProducto;
-    console.log(idProductoInfo);
     
     this.ProductsService.obtenerDireccionCarrito(idProductoInfo).subscribe((val: any) => {
       this.carrito = val.data;
+      this.printardireccion();
     });
+    
+    
   }
 
+
+  printardireccion(){
+    let idDireccion =this.carrito.idDireccion;
+    this.direccService.obtenerDireccionId(idDireccion).subscribe((val: any) => {
+      this.cojerDireccion = val.data;
+      console.log(this.cojerDireccion);
+      
+    });
+  }
 
 
 }

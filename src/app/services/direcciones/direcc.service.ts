@@ -73,6 +73,8 @@ export class DireccService {
 
   // Obtener la direccion por ID
   obtenerDireccionId(idDireccion: any) {
+    console.log(idDireccion);
+    
     return this.http.get(
       URL_OBTENER_DIRECCION_ID + `?idDireccion=${idDireccion}`
     );
