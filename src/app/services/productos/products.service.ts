@@ -43,6 +43,10 @@ const URL_BORRAR_PRODUCTO =
 const URL_EDITAR_PRODUCTO =
   'http://localhost:8080/productos/editarProducto.php';
 
+const URL_OBTENER_VENDEDOR_INFO ="http://localhost:8080/productos/obtenerVendedorInfo.php";
+
+const URL_OBTENER_DIRECCION ="http://localhost:8080/productos/obtenerDireccionCarrito.php";
+
 @Injectable({
   providedIn: 'root',
 })
@@ -128,6 +132,15 @@ export class ProductsService {
   PasarHistorialVenta(idVendedor: any) {
     return this.http.get(URL_HISTORIAL_VENTA + `?idVendedor=${idVendedor}`);
   }
+
+
+  obtenerDireccionCarrito(idProductoInfo:any) {
+    return this.http.get(
+      URL_OBTENER_DIRECCION + `?idProductoInfo=${idProductoInfo}`
+    );
+  }
+
+
   contarProductos() {
     return this.http.get(URL_CONTAR_PRODUCTOS);
   }
