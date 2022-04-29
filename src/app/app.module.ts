@@ -37,6 +37,7 @@ import { GestionProductosComponent } from './vistas/admin/gestion-productos/gest
 import { HistorialVentasComponent } from './vistas/usuario/historialVentas/historialVentas.component';
 import { EditarProductoModalComponent } from './vistas/editar-producto-modal/editar-producto-modal.component';
 import { BorrarProductoComponent } from './vistas/borrar-producto/borrar-producto.component';
+import { GestorProductosVistaUsuarioComponent } from './vistas/usuario/gestor-productos-vista-usuario/gestor-productos-vista-usuario.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { BorrarProductoComponent } from './vistas/borrar-producto/borrar-product
     GestionProductosComponent,
     EditarProductoModalComponent,
     BorrarProductoComponent,
+    GestorProductosVistaUsuarioComponent,
   ],
   imports: [
     BrowserModule,

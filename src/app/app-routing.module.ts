@@ -16,6 +16,7 @@ import { CarritoComponent } from './plantillas/carrito/carrito.component';
 import { BorrarUsuariosComponent } from './vistas/admin/borrar-usuarios/borrar-usuarios.component';
 import { GestionProductosComponent } from './vistas/admin/gestion-productos/gestion-productos.component';
 import { HistorialVentasComponent } from './vistas/usuario/historialVentas/historialVentas.component';
+import { GestorProductosVistaUsuarioComponent } from './vistas/usuario/gestor-productos-vista-usuario/gestor-productos-vista-usuario.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'borrar-usuarios', component: BorrarUsuariosComponent },
   { path: 'gestion-productos', component: GestionProductosComponent },
   { path: 'historial-ventas', component: HistorialVentasComponent},
+  { path: 'gestion-prodcutos-Usuario', component: GestorProductosVistaUsuarioComponent}
 ];
 
 @NgModule({
