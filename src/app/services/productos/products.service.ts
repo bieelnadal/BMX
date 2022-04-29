@@ -123,6 +123,12 @@ export class ProductsService {
     );
   }
 
+  PasarIdVendedorInfo(idVendedor:any){
+    return this.http.get(
+      URL_OBTENER_VENDEDOR_INFO + `?idVendedor=${idVendedor}`
+    );
+  }
+
   PasarVendedorId(idVendedor: any) {
     return this.http.get(
       URL_OBTENER_VENDEDOR_ID + `?idDireccion=${idVendedor}`
