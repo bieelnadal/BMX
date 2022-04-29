@@ -19,7 +19,7 @@
             </div>
 
             <label>Imagen</label>
-            <input type="file" formControlName="Imagen">
+            <input type="file" formControlName="Imagen" (change)="readURL($event)">
             <div *ngIf="form.Imagen.errors">
                 <p *ngIf="form.Imagen.errors.required">El nombre es un campo obligatorio.</p>
             </div>
@@ -57,6 +57,8 @@
                 <p *ngIf="form.Activo.errors.required">El nombre es un campo obligatorio.</p>
             </div>
 
+
+            <button type="submit" class="btn btn-light" style="float: right;">Aplicar Cambios</button>
         </form>
     </div>
     <div class="modal-footer">

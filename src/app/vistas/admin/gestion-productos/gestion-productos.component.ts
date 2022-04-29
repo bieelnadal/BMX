@@ -42,14 +42,10 @@ export class GestionProductosComponent implements OnInit {
       this.producto = val;
       if (this.producto == null) {
       } else {
-        console.log('entra');
 
         val.forEach((element: any) => {
-          console.log('entra for each');
-          console.log(element);
           
           this.listaProductos.push(element);
-          console.log(this.listaProductos);
         });
       }
     });

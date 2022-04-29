@@ -6,9 +6,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.service';
 import { Producto } from 'src/app/interfaces/Productos';
 import Swal from 'sweetalert2';
+import { ProductsService } from 'src/app/services/productos/products.service';
 
 @Component({
   selector: 'app-editar-producto-modal',
@@ -25,7 +25,8 @@ export class EditarProductoModalComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private prodServ: ProductsService
   ) {}
 
   ngOnInit(): void {}
@@ -34,7 +35,7 @@ export class EditarProductoModalComponent implements OnInit {
     this.modEditarProd = this.formBuilder.group(
       {
         Nombre: [this.prodSelecc.Nombre, [Validators.required]],
-        Imagen: [this.prodSelecc.Imagen, [Validators.required]],
+        Imagen: ['',],
         Descripcion: [this.prodSelecc.Descripcion, [Validators.required]],
         idCategoria: [this.prodSelecc.idCategoria, [Validators.required]],
         Activo: [this.prodSelecc.Activo, [Validators.required]],
@@ -48,6 +49,10 @@ export class EditarProductoModalComponent implements OnInit {
     return this.modEditarProd.controls;
   }
 
+  get Imagen() {
+    return this.modEditarProd.get('Imagen') as FormControl;
+  }
+
   retornar() {
     this.modalService.dismissAll();
   }
@@ -57,12 +62,55 @@ export class EditarProductoModalComponent implements OnInit {
     this.modalService.open(modal);
 
     this.crearForm();
-    console.log(this.prodSelecc);
   }
 
   recogerDatos() {}
 
-  onSubmit(form: any) {}
+  onSubmit(form: any) {
+    let newProd:Producto;
+
+    if (form.valid) {
+      if (form.controls.Imagen.value!='') {
+        newProd = {
+          idProducto: this.prodSelecc.idProducto,
+          idVendedor: this.prodSelecc.idVendedor,
+          Nombre: form.controls.Nombre.value,
+          Imagen: this.imgSrc,
+          Descripcion: form.controls.Nombre.value,
+          idCategoria: form.controls.idCategoria.value,
+          Fecha: this.prodSelecc.Fecha,
+          Estado: this.prodSelecc.Estado,
+          Activo: form.controls.Activo.value,
+          Precio: form.controls.Precio.value,
+          Subasta: this.prodSelecc.Subasta
+        }
+        console.log("Imagen nueva "+newProd.Imagen);
+      }else{
+        newProd = {
+          idProducto: this.prodSelecc.idProducto,
+          idVendedor: this.prodSelecc.idVendedor,
+          Nombre: form.controls.Nombre.value,
+          Imagen: this.prodSelecc.Imagen,
+          Descripcion: form.controls.Descripcion.value,
+          idCategoria: form.controls.idCategoria.value,
+          Fecha: this.prodSelecc.Fecha,
+          Estado: this.prodSelecc.Estado,
+          Activo: form.controls.Activo.value,
+          Precio: form.controls.Precio.value,
+          Subasta: this.prodSelecc.Subasta
+        }
+
+        console.log("Imagen default "+newProd);
+        console.log(newProd);
+        
+        
+      }
+      this.prodServ.editarProducto(newProd).subscribe();
+    }else{
+      console.log("gangshit");
+      
+    }
+  }
 
   readURL(event: any) {
     if (event.target.files && event.target.files[0]) {

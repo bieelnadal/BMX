@@ -4,80 +4,93 @@ import Swal from 'sweetalert2';
 import { Producto } from 'src/app/interfaces/Productos';
 import { Carrito } from 'src/app/interfaces/Carrito';
 
-
 const URL = 'http://localhost:8080/';
 
 const URL_CREAR_PRODUCTO = 'http://localhost:8080/productos/crearProductos.php';
 
 const URL_CREAR_CARRITO = 'http://localhost:8080/productos/tramitesCarrito.php';
 
-const URL_OBTENER_PRODUCTO = "http://localhost:8080/productos/obtenerProductos.php";
+const URL_OBTENER_PRODUCTO =
+  'http://localhost:8080/productos/obtenerProductos.php';
 
-const URL_CONTAR_PRODUCTOS = "http://localhost:8080/productos/contarProductos.php";
+const URL_CONTAR_PRODUCTOS =
+  'http://localhost:8080/productos/contarProductos.php';
 
-const URL_CONTAR_PRODUCTOS_SUBASTA = "http://localhost:8080/productos/contarProductosSubasta.php";
+const URL_CONTAR_PRODUCTOS_SUBASTA =
+  'http://localhost:8080/productos/contarProductosSubasta.php';
 
-const URL_OBTENER_PRODUCTO_ID = "http://localhost:8080/productos/obtenerProductoId.php";
+const URL_OBTENER_PRODUCTO_ID =
+  'http://localhost:8080/productos/obtenerProductoId.php';
 
-const URL_OBTENER_VENDEDOR_ID = "http://localhost:8080/productos/obtenerVendedorId.php";
+const URL_OBTENER_VENDEDOR_ID =
+  'http://localhost:8080/productos/obtenerVendedorId.php';
 
-const URL_CAMBIAR_ESTADO_PRODUCTO = "http://localhost:8080/productos/cambiarEstado.php";
+const URL_CAMBIAR_ESTADO_PRODUCTO =
+  'http://localhost:8080/productos/cambiarEstado.php';
 
-const URL_CONTAR_PRODUCTOS_SIN_VERIFICAR = "http://localhost:8080/productos/contarProductosSinVerificar.php";
+const URL_CONTAR_PRODUCTOS_SIN_VERIFICAR =
+  'http://localhost:8080/productos/contarProductosSinVerificar.php';
 
-const URL_OBTENER_PRODUCTO_ADMIN = 'http://localhost:8080/productos/obtenerProductosAdmin.php';
+const URL_OBTENER_PRODUCTO_ADMIN =
+  'http://localhost:8080/productos/obtenerProductosAdmin.php';
 
-const URL_HISTORIAL_VENTA = "http://localhost:8080/productos/historialVentas.php";
+const URL_HISTORIAL_VENTA =
+  'http://localhost:8080/productos/historialVentas.php';
 
-const URL_BORRAR_PRODUCTO = "http://localhost:8080/productos/borrarProducto.php";
+const URL_BORRAR_PRODUCTO =
+  'http://localhost:8080/productos/borrarProducto.php';
+
+const URL_EDITAR_PRODUCTO =
+  'http://localhost:8080/productos/editarProducto.php';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductsService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   registrarProducto(Producto: Producto) {
-
-
-    return this.http.post(URL_CREAR_PRODUCTO, JSON.stringify(Producto)).subscribe((val: any) => {
-      if (val.resultado == "error") {
-        this.swalError();
-      } else {
-        this.swalCreado();
-      }
-    });
-
+    return this.http
+      .post(URL_CREAR_PRODUCTO, JSON.stringify(Producto))
+      .subscribe((val: any) => {
+        if (val.resultado == 'error') {
+          this.swalError();
+        } else {
+          this.swalCreado();
+        }
+      });
   }
 
   registrarCarrito(Carrito: Carrito) {
-    return this.http.post(URL_CREAR_CARRITO, JSON.stringify(Carrito)).subscribe((val: any) => {
-      if (val.resultado == "error") {
-        this.swalError();
-      } else {
-        this.swalCreado();
-      }
-    });
-
+    return this.http
+      .post(URL_CREAR_CARRITO, JSON.stringify(Carrito))
+      .subscribe((val: any) => {
+        if (val.resultado == 'error') {
+          this.swalError();
+        } else {
+          this.swalCreado();
+        }
+      });
   }
 
   cambiarEstado(Producto: Producto) {
     console.log(Producto.Estado);
     console.log(Producto.idProducto);
-    return this.http.post(URL_CAMBIAR_ESTADO_PRODUCTO, JSON.stringify(Producto)).subscribe((val: any) => {
-      if (val.resultado == "error") {
-        this.swalError();
-      } else {
-        this.swalCreado();
-      }
-    });
-
+    return this.http
+      .post(URL_CAMBIAR_ESTADO_PRODUCTO, JSON.stringify(Producto))
+      .subscribe((val: any) => {
+        if (val.resultado == 'error') {
+          this.swalError();
+        } else {
+          this.swalCreado();
+        }
+      });
   }
 
+  editarProducto(producto: Producto) {
+    console.log(producto);
 
-  editarProducto() {
-
+    return this.http.put(URL_EDITAR_PRODUCTO, JSON.stringify(producto));
   }
 
   obtenerProducto() {
@@ -85,10 +98,8 @@ export class ProductsService {
   }
 
   obtenerProductosAdmin() {
-    console.log("Hola");
+    console.log('Hola');
     return this.http.get(URL_OBTENER_PRODUCTO_ADMIN);
-
-
   }
 
   borrarProducto(idProducto: any) {
@@ -114,13 +125,8 @@ export class ProductsService {
     );
   }
 
-
-
   PasarHistorialVenta(idVendedor: any) {
-    return this.http.get(
-      URL_HISTORIAL_VENTA + `?idVendedor=${idVendedor}`
-    );
-
+    return this.http.get(URL_HISTORIAL_VENTA + `?idVendedor=${idVendedor}`);
   }
   contarProductos() {
     return this.http.get(URL_CONTAR_PRODUCTOS);
@@ -135,7 +141,11 @@ export class ProductsService {
   }
 
   swalCreado() {
-    Swal.fire('Producto creado!', '¡Se ha creado el nuevo Producto!', 'success');
+    Swal.fire(
+      'Producto creado!',
+      '¡Se ha creado el nuevo Producto!',
+      'success'
+    );
   }
 
   swalCreadoCarrito() {
@@ -149,6 +159,4 @@ export class ProductsService {
       text: '¡Las credenciales son incorrectas!',
     });
   }
-
-
 }
