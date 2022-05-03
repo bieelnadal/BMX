@@ -2,25 +2,32 @@
 <div class="centrar">
   <form [formGroup]="crearProdutoForm" (ngSubmit)="onSubmit()">
     <h1>Registro Producto:</h1>
+
+    <label for="" class="input-label">Nombre</label>
     <input type="text" maxlength="100" formControlName="NombreProducto" class=""
       placeholder="Nombre del Producto*"><br><br>
     <div>
-      <div *ngIf="form.NombreProducto.errors">
+      <div *ngIf="this.submitted && form.NombreProducto.errors">
         <p *ngIf="form.NombreProducto.errors.required" class="color-validators">Campo obligatorio*</p>
-        <p *ngIf="form.NombreProducto.errors.minLength" class="color-validators">¡Ay! Tu nombre debe tener al menos 3 caracteres*</p>
+        <p *ngIf="form.NombreProducto.errors.minLength" class="color-validators">¡Ay! Tu nombre debe tener al menos 3
+          caracteres*</p>
       </div>
     </div>
 
+    <label for="" class="input-label">Descripcion</label>
     <input type="text" maxlength="500" formControlName="DescripcionProducto" class=""
       placeholder="Descripcion Producto*"><br><br>
-      <div>
-        <div *ngIf="form.DescripcionProducto.errors">
-          <p *ngIf="form.DescripcionProducto.errors.required" class="color-validators"> Campoobligatorio*</p>
-          <p *ngIf="form.DescripcionProducto.errors.minLength" class="color-validators">¡Ay! Tu nombre debe tener al menos 5 caracteres*</p>
-        </div>
+    <div>
+      <div *ngIf="this.submitted && form.DescripcionProducto.errors">
+        <p *ngIf="form.DescripcionProducto.errors.required" class="color-validators"> Campo obligatorio*</p>
+        <p *ngIf="form.DescripcionProducto.errors.minLength" class="color-validators">¡Ay! Tu nombre debe contener al
+          menos 5 caracteres*</p>
       </div>
-    <select class="option-select" formControlName="Categoria" id="">
-      <option value="1" selected disabled class="option-select">Escoge una Categoria*</option>
+    </div>
+
+    <label for="" class="input-label">Categoria</label>
+    <select class="option-select" formControlName="Categoria">
+      <option value="0" disabled class="option-select">Escoge una Categoria*</option>
       <option value="1" class="option-select">Vehiculos</option>
       <option value="2" class="option-select">Relojes</option>
       <option value="3" class="option-select">Cámaras y fotografia</option>
@@ -28,19 +35,23 @@
       <option value="5" class="option-select">Ropa</option>
     </select><br><br>
     <div>
-      <div *ngIf="form.Categoria.errors">
+      <div *ngIf="this.submitted && form.Categoria.errors">
         <p *ngIf="form.Categoria.errors.required" class="color-validators">Campo obligatorio*</p>
       </div>
     </div>
+
+    <label for="" class="input-label">Precio</label>
     <input type="number" maxlength="5" formControlName="PrecioProducto" class="" placeholder="Precio Producto*"><br><br>
     <div>
-      <div *ngIf="form.PrecioProducto.errors">
+      <div *ngIf="this.submitted && form.PrecioProducto.errors">
         <p *ngIf="form.PrecioProducto.errors.required" class="color-validators">Campo obligatorio*</p>
       </div>
     </div>
+
+    <label for="">Imagen</label>
     <input type="file" formControlName="imagenProducto" (change)="readURL($event)"><br><br>
     <div>
-      <div *ngIf="form.imagenProducto.errors">
+      <div *ngIf="this.submitted && form.imagenProducto.errors">
         <p *ngIf="form.imagenProducto.errors.required" class="color-validators">Campo obligatorio*</p>
       </div>
     </div>

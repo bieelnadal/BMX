@@ -82,3 +82,7 @@
     cursor: pointer;
     background-color: var(--dark-spring-green);
   }
+
+  .img-table{
+    width: 125px;
+  }

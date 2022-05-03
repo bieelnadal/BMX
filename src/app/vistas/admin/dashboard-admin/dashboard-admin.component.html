@@ -39,7 +39,7 @@
             <div class="piechart">
               <div class="contenido-grafico-texto">
                 <h3>{{this.totalProductos}}</h3>
-                <button type="button" class="btn btn-warning" *ngIf="this.productosNoVerificados>0"><svg
+                <button (click)="mostrarTablaVerificacionProductos()" type="button" class="btn btn-warning" *ngIf="this.productosNoVerificados>0"><svg
                     xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
                     <path

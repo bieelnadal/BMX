@@ -99,6 +99,7 @@ export class CrearProductoComponent implements OnInit {
 
 
   crearProductoNuevo(): any {
+    this.submitted = true;
     if (this.PrecioProducto.value > 0) {
       this.producto.idVendedor = this.datosUsuario.idUsuario;
       this.producto.Nombre = this.nombreProducto.value;

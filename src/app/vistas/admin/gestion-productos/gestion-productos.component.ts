@@ -28,7 +28,6 @@ export class GestionProductosComponent implements OnInit {
   producto: any;
 
   constructor(
-    private userServ: UsersService,
     private prodServ: ProductsService
   ) {}
 
