@@ -20,7 +20,7 @@
   global $datos;
 
   // query
-  $query = "SELECT * FROM `producto` WHERE Estado =0 AND Activo =0 ORDER BY Fecha ASC";
+  $query = "SELECT producto.idProducto, producto.idVendedor, producto.Nombre, producto.Imagen, producto.Descripcion, categorias.nombreCategoria, producto.Fecha, producto.Estado, producto.Activo, producto.Precio, producto.Subasta FROM `producto`, `categorias` WHERE producto.Activo=0 AND producto.Estado=0 AND producto.idCategoria=categorias.idCategoria ORDER BY Fecha ASC";
   $registros = mysqli_query($con, $query);
   
   // si la query ha sido correcta hacemos fetch

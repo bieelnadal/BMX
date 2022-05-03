@@ -49,6 +49,8 @@ const URL_OBTENER_DIRECCION ="http://localhost:8080/productos/obtenerDireccionCa
 
 const URL_OBTENER_PRODUCTOS_VALIDAR ="http://localhost:8080/productos/obtenerProductosValidacion.php";
 
+const URL_VALIDAR_PRODUCTO = "http://localhost:8080/productos/validarProducto.php";
+
 @Injectable({
   providedIn: 'root',
 })
@@ -163,6 +165,14 @@ export class ProductsService {
 
   contarProductosSinVerificar() {
     return this.http.get(URL_CONTAR_PRODUCTOS_SIN_VERIFICAR);
+  }
+
+  validarProducto(idProducto:number){
+    console.log(idProducto);
+    
+    return this.http.get(
+      URL_VALIDAR_PRODUCTO + `?idProducto=${idProducto}`
+    );
   }
 
   swalCreado() {
