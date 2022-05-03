@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
+import { AuthService } from 'src/app/services/autentificacion/auth.service';
+import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.service';
+import { Router } from '@angular/router';
+import { Usuario } from 'src/app/interfaces/Usuario';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +11,51 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  
+  datosUsuario: Usuario = {
+    idUsuario: 0,
+    Nombre: '',
+    Apellidos: '',
+    Email: '',
+    Passcode: '',
+    idDireccion: 0,
+    Imagen: '',
+    DNI: '',
+    idAdmin: 0,
+  };
+  
+  constructor(
+    private tokenServ: TokenSesionService,
+    private authServ: AuthService,
+    private router: Router,
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.obtenerDatos();
+  }
+  cerrarSesion() {
+    this.authServ.cerrarSesion();
+    this.router.navigate(['login']);   
+  }
+
+  obtenerDatos() {
+    this.datosUsuario = this.tokenServ.getUsuario();
+
+  }
+  swalSalir() {
+    Swal.fire({
+      title: 'Estas seguro?',
+      text: 'Seguro que quieres cerrar la sesion!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, si quiero!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('Sesion Cerrada!', 'Hasta la proxima!!.', 'success');
+        this.cerrarSesion();
+      }
+    });
+  }
 }

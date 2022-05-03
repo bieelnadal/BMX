@@ -17,22 +17,23 @@ import { BorrarUsuariosComponent } from './vistas/admin/borrar-usuarios/borrar-u
 import { GestionProductosComponent } from './vistas/admin/gestion-productos/gestion-productos.component';
 import { HistorialVentasComponent } from './vistas/usuario/historialVentas/historialVentas.component';
 import { GestorProductosVistaUsuarioComponent } from './vistas/usuario/gestor-productos-vista-usuario/gestor-productos-vista-usuario.component';
-import { PlantillaSubastaComponent } from './plantillas/plantilla-subasta/plantilla-subasta.component';
+import { PlantillaSubastaComponent } from './plantillas/plantilla-subasta/plantilla-subasta.component'; 
+import { GuardService } from './services/guard/guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'header', component: HeaderComponent },
+  { path: 'header', component: HeaderComponent, canActivate:[GuardService] },
   { path: 'footer', component: FooterComponent },
-  { path: 'admin-header', component: AdminHeaderComponent },
+  { path: 'admin-header', component: AdminHeaderComponent, canActivate:[GuardService] },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent },
   { path: 'perfil-admin', component: PerfilAdminComponent },
   { path: 'home', component: HomeComponent },
   { path: 'editar-direccion', component: EditarDireccionComponent },
   { path: 'producto/:nombre/:id', component: PlantillaProductoComponent },
   { path: 'crear-Producto', component: CrearProductoComponent },
-  { path: 'dashboard-admin', component: DashboardAdminComponent },
+  { path: 'dashboard-admin', component: DashboardAdminComponent, canActivate:[GuardService] },
   { path: 'carrito/:id', component: CarritoComponent },
   { path: 'borrar-usuarios', component: BorrarUsuariosComponent },
   { path: 'gestion-productos', component: GestionProductosComponent },

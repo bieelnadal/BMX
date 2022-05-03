@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.service';
 import { Usuario } from 'src/app/interfaces/Usuario';
 import { AuthService } from 'src/app/services/autentificacion/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil-admin',
@@ -29,7 +30,8 @@ export class PerfilAdminComponent implements OnInit {
     public fb: FormBuilder,
     public fc: FormBuilder,
     private tokenServ: TokenSesionService,
-    private authServ: AuthService
+    private authServ: AuthService,
+    private router: Router,
   ) { }
 
   mostrarDesplegableVisual: boolean = false;
@@ -57,6 +59,7 @@ export class PerfilAdminComponent implements OnInit {
 
   cerrarSesion() {
     this.authServ.cerrarSesion();
+    this.router.navigate(['login']);   
   }
 
   get form() {

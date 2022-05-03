@@ -78,7 +78,7 @@ export class AuthService {
     else {
       this.servicioToken.guardarToken(data.accessToken);
       this.servicioToken.guardarUsuario(data.data);
-      this.router.navigate(['perfil-admin']);
+      this.router.navigate(['home']);
     }
   }
 
