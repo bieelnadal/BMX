@@ -34,6 +34,7 @@ export class EditarDatosUsuarioComponent implements OnInit {
   // email: string = '';
 
   EditarPefil!: FormGroup;
+  imgSrc: any = '';
 
   constructor(
     public fb: FormBuilder,
@@ -101,6 +102,7 @@ export class EditarDatosUsuarioComponent implements OnInit {
 
   obtenerDatos() {
     this.datosUsuario = this.tokenServ.getUsuario();
+    this.imgSrc =this.datosUsuario.Imagen;
   }
 
   onSubmit(form: any) {
@@ -114,7 +116,7 @@ export class EditarDatosUsuarioComponent implements OnInit {
           Email: form.controls.inputEmail.value,
           Passcode: form.controls.inputNewPasscode.value,
           idDireccion: this.datosUsuario.idDireccion,
-          Imagen: this.datosUsuario.Imagen,
+          Imagen: this.imgSrc,
           DNI: form.controls.inputDNI.value,
           idAdmin: this.datosUsuario.idAdmin,
         };
@@ -126,7 +128,7 @@ export class EditarDatosUsuarioComponent implements OnInit {
           Apellidos: form.controls.inputApellidos.value,
           Email: form.controls.inputEmail.value,
           idDireccion: this.datosUsuario.idDireccion,
-          Imagen: this.datosUsuario.Imagen,
+          Imagen: this.imgSrc,
           DNI: form.controls.inputDNI.value,
           idAdmin: this.datosUsuario.idAdmin,
         };
@@ -156,6 +158,15 @@ export class EditarDatosUsuarioComponent implements OnInit {
           });
         }
       });
+    }
+  }
+
+  readURL(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (e: any) => (this.imgSrc = e.target.result);
+      reader.readAsDataURL(file);
     }
   }
 

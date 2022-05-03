@@ -61,6 +61,14 @@ h1 {
     cursor: pointer;
     margin: 11px;
 }
+button{
+    background-color: var(--verdeprincipal);
+    border: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+}
 
 .button-editar {
     display: flex;
@@ -203,6 +211,12 @@ input[type="email"] {
         color 0.3s ease 0s, box-shadow 0.3s ease 0s;
     width: 100%;
     text-align: center;
+}
+
+input [type="file"]{
+    margin: 5px;
+    height: 3rem;
+    color: white;
 }
         
 input[type="password"] {

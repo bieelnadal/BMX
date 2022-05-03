@@ -65,6 +65,7 @@
         <div *ngIf="form.inputPasscode.errors.required">La contraseña es obligatoria para poder modificar los campos.</div>
       </div>
 
+      
 
       <!-- Nova pass -->
       <label>Nueva Contraseña</label>
@@ -83,6 +84,9 @@
         <div *ngIf="form.inputConfirmNewPasscode.errors.mustMatch">Las contraseñas no coinciden.</div>
       </div>
 
+      <label for="">Imagen</label><br>  
+      <input id="file-input" type="file" (change)="readURL($event)"
+      accept="image/png, image/gif, image/jpeg" formControlName="imagen"><br><br>
 
       <button [disabled]="!this.editar">Confirmar</button>
     </form>
