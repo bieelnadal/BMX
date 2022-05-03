@@ -16,75 +16,22 @@
           <img class="img-table" src="{{prod.Imagen}}">
           <label for="">Descripcion:</label>
           <p>{{prod.Descripcion}}...</p>
+          <label for="">Fecha de subida:</label>
+          <p>{{prod.Fecha}}</p>
+          <label for="">Categoria:</label>
+          <p>{{prod.nombreCategoria}}</p>
+          
+        </div>
+        <div class="subsata?">
+          <h5 class="h5" *ngIf="prod.Subasta==0">Tipo: Compra</h5>
+          <h5 class="h5" *ngIf="prod.Subasta==1">Tipo: Subasta</h5><br><br>
+          <button class="button1">
+            <app-borrar-producto [prodSelecc]="prod.idProducto"></app-borrar-producto>
+          </button>
+          <button class="button0">
+            <app-editar-producto-modal [prodSelecc]="prod"></app-editar-producto-modal>
+          </button>
         </div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <table class="info-table">
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Categoria</th>
-        <th>Descripcion</th>
-        <th>Fecha de subida</th>
-        <th>Imagen</th>
-        <th>Tipo</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let prod of listaProductos; let i = index">
-        <td>
-          <h4>{{prod.Nombre}}</h4>
-        </td>
-        <td>
-          <h4>{{prod.Precio}}€</h4>
-        </td>
-        <td>
-          <h4>{{prod.nombreCategoria}}</h4>
-        </td>
-        <td>
-          <h4>{{prod.Descripcion}}</h4>
-        </td>
-        <td>
-          <h4>{{prod.Fecha}}</h4>
-        </td>
-        <td>
-          <img class="img-table" src="{{prod.Imagen}}">
-        </td>
-        <td>
-          <h4 *ngIf="prod.Subasta==0">Compra</h4>
-          <h4 *ngIf="prod.Subasta==1">Subasta</h4>
-        </td>
-        <td class="last">
-          <button>
-            <app-editar-producto-modal [prodSelecc]="prod"></app-editar-producto-modal>
-          </button>
-          <button>
-            <app-borrar-producto [prodSelecc]="prod.idProducto"></app-borrar-producto>
-          </button>
-
-        </td>
-      </tr>
-  </table>
-
 </div>
