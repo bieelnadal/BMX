@@ -6,6 +6,38 @@
 <div class="container">
 
 
+  <div *ngFor="let prod of listaProductos; let i = index">
+    <div class="contenido-div">
+      <div class="arriba">
+        <h4 class="h4-nombre">{{prod.Nombre}}</h4><br><br><br>
+        <h4 class="h4-precio">{{prod.Precio}}€</h4>
+      </div>
+        <div class="desc">
+          <img class="img-table" src="{{prod.Imagen}}">
+          <label for="">Descripcion:</label>
+          <p>{{prod.Descripcion}}...</p>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <table class="info-table">
     <thead>
       <tr>
@@ -15,42 +47,44 @@
         <th>Descripcion</th>
         <th>Fecha de subida</th>
         <th>Imagen</th>
-        <th>Tipo de venta</th>
+        <th>Tipo</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor="let prod of listaProductos; let i = index">
         <td>
-          <h4></h4>
+          <h4>{{prod.Nombre}}</h4>
         </td>
         <td>
-          <h4></h4>
+          <h4>{{prod.Precio}}€</h4>
         </td>
         <td>
-          <h4></h4>
+          <h4>{{prod.nombreCategoria}}</h4>
         </td>
         <td>
-          <h4></h4>
+          <h4>{{prod.Descripcion}}</h4>
         </td>
         <td>
-          <h4></h4>
+          <h4>{{prod.Fecha}}</h4>
         </td>
         <td>
-          <img class="img-table" src="">
+          <img class="img-table" src="{{prod.Imagen}}">
         </td>
         <td>
-
+          <h4 *ngIf="prod.Subasta==0">Compra</h4>
+          <h4 *ngIf="prod.Subasta==1">Subasta</h4>
         </td>
         <td class="last">
           <button>
+            <app-editar-producto-modal [prodSelecc]="prod"></app-editar-producto-modal>
           </button>
           <button>
+            <app-borrar-producto [prodSelecc]="prod.idProducto"></app-borrar-producto>
           </button>
+
         </td>
       </tr>
   </table>
 
 </div>
-
-<app-footer></app-footer>

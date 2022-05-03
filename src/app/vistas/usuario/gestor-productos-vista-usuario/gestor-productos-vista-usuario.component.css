@@ -4,8 +4,53 @@
     margin: 15px;
 }
 
+/*div*/
+.contenido-div{
+width: 1320px;
+height: 200px;
+background-color: white;
+border: 2px solid rgb(184, 184, 184);
+border-radius: 5px;
+margin: 15px;
+}
 
+.h4-nombre{
+  color: var(--verdeprincipal);
+  margin: 10px;
+  float: left;
+}
 
+.h4-precio{
+  float: right;
+  margin: 15px;
+  margin-top: -50px;
+  color: var(--dorado);
+}
+img{
+  float: left;
+  width: 150px;
+  border-radius: 5px;
+  margin-left: 25px;
+
+  margin-bottom: 25px;
+}
+
+.arriba{
+  width: 100%;
+  margin: 0px;
+}
+
+label{
+  margin-left:20px;
+  font-size: 15px;
+  color: var(--verdeprincipal);
+}
+
+p{
+  margin-left: 180px;
+}
+
+/*tabla*/
 .info-table {
     margin-top: 40px;
     border-spacing: 0;
