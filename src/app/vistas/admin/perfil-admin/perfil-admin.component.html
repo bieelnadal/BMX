@@ -1,7 +1,7 @@
 <div class="contenedor-perfil">
   <div class="separador1">
     <div class="posicion-imagen-perfil">
-      <img class="imagen-perfil" src="../../../../assets/avatardefault.png" alt="">
+      <img class="imagen-perfil" src="{{this.datosUsuario.Imagen}}" alt="">
       <h1>{{this.datosUsuario.Nombre}} {{this.datosUsuario.Apellidos}}</h1>
     </div>
     <button class="button-direciones" (click)="mostrarDesplegableDireciones()">Direciones</button>

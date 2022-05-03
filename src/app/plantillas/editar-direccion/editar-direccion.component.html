@@ -20,7 +20,7 @@
                     </svg>
 
                     <app-editar-direccion-modal [direccSelecc]="direcc.idDireccion"></app-editar-direccion-modal>
-                    <button *ngIf="this.direcc.Predeterminado==0" (click)="direccPredeterminada(direcc)">
+                    <button class="button" *ngIf="this.direcc.Predeterminado==0" (click)="direccPredeterminada(direcc)">
                         Predet.
                     </button>
                 </div>

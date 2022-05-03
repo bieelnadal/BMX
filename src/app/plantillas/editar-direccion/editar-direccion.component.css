@@ -79,6 +79,22 @@ h1 {
     cursor: pointer;
 }
 
+.button{
+    cursor: pointer;
+    background-color: var(--morning-blue);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    transition: 1s;
+    
+}
+.button:hover{
+    transition: 1s;
+    background-color: var(--verdeprincipal);
+    color: var(--dorado);
+    border: 2px solid rgb(184, 184, 184);
+}
+
 .button-cerrar {
     display: flex;
     align-items: center;
