@@ -19,18 +19,17 @@ export class TablaVerificarProductosComponent implements OnInit {
 
   validarProducto(idProducto:number) {
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: '¿Estás seguro de que quieres validar este producto?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Validar Producto'
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
+          '¡Producto Validado!',
+          'El producto seleccionado ha sido validado correctamente.',
           'success'
         ).then((result)=>{
           this.prodServ.validarProducto(idProducto).subscribe();
@@ -42,7 +41,27 @@ export class TablaVerificarProductosComponent implements OnInit {
   }
 
   denegarProducto(idProducto:number) {
-    this.prodServ.borrarProducto(idProducto);
+    Swal.fire({
+      title: '¿Estás seguro de que quieres denegar la validación?',
+      text: 'Se va a denegar la validación y el producto seleccionado va a ser eliminado.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Denegar Validación'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          '¡Producto Borrado!',
+          'El producto seleccionado ha sido borrado correctamente.',
+          'success'
+        ).then((result)=>{
+          this.prodServ.borrarProducto(idProducto);
+          window.location.reload();
+        })
+      }
+    })
+    
   }
 
   obtenerProductosValidar() {

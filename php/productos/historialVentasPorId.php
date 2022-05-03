@@ -20,7 +20,7 @@
   global $datos;
 
   // query
-  $query = "SELECT * FROM `compras`";
+  $query = "SELECT * FROM `producto` WHERE idVendedor ='$_GET[idVendedor]' AND Estado =1";
   $registros = mysqli_query($con, $query);
   
   // si la query ha sido correcta hacemos fetch

@@ -8,8 +8,8 @@
     <div class="menu-sidebar"><button class="contenido-sidebar" (click)="mostrarValidarProductos()">Gestión
         productos</button></div>
     <div *ngIf="this.flagGP">
-      <button class="contenido-sidebar" (click)="mostrarTablaVerificacionProductos()">Validación Productos</button>
-      <button class="contenido-sidebar">Historial Ventas</button>
+      <button class="contenido-sidebar" (click)="mostrarTablaVerificacionProductos()" [disabled]="this.productosNoVerificados==0">Validación Productos</button>
+      <button class="contenido-sidebar" (click)="mostrarTablaHistorialProductos()">Historial Ventas</button>
     </div>
     <div class="menu-sidebar"><button class="contenido-sidebar" (click)="mostrarGestionProductos()">Gestión
         Usuarios</button></div>

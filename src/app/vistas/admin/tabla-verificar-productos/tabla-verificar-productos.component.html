@@ -15,11 +15,11 @@
   <tbody>
     <tr *ngFor="let prod of listaProductosValidar; let i = index">
       <td class="first"></td>
-      <td>{{prod.Nombre}}</td>
-      <td>{{prod.Descripcion}}</td>
-      <td>{{prod.nombreCategoria}}</td>
-      <td>{{prod.Fecha}}</td>
-      <td>{{prod.Precio}}</td>
+      <td><h4>{{prod.Nombre}}</h4></td>
+      <td><h4>{{prod.Descripcion}}</h4></td>
+      <td><h4>{{prod.nombreCategoria}}</h4></td>
+      <td><h4>{{prod.Fecha}}</h4></td>
+      <td><h4>{{prod.Precio}}</h4></td>
       <td><img class="img-table" src="{{prod.Imagen}}"></td>
       <td class="last">
         <button (click)="validarProducto(prod.idProducto)">

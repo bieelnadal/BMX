@@ -117,6 +117,19 @@ export class DashboardAdminComponent implements OnInit {
     }
   }
 
+  mostrarTablaHistorialProductos(){
+    if (this.gestionVerificacionProductos == false) {
+      this.gestionVerificacionProductos = true;
+      this.gestionUsuariosVisual = false;
+      this.gestionProductosVisual = false;
+      this.flagGU = false;
+      this.flagGP = true;
+    } else {
+      this.gestionVerificacionProductos = false;
+      this.flagGP = false;
+    }
+  }
+
   swalPronto() {
     Swal.fire({
       icon: 'error',

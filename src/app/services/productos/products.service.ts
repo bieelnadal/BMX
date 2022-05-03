@@ -34,8 +34,8 @@ const URL_CONTAR_PRODUCTOS_SIN_VERIFICAR =
 const URL_OBTENER_PRODUCTO_ADMIN =
   'http://localhost:8080/productos/obtenerProductosAdmin.php';
 
-const URL_HISTORIAL_VENTA =
-  'http://localhost:8080/productos/historialVentas.php';
+const URL_HISTORIAL_VENTAS_ID =
+  'http://localhost:8080/productos/historialVentasPorId.php';
 
 const URL_BORRAR_PRODUCTO =
   'http://localhost:8080/productos/borrarProducto.php';
@@ -50,6 +50,8 @@ const URL_OBTENER_DIRECCION ="http://localhost:8080/productos/obtenerDireccionCa
 const URL_OBTENER_PRODUCTOS_VALIDAR ="http://localhost:8080/productos/obtenerProductosValidacion.php";
 
 const URL_VALIDAR_PRODUCTO = "http://localhost:8080/productos/validarProducto.php";
+
+const URL_HISTORIAL_VENTAS = "http://localhost:8080/productos/historialVentas.php";
 
 @Injectable({
   providedIn: 'root',
@@ -144,7 +146,7 @@ export class ProductsService {
   }
 
   PasarHistorialVenta(idVendedor: any) {
-    return this.http.get(URL_HISTORIAL_VENTA + `?idVendedor=${idVendedor}`);
+    return this.http.get(URL_HISTORIAL_VENTAS_ID + `?idVendedor=${idVendedor}`);
   }
 
 
@@ -154,6 +156,9 @@ export class ProductsService {
     );
   }
 
+  historialVentas(){
+    return this.http.get(URL_HISTORIAL_VENTAS);
+  }
 
   contarProductos() {
     return this.http.get(URL_CONTAR_PRODUCTOS);
