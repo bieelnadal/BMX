@@ -41,6 +41,7 @@ export class DashboardAdminComponent implements OnInit {
   gestionProductosVisual: boolean = false;
   gestionUsuariosVisual: boolean = false;
   gestionVerificacionProductos: boolean = false;
+  historialVentasProductos: boolean = false;
 
   ngOnInit() {
     this.obtenerDatos();
@@ -119,7 +120,7 @@ export class DashboardAdminComponent implements OnInit {
 
   mostrarTablaHistorialProductos(){
     if (this.gestionVerificacionProductos == false) {
-      this.gestionVerificacionProductos = true;
+      this.historialVentasProductos = true;
       this.gestionUsuariosVisual = false;
       this.gestionProductosVisual = false;
       this.flagGU = false;

@@ -1,0 +1,16 @@
+h1 {
+  text-align: center;
+  color: var(--dorado);
+  margin: 15px;
+  margin-left: 300px;
+}
+
+.div-align{
+
+    background-color: aqua;
+    margin: 0 auto;
+    width: 1500px;
+    border-radius: 10px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
