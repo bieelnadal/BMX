@@ -40,6 +40,7 @@ export class DashboardAdminComponent implements OnInit {
 
   gestionProductosVisual: boolean = false;
   gestionUsuariosVisual: boolean = false;
+  gestionVerificacionProductos: boolean = false;
 
   ngOnInit() {
     this.obtenerDatos();
@@ -82,6 +83,7 @@ export class DashboardAdminComponent implements OnInit {
     if (this.gestionProductosVisual == false) {
       this.gestionProductosVisual = true;
       this.gestionUsuariosVisual = false;
+      this.gestionVerificacionProductos = false;
       this.flagGP = true;
     } else {
       this.gestionProductosVisual = false;
@@ -93,11 +95,22 @@ export class DashboardAdminComponent implements OnInit {
     if (this.gestionUsuariosVisual == false) {
       this.gestionUsuariosVisual = true;
       this.gestionProductosVisual = false;
+      this.gestionVerificacionProductos = false;
       this.flagGU = true;
       this.flagGP = false;
     } else {
       this.gestionUsuariosVisual = false;
       this.flagGU = false;
+    }
+  }
+
+  mostrarTablaVerificacionProductos() {
+    if (this.gestionVerificacionProductos == false) {
+      this.gestionVerificacionProductos = true;
+      this.gestionUsuariosVisual = false;
+      this.gestionProductosVisual = false;
+    } else {
+      this.gestionVerificacionProductos = false;
     }
   }
 

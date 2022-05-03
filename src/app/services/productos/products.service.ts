@@ -47,6 +47,8 @@ const URL_OBTENER_VENDEDOR_INFO ="http://localhost:8080/productos/obtenerVendedo
 
 const URL_OBTENER_DIRECCION ="http://localhost:8080/productos/obtenerDireccionCarrito.php";
 
+const URL_OBTENER_PRODUCTOS_VALIDAR ="http://localhost:8080/productos/obtenerProductosValidacion.php";
+
 @Injectable({
   providedIn: 'root',
 })
@@ -99,6 +101,10 @@ export class ProductsService {
 
   obtenerProducto() {
     return this.http.get(URL_OBTENER_PRODUCTO);
+  }
+
+  obtenerProductoValidar() {
+    return this.http.get(URL_OBTENER_PRODUCTOS_VALIDAR);
   }
 
   obtenerProductosAdmin() {
