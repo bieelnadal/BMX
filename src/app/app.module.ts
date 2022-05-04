@@ -41,6 +41,7 @@ import { GestorProductosVistaUsuarioComponent } from './vistas/usuario/gestor-pr
 import { PlantillaSubastaComponent } from './plantillas/plantilla-subasta/plantilla-subasta.component';
 import { HistorialVentasAdminComponent } from './vistas/historial-ventas-admin/historial-ventas-admin.component';
 import { CrearSubastaComponent } from './vistas/usuario/crear-subasta/crear-subasta.component';
+import { PoliticasComponent } from './plantillas/politicas/politicas.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { CrearSubastaComponent } from './vistas/usuario/crear-subasta/crear-suba
     PlantillaSubastaComponent,
     HistorialVentasAdminComponent,
     CrearSubastaComponent,
+    PoliticasComponent,
   ],
   imports: [
     BrowserModule,

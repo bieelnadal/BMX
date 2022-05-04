@@ -20,6 +20,7 @@ import { GestorProductosVistaUsuarioComponent } from './vistas/usuario/gestor-pr
 import { PlantillaSubastaComponent } from './plantillas/plantilla-subasta/plantilla-subasta.component';
 import { GuardService } from './services/guard/guard.service';
 import { CrearSubastaComponent } from './vistas/usuario/crear-subasta/crear-subasta.component';
+import { PoliticasComponent } from './plantillas/politicas/politicas.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: 'gestion-prodcutos-Usuario', component: GestorProductosVistaUsuarioComponent, canActivate:[GuardService]},
   { path: 'subasta', component: PlantillaSubastaComponent},
   { path: 'crear-Subasta', component: CrearSubastaComponent},
+  { path: 'Politicas-pribacidad', component: PoliticasComponent},
 ];
 
 @NgModule({
