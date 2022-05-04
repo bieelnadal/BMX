@@ -2,6 +2,7 @@
 <html lang="en">
 
 <body>
+    <div *ngIf="this.datosUsuario.idAdmin ==1"><app-admin-header></app-admin-header></div>
     <nav class="navbar">
         <!-- LOGO -->
         <div class="logo" [routerLink]="['/home']">Bid&Go</div>
