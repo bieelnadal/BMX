@@ -85,6 +85,7 @@ export class DashboardAdminComponent implements OnInit {
       this.gestionProductosVisual = true;
       this.gestionUsuariosVisual = false;
       this.gestionVerificacionProductos = false;
+      this.historialVentasProductos = false;
       this.flagGP = true;
     } else {
       this.gestionProductosVisual = false;
@@ -97,6 +98,7 @@ export class DashboardAdminComponent implements OnInit {
       this.gestionUsuariosVisual = true;
       this.gestionProductosVisual = false;
       this.gestionVerificacionProductos = false;
+      this.historialVentasProductos = false;
       this.flagGU = true;
       this.flagGP = false;
     } else {
@@ -110,6 +112,7 @@ export class DashboardAdminComponent implements OnInit {
       this.gestionVerificacionProductos = true;
       this.gestionUsuariosVisual = false;
       this.gestionProductosVisual = false;
+      this.historialVentasProductos = false;
       this.flagGU = false;
       this.flagGP = true;
     } else {
@@ -119,15 +122,14 @@ export class DashboardAdminComponent implements OnInit {
   }
 
   mostrarTablaHistorialProductos(){
-    if (this.gestionVerificacionProductos == false) {
+    if (this.historialVentasProductos == false) {
       this.historialVentasProductos = true;
       this.gestionUsuariosVisual = false;
       this.gestionProductosVisual = false;
-      this.flagGU = false;
-      this.flagGP = true;
-    } else {
       this.gestionVerificacionProductos = false;
-      this.flagGP = false;
+      this.flagGU = false;
+    } else {
+      this.historialVentasProductos = false;
     }
   }
 
