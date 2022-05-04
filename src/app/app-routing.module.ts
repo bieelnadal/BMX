@@ -34,11 +34,11 @@ const routes: Routes = [
   { path: 'producto/:nombre/:id', component: PlantillaProductoComponent },
   { path: 'crear-Producto', component: CrearProductoComponent },
   { path: 'dashboard-admin', component: DashboardAdminComponent, canActivate:[GuardService] },
-  { path: 'carrito/:id', component: CarritoComponent },
+  { path: 'carrito/:id', component: CarritoComponent, canActivate:[GuardService] },
   { path: 'borrar-usuarios', component: BorrarUsuariosComponent },
   { path: 'gestion-productos', component: GestionProductosComponent },
-  { path: 'historial-ventas', component: HistorialVentasComponent},
-  { path: 'gestion-prodcutos-Usuario', component: GestorProductosVistaUsuarioComponent},
+  { path: 'historial-ventas', component: HistorialVentasComponent, canActivate:[GuardService]},
+  { path: 'gestion-prodcutos-Usuario', component: GestorProductosVistaUsuarioComponent, canActivate:[GuardService]},
   { path: 'subasta', component: PlantillaSubastaComponent},
 ];
 
