@@ -45,7 +45,7 @@ const routes: Routes = [
   { path: 'subasta', component: PlantillaSubastaComponent},
   { path: 'crear-Subasta', component: CrearSubastaComponent},
   { path: 'politicas-privacidad', component: PoliticasComponent},
-  { path: 'sobre-nosotros', component:NosotrosComponent}
+  { path: ' ', component:NosotrosComponent}
 ];
 
 @NgModule({

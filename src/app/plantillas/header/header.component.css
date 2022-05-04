@@ -21,6 +21,7 @@ li {
   padding: 12px 29px 12px 12px;
   background-color: var(--verdeprincipal);;
   color: #fff;
+  z-index: 999;
 }
 .nav-links a {
   color: var(--dorado);

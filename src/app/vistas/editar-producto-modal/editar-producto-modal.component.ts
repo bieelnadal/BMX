@@ -106,6 +106,7 @@ export class EditarProductoModalComponent implements OnInit {
         
       }
       this.prodServ.editarProducto(newProd).subscribe();
+      window.location.reload();
     }else{
       console.log("gangshit");
       

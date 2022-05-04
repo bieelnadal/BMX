@@ -11,21 +11,21 @@
     </div>
     <div class="modal-body">
         <form [formGroup]="modEditarUsuario" (ngSubmit)="onSubmit(modEditarUsuario)" *ngIf="modalClick">
-            <label>Nombre</label>
+            <label>Nombre</label><br>
             <input type="text" formControlName="nombre" [ngClass]="{ 'is-invalid': form.nombre.errors }">
             <div *ngIf="form.nombre.errors" class="invalid-feedback">
                 <div *ngIf="form.nombre.errors.required">El nombre es obligatorio</div>
             </div>
-            <br>
+            <br><br>
 
-            <label>Apellidos:</label>
+            <label>Apellidos:</label><br>
             <input type="text" formControlName="apellidos" [ngClass]="{ 'is-invalid': form.apellidos.errors }">
             <div *ngIf="form.apellidos.errors" class="invalid-feedback">
                 <div *ngIf="form.apellidos.errors.required">Los apellidos son obligatorios</div>
             </div>
-            <br>
+            <br><br>
 
-            <label>Email</label>
+            <label>Email</label><br>
             <input type="text" formControlName="email" [ngClass]="{ 'is-invalid': form.email.errors }">
             <div *ngIf="form.email.errors" class="invalid-feedback">
                 <div *ngIf="form.email.errors.required">El email es obligatorio.</div>
@@ -34,9 +34,9 @@
                 <div *ngIf="form.email.errors.notUnique">Este email ya está en uso.
                 </div>
             </div>
-            <br>
+            <br><br>
 
-            <label>Contraseña</label>
+            <label>Contraseña</label><br>
             <input id="passcode" [type]="passType" formControlName="passcode"
                 [ngClass]="{ 'is-invalid': form.passcode.errors }" maxlength="50" placeholder="Contraseña*" />
             <i *ngIf="this.passShown" (click)="togglePass()" class="material-icons">
@@ -49,11 +49,11 @@
                 <div *ngIf="form.passcode.errors.minlength" class="validator-error">La contraseña debe contener al
                     menos 3 carácteres</div>
             </div>
-            <br>
+            <br><br>
 
 
 
-            <label>Confirmar Contraseña</label>
+            <label>Confirmar Contraseña</label><br>
             <input id="confirmPasscode" [type]="confirmPassType"
                 [ngClass]="{ 'is-invalid': form.confirmPasscode.errors }" formControlName="confirmPasscode"
                 maxlength="50" placeholder="Confirmar Contraseña*" />
@@ -69,22 +69,22 @@
                 <div *ngIf="form.confirmPasscode.errors.mustMatch" class="validator-error">Las contraseñas deben de
                     coincidir</div>
             </div>
-            <br>
+            <br><br>
 
-            <label>Imagen</label>
+            <label>Imagen</label><br>
             <input id="file-input" type="file" (change)="readURL($event)" accept="image/png, image/gif, image/jpeg"
                 formControlName="imagen">
-            <br>
+            <br><br>
 
-            <label>DNI</label>
+            <label>DNI</label><br>
             <input type="text" formControlName="dni" maxlength="9" [ngClass]="{ 'is-invalid': form.dni.errors }">
             <div *ngIf="form.dni.errors" class="invalid-feedback">
                 <div *ngIf="form.dni.errors.required">El dni es obligatorio</div>
                 <div *ngIf="form.dni.errors.minLength">El dni debe contener un mínimo de 9 carácteres</div>
             </div>
-            <br>
+            <br><br><br>
 
-            <label>Rol</label>
+            <label>Rol</label><br>
             <div>
 
                 <input type="radio" id="contactChoice1" formControlName="idAdmin" value="0"
@@ -100,7 +100,7 @@
                 <div *ngIf="form.idAdmin.errors.required">El rol del usuario es obligatorio</div>
             </div>
 
-            <button type="submit" class="btn btn-light" style="float: right;">Aplicar Cambios</button>
+            <button type="submit" class="btn btn-light" style="float: right; color: white; background-color: green;">Aplicar Cambios</button>
         </form>
     </div>
     <div class="modal-footer">
