@@ -47,11 +47,12 @@
     <mat-sidenav [(opened)]="opened" *ngIf="opened">
       <h1 class="h1-desplegable">Buscar por categoria</h1>
       <ul>
-        <li class="li-categoria"><button class="button-categoria" id="1">· Vehículos</button></li>
-        <li class="li-categoria"><button class="button-categoria" id="2">· Relojes</button></li>
-        <li class="li-categoria"><button class="button-categoria" id="3">· Cámaras y fotografia</button></li>
-        <li class="li-categoria"><button class="button-categoria" id="4">· Electrodomésticos</button></li>
-        <li class="li-categoria"><button class="button-categoria" id="5">· Ropa</button></li>
+        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(0)" >· Todo</button></li>
+        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(1)" >· Vehículos</button></li>
+        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(2)">· Relojes</button></li>
+        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(3)">· Cámaras y fotografia</button></li>
+        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(4)">· Electrodomésticos</button></li>
+        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(5)">· Ropa</button></li>
       </ul>
     </mat-sidenav>
     <mat-sidenav-content>

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { Producto } from 'src/app/interfaces/Productos';
 import { Carrito } from 'src/app/interfaces/Carrito';
+import { LoginComponent } from 'src/app/identificacion/login/login.component';
 
 const URL = 'http://localhost:8080/';
 
@@ -52,6 +53,8 @@ const URL_OBTENER_PRODUCTOS_VALIDAR ="http://localhost:8080/productos/obtenerPro
 const URL_VALIDAR_PRODUCTO = "http://localhost:8080/productos/validarProducto.php";
 
 const URL_HISTORIAL_VENTAS = "http://localhost:8080/productos/historialVentas.php";
+
+const URL_PRINTAR_PRODUCTOS_ID ="http://localhost:8080/productos/printarProductosId.php";
 
 @Injectable({
   providedIn: 'root',
@@ -125,6 +128,14 @@ export class ProductsService {
       .subscribe((val: any) => {
         console.log(val);
       });
+  }
+
+  printarProductoId(idCategoria: any){
+    console.log(idCategoria);
+    
+    return this.http.get(
+      URL_PRINTAR_PRODUCTOS_ID + `?idCategoria=${idCategoria}`
+    );
   }
 
   PasarProductoId(idProducto: any) {
