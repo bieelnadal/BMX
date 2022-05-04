@@ -20,6 +20,7 @@ export class GuardService implements CanActivate  {
     }
     return true;
   }
+
   swal(){
     Swal.fire({
       icon: 'error',
