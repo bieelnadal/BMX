@@ -13,6 +13,10 @@
             <label for="checkbox_toggle" class="hamburger">&#9776;</label>
             <!-- NAVIGATION MENUS -->
             <div class="menu">
+                <select (change)="changeLang($event)">
+                    <option value="es" [selected]="lang == 'es'">Español</option>
+                    <option value="en" [selected]="lang == 'en'">English</option>
+                </select>
                 <li><a href="/">Sobre Nosotros</a></li>
                 <li><a [routerLink]="['/politicas-privacidad']">Condiciones legales</a></li>
                 <li class="services">

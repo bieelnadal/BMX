@@ -12,7 +12,7 @@ import { AdminHeaderComponent } from './plantillas/admin-header/admin-header.com
 import { PerfilAdminComponent } from './vistas/admin/perfil-admin/perfil-admin.component';
 import { PerfilUsuarioComponent } from './vistas/usuario/perfil-usuario/perfil-usuario.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { HomeComponent } from './vistas/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -43,7 +43,14 @@ import { HistorialVentasAdminComponent } from './vistas/historial-ventas-admin/h
 import { CrearSubastaComponent } from './vistas/usuario/crear-subasta/crear-subasta.component';
 import { PoliticasComponent } from './plantillas/politicas/politicas.component';
 import { NosotrosComponent } from './plantillas/nosotros/nosotros.component';
+import { LanguageInterceptor } from './interceptors/language.interceptor';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader} from '@ngx-translate/http-loader';
 
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader{
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,14 +99,27 @@ import { NosotrosComponent } from './plantillas/nosotros/nosotros.component';
     MatIconModule,
     MatListModule,
     NgbModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     {
       provide: JWT_OPTIONS,
       useValue: JWT_OPTIONS,
+    },{
+      provide: HTTP_INTERCEPTORS,
+      useClass: LanguageInterceptor,
+      multi: true
     },
     JwtHelperService,
   ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+

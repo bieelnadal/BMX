@@ -1,0 +1,10 @@
+{
+    "header": {
+        "header.politicas": "Legal Conditions",
+        "header.perfil": "My Profile",
+        "header.tiquets": "Support Tickets",
+        "header.ventas": "My Sales",
+        "header.pedidos": "My Orders",
+        "header.cerrarSesion": "Log Out"
+    }
+}
