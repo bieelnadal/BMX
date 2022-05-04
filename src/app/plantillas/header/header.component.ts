@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
   }
   cerrarSesion() {
     this.authServ.cerrarSesion();
-    this.router.navigate(['login']);   
+   // this.router.navigate(['login']);   
   }
 
   obtenerDatos() {
