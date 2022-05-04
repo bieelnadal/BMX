@@ -27,27 +27,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.butttonid(0);
-   // this.obtenerProductos();
- //   console.log(this.numberid);
+
     
   }
-
-
-  obtenerProductos() {
-    this.listaProductos = [];
-    
-    this.ProductsService.obtenerProducto().subscribe((val: any) => {
-      this.producto = val;
-      if (this.producto == null) {
-      } else {
-        
-        val.forEach((element: any) => {
-            this.listaProductos.push(element);
-        });
-      }
-    });
-
-    };
 
 
 
