@@ -42,6 +42,7 @@ import { PlantillaSubastaComponent } from './plantillas/plantilla-subasta/planti
 import { HistorialVentasAdminComponent } from './vistas/historial-ventas-admin/historial-ventas-admin.component';
 import { CrearSubastaComponent } from './vistas/usuario/crear-subasta/crear-subasta.component';
 import { PoliticasComponent } from './plantillas/politicas/politicas.component';
+import { NosotrosComponent } from './plantillas/nosotros/nosotros.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { PoliticasComponent } from './plantillas/politicas/politicas.component';
     HistorialVentasAdminComponent,
     CrearSubastaComponent,
     PoliticasComponent,
+    NosotrosComponent,
   ],
   imports: [
     BrowserModule,

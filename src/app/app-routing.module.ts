@@ -21,6 +21,7 @@ import { PlantillaSubastaComponent } from './plantillas/plantilla-subasta/planti
 import { GuardService } from './services/guard/guard.service';
 import { CrearSubastaComponent } from './vistas/usuario/crear-subasta/crear-subasta.component';
 import { PoliticasComponent } from './plantillas/politicas/politicas.component';
+import { NosotrosComponent } from './plantillas/nosotros/nosotros.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -29,8 +30,8 @@ const routes: Routes = [
   { path: 'header', component: HeaderComponent, canActivate:[GuardService] },
   { path: 'footer', component: FooterComponent },
   { path: 'admin-header', component: AdminHeaderComponent, canActivate:[GuardService] },
-  { path: 'perfil-usuario', component: PerfilUsuarioComponent },
-  { path: 'perfil-admin', component: PerfilAdminComponent },
+  { path: 'perfil-usuario', component: PerfilUsuarioComponent,  canActivate:[GuardService]},
+  { path: 'perfil-admin', component: PerfilAdminComponent, canActivate:[GuardService] },
   { path: 'home', component: HomeComponent },
   { path: 'editar-direccion', component: EditarDireccionComponent },
   { path: 'producto/:nombre/:id', component: PlantillaProductoComponent },
@@ -43,7 +44,8 @@ const routes: Routes = [
   { path: 'gestion-prodcutos-Usuario', component: GestorProductosVistaUsuarioComponent, canActivate:[GuardService]},
   { path: 'subasta', component: PlantillaSubastaComponent},
   { path: 'crear-Subasta', component: CrearSubastaComponent},
-  { path: 'Politicas-pribacidad', component: PoliticasComponent},
+  { path: 'politicas-privacidad', component: PoliticasComponent},
+  { path: 'sobre-nosotros', component:NosotrosComponent}
 ];
 
 @NgModule({
