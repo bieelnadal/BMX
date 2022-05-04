@@ -17,8 +17,9 @@ import { BorrarUsuariosComponent } from './vistas/admin/borrar-usuarios/borrar-u
 import { GestionProductosComponent } from './vistas/admin/gestion-productos/gestion-productos.component';
 import { HistorialVentasComponent } from './vistas/usuario/historialVentas/historialVentas.component';
 import { GestorProductosVistaUsuarioComponent } from './vistas/usuario/gestor-productos-vista-usuario/gestor-productos-vista-usuario.component';
-import { PlantillaSubastaComponent } from './plantillas/plantilla-subasta/plantilla-subasta.component'; 
+import { PlantillaSubastaComponent } from './plantillas/plantilla-subasta/plantilla-subasta.component';
 import { GuardService } from './services/guard/guard.service';
+import { CrearSubastaComponent } from './vistas/usuario/crear-subasta/crear-subasta.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'historial-ventas', component: HistorialVentasComponent, canActivate:[GuardService]},
   { path: 'gestion-prodcutos-Usuario', component: GestorProductosVistaUsuarioComponent, canActivate:[GuardService]},
   { path: 'subasta', component: PlantillaSubastaComponent},
+  { path: 'crear-Subasta', component: CrearSubastaComponent},
 ];
 
 @NgModule({

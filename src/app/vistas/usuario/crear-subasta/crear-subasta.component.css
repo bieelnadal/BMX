@@ -1,0 +1,78 @@
+h1 {
+  color: var(--dorado);
+  text-align: center;
+  margin-top: 60px;
+}
+
+.centrar {
+  display: flex;
+  justify-content: center;
+
+}
+
+input[type="number"] {
+  width: 500px;
+  height: 3rem;
+  background-clip: padding-box;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.25rem;
+  border: 1px solid rgb(204, 204, 204);
+  color: rgb(51, 51, 51);
+}
+
+input[type="text"] {
+  width: 500px;
+  height: 3rem;
+  background-clip: padding-box;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.25rem;
+  border: 1px solid rgb(204, 204, 204);
+  color: rgb(51, 51, 51);
+}
+button{
+  background-color: var(--verdeprincipal);
+  color: var(--dorado);
+  width: 100%;
+  border: none;
+  font-size: 25px;
+  border-radius: 0.25rem;
+  height: 50px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+button:hover{
+  transition: 1s;
+  background-color: var(--white);
+  color: var(--dorado);
+  border: 1px solid var(--verdeprincipal);
+
+}
+
+.input-label{
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.option-select{
+  width: 100%;
+  height: 3rem;
+  background-clip: padding-box;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.25rem;
+  border: 1px solid rgb(204, 204, 204);
+  color: rgb(51, 51, 51);
+}
+.option-select{
+  color: rgb(51, 51, 51);
+}
+
+.color-validators{
+  color:red;
+}
+
+.time{
+  width: 35px;
+  margin-right: 5px;
+  margin-left: 15px;
+}
