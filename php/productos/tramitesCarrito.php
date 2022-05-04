@@ -18,11 +18,11 @@ $response = new Result();
 // input body
 $json = file_get_contents('php://input');
 $Carrito = json_decode($json);
-
+$mifecha = date('Y-m-d H:i:s');
 
 // query
-$queryInsert = "INSERT INTO `compras`(`idCarrito`, `Precio`, `idUsuario`, `idProducto`, `idDireccion`, `IdVendedor`, `emailCompador`, `emailVendedor`)
- VALUES (NULL,'$Carrito->Precio','$Carrito->idUsuario','$Carrito->idProducto','$Carrito->idDireccion','$Carrito->IdVendedor','$Carrito->emailCompador','$Carrito->emailVendedor')";
+$queryInsert = "INSERT INTO `compras`(`idCarrito`, `Precio`, `idUsuario`, `idProducto`, `idDireccion`, `IdVendedor`, `emailCompador`, `emailVendedor`, `fechaVenta`)
+ VALUES (NULL,'$Carrito->Precio','$Carrito->idUsuario','$Carrito->idProducto','$Carrito->idDireccion','$Carrito->IdVendedor','$Carrito->emailCompador','$Carrito->emailVendedor', '$mifecha')";
 
 
 $resInsert = mysqli_query($con, $queryInsert);

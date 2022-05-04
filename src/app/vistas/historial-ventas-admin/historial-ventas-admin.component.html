@@ -1,4 +1,38 @@
-<h1>Gestion Productos</h1>
-<div class="div-align">
-    <h1>hola</h1>
-</div>
+<h1>Historial Ventas</h1>
+<table class="info-table">
+    <thead>
+        <tr>
+            <th>nº Venta</th>
+            <th>Transacción</th>
+            <th>Precio</th>
+            <th>Fecha de la venta</th>
+            <th>Imagen</th>
+            <th>Subasta</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ventas of listaVentas; let i = index">
+            <td>
+                <h4>{{i+1}}</h4>
+            </td>
+            <td>
+                <h4>El vendedor con email: {{ventas.emailVendedor}} ha vendido su "{{ventas.Nombre}}"" por un precio de {{ventas.Precio}}€ al comprador con email: {{ventas.emailCompador}}</h4>
+            </td>
+            <td>
+                <h4>{{ventas.Precio}}€</h4>
+            </td>
+            <td>
+                <h4>{{ventas.Fecha}}</h4>
+            </td>
+            <td>
+                <img class="img-table" src="{{ventas.Imagen}}">
+            </td>
+            <td>
+                <h4 *ngIf="ventas.Subasta==0">No</h4>
+                <h4 *ngIf="ventas.Subasta==1">Si</h4>
+            </td>
+            <td class="last">
+            </td>
+        </tr>
+</table>
