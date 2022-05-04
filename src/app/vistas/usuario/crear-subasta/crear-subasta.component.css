@@ -72,7 +72,17 @@ button:hover{
 }
 
 .time{
-  width: 35px;
+  width: 10px;
   margin-right: 5px;
   margin-left: 15px;
+}
+
+.time[type="number"]{
+  width: 50px;
+  height: 3rem;
+  background-clip: padding-box;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.25rem;
+  border: 1px solid rgb(204, 204, 204);
+  color: rgb(51, 51, 51);
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/interfaces/Productos';
+import { Subasta } from 'src/app/interfaces/Subastas';
 import { FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms';
 import { ProductsService } from 'src/app/services/productos/products.service';
 import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.service';
@@ -43,6 +44,16 @@ export class CrearSubastaComponent implements OnInit {
     Activo: 0,
     Precio: 0,
     Subasta: 0,
+  }
+
+  subasta: Subasta = {
+    idSubasta: 0,
+    idComprador: 0,
+    precioFinal: 0,
+    vendido: 0,
+    fechaInicial: '',
+    fechaFinal: '',
+    idProducto: 0,
   }
 
 
