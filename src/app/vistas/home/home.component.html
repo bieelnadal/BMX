@@ -18,10 +18,10 @@
       <!-- NAVIGATION MENUS -->
       <div class="menu">
         <li class="services">
-          <a href="/crear-Subasta">Subastar</a>
+          <a href="/crear-Subasta">{{'home.subastar' | translate}}</a>
         </li>
         <li class="services">
-          <a href="/crear-Producto">Vender</a>
+          <a href="/crear-Producto">{{'home.vender' | translate}}</a>
         </li>
       </div>
     </ul>
@@ -30,13 +30,13 @@
   <div id="side" class="nav-box" style="display: none;">
     <nav class="caja_nav">
       <div><img src="../../../assets/Bid&Go_sin_fondo.png" width="150" height="150"></div>
-      <h1>Comprar por Categoria</h1>
+      <h1>{{'home.buscar-categoria' | translate}}</h1>
       <ul>
-        <li>Vehículos</li>
-        <li>Relojes</li>
-        <li>Cámaras y fotografia</li>
-        <li>Electrodomésticos</li>
-        <li>Ropa</li>
+        <li>{{'home.vehiculos' | translate}}</li>
+        <li>{{'home.relojes' |translate}}</li>
+        <li>{{'home.fotografia' | translate}}</li>
+        <li>{{'home.electrodomesticos' |translate}}</li>
+        <li>{{'home.ropa' |translate}}</li>
       </ul>
 
     </nav>
@@ -45,14 +45,14 @@
 
   <mat-sidenav-container>
     <mat-sidenav [(opened)]="opened" *ngIf="opened">
-      <h1 class="h1-desplegable">Buscar por categoria</h1>
+      <h1 class="h1-desplegable">{{'home.buscar-categoria' | translate}}</h1>
       <ul>
-        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(0)" >· Todo</button></li>
-        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(1)" >· Vehículos</button></li>
-        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(2)">· Relojes</button></li>
-        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(3)">· Cámaras y fotografia</button></li>
-        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(4)">· Electrodomésticos</button></li>
-        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(5)">· Ropa</button></li>
+        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(0)" >· {{'home.todo' | translate}}</button></li>
+        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(1)" >· {{'home.vehiculos' | translate}}</button></li>
+        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(2)">· {{'home.relojes' | translate}}</button></li>
+        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(3)">· {{'home.fotografia' | translate}}</button></li>
+        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(4)">· {{'home.electrodomesticos' | translate}}</button></li>
+        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(5)">· {{'home.ropa' | translate}}</button></li>
       </ul>
     </mat-sidenav>
     <mat-sidenav-content>

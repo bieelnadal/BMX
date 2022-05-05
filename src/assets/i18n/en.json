@@ -5,5 +5,20 @@
   "header.tiquets": "Support Tickets",
   "header.ventas": "My Sales",
   "header.pedidos": "My Orders",
-  "header.cerrarSesion": "Log Out"
+  "header.cerrarSesion": "Log Out",
+
+  "home.vender":"Sell",
+  "home.subastar":"Auction",
+  "home.buscar-categoria": "Search by Category",
+  "home.todo": "Everything",
+  "home.vehiculos": "Vehicles",
+  "home.relojes": "Watches",
+  "home.fotografia": "Cameras and Photography",
+  "home.electrodomesticos": "Home Appliances",
+  "home.ropa": "Clothing",
+
+  "plantillaProducto.descripcion": "Product description",
+  "plantillaProducto.nombreVendedor": "Seller name",
+  "plantillaProducto.precio":"Price",
+  "plantillaProducto.comprar":"Buy"
 }
