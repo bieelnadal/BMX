@@ -12,20 +12,20 @@
 
   <div class="seccion2">
 
-    <h3 class="titulo-desc">Descripción del producto</h3>
+    <h3 class="titulo-desc">{{'plantillaProducto.descripcion' |translate}}</h3>
     <hr>
     <p class="desc">
       {{producto.Descripcion}}
     </p>
     <p class="descVendedor">
-      Nombre del vendedor: {{datosUsuario.Nombre}} {{datosUsuario.Apellidos}}
+      {{'plantillaProducto.nombreVendedor' | translate}}: {{datosUsuario.Nombre}} {{datosUsuario.Apellidos}}
     </p>
 
 
     <div class="contBTN">
       <hr>
-      <h3 class="Precio">Precio: {{producto.Precio}}€</h3>
-      <button class="btnCompra" [routerLink]="['/carrito', producto.idProducto]">Comprar</button>
+      <h3 class="Precio">{{'plantillaProducto.precio' |translate}}: {{producto.Precio}}€</h3>
+      <button class="btnCompra" [routerLink]="['/carrito', producto.idProducto]">{{'plantillaProducto.comprar' |translate}}</button>
     </div>
 
   </div>

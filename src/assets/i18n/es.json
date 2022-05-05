@@ -1,9 +1,24 @@
 {
-    "header.sobre-nosotros":"Sobre Nosotros",
+  "header.sobre-nosotros": "Sobre Nosotros",
   "header.politicas": "Condiciones Legales",
   "header.perfil": "Mi Perfil",
   "header.tiquets": "Tiquets",
   "header.ventas": "Mis Ventas",
   "header.pedidos": "Mis Pedidos",
-  "header.cerrarSesion": "Cerrar Sesión"
+  "header.cerrarSesion": "Cerrar Sesión",
+
+  "home.vender":"Vender",
+  "home.subastar":"Subastar",
+  "home.buscar-categoria": "Buscar por categoria",
+  "home.todo": "Todo",
+  "home.vehiculos": "Vehículos",
+  "home.relojes": "Relojes",
+  "home.fotografia": "Cámaras y fotografia",
+  "home.electrodomesticos": "Electrodomésticos",
+  "home.ropa": "Ropa",
+
+  "plantillaProducto.descripcion": "Descripción del producto",
+  "plantillaProducto.nombreVendedor": "Nombre del vendedor",
+  "plantillaProducto.precio":"Precio",
+  "plantillaProducto.comprar":"Comprar"
 }

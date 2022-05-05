@@ -1,6 +1,4 @@
-import { EventListenerFocusTrapInertStrategy } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
-import { Producto } from 'src/app/interfaces/Productos';
 import { ProductsService } from 'src/app/services/productos/products.service';
 
 @Component({
