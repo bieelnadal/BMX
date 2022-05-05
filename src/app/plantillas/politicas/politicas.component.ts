@@ -11,6 +11,7 @@ export class PoliticasComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

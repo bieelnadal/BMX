@@ -72,7 +72,7 @@ export class AuthService {
       
       this.servicioToken.guardarToken(data.accessToken);
       this.servicioToken.guardarUsuario(data.data);
-      this.router.navigate(['perfil-usuario']);
+      this.router.navigate(['home']);
     }
     //Sesion para usuario administrador
     else {

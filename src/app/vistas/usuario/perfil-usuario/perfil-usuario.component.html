@@ -1,3 +1,44 @@
-<p>
-  perfil-usuario works!
-</p>
+<app-header></app-header>
+<div class="contenedor-perfil">
+  <div class="separador1">
+    <div class="posicion-imagen-perfil">
+      <img class="imagen-perfil" src="{{this.datosUsuario.Imagen}}" alt="">
+      <h1>{{this.datosUsuario.Nombre}} {{this.datosUsuario.Apellidos}}</h1>
+    </div>
+    <button class="button-direciones" (click)="mostrarDesplegableDireciones()">Direciones</button>
+    <button class="button-editar" (click)="mostrarDesplegableEditarPerfil()">Editar perfil</button>
+    <button class="button-cerrar" (click)="swalSalir()">Cerrar sesión</button>
+
+  </div>
+  <div class="separador2">
+    <div class="informacion">
+      <h3>Perfil</h3>
+
+      <hr>
+      <div *ngIf="this.esconderPerfil">
+        <p class="info-perfil">Nombre: {{this.datosUsuario.Nombre}}</p>
+        <br>
+        <p class="info-perfil">Apellidos: {{this.datosUsuario.Apellidos}}</p>
+        <br>
+        <p class="info-perfil">Email: {{this.datosUsuario.Email}}</p>
+        <br>
+        <p class="info-perfil">Dirección: {{this.datosUsuario.Nombre}}</p>
+      </div>
+    </div>
+    <div class="alinar-contenido">
+      <!--
+        Direciones
+      -->
+      <app-editar-direccion *ngIf="this.mostrarDesplegableVisual"></app-editar-direccion>
+
+    </div>
+
+
+    <!--
+  editar perfil
+-->
+    <app-editar-datos-usuario *ngIf="this.mostrarDesplegableEditarPerfilVisual"></app-editar-datos-usuario>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -12,6 +12,16 @@ a {
 li {
   list-style: none;
 }
+/*idioma*/
+
+select{
+  background-color: var(--verdeprincipal);
+  border: none;
+  color: var(--dorado);
+}
+option{
+  border: none;
+}
 
 
 /* NAVBAR STYLING STARTS */

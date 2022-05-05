@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit {
   };
 
   lang = 'es';
+  datos:any;
   
   constructor(
     private tokenServ: TokenSesionService,
@@ -39,6 +40,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerDatos();
     this.lang = localStorage.getItem('lang') || 'es';
+    this.tokenep();
   }
   cerrarSesion() {
     this.authServ.cerrarSesion();
@@ -49,6 +51,22 @@ export class HeaderComponent implements OnInit {
     this.datosUsuario = this.tokenServ.getUsuario();
 
   }
+
+tokenep(){
+
+  if(this.tokenServ.getToken() != ' '){
+    console.log('token');
+    
+  }else if(this.tokenServ.getToken() != null){
+    console.log('no token');
+    
+  }
+     
+
+ 
+}
+
+  
   swalSalir() {
     Swal.fire({
       title: 'Estas seguro?',

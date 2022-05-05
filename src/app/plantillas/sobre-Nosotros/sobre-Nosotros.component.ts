@@ -10,6 +10,7 @@ export class SobreNosotrosComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }
