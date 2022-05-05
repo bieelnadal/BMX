@@ -42,10 +42,10 @@ import { PlantillaSubastaComponent } from './plantillas/plantilla-subasta/planti
 import { HistorialVentasAdminComponent } from './vistas/historial-ventas-admin/historial-ventas-admin.component';
 import { CrearSubastaComponent } from './vistas/usuario/crear-subasta/crear-subasta.component';
 import { PoliticasComponent } from './plantillas/politicas/politicas.component';
-import { NosotrosComponent } from './plantillas/nosotros/nosotros.component';
 import { LanguageInterceptor } from './interceptors/language.interceptor';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { SobreNosotrosComponent } from './plantillas/sobre-Nosotros/sobre-Nosotros.component';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader{
@@ -84,7 +84,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader{
     HistorialVentasAdminComponent,
     CrearSubastaComponent,
     PoliticasComponent,
-    NosotrosComponent,
+    SobreNosotrosComponent,
   ],
   imports: [
     BrowserModule,

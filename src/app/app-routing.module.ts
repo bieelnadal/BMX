@@ -21,7 +21,8 @@ import { PlantillaSubastaComponent } from './plantillas/plantilla-subasta/planti
 import { GuardService } from './services/guard/guard.service';
 import { CrearSubastaComponent } from './vistas/usuario/crear-subasta/crear-subasta.component';
 import { PoliticasComponent } from './plantillas/politicas/politicas.component';
-import { NosotrosComponent } from './plantillas/nosotros/nosotros.component';
+import { SobreNosotrosComponent } from './plantillas/sobre-Nosotros/sobre-Nosotros.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -45,7 +46,8 @@ const routes: Routes = [
   { path: 'subasta', component: PlantillaSubastaComponent},
   { path: 'crear-Subasta', component: CrearSubastaComponent},
   { path: 'politicas-privacidad', component: PoliticasComponent},
-  { path: ' ', component:NosotrosComponent}
+  { path: 'sobre-nosotros', component: SobreNosotrosComponent}
+
 ];
 
 @NgModule({

@@ -17,7 +17,7 @@
                     <option value="es" [selected]="lang == 'es'">Español</option>
                     <option value="en" [selected]="lang == 'en'">English</option>
                 </select>
-                <li><a href="/">Sobre Nosotros</a></li>
+                <li><a [routerLink]="['/sobre-nosotros']">Sobre Nosotros</a></li>
                 <li><a [routerLink]="['/politicas-privacidad']">Condiciones legales</a></li>
                 <li class="services">
                     <a  ><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
