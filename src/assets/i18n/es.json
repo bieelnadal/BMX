@@ -1,10 +1,9 @@
 {
-    "header": {
-        "header.politicas": "Condiciones Legales",
-        "header.perfil": "Mi Perfil",
-        "header.tiquets": "Tiquets",
-        "header.ventas": "Mis Ventas",
-        "header.pedidos": "Mis Pedidos",
-        "header.cerrarSesion": "Cerrar Sesión"
-    }
+    "header.sobre-nosotros":"Sobre Nosotros",
+  "header.politicas": "Condiciones Legales",
+  "header.perfil": "Mi Perfil",
+  "header.tiquets": "Tiquets",
+  "header.ventas": "Mis Ventas",
+  "header.pedidos": "Mis Pedidos",
+  "header.cerrarSesion": "Cerrar Sesión"
 }

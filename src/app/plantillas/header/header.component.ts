@@ -25,14 +25,16 @@ export class HeaderComponent implements OnInit {
     idAdmin: 0,
   };
 
-  lang:any;
+  lang = 'es';
   
   constructor(
     private tokenServ: TokenSesionService,
     private authServ: AuthService,
     private router: Router,
     private transaleServ: TranslateService
-  ) {}
+  ) {
+    this.transaleServ.setDefaultLang(this.lang);
+  }
 
   ngOnInit(): void {
     this.obtenerDatos();
@@ -67,6 +69,7 @@ export class HeaderComponent implements OnInit {
   changeLang(lang:any){
     console.log(lang.target.value);
     localStorage.setItem('lang', lang.target.value);
+    this.transaleServ.use(lang);
     window.location.reload();
   }
 }
