@@ -20,7 +20,7 @@
   global $datos;
 
   // query
-  $query = "SELECT * FROM `producto` WHERE `idCategoria` ='$_GET[idCategoria]' AND Activo = 1 ORDER BY `idProducto`DESC";
+  $query = "SELECT * FROM `producto` WHERE `idCategoria` ='$_GET[idCategoria]'AND Estado = 0 AND Activo = 1 ORDER BY `idProducto`DESC";
   $registros = mysqli_query($con, $query);
   
   // si la query ha sido correcta hacemos fetch

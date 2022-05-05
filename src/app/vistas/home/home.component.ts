@@ -52,7 +52,6 @@ export class HomeComponent implements OnInit {
         
       } else if(numberid == 0){
         this.listaProductos = [];
-        console.log('sin cat');
         
         this.ProductsService.obtenerProducto().subscribe((val: any) => {
           this.producto = val;

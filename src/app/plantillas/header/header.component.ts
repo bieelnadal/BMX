@@ -12,7 +12,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  
+
   datosUsuario: Usuario = {
     idUsuario: 0,
     Nombre: '',
@@ -26,8 +26,8 @@ export class HeaderComponent implements OnInit {
   };
 
   lang = 'es';
-  datos:any;
-  
+  datos: any;
+
   constructor(
     private tokenServ: TokenSesionService,
     private authServ: AuthService,
@@ -41,32 +41,34 @@ export class HeaderComponent implements OnInit {
     this.obtenerDatos();
     this.lang = localStorage.getItem('lang') || 'es';
     this.tokenep();
+    
   }
   cerrarSesion() {
     this.authServ.cerrarSesion();
-   // this.router.navigate(['login']);   
+    // this.router.navigate(['login']);   
   }
 
   obtenerDatos() {
     this.datosUsuario = this.tokenServ.getUsuario();
 
   }
-
-tokenep(){
-
-  if(this.tokenServ.getToken() != ' '){
-    console.log('token');
-    
-  }else if(this.tokenServ.getToken() != null){
-    console.log('no token');
-    
-  }
-     
-
- 
-}
-
   
+
+  tokenep() {
+
+    if (this.tokenServ.getUsuario() != ' ') {
+      console.log('token');
+      console.log(this.tokenServ.getUsuario());
+
+      return true;
+    } else {
+
+      return false;
+    }
+
+  }
+
+
   swalSalir() {
     Swal.fire({
       title: 'Estas seguro?',
@@ -84,7 +86,7 @@ tokenep(){
     });
   }
 
-  changeLang(lang:any){
+  changeLang(lang: any) {
     console.log(lang.target.value);
     localStorage.setItem('lang', lang.target.value);
     this.transaleServ.use(lang);
