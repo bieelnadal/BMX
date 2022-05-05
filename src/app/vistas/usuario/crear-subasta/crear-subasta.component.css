@@ -7,6 +7,7 @@ h1 {
 .centrar {
   display: flex;
   justify-content: center;
+  margin-left: 150px;
 
 }
 
@@ -32,7 +33,7 @@ input[type="text"] {
 button{
   background-color: var(--verdeprincipal);
   color: var(--dorado);
-  width: 100%;
+  width: 500px;
   border: none;
   font-size: 25px;
   border-radius: 0.25rem;
@@ -55,7 +56,7 @@ button:hover{
 }
 
 .option-select{
-  width: 100%;
+  width: 500px;
   height: 3rem;
   background-clip: padding-box;
   background-color: rgb(255, 255, 255);
@@ -72,9 +73,10 @@ button:hover{
 }
 
 .time{
-  width: 10px;
-  margin-right: 5px;
-  margin-left: 15px;
+  width: 500px;
+  border: 1px solid rgb(204, 204, 204);
+  color:rgb(204, 204, 204) ;
+
 }
 
 .time[type="number"]{

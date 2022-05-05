@@ -77,10 +77,11 @@ export class CrearSubastaComponent implements OnInit {
   crearForm() {
     this.crearProdutoForm = this.formBuilder.group({
       NombreProducto: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
+      DescripcionProducto: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(500)]],   
+      Categoria: ['', Validators.required],
+      tiempoSubasta:['',Validators.required],
+      PrecioProducto: ['', Validators.required],       
       imagenProducto: ['', Validators.required],
-      DescripcionProducto: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(500)]],
-      PrecioProducto: ['', Validators.required],
-      Categoria: ['', Validators.required]
     });
   }
 
@@ -91,21 +92,24 @@ export class CrearSubastaComponent implements OnInit {
   get nombreProducto() {
     return this.crearProdutoForm.get('NombreProducto') as FormControl;
   }
-  get imagenProducto() {
-    return this.crearProdutoForm.get('imagenProducto') as FormControl;
-  }
   get DescripcionProducto() {
     return this.crearProdutoForm.get('DescripcionProducto') as FormControl;
-  }
-  get FechaProducto() {
-    return this.crearProdutoForm.get('FechaProducto') as FormControl;
-  }
-  get PrecioProducto() {
-    return this.crearProdutoForm.get('PrecioProducto') as FormControl;
   }
   get CategoriaProducto() {
     return this.crearProdutoForm.get('Categoria') as FormControl;
   }
+  get tiempoSubasta(){
+    return this.crearProdutoForm.get('tiempoSubasta') as FormControl;
+  }
+  get PrecioProducto() {
+    return this.crearProdutoForm.get('PrecioProducto') as FormControl;
+  }
+  get imagenProducto() {
+    return this.crearProdutoForm.get('imagenProducto') as FormControl;
+  }
+
+  
+
 
 
   crearProductoNuevo(): any {
@@ -117,9 +121,11 @@ export class CrearSubastaComponent implements OnInit {
       this.producto.Descripcion = this.DescripcionProducto.value;
       this.producto.idCategoria = this.CategoriaProducto.value;
       this.producto.Precio = this.PrecioProducto.value;
+   //   this.producto.Fecha = this.tiempoSubasta.value;
       this.ProductsService.registrarProducto(this.producto);
+console.log('hola');
 
-      this.router.navigate(['home']);
+     // this.router.navigate(['home']);
     } else {
       this.swalError();
     }

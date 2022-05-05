@@ -63,6 +63,8 @@ export class ProductsService {
   constructor(private http: HttpClient) {}
 
   registrarProducto(Producto: Producto) {
+    console.log(Producto);
+    
     return this.http
       .post(URL_CREAR_PRODUCTO, JSON.stringify(Producto))
       .subscribe((val: any) => {

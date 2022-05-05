@@ -1,7 +1,9 @@
 <app-header></app-header>
+<h1>Registro Subasta:</h1>
 <div class="centrar">
+  
   <form [formGroup]="crearProdutoForm" (ngSubmit)="onSubmit()">
-    <h1>Registro Subasta:</h1>
+    
 
     <label for="" class="input-label">Nombre</label>
     <input type="text" maxlength="100" formControlName="NombreProducto" class=""
@@ -41,9 +43,7 @@
     </div>
 
     <label for="" class="input-label">Tiempo de subasta</label>
-    <input type="number" maxlength="2" formControlName="DiasSubasta" class="time" placeholder="d*">Dias
-    <input type="number" maxlength="2" formControlName="HorasSubasta" class="time" placeholder="h*">Horas
-    <input type="number" maxlength="2" formControlName="MinutosSubasta" class="time" placeholder="m*">Minutos<br><br>
+    <input type="time" maxlength="2" formControlName="tiempoSubasta" class="time" placeholder="d*"><br><br>
     <div>
       <div *ngIf="this.submitted && form.PrecioProducto.errors">
         <p *ngIf="form.PrecioProducto.errors.required" class="color-validators">Campo obligatorio*</p>
@@ -58,7 +58,7 @@
       </div>
     </div>
 
-    <label for="">Imagen</label>
+    <label for="">Imagen</label><br>
     <input type="file" formControlName="imagenProducto" (change)="readURL($event)"><br><br>
     <div>
       <div *ngIf="this.submitted && form.imagenProducto.errors">
@@ -68,4 +68,4 @@
     <button type="submit" class="crear-ranking">Crear Producto</button>
   </form>
 </div>
-<app-footer></app-footer>
+
