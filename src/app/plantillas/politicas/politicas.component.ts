@@ -11,12 +11,15 @@ export class PoliticasComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.refresh();
+    if (!localStorage.getItem('foo')) { 
+      localStorage.setItem('foo', 'no reload') 
+      location.reload() 
+    } else {
+      localStorage.removeItem('foo') 
+    }
 
   }
 
-  refresh(): void {
-    window.location.reload();
-}
+
 
 }
