@@ -24,8 +24,8 @@ echo $mifecha;
 
 
 // query
-$queryInsert = "INSERT INTO `subasta`(`idComprador`, `precioInicial`, `precioFinal`, `vendido`, `fechaInicial`, `fechaFinal`, `idSubasta`, `idProducto`)
-VALUES ('$Subasta->idComprador','$Subasta->precioInicial','$Subasta->precioFinal', '$Subasta->vendido' , '$mifecha','$mifecha','$Subasta->idSubasta','$Subasta->idProducto')";
+$queryInsert = "INSERT INTO `producto`(`idComprador`, `precioInicial`, `precioFinal`, `vendido`, `fechaInicial`, `fechaFinal`, `idSubasta`, `idProducto`)
+VALUES ( NULL,'$Subasta->idComprador','$Subasta->precioInicial','$Subasta->precioFinal', '$Subasta->vendido',$Subasta->fechaInicial,$Subasta->fechaFinal,$Subasta->idSubasta,$Subasta->idProducto";
 
 
 $resInsert = mysqli_query($con, $queryInsert);
@@ -44,3 +44,5 @@ if ($resInsert) {
   echo json_encode($response);
   exit;
 }
+
+
