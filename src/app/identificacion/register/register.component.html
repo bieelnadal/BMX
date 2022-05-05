@@ -16,8 +16,8 @@
                         d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
                 </svg>
                 <div class="textoSpan">
-                    <h4>Gestiona tus pedidos</h4>
-                    <span>Ten el control de todos tus pedidos y recibe notificaciones con el seguimiento</span>
+                    <h4>{{'register.info.1' | translate}}</h4>
+                    <span>{{'register.info.1.desc' | translate}}</span>
                 </div>
             </div>
             <div class="info1">
@@ -27,8 +27,8 @@
                         d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5ZM1.5 4a.5.5 0 0 0-.5.5v1.05a2.5 2.5 0 0 1 0 4.9v1.05a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-1.05a2.5 2.5 0 0 1 0-4.9V4.5a.5.5 0 0 0-.5-.5h-13Z" />
                 </svg>
                 <div class="textoSpan">
-                    <h4>Gestiona tus Tickets</h4>
-                    <span>Ten el control de todos tus Tickets desde el gestor soporte de Bid&Go</span>
+                    <h4>{{'register.info.2' | translate}}</h4>
+                    <span>{{'register.info.2.desc' | translate}}</span>
                 </div>
             </div>
             <div class="info1">
@@ -38,22 +38,22 @@
         <section class="separador1">
             <form id="formularioRegistro" [formGroup]="registerForm" (ngSubmit)="onRegistro(registerForm.value)"
                 class="Icon-inside" enctype="multipart/form-data">
-                <h2>Registrarse</h2>
+                <h2>{{'register.registro' | translate}}</h2>
                 <p>
                     <input id="Nombre" formControlName="nombre" type="text" maxlength="25" [ngClass]="{ 'is-invalid': form.nombre.errors }" minlength="3" required
-                        placeholder="Nombre*" />
+                        placeholder="{{'register.nombre.placeholder' | translate}}*" />
                 </p>
                 <div *ngIf="submitted && form.nombre.errors" class="invalid-feedback">
-                    <div *ngIf="form.nombre.errors.required" class="validator-error">El nombre de usuario es necesario
+                    <div *ngIf="form.nombre.errors.required" class="validator-error">{{'register.nombre.required' | translate}}
                     </div>
                 </div>
 
                 <p>
                     <input id="Apellidos" formControlName="apellidos" type="text" maxlength="50" [ngClass]="{ 'is-invalid': form.apellidos.errors }" minlength="3" required
-                        placeholder="Apellidos*" />
+                        placeholder="{{'register.apellidos.placeholder' | translate}}*" />
                 </p>
                 <div *ngIf="submitted && form.apellidos.errors" class="invalid-feedback">
-                    <div *ngIf="form.apellidos.errors.required" class="validator-error">Los apellidos son necesarios
+                    <div *ngIf="form.apellidos.errors.required" class="validator-error">{{'register.apellidos.required' | translate}}
                     </div>
                 </div>
                 <p>
@@ -61,16 +61,16 @@
                         placeholder="E-mail*" />
                 </p>
                 <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
-                    <div *ngIf="form.email.errors.required" class="validator-error">El email es necesario</div>
-                    <div *ngIf="form.email.errors.email" class="validator-error">No es un correo electrónico</div>
+                    <div *ngIf="form.email.errors.required" class="validator-error">{{'register.email.required' | translate}}</div>
+                    <div *ngIf="form.email.errors.email" class="validator-error">{{'register.email.email' | translate}}</div>
                 </div>
                 <div *ngIf="form.email.errors" class="invalid-feedback">
-                    <div *ngIf="form.email.errors.notUnique">El correo electrónico ya existe</div>
-                    <div *ngIf="form.email.pending">Consultando disponibilidad del correo electrónico</div>
+                    <div *ngIf="form.email.errors.notUnique">{{'register.email.notUnique' | translate}}</div>
+                    <div *ngIf="form.email.pending">{{'register.email.pending' | translate}}</div>
                 </div>
                 <p>
                     <input id="passcode" [type]="passType" formControlName="passcode" [ngClass]="{ 'is-invalid': form.passcode.errors }" maxlength="50" minlength="3" required
-                        placeholder="Contraseña*" />
+                        placeholder="{{'register.contrasena.placeholder' | translate}}*" />
                         <i *ngIf="this.passShown" (click)="togglePass()" class="material-icons">
                             visibility
                         </i>
@@ -79,13 +79,12 @@
                         </i>
                 </p>
                 <div *ngIf="submitted && form.passcode.errors" class="invalid-feedback">
-                    <div *ngIf="form.passcode.errors.required" class="validator-error">La contraseña es necesaria</div>
-                    <div *ngIf="form.passcode.errors.minlength" class="validator-error">La contraseña debe contener al
-                        menos 3 carácteres</div>
+                    <div *ngIf="form.passcode.errors.required" class="validator-error">{{'register.contrasena.required' | translate}}</div>
+                    <div *ngIf="form.passcode.errors.minlength" class="validator-error">{{'register.contrasena.minlength' | translate}}</div>
                 </div>
                 <p>
                     <input id="confirmPasscode" [type]="confirmPassType" [ngClass]="{ 'is-invalid': form.confirmPasscode.errors }" formControlName="confirmPasscode" maxlength="50"
-                    required placeholder="Confirmar Contraseña*" />
+                    required placeholder="{{'register.confirmarContrasena.placeholder' | translate}}*" />
                         <i *ngIf="this.confirmPassShown" (click)="toggleConfirmPass()" class="material-icons">
                             visibility
                         </i>
@@ -94,21 +93,19 @@
                         </i>
                 </p>
                 <div *ngIf="submitted && form.confirmPasscode.errors" class="invalid-feedback">
-                    <div *ngIf="form.confirmPasscode.errors.required" class="validator-error">Confirmar la contraseña es
-                        necesario</div>
-                    <div *ngIf="form.confirmPasscode.errors.mustMatch" class="validator-error">Las contraseñas deben de
-                        coincidir</div>
+                    <div *ngIf="form.confirmPasscode.errors.required" class="validator-error">{{'register.confirmarContrasena.required' | translate}}</div>
+                    <div *ngIf="form.confirmPasscode.errors.mustMatch" class="validator-error">{{'register.confirmarContrasena.mustMatch' | translate}}</div>
                 </div>
                 <p>
                     <input type="text" formControlName="dni" [ngClass]="{ 'is-invalid': form.dni.errors }" maxlength="9"placeholder="Dni*" />
                 </p>
                 <div *ngIf="submitted && form.dni.errors" class="invalid-feedback">
-                    <div *ngIf="form.dni.errors.required" class="validator-error">El dni es necesario</div>
-                    <div *ngIf="form.dni.errors.minlength" class="validator-error">El dni debe tener 9 dígitos</div>
+                    <div *ngIf="form.dni.errors.required" class="validator-error">{{'register.dni.required' | translate}}</div>
+                    <div *ngIf="form.dni.errors.minlength" class="validator-error">{{'register.dni.minlength' | translate}}</div>
                 </div>
                 <div *ngIf="form.dni.errors" class="invalid-feedback">
-                    <div *ngIf="form.dni.errors.notUnique">El dni ya existe</div>
-                    <div *ngIf="form.dni.pending">Consultando disponibilidad del dni</div>
+                    <div *ngIf="form.dni.errors.notUnique">{{'register.dni.notUnique' | translate}}</div>
+                    <div *ngIf="form.dni.pending">{{'register.dni.pending' | translate}}</div>
                 </div>
                 <p>
                     <input id="file-input" type="file" (change)="readURL($event)"
@@ -116,19 +113,19 @@
                 </p><br>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
-                    <label class="form-check-label" for="flexCheckDefault">
-                        He leído y acepto la política de privacidad
-                    </label>
+                    <label class="form-check-label" for="flexCheckDefault"><a routerLink="/politicas-privacidad" target="_blank">
+                        {{'register.check' | translate}}
+                    </a></label>
                 </div><br>
                 <p>
-                    <input type="submit" name="accion" class="btn btn-primary" value="Registrar">
+                    <input type="submit" name="accion" class="btn btn-primary" value="{{'register.registrar' | translate}}">
                 </p>
             </form>
             <div class="escogerRegistro">
-                <span class="textoEscoger">Ya tengo una cuenta</span>
+                <span class="textoEscoger">{{'register.textoEscoger' | translate}}</span>
             </div>
             <a class="aButtonRegistro" routerLink="/login">
-                <div class="buttonRegistro">Iniciar sesión</div>
+                <div class="buttonRegistro">{{'register.iniciarSesion' | translate}}</div>
             </a>
         </section>
     </main>
