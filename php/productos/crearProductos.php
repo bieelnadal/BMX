@@ -24,8 +24,8 @@ echo $mifecha;
 
 
 // query
-$queryInsert = "INSERT INTO `producto`(`idProducto`, `idVendedor`, `Nombre`, `Imagen`, `Descripcion`, `idCategoria`, `Fecha`, `Estado`, `Activo`, `Precio`, `Subasta`) 
-VALUES ( NULL,'$Producto->idVendedor','$Producto->Nombre','$Producto->Imagen', '$Producto->Descripcion' ,$Producto->idCategoria ,'$mifecha',0,0,$Producto->Precio,$Producto->Subasta)";
+$queryInsert = "INSERT INTO `producto`(`idProducto`, `idVendedor`, `Nombre`, `Imagen`, `Descripcion`, `idCategoria`, `Fecha`, `Estado`, `Activo`, `Precio`, `Subasta`)
+VALUES ( NULL,'$Producto->idVendedor','$Producto->Nombre','$Producto->Imagen', '$Producto->Descripcion' ,$Producto->idCategoria ,'$mifecha',0,0,$Producto->Precio)";
 
 
 $resInsert = mysqli_query($con, $queryInsert);
@@ -34,7 +34,7 @@ $resInsert = mysqli_query($con, $queryInsert);
 
 
 if ($resInsert) {
-  
+
   $response->resultado = 'ok';
   $response->mensaje = 'Se ha creado correctamente';
   echo json_encode($response);
