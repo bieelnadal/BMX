@@ -1,13 +1,13 @@
-<h1>Historial Ventas</h1>
+<h1>{{'historialVentasAdmin.historial' |translate}}</h1>
 <table class="info-table">
     <thead>
         <tr>
-            <th>nº Venta</th>
-            <th>Transacción</th>
-            <th>Precio</th>
-            <th>Fecha de la venta</th>
-            <th>Imagen</th>
-            <th>Subasta</th>
+            <th>{{'historialVentasAdmin.nVenta' |translate}}</th>
+            <th>{{'historialVentasAdmin.historial' |translate}}</th>
+            <th>{{'historialVentasAdmin.precio' |translate}}</th>
+            <th>{{'historialVentasAdmin.fecha' |translate}}</th>
+            <th>{{'historialVentasAdmin.imagen' |translate}}</th>
+            <th>{{'historialVentasAdmin.subasta' |translate}}</th>
         </tr>
     </thead>
     <tbody>
@@ -16,8 +16,8 @@
                 <h4>{{i+1}}</h4>
             </td>
             <td>
-                <h4>El vendedor con email: {{ventas.emailVendedor}} ha vendido su "{{ventas.Nombre}}"" por un precio de
-                    {{ventas.Precio}}€ al comprador con email: {{ventas.emailCompador}}</h4>
+                <h4>{{'historialVentasAdmin.transaccion.1' |translate}}: {{ventas.emailVendedor}} {{'historialVentasAdmin.transaccion.2' |translate}} "{{ventas.Nombre}}" {{'historialVentasAdmin.transaccion.3' |translate}}
+                    {{ventas.Precio}}€ {{'historialVentasAdmin.transaccion.4' |translate}}: {{ventas.emailCompador}}</h4>
             </td>
             <td>
                 <h4>{{ventas.Precio}}€</h4>
@@ -29,8 +29,8 @@
                 <img class="img-table" src="{{ventas.Imagen}}">
             </td>
             <td>
-                <h4 *ngIf="ventas.Subasta==0">No</h4>
-                <h4 *ngIf="ventas.Subasta==1">Si <button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                <h4 *ngIf="ventas.Subasta==0">{{'historialVentasAdmin.subasta.1' |translate}}</h4>
+                <h4 *ngIf="ventas.Subasta==1">{{'historialVentasAdmin.subasta.2' |translate}} <button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             fill="currentColor" class="bi bi-clipboard-data" viewBox="0 0 16 16">
                             <path
                                 d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z" />

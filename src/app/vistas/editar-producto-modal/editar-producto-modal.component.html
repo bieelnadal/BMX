@@ -6,64 +6,64 @@
 
 <ng-template #content let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">Editar usuario</h4>
+        <h4 class="modal-title">{{'editarProductoModal.titulo' | translate}}</h4>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
 
         <form [formGroup]="modEditarProd" (ngSubmit)="onSubmit(modEditarProd)">
-            <label>Nombre</label><br>
+            <label>{{'editarProductoModal.nombre' | translate}}</label><br>
             <input type="text" formControlName="Nombre">
             <div *ngIf="form.Nombre.errors">
-                <p *ngIf="form.Nombre.errors.required">El nombre es un campo obligatorio.</p>
+                <p *ngIf="form.Nombre.errors.required">{{'editarProductoModal.nombre.required' | translate}}.</p>
             </div><br><br>
 
-            <label>Imagen</label><br>
+            <label>{{'editarProductoModal.imagen' | translate}}</label><br>
             <input type="file" formControlName="Imagen" (change)="readURL($event)">
             <div *ngIf="form.Imagen.errors">
-                <p *ngIf="form.Imagen.errors.required">El nombre es un campo obligatorio.</p>
+                <p *ngIf="form.Imagen.errors.required">{{'editarProductoModal.imagen.required' | translate}}.</p>
             </div><br><br>
 
-            <label>Descripción</label><br>
+            <label>{{'editarProductoModal.descripcion' | translate}}</label><br>
             <textarea formControlName="Descripcion"></textarea>
             <div *ngIf="form.Descripcion.errors">
-                <p *ngIf="form.Descripcion.errors.required">El nombre es un campo obligatorio.</p>
+                <p *ngIf="form.Descripcion.errors.required">{{'editarProductoModal.descripcion.required' | translate}}.</p>
             </div><br><br>
 
-            <label>Categoria</label><br>
+            <label>{{'editarProductoModal.categoria' | translate}}</label><br>
             <select formControlName="idCategoria">
-                <option value="1">Vehículos</option>
-                <option value="2">Relojes</option>
-                <option value="3">Cámaras y fotografia</option>
-                <option value="4">Electrodomésticos</option>
-                <option value="5">Ropa</option>
+                <option value="1">{{'editarProductoModal.categoria.1' | translate}}</option>
+                <option value="2">{{'editarProductoModal.categoria.2' | translate}}</option>
+                <option value="3">{{'editarProductoModal.categoria.3' | translate}}</option>
+                <option value="4">{{'editarProductoModal.categoria.4' | translate}}</option>
+                <option value="5">{{'editarProductoModal.categoria.5' | translate}}</option>
             </select>
-            <div *ngIf="form.Imagen.errors">
-                <p *ngIf="form.Imagen.errors.required">El nombre es un campo obligatorio.</p>
+            <div *ngIf="form.idCategoria.errors">
+                <p *ngIf="form.idCategoria.errors.required">{{'editarProductoModal.categoria.required' | translate}}.</p>
             </div><br><br>
 
-            <label>Activo</label><br>
+            <label>{{'editarProductoModal.activo' | translate}}</label><br>
             <div>
                 <input type="radio" id="contactChoice1" formControlName="Activo" value="1"
                     [ngClass]="{ 'is-invalid': form.Activo.errors }">
-                <label for="contactChoice1">Listado</label>
+                <label for="contactChoice1">{{'editarProductoModal.activo.1' | translate}}</label>
                 <br>
 
                 <input type="radio" id="contactChoice1" formControlName="Activo" value="0"
                     [ngClass]="{ 'is-invalid': form.Activo.errors }">
-                <label for="contactChoice1">Oculto</label>
+                <label for="contactChoice1">{{'editarProductoModal.activo.2' | translate}}</label>
             </div>
             <div *ngIf="form.Activo.errors">
-                <p *ngIf="form.Activo.errors.required">El nombre es un campo obligatorio.</p>
+                <p *ngIf="form.Activo.errors.required">{{'editarProductoModal.activo.required' | translate}}.</p>
             </div><br><br>
 
 
-            <button type="submit" class="btn btn-light" style="float: right; background-color: green; color: white;">Aplicar Cambios</button>
+            <button type="submit" class="btn btn-light" style="float: right; background-color: green; color: white;">{{'editarProductoModal.aplicar' | translate}}</button>
         </form>
     </div>
     <div class="modal-footer">
 
-        <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">{{'editarProductoModal.cerrar' | translate}}</button>
 
     </div>
 </ng-template>
