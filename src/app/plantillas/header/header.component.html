@@ -13,9 +13,11 @@
             <label for="checkbox_toggle" class="hamburger">&#9776;</label>
             <!-- NAVIGATION MENUS -->
             <div class="menu">
+                
                 <select (change)="changeLang($event)">
-                    <option value="es" [selected]="lang == 'es'">{{'header.es' |translate}}</option>
-                    <option value="en" [selected]="lang == 'en'">{{'header.en' |translate}}</option>
+                    <option value="es" [selected]="lang == 'es'"><i class="flag flag-spain"></i>  {{'header.es' |translate}}</option>
+
+                    <option value="en" [selected]="lang == 'en'">  {{'header.en' |translate}}</option>
                 </select>
                 <li><a [routerLink]="['/sobre-nosotros']">{{'header.sobre-nosotros' | translate}}</a></li>
                 <li><a [routerLink]="['/politicas-privacidad']">{{ 'header.politicas' | translate}}</a></li>
