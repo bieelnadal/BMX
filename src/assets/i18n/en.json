@@ -126,5 +126,15 @@
   "dashboard.productosVenta": "Products On Sale",
   "dashboard.noverificados.1": "Missing",
   "dashboard.noverificados.2": "Products to validate",
-  "dashboard.productosSubasta": "Auction Products"
+  "dashboard.productosSubasta": "Auction Products",
+
+  "historialVentas.pedidos":"My Orders",
+  "historialVentas.verMas":"See More",
+  "historialVentas.datosComprador":"Buyer Data",
+  "historialVentas.nombreComprador":"Buyer Name",
+  "historialVentas.emailComprador": "Buyer Email",
+  "historialVentas.datosVendedor": "Seller Data",
+  "historialVentas.nombreVendedor":"Seller Name",
+  "historialVentas.emailVendedor":"Seller Email",
+  "historialVentas.direccion":"Shipping Address"  
 }

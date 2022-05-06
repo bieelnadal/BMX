@@ -131,6 +131,10 @@
   "historialVentas.pedidos":"Mis Pedidos",
   "historialVentas.verMas":"Ver Mas",
   "historialVentas.datosComprador":"Datos Comprador",
-  "historialVentas.nombreComprador":"Nombre Comprador"
-
+  "historialVentas.nombreComprador":"Nombre Comprador",
+  "historialVentas.emailComprador": "Email Comprador",
+  "historialVentas.datosVendedor": "Datos Vendedor",
+  "historialVentas.nombreVendedor":"Nombre Vendedor",
+  "historialVentas.emailVendedor":"Email Vendedor",
+  "historialVentas.direccion":"Direccion de envio"  
 }
