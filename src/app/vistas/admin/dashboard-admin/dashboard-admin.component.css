@@ -7,18 +7,16 @@
     width: 100%;
     display: inline;
 }
-
-
 .sidebar {
-    height: 60%;
+    height: 400px;
     width: 15%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding-top: 100px;
+    position: absolute;
+    top: 208px;
+    left: 50px;
     background-color: var(--verdeprincipal);
-    margin-top: 250px;
     z-index: 9;
+    border-radius: 10px;
+    box-shadow: 5px 5px 40px;
 }
 
 .contenido-sidebar {
