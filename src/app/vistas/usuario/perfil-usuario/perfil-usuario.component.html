@@ -5,24 +5,24 @@
       <img class="imagen-perfil" src="{{this.datosUsuario.Imagen}}" alt="">
       <h1>{{this.datosUsuario.Nombre}} {{this.datosUsuario.Apellidos}}</h1>
     </div>
-    <button class="button-direciones" (click)="mostrarDesplegableDireciones()">Direciones</button>
-    <button class="button-editar" (click)="mostrarDesplegableEditarPerfil()">Editar perfil</button>
-    <button class="button-cerrar" (click)="swalSalir()">Cerrar sesión</button>
+    <button class="button-direciones" (click)="mostrarDesplegableDireciones()">{{'perfilUsuario.direcciones' | translate}}</button>
+    <button class="button-editar" (click)="mostrarDesplegableEditarPerfil()">{{'perfilUsuario.editar' | translate}}</button>
+    <button class="button-cerrar" (click)="swalSalir()">{{'perfilUsuario.cerrar' | translate}}</button>
 
   </div>
   <div class="separador2">
     <div class="informacion">
-      <h3>Perfil</h3>
+      <h3>{{'perfilUsuario.perfil' | translate}}</h3>
 
       <hr>
       <div *ngIf="this.esconderPerfil">
-        <p class="info-perfil">Nombre: {{this.datosUsuario.Nombre}}</p>
+        <p class="info-perfil">{{'perfilUsuario.nombre' | translate}}: {{this.datosUsuario.Nombre}}</p>
         <br>
-        <p class="info-perfil">Apellidos: {{this.datosUsuario.Apellidos}}</p>
+        <p class="info-perfil">{{'perfilUsuario.apellidos' | translate}}: {{this.datosUsuario.Apellidos}}</p>
         <br>
-        <p class="info-perfil">Email: {{this.datosUsuario.Email}}</p>
+        <p class="info-perfil">{{'perfilUsuario.email' | translate}}: {{this.datosUsuario.Email}}</p>
         <br>
-        <p class="info-perfil">Dirección: {{this.datosUsuario.Nombre}}</p>
+        <p class="info-perfil">{{'perfilUsuario.direccion' | translate}}: {{this.datosUsuario.Nombre}}</p>
       </div>
     </div>
     <div class="alinar-contenido">

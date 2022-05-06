@@ -1,61 +1,66 @@
 <app-header></app-header>
-<h1>Registro Producto:</h1>
+<h1>{{'crearProducto.titulo' |translate}}</h1>
 <div class="centrar">
   <form [formGroup]="crearProdutoForm" (ngSubmit)="onSubmit()">
-    
 
-    <label for="" class="input-label">Nombre</label>
+
+    <label for="" class="input-label">{{'crearProducto.nombre' |translate}}</label>
     <input type="text" maxlength="100" formControlName="NombreProducto" class=""
-      placeholder="Nombre del Producto*"><br><br>
+      placeholder="{{'crearProducto.nombre.placeholder' |translate}}"><br><br>
     <div>
       <div *ngIf="this.submitted && form.NombreProducto.errors">
-        <p *ngIf="form.NombreProducto.errors.required" class="color-validators">Campo obligatorio*</p>
-        <p *ngIf="form.NombreProducto.errors.minLength" class="color-validators">¡Ay! Tu nombre debe tener al menos 3
-          caracteres*</p>
+        <p *ngIf="form.NombreProducto.errors.required" class="color-validators">{{'crearProducto.nombre.required'
+          |translate}}</p>
+        <p *ngIf="form.NombreProducto.errors.minLength" class="color-validators">{{'crearProducto.nombre.minlength'
+          |translate}}</p>
       </div>
     </div>
 
-    <label for="" class="input-label">Descripcion</label>
+    <label for="" class="input-label">{{'crearProducto.descripcion' |translate}}</label>
     <input type="text" maxlength="500" formControlName="DescripcionProducto" class=""
-      placeholder="Descripcion Producto*"><br><br>
+      placeholder="{{'crearProducto.descripcion.placeholder' |translate}}"><br><br>
     <div>
       <div *ngIf="this.submitted && form.DescripcionProducto.errors">
-        <p *ngIf="form.DescripcionProducto.errors.required" class="color-validators"> Campo obligatorio*</p>
-        <p *ngIf="form.DescripcionProducto.errors.minLength" class="color-validators">¡Ay! Tu nombre debe contener al
-          menos 5 caracteres*</p>
+        <p *ngIf="form.DescripcionProducto.errors.required" class="color-validators">
+          {{'crearProducto.descripcion.required' |translate}}</p>
+        <p *ngIf="form.DescripcionProducto.errors.minLength" class="color-validators">
+          {{'crearProducto.descripcion.minlength' |translate}}</p>
       </div>
     </div>
 
-    <label for="" class="input-label">Categoria</label>
+    <label for="" class="input-label">{{'crearProducto.categoria' |translate}}</label>
     <select class="option-select" formControlName="Categoria">
-      <option value="0" disabled class="option-select">Escoge una Categoria*</option>
-      <option value="1" class="option-select">Vehiculos</option>
-      <option value="2" class="option-select">Relojes</option>
-      <option value="3" class="option-select">Cámaras y fotografia</option>
-      <option value="4" class="option-select">Electrodomésticos</option>
-      <option value="5" class="option-select">Ropa</option>
+      <option value="0" disabled class="option-select">{{'crearProducto.escoge' |translate}}</option>
+      <option value="1" class="option-select">{{'crearProducto.escoge.1' |translate}}</option>
+      <option value="2" class="option-select">{{'crearProducto.escoge.2' |translate}}</option>
+      <option value="3" class="option-select">{{'crearProducto.escoge.3' |translate}}</option>
+      <option value="4" class="option-select">{{'crearProducto.escoge.4' |translate}}</option>
+      <option value="5" class="option-select">{{'crearProducto.escoge.5' |translate}}</option>
     </select><br><br>
     <div>
       <div *ngIf="this.submitted && form.Categoria.errors">
-        <p *ngIf="form.Categoria.errors.required" class="color-validators">Campo obligatorio*</p>
+        <p *ngIf="form.Categoria.errors.required" class="color-validators">{{'crearProducto.escoge.required'
+          |translate}}</p>
       </div>
     </div>
 
-    <label for="" class="input-label">Precio</label>
-    <input type="number" maxlength="5" formControlName="PrecioProducto" class="" placeholder="Precio Producto*"><br><br>
+    <label for="" class="input-label">{{'crearProducto.precio' |translate}}</label>
+    <input type="number" maxlength="6" formControlName="PrecioProducto" class="" placeholder="{{'crearProducto.precio.placeholder' |translate}}"><br><br>
     <div>
       <div *ngIf="this.submitted && form.PrecioProducto.errors">
-        <p *ngIf="form.PrecioProducto.errors.required" class="color-validators">Campo obligatorio*</p>
+        <p *ngIf="form.PrecioProducto.errors.required" class="color-validators">{{'crearProducto.precio.required'
+          |translate}}</p>
       </div>
     </div>
 
-    <label for="">Imagen</label>
+    <label for="">{{'crearProducto.imagen' |translate}}</label>
     <input type="file" formControlName="imagenProducto" (change)="readURL($event)"><br><br>
     <div>
       <div *ngIf="this.submitted && form.imagenProducto.errors">
-        <p *ngIf="form.imagenProducto.errors.required" class="color-validators">Campo obligatorio*</p>
+        <p *ngIf="form.imagenProducto.errors.required" class="color-validators">{{'crearProducto.imagen.required'
+          |translate}}</p>
       </div>
     </div>
-    <button type="submit" class="crear-ranking">Crear Producto</button>
+    <button type="submit" class="crear-ranking">{{'crearProducto.crear' |translate}}</button>
   </form>
 </div>

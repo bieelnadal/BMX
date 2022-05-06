@@ -1,7 +1,7 @@
 <div class="direciones">
     <!--button para agregar deirecon a  la tabla-->
     <div>
-        <button class="agregarDirecion" (click)="mostrarDesplegableAgregarDirecion()">Nueva Direcion</button>
+        <button class="agregarDirecion" (click)="mostrarDesplegableAgregarDirecion()">{{'editarDireccion.nueva' | translate}}</button>
     </div>
     <!--Card direciones ya creadas-->
     <div *ngIf="this.esconderDirecion">
@@ -21,7 +21,7 @@
 
                     <app-editar-direccion-modal [direccSelecc]="direcc.idDireccion"></app-editar-direccion-modal>
                     <button class="button" *ngIf="this.direcc.Predeterminado==0" (click)="direccPredeterminada(direcc)">
-                        Predet.
+                        {{'editarDireccion.predeterminado' | translate}}
                     </button>
                 </div>
             </div>
@@ -30,32 +30,30 @@
     <div class="formulario-direcion" *ngIf="this.mostrarAgregarDirecion">
         <form [formGroup]="direcciones" (ngSubmit)="onSubmit(direcciones.value)">
             <!--Direcion-->
-            <label>Direccion:</label>
-            <input type="text" formControlName="direccion" placeholder="Dirección"
+            <label>{{'editarDireccion.direccion' | translate}}:</label>
+            <input type="text" formControlName="direccion" placeholder="{{'editarDireccion.direccion.placeholder' | translate}}"
                 [ngClass]="{ 'is-invalid': form.direccion.errors }">
             <div>
                 <div *ngIf="form.direccion.errors && mostrarCampoRestante">
-                    <p class="validaciones" *ngIf="form.direccion.errors.required">Mmmmm... parece que este campo es
-                        obligatorio*</p>
+                    <p class="validaciones" *ngIf="form.direccion.errors.required">{{'editarDireccion.direccion.required' | translate}}</p>
                     <br>
                 </div>
             </div>
             <!--Pais-->
-            <label>Pais:</label>
+            <label>{{'editarDireccion.pais' | translate}}:</label>
             <select formControlName="pais">
-                <option [value]="1" selected>España</option>
+                <option [value]="1" selected>{{'editarDireccion.pais.select.1' | translate}}</option>
             </select>
             <div>
                 <div *ngIf="form.pais.errors && mostrarCampoRestante">
-                    <p class="validaciones" *ngIf="form.pais.errors.required">Mmmmm... parece que este campo es
-                        obligatorio*</p>
+                    <p class="validaciones" *ngIf="form.pais.errors.required">{{'editarDireccion.pais.required' | translate}}</p>
                     <br>
                 </div>
             </div>
 
             <!--Localidad-->
-            <label>Localidad:</label>
-            <input type="text" formControlName="localidad" placeholder="Localidad"
+            <label>{{'editarDireccion.localidad' | translate}}:</label>
+            <input type="text" formControlName="localidad" placeholder="{{'editarDireccion.localidad.placeholder' | translate}}"
                 [ngClass]="{ 'is-invalid': form.localidad.errors }">
             <div>
                 <div *ngIf="form.localidad.errors && mostrarCampoRestante">

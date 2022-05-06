@@ -1,17 +1,17 @@
 <div class="container">
     <div class="row">
       <div class="col">
-        <h1>Gestion Productos</h1>
+        <h1>{{'gestionProductos.gestion' | translate}}</h1>
 <table class="info-table">
     <thead>
         <tr>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Categoria</th>
-            <th>Descripcion</th>
-            <th>Fecha de subida</th>
-            <th>Imagen</th>
-            <th>Subasta</th>
+            <th>{{'gestionProductos.nombre' | translate}}</th>
+            <th>{{'gestionProductos.precio' | translate}}</th>
+            <th>{{'gestionProductos.categoria' | translate}}</th>
+            <th>{{'gestionProductos.descripcion' | translate}}</th>
+            <th>{{'gestionProductos.fecha' | translate}}</th>
+            <th>{{'gestionProductos.imagen' | translate}}</th>
+            <th>{{'gestionProductos.subasta' | translate}}</th>
             <th></th>
         </tr>
     </thead>
@@ -36,8 +36,8 @@
                 <img class="img-table" src="{{prod.Imagen}}">
             </td>
             <td>
-                <h4 *ngIf="prod.Subasta==0">No</h4>
-                <h4 *ngIf="prod.Subasta==1">Si</h4>
+                <h4 *ngIf="prod.Subasta==0">{{'gestionProductos.subasta.no' | translate}}</h4>
+                <h4 *ngIf="prod.Subasta==1">{{'gestionProductos.subasta.si' | translate}}</h4>
             </td>
             <td class="last">
                 <button>
