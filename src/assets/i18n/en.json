@@ -136,5 +136,30 @@
   "historialVentas.datosVendedor": "Seller Data",
   "historialVentas.nombreVendedor":"Seller Name",
   "historialVentas.emailVendedor":"Seller Email",
-  "historialVentas.direccion":"Shipping Address"  
+  "historialVentas.direccion":"Shipping Address",
+  
+  "gestorProductosVistaUsuario.gestor":"Product Manager",
+  "gestorProductosVistaUsuario.descripcion":"Description",
+  "gestorProductosVistaUsuario.fecha":"Upload date",
+  "gestorProductosVistaUsuario.categoria":"Category",
+  "gestorProductosVistaUsuario.tipo.compra":"Type: Buy",
+  "gestorProductosVistaUsuario.tipo.subasta":"Type: Auction",
+
+  "crearProducto.titulo":"Register Product",
+  "crearProducto.nombre":"Name",
+  "crearProducto.nombre.required":"Required field*",
+  "crearProducto.nombre.minlength":"¡Ay! Your name must have at least 3 characters*",
+  "crearProducto.categoria":"Categoria",
+  "crearProducto.escoge":"Escoge una categoria*",
+  "crearProducto.escoge.1":"Vehículos",
+  "crearProducto.escoge.2":"Relojes",
+  "crearProducto.escoge.3":"Cámaras y fotografia",
+  "crearProducto.escoge.4":"Electrodomésticos",
+  "crearProducto.escoge.5":"Ropa",
+  "crearProducto.escoge.required":"Campo obligatorio*",
+  "crearProducto.precio":"Precio",
+  "crearProducto.precio.required":"Campo obligatorio*",
+  "crearProducto.imagen":"Imagen",
+  "crearProducto.imagen.required":"Campo obligatorio*",
+  "crearProducto.crear":"Crear Producto"
 }

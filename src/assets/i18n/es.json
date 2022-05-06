@@ -138,5 +138,28 @@
   "historialVentas.emailVendedor":"Email Vendedor",
   "historialVentas.direccion":"Direccion de envio",
   
-  "dasd":""
+  "gestorProductosVistaUsuario.gestor":"Gestor Productos",
+  "gestorProductosVistaUsuario.descripcion":"Descripcion",
+  "gestorProductosVistaUsuario.fecha":"Fecha de subida",
+  "gestorProductosVistaUsuario.categoria":"Categoria",
+  "gestorProductosVistaUsuario.tipo.compra":"Tipo: Compra",
+  "gestorProductosVistaUsuario.tipo.subasta":"Tipo: Subasta",
+
+  "crearProducto.titulo":"Registro Producto",
+  "crearProducto.nombre":"Nombre",
+  "crearProducto.nombre.required":"Campo Obligatorio*",
+  "crearProducto.nombre.minlength":"¡Ay! Tu nombre debe tener al menos 3 carácteres*",
+  "crearProducto.categoria":"Categoria",
+  "crearProducto.escoge":"Escoge una categoria*",
+  "crearProducto.escoge.1":"Vehículos",
+  "crearProducto.escoge.2":"Relojes",
+  "crearProducto.escoge.3":"Cámaras y fotografia",
+  "crearProducto.escoge.4":"Electrodomésticos",
+  "crearProducto.escoge.5":"Ropa",
+  "crearProducto.escoge.required":"Campo obligatorio*",
+  "crearProducto.precio":"Precio",
+  "crearProducto.precio.required":"Campo obligatorio*",
+  "crearProducto.imagen":"Imagen",
+  "crearProducto.imagen.required":"Campo obligatorio*",
+  "crearProducto.crear":"Crear Producto"
 }

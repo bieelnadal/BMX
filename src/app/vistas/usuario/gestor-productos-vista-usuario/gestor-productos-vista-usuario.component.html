@@ -1,5 +1,5 @@
 <app-header></app-header>
-<h1 class="h1-gestor">Gestor Productos</h1>
+<h1 class="h1-gestor">{{'gestorProductosVistaUsuario.gestor' |translate}}</h1>
 
 
 
@@ -14,17 +14,17 @@
       </div>
         <div class="desc">
           <img class="img-table" src="{{prod.Imagen}}">
-          <label for="">Descripcion:</label>
+          <label for="">{{'gestorProductosVistaUsuario.descripcion' |translate}}:</label>
           <p>{{prod.Descripcion}}...</p>
-          <label for="">Fecha de subida:</label>
+          <label for="">{{'gestorProductosVistaUsuario.fecha' |translate}}:</label>
           <p>{{prod.Fecha}}</p>
-          <label for="">Categoria:</label>
+          <label for="">{{'gestorProductosVistaUsuario.categoria' |translate}}:</label>
           <p>{{prod.nombreCategoria}}</p>
           
         </div>
         <div class="subsata?">
-          <h5 class="h5" *ngIf="prod.Subasta==0">Tipo: Compra</h5>
-          <h5 class="h5" *ngIf="prod.Subasta==1">Tipo: Subasta</h5><br><br>
+          <h5 class="h5" *ngIf="prod.Subasta==0">{{'gestorProductosVistaUsuario.tipo.compra' |translate}}</h5>
+          <h5 class="h5" *ngIf="prod.Subasta==1">{{'gestorProductosVistaUsuario.tipo.subasta' |translate}}</h5><br><br>
           <button class="button1">
             <app-borrar-producto [prodSelecc]="prod.idProducto"></app-borrar-producto>
           </button>
