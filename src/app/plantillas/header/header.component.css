@@ -21,8 +21,14 @@ select{
 }
 option{
   border: none;
+  
 }
 
+
+.img{
+  width: 15px;
+  height: 15px;
+}
 
 /* NAVBAR STYLING STARTS */
 .navbar {
