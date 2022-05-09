@@ -61,20 +61,21 @@
 <ngb-carousel>
   <ng-template ngbSlide>
     <div class="picsum-img-wrapper">
-      <img class="left" src="../../../assets/imgCarusel/ferrari.jpg" alt="Random first slide">
+       <img class="left"  src="../../../assets/imgCarusel/porche tycan.jpg" alt="Random second slide">
     </div>
 
   </ng-template>
   <ng-template ngbSlide>
     <div class="picsum-img-wrapper">
-      <img class="left"  src="../../../assets/imgCarusel/porche tycan.jpg" alt="Random second slide">
+     
+      <img class="left" src="../../../assets/imgCarusel/ferrari.jpg" alt="Random first slide">
     </div>
 
   </ng-template>
 </ngb-carousel>
 <!--contenido-->
 <br><br><br>
-<h1 class="tineda">Tienda</h1>
+<h1 class="tineda">{{'home.todos' | translate}}</h1>
       <div class="padre">
         <div class="centrar">
           <div class="card" *ngFor="let ProductoListado of listaProductos,  let i = index">
@@ -86,8 +87,11 @@
                 </div>
               </div>
               <h1 class="NombreProducto">{{ProductoListado.Nombre}}</h1>
+              <p>{{ProductoListado.Descripcion}}</p> 
               <p class="price">{{ProductoListado.Precio}}€</p>
-              <p>{{ProductoListado.Descripcion}}</p>
+              <div *ngIf="this.ProductoListado.Subasta == 1">
+               <p>o Mejor oferta</p> 
+              </div>
             </a>
           </div>
         </div>

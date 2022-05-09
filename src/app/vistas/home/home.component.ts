@@ -26,7 +26,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.butttonid(0);
-
+    console.log(this.listaProductos);
+    
     
   }
 
