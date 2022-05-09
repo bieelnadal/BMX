@@ -76,7 +76,7 @@ export class EditarProductoModalComponent implements OnInit {
           idVendedor: this.prodSelecc.idVendedor,
           Nombre: form.controls.Nombre.value,
           Imagen: this.imgSrc,
-          Descripcion: form.controls.Nombre.value,
+          Descripcion: form.controls.Descripcion.value,
           idCategoria: form.controls.idCategoria.value,
           Fecha: this.prodSelecc.Fecha,
           Estado: this.prodSelecc.Estado,

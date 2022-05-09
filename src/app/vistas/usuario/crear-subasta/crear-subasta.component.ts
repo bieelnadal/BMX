@@ -117,7 +117,7 @@ export class CrearSubastaComponent implements OnInit {
       console.log('valido');
 
       let prod = {};
-
+      let subasta = {};
       prod = {
         idProducto: 0,
         idVendedor: this.datosUsuario.idUsuario,
@@ -129,7 +129,15 @@ export class CrearSubastaComponent implements OnInit {
         Subasta: 1,
       };
 
-      this.prodServ.registrarProducto(prod);
+      subasta = {
+        idSubasta: 0,
+        idComprador: 0,
+        precioInicial: this.crearSubastaForm.controls.pujaInicial.value,
+        precioFinal: this.crearSubastaForm.controls.precioCompra.value,
+        vendido: 0,
+        fechaFinal: this.crearSubastaForm.controls.tiempoSubasta.value,
+      };
+      this.subastaServ.crearSubasta(prod, subasta);
     } else {
     }
   }
