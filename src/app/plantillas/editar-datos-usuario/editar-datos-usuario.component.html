@@ -17,78 +17,79 @@
     <form [formGroup]="EditarPefil" (ngSubmit)="onSubmit(EditarPefil)" enctype="multipart/form-data">
 
       <!-- Nombre -->
-      <label>Nombre:</label>
+      <label>{{'editarDatosUsuario.nombre' |translate}}:</label>
       <input type="text" formControlName="inputNombre" [ngClass]="{ 'is-invalid': form.inputNombre.errors }"
-        [value]="this.datosUsuario.Nombre" [placeholder]="this.datosUsuario.Nombre" minlength="3" maxlength="30"
+        [value]="this.datosUsuario.Nombre" placeholder="{{'editarDatosUsuario.nombre.placeholder' |translate}}" minlength="3" maxlength="30"
         [readOnly]="!this.editar">
       <div *ngIf="form.inputNombre.errors" class="invalid-feedback">
-        <div *ngIf="form.inputNombre.errors.required">El email es obligatorio.</div>
+        <div *ngIf="form.inputNombre.errors.required">{{'editarDatosUsuario.nombre.required' |translate}}.</div>
       </div>
 
 
       <!-- Apellidos -->
-      <label>Apellidos:</label>
-      <input type="text" formControlName="inputApellidos" [placeholder]="this.datosUsuario.Apellidos"
+      <label>{{'editarDatosUsuario.apellidos' |translate}}:</label>
+      <input type="text" formControlName="inputApellidos" placeholder="{{'editarDatosUsuario.apellidos.placeholder' |translate}}"
         [value]="this.datosUsuario.Apellidos" minlength="3" [ngClass]="{ 'is-invalid': form.inputApellidos.errors }"
         maxlength="30" [readOnly]="!this.editar">
       <div *ngIf="form.inputApellidos.errors" class="invalid-feedback">
-        <div *ngIf="form.inputApellidos.errors.required">El email es obligatorio.</div>
+        <div *ngIf="form.inputApellidos.errors.required">{{'editarDatosUsuario.apellidos.required' |translate}}.</div>
       </div>
 
 
       <!-- Email -->
-      <label>Email:</label>
-      <input type="email" formControlName="inputEmail" name="email" [placeholder]="this.datosUsuario.Email"
+      <label>{{'editarDatosUsuario.email' |translate}}:</label>
+      <input type="email" formControlName="inputEmail" name="email" placeholder="{{'editarDatosUsuario.email.placeholder' |translate}}"
         [ngClass]="{ 'is-invalid': form.inputEmail.errors }" [readOnly]="!this.editar">
 
       <div *ngIf="form.inputEmail.errors" class="invalid-feedback">
-        <div *ngIf="form.inputEmail.errors.required">El email es obligatorio.</div>
-        <div *ngIf="form.inputEmail.errors.email">El email no es correcto.</div>
-        <div *ngIf="form.inputEmail.errors.notUnique">El email ya está en uso.</div>
+        <div *ngIf="form.inputEmail.errors.required">{{'editarDatosUsuario.email.required' |translate}}.</div>
+        <div *ngIf="form.inputEmail.errors.email">{{'editarDatosUsuario.email.email' |translate}}.</div>
+        <div *ngIf="form.inputEmail.errors.notUnique">{{'editarDatosUsuario.email.notUnique' |translate}}.</div>
       </div>
 
 
 
       <!-- DNI -->
-      <label>DNI:</label>
+      <label>{{'editarDatosUsuario.dni' |translate}}:</label>
       <input type="text" formControlName="inputDNI" name="DNI" minlength="9" maxlength="9"
-        [value]="this.datosUsuario.DNI" [placeholder]="this.datosUsuario.DNI" [readOnly]="!this.editar">
+        [value]="this.datosUsuario.DNI" placeholder="{{'editarDatosUsuario.dni.placeholder' |translate}}" [readOnly]="!this.editar">
 
 
       <!-- Antiga pass -->
-      <label>Contraseña</label>
+      <label>{{'editarDatosUsuario.contrasena' |translate}}</label>
       <input type="password" formControlName="inputPasscode" [required]="true" maxlength="50" placeholder="******"
         [ngClass]="{ 'is-invalid': form.inputPasscode.errors }" [readOnly]="!this.editar">
 
       <div *ngIf="form.inputPasscode.errors" class="invalid-feedback">
-        <div *ngIf="form.inputPasscode.errors.notUnique">La contraseña no es correcta.</div>
-        <div *ngIf="form.inputPasscode.errors.required">La contraseña es obligatoria para poder modificar los campos.</div>
+        <div *ngIf="form.inputPasscode.errors.notUnique">{{'editarDatosUsuario.contrasena.notUnique' |translate}}.</div>
+        <div *ngIf="form.inputPasscode.errors.required">{{'editarDatosUsuario.contrasena.required' |translate}}.
+        </div>
       </div>
 
-      
+
 
       <!-- Nova pass -->
-      <label>Nueva Contraseña</label>
+      <label>{{'editarDatosUsuario.nuevaContrasena' |translate}}</label>
       <input type="password" formControlName="inputNewPasscode" [minlength]="3" maxlength="50" placeholder="******"
         [readOnly]="!this.editar" [ngClass]="{ 'is-invalid': form.inputNewPasscode.errors }">
       <div *ngIf="form.inputNewPasscode.errors" class="invalid-feedback">
-          <div *ngIf="form.inputNewPasscode.errors.minlength">La contraseña debe contener como mínimo 3 carácteres.</div>
+        <div *ngIf="form.inputNewPasscode.errors.minlength">{{'editarDatosUsuario.nuevaContrasena.minlength' |translate}}.</div>
       </div>
 
 
       <!-- Nova pass confirmar -->
-      <label>Confirmar Nueva Contraseña</label>
+      <label>{{'editarDatosUsuario.confirmarNuevaContrasena' |translate}}</label>
       <input type="password" formControlName="inputConfirmNewPasscode" minlength="3" maxlength="50" placeholder="******"
         [readOnly]="!this.editar" [ngClass]="{ 'is-invalid': form.inputConfirmNewPasscode.errors }">
       <div *ngIf="form.inputConfirmNewPasscode.errors" class="invalid-feedback">
-        <div *ngIf="form.inputConfirmNewPasscode.errors.mustMatch">Las contraseñas no coinciden.</div>
+        <div *ngIf="form.inputConfirmNewPasscode.errors.mustMatch">{{'editarDatosUsuario.confirmarNuevaContrasena.mustMatch' |translate}}.</div>
       </div>
 
-      <label for="">Imagen</label><br>  
-      <input id="file-input" type="file" (change)="readURL($event)"
-      accept="image/png, image/gif, image/jpeg" formControlName="imagen"><br><br>
+      <label for="">{{'editarDatosUsuario.imagen' |translate}}</label><br>
+      <input id="file-input" type="file" (change)="readURL($event)" accept="image/png, image/gif, image/jpeg"
+        formControlName="imagen"><br><br>
 
-      <button [disabled]="!this.editar">Confirmar</button>
+      <button [disabled]="!this.editar">{{'editarDatosUsuario.confirmar' |translate}}</button>
     </form>
   </div>
 </div>

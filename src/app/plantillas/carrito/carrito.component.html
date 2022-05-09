@@ -6,12 +6,12 @@
     <br><br><br>
     <div class="basket">
       <div class="basket-module">
-        <h1 class="titulo-carrito">Carrito</h1>
+        <h1 class="titulo-carrito">{{'carrito.titulo' | translate}}</h1>
       </div>
       <div class="basket-labels">
         <ul>
-          <li class="item item-heading">Producto</li>
-          <li class="price">Price</li>
+          <li class="item item-heading">{{'carrito.producto' | translate}}</li>
+          <li class="price">{{'carrito.precio' | translate}}</li>
         </ul>
       </div>
       <div class="basket-product">
@@ -21,7 +21,7 @@
           </div>
           <div class="product-details">
             <h1>{{producto.Nombre}}</h1>
-            <p>Nombre del Vendedor: {{datosUsuario.Nombre}} {{datosUsuario.Apellidos}} </p>
+            <p>{{'carrito.nombreVendedor' | translate}}: {{datosUsuario.Nombre}} {{datosUsuario.Apellidos}} </p>
             <br>
           </div>
         </div>
@@ -37,12 +37,14 @@
       <!--direcciones-->
       <br><br>
       <div class="contenidoDireccion">
-        <h1 class="titulo-direccion">Direccion de envio predeterminado	:</h1>
-        <p class="texto-direccionPre">{{cojerDireccion.Direccion}}, {{cojerDireccion.codigoPostal}} {{cojerDireccion.Localidad}}</p>
+        <h1 class="titulo-direccion">{{'carrito.direccionPredeterminada' | translate}}:</h1>
+        <p class="texto-direccionPre">{{cojerDireccion.Direccion}}, {{cojerDireccion.codigoPostal}}
+          {{cojerDireccion.Localidad}}</p>
       </div><br>
 
       <div class="desplegableDireccion">
-        <button class="buttonDireccion" (click)="mostrarDesplegableDireccion()">Escoger otra direccion de envio <svg
+        <button class="buttonDireccion"
+          (click)="mostrarDesplegableDireccion()">{{'carrito.escogerDireccion' | translate}}<svg
             xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill"
             viewBox="0 0 16 16">
             <path
@@ -62,7 +64,7 @@
 
         </div>
       </div>
-      
+
       <hr>
 
 
@@ -70,17 +72,18 @@
     </div>
     <aside>
       <div class="summary">
-        <div class="summary-total-items"><span class="total-items"></span>Producto en el Carrito</div>
+        <div class="summary-total-items"><span class="total-items"></span>{{'carrito.productoCarrito' | translate}}
+        </div>
         <div class="summary-total">
-          <div class="total-title">Total</div>
+          <div class="total-title">{{'carrito.total' | translate}}</div>
           <div class="total-value final-value" id="basket-total">{{producto.Precio}}</div>
         </div>
         <div class="summary-checkout">
-          <button class="checkout-cta" (click)="tramitarProducto()">Tramitar Pedido</button>
+          <button class="checkout-cta" (click)="tramitarProducto()">{{'carrito.tramitar' | translate}}</button>
         </div>
       </div>
     </aside>
-    
+
   </main>
 </body>
 <app-footer></app-footer>

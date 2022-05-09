@@ -6,39 +6,41 @@
 
 <ng-template #content let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">Editar usuario</h4>
+        <h4 class="modal-title">{{'editarDatosUsuarioModal.titulo' | translate}}</h4>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
         <form [formGroup]="modEditarUsuario" (ngSubmit)="onSubmit(modEditarUsuario)" *ngIf="modalClick">
-            <label>Nombre</label><br>
+            <label>{{'editarDatosUsuarioModal.nombre' | translate}}</label><br>
             <input type="text" formControlName="nombre" [ngClass]="{ 'is-invalid': form.nombre.errors }">
             <div *ngIf="form.nombre.errors" class="invalid-feedback">
-                <div *ngIf="form.nombre.errors.required">El nombre es obligatorio</div>
+                <div *ngIf="form.nombre.errors.required">{{'editarDatosUsuarioModal.nombre.required' | translate}}</div>
             </div>
             <br><br>
 
-            <label>Apellidos:</label><br>
+            <label>{{'editarDatosUsuarioModal.apellidos' | translate}}:</label><br>
             <input type="text" formControlName="apellidos" [ngClass]="{ 'is-invalid': form.apellidos.errors }">
             <div *ngIf="form.apellidos.errors" class="invalid-feedback">
-                <div *ngIf="form.apellidos.errors.required">Los apellidos son obligatorios</div>
+                <div *ngIf="form.apellidos.errors.required">{{'editarDatosUsuarioModal.apellidos.required' | translate}}
+                </div>
             </div>
             <br><br>
 
-            <label>Email</label><br>
+            <label>{{'editarDatosUsuarioModal.email' | translate}}</label><br>
             <input type="text" formControlName="email" [ngClass]="{ 'is-invalid': form.email.errors }">
             <div *ngIf="form.email.errors" class="invalid-feedback">
-                <div *ngIf="form.email.errors.required">El email es obligatorio.</div>
-                <div *ngIf="form.email.errors.email">Formato de email incorrecto.
+                <div *ngIf="form.email.errors.required">{{'editarDatosUsuarioModal.email.required' | translate}}.</div>
+                <div *ngIf="form.email.errors.email">{{'editarDatosUsuarioModal.email.email' | translate}}
                 </div>
-                <div *ngIf="form.email.errors.notUnique">Este email ya está en uso.
+                <div *ngIf="form.email.errors.notUnique">{{'editarDatosUsuarioModal.email.notUnique' | translate}}
                 </div>
             </div>
             <br><br>
 
-            <label>Contraseña</label><br>
+            <label>{{'editarDatosUsuarioModal.contrasena' | translate}}</label><br>
             <input id="passcode" [type]="passType" formControlName="passcode"
-                [ngClass]="{ 'is-invalid': form.passcode.errors }" maxlength="50" placeholder="Contraseña*" />
+                [ngClass]="{ 'is-invalid': form.passcode.errors }" maxlength="50"
+                placeholder="{{'editarDatosUsuarioModal.contrasena.placeholder' | translate}}" />
             <i *ngIf="this.passShown" (click)="togglePass()" class="material-icons">
                 visibility
             </i>
@@ -46,17 +48,18 @@
                 visibility_off
             </i>
             <div *ngIf="submitted && form.passcode.errors" class="invalid-feedback">
-                <div *ngIf="form.passcode.errors.minlength" class="validator-error">La contraseña debe contener al
-                    menos 3 carácteres</div>
+                <div *ngIf="form.passcode.errors.minlength" class="validator-error">
+                    {{'editarDatosUsuarioModal.contrasena.minlength' | translate}}</div>
             </div>
             <br><br>
 
 
 
-            <label>Confirmar Contraseña</label><br>
+            <label>{{'editarDatosUsuarioModal.confirmarContrasena' | translate}}</label><br>
             <input id="confirmPasscode" [type]="confirmPassType"
                 [ngClass]="{ 'is-invalid': form.confirmPasscode.errors }" formControlName="confirmPasscode"
-                maxlength="50" placeholder="Confirmar Contraseña*" />
+                maxlength="50"
+                placeholder="{{'editarDatosUsuarioModal.confirmarContrasena.placeholder' | translate}}" />
             <i *ngIf="this.confirmPassShown" (click)="toggleConfirmPass()" class="material-icons">
                 visibility
             </i>
@@ -64,48 +67,50 @@
                 visibility_off
             </i>
             <div *ngIf="submitted && form.confirmPasscode.errors" class="invalid-feedback">
-                <div *ngIf="form.confirmPasscode.errors.required" class="validator-error">Confirmar la contraseña es
-                    necesario</div>
-                <div *ngIf="form.confirmPasscode.errors.mustMatch" class="validator-error">Las contraseñas deben de
-                    coincidir</div>
+                <div *ngIf="form.confirmPasscode.errors.required" class="validator-error">
+                    {{'editarDatosUsuarioModal.confirmarContrasena.required' | translate}}</div>
+                <div *ngIf="form.confirmPasscode.errors.mustMatch" class="validator-error">
+                    {{'editarDatosUsuarioModal.confirmarContrasena.mustMatch' | translate}}</div>
             </div>
             <br><br>
 
-            <label>Imagen</label><br>
+            <label>{{'editarDatosUsuarioModal.imagen' | translate}}</label><br>
             <input id="file-input" type="file" (change)="readURL($event)" accept="image/png, image/gif, image/jpeg"
                 formControlName="imagen">
             <br><br>
 
-            <label>DNI</label><br>
+            <label>{{'editarDatosUsuarioModal.dni' | translate}}</label><br>
             <input type="text" formControlName="dni" maxlength="9" [ngClass]="{ 'is-invalid': form.dni.errors }">
             <div *ngIf="form.dni.errors" class="invalid-feedback">
-                <div *ngIf="form.dni.errors.required">El dni es obligatorio</div>
-                <div *ngIf="form.dni.errors.minLength">El dni debe contener un mínimo de 9 carácteres</div>
+                <div *ngIf="form.dni.errors.required">{{'editarDatosUsuarioModal.dni.required' | translate}}</div>
+                <div *ngIf="form.dni.errors.minLength">{{'editarDatosUsuarioModal.dni.minlength' | translate}}</div>
             </div>
             <br><br><br>
 
-            <label>Rol</label><br>
+            <label>{{'editarDatosUsuarioModal.rol' | translate}}</label><br>
             <div>
 
                 <input type="radio" id="contactChoice1" formControlName="idAdmin" value="0"
                     [ngClass]="{ 'is-invalid': form.idAdmin.errors }">
-                <label for="contactChoice1">Usuario</label>
+                <label for="contactChoice1">{{'editarDatosUsuarioModal.rol.1' | translate}}</label>
                 <br>
 
                 <input type="radio" id="contactChoice1" formControlName="idAdmin" value="1"
                     [ngClass]="{ 'is-invalid': form.idAdmin.errors }">
-                <label for="contactChoice1">Administrador</label>
+                <label for="contactChoice1">{{'editarDatosUsuarioModal.rol.2' | translate}}</label>
             </div>
             <div *ngIf="form.idAdmin.errors" class="invalid-feedback">
-                <div *ngIf="form.idAdmin.errors.required">El rol del usuario es obligatorio</div>
+                <div *ngIf="form.idAdmin.errors.required">{{'editarDatosUsuarioModal.rol.required' | translate}}</div>
             </div>
 
-            <button type="submit" class="btn btn-light" style="float: right; color: white; background-color: green;">Aplicar Cambios</button>
+            <button type="submit" class="btn btn-light"
+                style="float: right; color: white; background-color: green;">{{'editarDatosUsuarioModal.aplicar' | translate}}</button>
         </form>
     </div>
     <div class="modal-footer">
 
-        <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
+        <button type="button" class="btn btn-danger"
+            (click)="modal.close('Close click')">{{'editarDatosUsuarioModal.cancelar' | translate}}</button>
 
     </div>
 </ng-template>

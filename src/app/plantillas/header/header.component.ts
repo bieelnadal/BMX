@@ -91,5 +91,6 @@ export class HeaderComponent implements OnInit {
     localStorage.setItem('lang', lang.target.value);
     this.transaleServ.use(lang);
     window.location.reload();
+    
   }
 }
