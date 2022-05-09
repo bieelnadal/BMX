@@ -302,7 +302,7 @@
   "crearSubasta.descripcion.placeholder":"Descripciín Subasta",
   "crearSubasta.descripcion.required":"Campo obligatorio",
   "crearSubasta.descripcion.minlength":"¡Ay! La descripcion debe contener al menos 5 carácteres",
-  "crearSubasta.categoria":"Categoria"
+  "crearSubasta.categoria":"Categoria",
 
   "footer": "2021 Bid&Go — Todos los derechos reservados."
 }
