@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/productos/products.service';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-home',
@@ -14,14 +16,23 @@ export class HomeComponent implements OnInit {
   producto: any;
   numberid :any;
 
+  images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
+
   closeSidenav(){
       this.opened = !this.opened;
     }
 
 
-  constructor(  
+  constructor( config: NgbCarouselConfig, 
     private ProductsService: ProductsService,
-    ) { }
+
+
+    ) {     
+      config.interval = 10000;
+    config.wrap = false;
+    config.keyboard = false;
+    config.pauseOnHover = false;
+  }
 
   ngOnInit(): void {
     this.butttonid(0);
@@ -67,7 +78,9 @@ export class HomeComponent implements OnInit {
       }
       
     }
-  
+
+
+
 
 
 
