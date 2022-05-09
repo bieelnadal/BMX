@@ -31,5 +31,57 @@ const URL_HISTORIAL_PUJAS = 'http://localhost:8080/subastas/historialPujas.php';
 })
 export class SubastasService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  crearSubasta(Subasta:Subasta){
+    return this.http
+      .post(URL_CREAR_SUBASTA, JSON.stringify(Subasta))
+      .subscribe((val: any) => {
+        if (val.resultado == 'error') {
+          this.swalError();
+        } else {
+          this.swalCreado();
+        }
+      });
+  }
+
+  editarSubasta(Subasta:Subasta){
+    return this.http.put(URL_EDITAR_SUBASTA, JSON.stringify(Subasta));
+  }
+
+  obtenerProducto() {
+    return this.http.get(URL_OBTENER_SUBASTAS);
+  }
+
+  borrarSubasta(idSubasta:any){
+    return this.http
+      .delete(URL_BORRAR_SUBASTA + `?idSubasta=${idSubasta}`)
+      .subscribe((val: any) => {
+        console.log(val);
+      });
+  }
+
+  obtenerSubastaId(idSubasta:any){
+
+  }
+
+  obtenerComprador(){
+
+  }
+
+  swalCreado() {
+    Swal.fire(
+      'Producto creado!',
+      '¡Se ha creado el nuevo Producto!',
+      'success'
+    );
+  }
+
+  swalError() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: '¡Las credenciales son incorrectas!',
+    });
+  }
 }
