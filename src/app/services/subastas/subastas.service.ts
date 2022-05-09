@@ -33,31 +33,32 @@ const URL_CREAR_PRODUCTO = 'http://localhost:8080/productos/crearProductos.php';
   providedIn: 'root',
 })
 export class SubastasService {
+  idProducto: any;
   constructor(private http: HttpClient) {}
 
   crearSubasta(Producto: Producto, Subasta: Subasta) {
-    let idProducto: any;
-    console.log("esta");
-    
+    console.log('esta');
+
     this.http
       .post(URL_CREAR_PRODUCTO, JSON.stringify(Producto))
       .subscribe((val: any) => {
-        console.log(val.data);
-        idProducto = val.data;
+        this.idProducto = val.data;
+        console.log(this.idProducto[0]);
+
+        Subasta.idProducto=this.idProducto[0];
+        console.log(Subasta);
+        
+        //
+        this.http
+          .post(URL_CREAR_SUBASTA, JSON.stringify(Subasta))
+          .subscribe((val: any) => {
+            if (val.resultado == 'error') {
+              this.swalError();
+            } else {
+              this.swalCreado();
+            }
+          });
       });
-      console.log(idProducto);
-      
-      console.log("fet");
-      
-    // this.http
-    //   .post(URL_CREAR_SUBASTA, JSON.stringify(Subasta))
-    //   .subscribe((val: any) => {
-    //     if (val.resultado == 'error') {
-    //       this.swalError();
-    //     } else {
-    //       this.swalCreado();
-    //     }
-    //   });
   }
 
   editarSubasta(Subasta: Subasta) {
@@ -85,7 +86,9 @@ export class SubastasService {
       'Producto creado!',
       '¡Se ha creado el nuevo Producto!',
       'success'
-    );
+    ).then((result) => {
+      window.location.reload();
+    });
   }
 
   swalError() {
@@ -93,6 +96,8 @@ export class SubastasService {
       icon: 'error',
       title: 'Oops...',
       text: '¡Las credenciales son incorrectas!',
-    });
+    }).then((result) => {
+      window.location.reload();
+    });;
   }
 }

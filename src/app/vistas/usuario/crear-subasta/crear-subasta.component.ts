@@ -109,36 +109,37 @@ export class CrearSubastaComponent implements OnInit {
 
   onSubmit(form: any) {
     this.submitted = true;
-    console.log('entra');
-
-    //console.log(this.crearSubastaForm.controls.nombreProducto.value);
-    console.log(this.crearSubastaForm.controls.nombreProducto.value);
-    if (this.crearSubastaForm.valid) {
-      console.log('valido');
-
-      let prod = {};
-      let subasta = {};
-      prod = {
-        idProducto: 0,
-        idVendedor: this.datosUsuario.idUsuario,
-        Nombre: this.crearSubastaForm.controls.nombreProducto.value,
-        Imagen: this.imgSrc,
-        Descripcion: this.crearSubastaForm.controls.descripcionProducto.value,
-        idCategoria: this.crearSubastaForm.controls.categoria.value,
-        Precio: this.crearSubastaForm.controls.pujaInicial.value,
-        Subasta: 1,
-      };
-
-      subasta = {
-        idSubasta: 0,
-        idComprador: 0,
-        precioInicial: this.crearSubastaForm.controls.pujaInicial.value,
-        precioFinal: this.crearSubastaForm.controls.precioCompra.value,
-        vendido: 0,
-        fechaFinal: this.crearSubastaForm.controls.tiempoSubasta.value,
-      };
-      this.subastaServ.crearSubasta(prod, subasta);
+    if (
+      this.crearSubastaForm.controls.pujaInicial.value >
+      this.crearSubastaForm.controls.precioCompra.value
+    ) {
+      this.swalInferior();
     } else {
+      if (this.crearSubastaForm.valid) {
+        let prod = {};
+        let subasta = {};
+        prod = {
+          idProducto: 0,
+          idVendedor: this.datosUsuario.idUsuario,
+          Nombre: this.crearSubastaForm.controls.nombreProducto.value,
+          Imagen: this.imgSrc,
+          Descripcion: this.crearSubastaForm.controls.descripcionProducto.value,
+          idCategoria: this.crearSubastaForm.controls.categoria.value,
+          Precio: this.crearSubastaForm.controls.pujaInicial.value,
+          Subasta: 1,
+        };
+
+        subasta = {
+          idSubasta: 0,
+          idComprador: 0,
+          precioInicial: this.crearSubastaForm.controls.pujaInicial.value,
+          precioFinal: this.crearSubastaForm.controls.precioCompra.value,
+          vendido: 0,
+          fechaFinal: this.crearSubastaForm.controls.tiempoSubasta.value,
+        };
+        this.subastaServ.crearSubasta(prod, subasta);
+      } else {
+      }
     }
   }
 
@@ -147,6 +148,14 @@ export class CrearSubastaComponent implements OnInit {
       icon: 'error',
       title: 'Oops...',
       text: 'Algo no funciona bien, perdone la molestias!',
+    });
+  }
+
+  swalInferior() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: '¡El precio de compra no puede ser inferior a la primera puja!',
     });
   }
 

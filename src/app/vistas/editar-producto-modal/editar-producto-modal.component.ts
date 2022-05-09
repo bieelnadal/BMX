@@ -84,7 +84,6 @@ export class EditarProductoModalComponent implements OnInit {
           Precio: form.controls.Precio.value,
           Subasta: this.prodSelecc.Subasta
         }
-        console.log("Imagen nueva "+newProd.Imagen);
       }else{
         newProd = {
           idProducto: this.prodSelecc.idProducto,
@@ -98,11 +97,7 @@ export class EditarProductoModalComponent implements OnInit {
           Activo: form.controls.Activo.value,
           Precio: form.controls.Precio.value,
           Subasta: this.prodSelecc.Subasta
-        }
-
-        console.log("Imagen default "+newProd);
-        console.log(newProd);
-        
+        }    
         
       }
       this.prodServ.editarProducto(newProd).subscribe();
