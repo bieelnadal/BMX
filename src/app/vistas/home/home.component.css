@@ -251,7 +251,7 @@ color: rgb(45, 44, 44);
   }
 }
 
-img {
+.img-producto {
   width: 300px;
   height: 200px;
   border-radius: 5px;
@@ -268,4 +268,22 @@ img {
   display: flex;
   justify-content: center;
   margin-top: 50px;
+ }
+
+ img{
+   width: 800px;
+   max-width: 1000px;
+   max-height: 500px;
+ }
+
+ .left{
+   margin-left: 451px;
+   width: 1800px;
+ }
+
+ .tineda{
+   margin-top: 150px;
+   margin: 15px;
+   text-align: center;
+   color: var(--dorado);
  }

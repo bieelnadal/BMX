@@ -58,36 +58,23 @@
     </mat-sidenav>
     <mat-sidenav-content> 
 <!--carusel-->
-<ngb-carousel *ngIf="images">
+<ngb-carousel>
   <ng-template ngbSlide>
     <div class="picsum-img-wrapper">
-      <img src="../../../assets/imgCarusel/descarga (9).jpg" alt="Random first slide">
+      <img class="left" src="../../../assets/imgCarusel/ferrari.jpg" alt="Random first slide">
     </div>
-    <div class="carousel-caption">
-      <h3>10 seconds between slides...</h3>
-      <p>This carousel uses customized default values.</p>
-    </div>
+
   </ng-template>
   <ng-template ngbSlide>
     <div class="picsum-img-wrapper">
-      <img src="../../../assets/imgCarusel/descarga (7).jpg" width="100%" alt="Random second slide">
+      <img class="left"  src="../../../assets/imgCarusel/porche tycan.jpg" alt="Random second slide">
     </div>
-    <div class="carousel-caption">
-      <h3>No mouse events...</h3>
-      <p>This carousel doesn't pause or resume on mouse events</p>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img src="../../../assets/imgCarusel/hqdefault.jpg"  alt="Random third slide">
-    </div>
-    <div class="carousel-caption">
-      <h3>No keyboard...</h3>
-      <p>This carousel uses customized default values.</p>
-    </div>
+
   </ng-template>
 </ngb-carousel>
 <!--contenido-->
+<br><br><br>
+<h1 class="tineda">Tienda</h1>
       <div class="padre">
         <div class="centrar">
           <div class="card" *ngFor="let ProductoListado of listaProductos,  let i = index">
@@ -95,7 +82,7 @@
 
               <div class="cat">
                 <div class="divImg">
-                  <img src="{{ProductoListado.Imagen}}" alt="{{ProductoListado.Nombre}}">
+                  <img class="img-producto" src="{{ProductoListado.Imagen}}" alt="{{ProductoListado.Nombre}}">
                 </div>
               </div>
               <h1 class="NombreProducto">{{ProductoListado.Nombre}}</h1>
