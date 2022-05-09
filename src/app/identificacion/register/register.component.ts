@@ -204,14 +204,7 @@ export class RegisterComponent implements OnInit {
 
   //Funció que executa quan s'apreta el botó registre
   onRegistro(form: any) {
-    console.log(this.email.value);
     this.submitted = true;
-    console.log(this.imgSrc);
-
-    console.log(this.registerForm.valid);
-
-    console.log(form);
-
     //Comprobar si es cumpleixen o no tots els errors
     if (this.registerForm.valid) {
       const nuevoUsuario: Usuario = {

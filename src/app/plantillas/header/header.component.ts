@@ -57,9 +57,6 @@ export class HeaderComponent implements OnInit {
   tokenep() {
 
     if (this.tokenServ.getUsuario() != ' ') {
-      console.log('token');
-      console.log(this.tokenServ.getUsuario());
-
       return true;
     } else {
 
