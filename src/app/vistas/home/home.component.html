@@ -75,7 +75,12 @@
 </ngb-carousel>
 <!--contenido-->
 <br><br><br>
-<h1 class="tineda">{{'home.todos' | translate}}</h1>
+<h1 class="tineda" *ngIf="this.printnum ==null">{{'home.todos' | translate}}</h1>
+<h1 class="tineda" *ngIf="this.printnum ==1" >{{'home.todosvehiculos' | translate}}</h1>
+<h1 class="tineda" *ngIf="this.printnum ==2" >{{'home.todosrelojes' | translate}}</h1>
+<h1 class="tineda" *ngIf="this.printnum ==3" >{{'home.todosfotografia' | translate}}</h1>
+<h1 class="tineda" *ngIf="this.printnum ==4" >{{'home.todoselectrodomesticos' | translate}}</h1>
+<h1 class="tineda" *ngIf="this.printnum ==5" >{{'home.todoropa' | translate}}</h1>
       <div class="padre">
         <div class="centrar">
           <div class="card" *ngFor="let ProductoListado of listaProductos,  let i = index">

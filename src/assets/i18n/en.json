@@ -19,6 +19,11 @@
   "home.electrodomesticos": "Home Appliances",
   "home.ropa": "Clothing",
   "home.todos": "All Products",
+  "home.todosvehiculos":"Vehicles",
+  "home.todosrelojes":"Watches",
+  "home.todosfotografia":"Photography",
+  "home.todoselectrodomesticos":"Appliances",
+  "home.todoropa": "Clothes",
 
   "plantillaProducto.descripcion": "Product description",
   "plantillaProducto.nombreVendedor": "Seller name",
@@ -319,5 +324,13 @@
   "crearSubasta.imagen.required": "Required Field",
   "crearSubasta.crear": "Create Product",
 
-  "footer":"2021 Bid&Go — All rigths reserved."
+  "footer":"2021 Bid&Go — All rigths reserved.",
+
+  "politicas.titulo1": "Seller policies",
+  "politicas.texto1": "Every time you create a listing, you'll need to choose a set of seller policies; that is, the payment, shipping and returns information intended for buyers. You have the ability to make the ad creation process—and the management of existing ads—more efficient; To do this, you just need to create policy templates in which you save your preferences in relation to each of the areas mentioned above. Seller policies are important because they tell the buyer how they can pay you, how long it will take to ship the item, what delivery services they offer (including information about shipping and packaging costs), and whether or not you accept returns. Instead of defining your preferences for each of these aspects in every ad you create, you can streamline the process by creating templates. Later, you can apply them during the creation of new listings or even use them to update multiple existing listings. If your seller policy preferences vary by item type, you can create different templates. This gives you flexibility, as you can specify different payment, shipping, or returns information depending on the item you're listing. To start using seller policies, you need to turn this option on.",
+  "politicas.titulo2": "Return an item and request a refund",
+  "politicas.texto2":"If the item arrives damaged or faulty, you can return it for a refund. If you've changed your mind and want to return it, you can ask the seller if they accept a return.",
+  "politicas.texto2v2":"Initiate a returnTo initiate a return, select the item you want to return in the recent purchases section or follow these steps: Find the item in your Purchase History and select Return this item. Select the reason for the return. If the item has arrived damaged, broken or defective, add a maximum of 10 photos corresponding to the reason for returning the item and showing the damage or defects it has. When uploading images, make sure to follow our Text and Image Policy. Select Submit.",
+  "politicas.titulo3":"Policy on unpaid items",
+  "politicas.texto3": "Buyers must pay for the items they have purchased on bid&go within 4 calendar days. If the buyer does not make the payment within this period, the seller can cancel the order and a cancellation for non-payment will be registered in the buyer's account. What is politics? When a buyer validates the purchase of an item on bid&go, either by winning an auction, accepting an offer from a seller, or by selecting Buy It Now! in a listing, you are required to complete the purchase by sending full payment to the seller. Before validating the purchase, the buyer must take into account the following: All the conditions detailed by the seller in the advertisement, including shipping and handling costs By bidding on an item in an auction, you agree to buy and bid they can only be picked up in exceptional circumstances Failure to pay for items is a violation of our Abusive Buyer Behavior Policy. When a seller cancels an order because the buyer hasn't paid, the cancellation for non-payment is posted to the buyer's account. Buyers who have too many cancellations due to non-payment risk being capped by bid&go or the seller, and even losing their buying privileges. In some circumstances, buyers can appeal the posting of a reversal for non-payment on their account."
 }

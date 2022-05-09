@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   listaProductos: any[] = [];
   producto: any;
   numberid :any;
+  printnum: any;
 
   closeSidenav(){
       this.opened = !this.opened;
@@ -36,7 +37,6 @@ export class HomeComponent implements OnInit {
     butttonid(numberid:any){
       
       if (numberid !=0) {
-        console.log('cat  1 ');
         this.listaProductos = [];
         
         this.ProductsService.printarProductoId(numberid).subscribe((val: any) => {
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
             });
           }
         });
-        
+         this.printnum = numberid;
       } else if(numberid == 0){
         this.listaProductos = [];
         
