@@ -1,34 +1,34 @@
 <app-header></app-header>
-<h1>Registro Subasta:</h1>
+<h1>Empezar Subasta:</h1>
 <div class="centrar">
   
-  <form [formGroup]="crearProdutoForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="crearSubastaForm" (ngSubmit)="onSubmit(crearSubastaForm.value)">
     
 
     <label for="" class="input-label">Nombre</label>
-    <input type="text" maxlength="100" formControlName="NombreProducto" class=""
+    <input type="text" maxlength="100" formControlName="nombreProducto" class=""
       placeholder="Nombre de la Subasta*"><br><br>
     <div>
-      <div *ngIf="this.submitted && form.NombreProducto.errors">
-        <p *ngIf="form.NombreProducto.errors.required" class="color-validators">Campo obligatorio*</p>
-        <p *ngIf="form.NombreProducto.errors.minLength" class="color-validators">¡Ay! Tu nombre debe tener al menos 3
+      <div *ngIf="this.submitted && form.nombreProducto.errors">
+        <p *ngIf="form.nombreProducto.errors.required" class="color-validators">Campo obligatorio*</p>
+        <p *ngIf="form.nombreProducto.errors.minlength" class="color-validators">¡Ay! El nombre debe tener al menos 3
           caracteres*</p>
       </div>
     </div>
 
-    <label for="" class="input-label">Descripcion</label>
-    <input type="text" maxlength="500" formControlName="DescripcionProducto" class=""
+    <label for="" class="input-label">Descripción</label>
+    <input type="text" maxlength="500" formControlName="descripcionProducto" class=""
       placeholder="Descripcion Subasta*"><br><br>
     <div>
-      <div *ngIf="this.submitted && form.DescripcionProducto.errors">
-        <p *ngIf="form.DescripcionProducto.errors.required" class="color-validators"> Campo obligatorio*</p>
-        <p *ngIf="form.DescripcionProducto.errors.minLength" class="color-validators">¡Ay! Tu nombre debe contener al
+      <div *ngIf="this.submitted && form.descripcionProducto.errors">
+        <p *ngIf="form.descripcionProducto.errors.required" class="color-validators"> Campo obligatorio*</p>
+        <p *ngIf="form.descripcionProducto.errors.minlength" class="color-validators">¡Ay! La descripción del producto debe contener al
           menos 5 caracteres*</p>
       </div>
     </div>
 
     <label for="" class="input-label">Categoria</label>
-    <select class="option-select" formControlName="Categoria">
+    <select class="option-select" formControlName="categoria">
       <option value="0" disabled class="option-select">Escoge una Categoria*</option>
       <option value="1" class="option-select">Vehiculos</option>
       <option value="2" class="option-select">Relojes</option>
@@ -37,24 +37,39 @@
       <option value="5" class="option-select">Ropa</option>
     </select><br><br>
     <div>
-      <div *ngIf="this.submitted && form.Categoria.errors">
-        <p *ngIf="form.Categoria.errors.required" class="color-validators">Campo obligatorio*</p>
+      <div *ngIf="this.submitted && form.categoria.errors">
+        <p *ngIf="form.categoria.errors.required" class="color-validators">Campo obligatorio*</p>
       </div>
     </div>
 
     <label for="" class="input-label">Tiempo de subasta</label>
-    <input type="time" maxlength="2" formControlName="tiempoSubasta" class="time" placeholder="d*"><br><br>
+    <select class="option-select" formControlName="tiempoSubasta">
+      <option value="0" selected disabled class="option-select">Escoge la duración de la subasta*</option>
+      <option value="1" class="option-select">12 horas</option>
+      <option value="2" class="option-select">1 dia</option>
+      <option value="3" class="option-select">3 dias</option>
+      <option value="4" class="option-select">7 dias</option>
+      <option value="5" class="option-select">30 dias</option>
+    </select>
     <div>
-      <div *ngIf="this.submitted && form.PrecioProducto.errors">
-        <p *ngIf="form.PrecioProducto.errors.required" class="color-validators">Campo obligatorio*</p>
+      <div *ngIf="this.submitted && form.tiempoSubasta.errors">
+        <p *ngIf="form.tiempoSubasta.errors.required" class="color-validators">Campo obligatorio*</p>
       </div>
     </div>
 
-    <label for="" class="input-label">Precio Inicial</label>
-    <input type="number" maxlength="5" formControlName="PrecioProducto" class="" placeholder="Precio Inicial Subasta*"><br><br>
+    <label for="" class="input-label">Puja Inicial</label>
+    <input type="number" maxlength="5" formControlName="pujaInicial" class="" placeholder="Precio Inicial Subasta*"><br><br>
     <div>
-      <div *ngIf="this.submitted && form.PrecioProducto.errors">
-        <p *ngIf="form.PrecioProducto.errors.required" class="color-validators">Campo obligatorio*</p>
+      <div *ngIf="this.submitted && form.pujaInicial.errors">
+        <p *ngIf="form.pujaInicial.errors.required" class="color-validators">Campo obligatorio*</p>
+      </div>
+    </div>
+
+    <label for="" class="input-label">Precio de Compra</label>
+    <input type="number" maxlength="5" formControlName="precioCompra" class="" placeholder="Precio de Compra*"><br><br>
+    <div>
+      <div *ngIf="this.submitted && form.precioCompra.errors">
+        <p *ngIf="form.precioCompra.errors.required" class="color-validators">Campo obligatorio*</p>
       </div>
     </div>
 
