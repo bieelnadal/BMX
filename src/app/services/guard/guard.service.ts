@@ -36,6 +36,8 @@ export class GuardService implements CanActivate  {
         this.router.navigate(['login']);
       } else if (result.isDenied) {
         this.router.navigate(['register']);
+      }else{
+        this.router.navigate(['home']);
       }
     })
   }
