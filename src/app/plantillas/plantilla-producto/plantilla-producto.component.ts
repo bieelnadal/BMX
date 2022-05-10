@@ -6,6 +6,7 @@ import { Usuario } from 'src/app/interfaces/Usuario';
 import Swal from 'sweetalert2';
 import { Subasta } from '../../interfaces/Subastas';
 import { SubastasService } from 'src/app/services/subastas/subastas.service';
+import { Puja } from 'src/app/interfaces/Puja';
 
 @Component({
   selector: 'app-plantilla-producto',
@@ -75,7 +76,6 @@ export class PlantillaProductoComponent implements OnInit {
             .obtenerSubastaProductoId(this.producto.idProducto)
             .subscribe((val: any) => {
               this.subasta = val.data;
-              console.log(this.subasta);
             });
         }
         this.idVendedor = this.producto.idVendedor;
@@ -88,22 +88,23 @@ export class PlantillaProductoComponent implements OnInit {
     );
   }
 
-  pujar(subasta: any, producto:any) {
+  pujar(subasta: any, producto: any, datosUsuario: any) {
+    this.subastaServ;
     Swal.fire({
-      text: '¿Cuánto dinero quieres pujar? Actualmente, la apuesta máxima es de ' + subasta.precioFinal+'€.',
+      text:
+        '¿Cuánto dinero quieres pujar? Actualmente, la apuesta máxima es de ' +
+        subasta.precioFinal +
+        '€.',
       input: 'number',
-    }).then(function (result) {
-      if (
-        result.value >= producto.Precio ||
-        result.value <= subasta.precioFinal
-      ) {
-        const amount = result.value;
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: '¡No puedes pujar una cantidad igual o menor a la puja actual ni superior al precio de compra!',
-        });
-      }
+    }).then((result) => {
+      let puja: Puja = {
+        idPuja: 0,
+        idUsuario: datosUsuario.idUsuario,
+        Precio: result.value,
+        Fecha: '',
+        idSubasta: subasta.idSubasta,
+      };
+      this.subastaServ.hacerPujas(puja);
     });
   }
 }

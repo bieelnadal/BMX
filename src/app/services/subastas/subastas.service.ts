@@ -12,24 +12,16 @@ const URL_CREAR_SUBASTA = 'http://localhost:8080/subastas/crearSubasta.php';
 const URL_OBTENER_SUBASTAS =
   'http://localhost:8080/subastas/obtenerSubastas.php';
 
-const URL_OBTENER_COMPRADOR_ID =
-  'http://localhost:8080/subastas/obtenerCompradorId.php';
-
-const URL_OBTENER_SUBASTA_ID =
-  'http://localhost:8080/subastas/obtenerSubastaId.php';
-
-const URL_OBTENER_SUBASTAS_ADMIN =
-  'http://localhost:8080/subastas/obtenerSubastaAdmin.php';
-
-const URL_OBTENER_SUBASTA_PRODUCTO_ID = 'http://localhost:8080/subastas/obtenerSubastaProductoId.php';
+const URL_OBTENER_SUBASTA_PRODUCTO_ID =
+  'http://localhost:8080/subastas/obtenerSubastaProductoId.php';
 
 const URL_BORRAR_SUBASTA = 'http://localhost:8080/subastas/borrarSubasta.php';
 
-const URL_EDITAR_SUBASTA = 'http://localhost:8080/subastas/editarProductos.php';
-
-const URL_HISTORIAL_PUJAS = 'http://localhost:8080/subastas/historialPujas.php';
-
 const URL_CREAR_PRODUCTO = 'http://localhost:8080/productos/crearProductos.php';
+
+const URL_OBTENER_PUJAS = 'http://localhost:8080/productos/obtenerPujas.php';
+
+const URL_HACER_PUJA = 'http://localhost:8080/productos/hacerPuja.php';
 
 @Injectable({
   providedIn: 'root',
@@ -47,9 +39,9 @@ export class SubastasService {
         this.idProducto = val.data;
         console.log(this.idProducto[0]);
 
-        Subasta.idProducto=this.idProducto[0];
+        Subasta.idProducto = this.idProducto[0];
         console.log(Subasta);
-        
+
         //
         this.http
           .post(URL_CREAR_SUBASTA, JSON.stringify(Subasta))
@@ -61,10 +53,6 @@ export class SubastasService {
             }
           });
       });
-  }
-
-  editarSubasta(Subasta: Subasta) {
-    return this.http.put(URL_EDITAR_SUBASTA, JSON.stringify(Subasta));
   }
 
   obtenerProducto() {
@@ -81,13 +69,29 @@ export class SubastasService {
 
   obtenerSubastaProductoId(idProducto: any) {
     console.log(idProducto);
-    
+
     return this.http.get(
       URL_OBTENER_SUBASTA_PRODUCTO_ID + `?idProducto=${idProducto}`
     );
   }
 
   obtenerComprador() {}
+
+  obtenerPujas(idSubasta: any) {
+    return this.http.get(URL_OBTENER_PUJAS + `?idSubasta=${idSubasta}`);
+  }
+
+  hacerPujas(puja:any){
+    return this.http
+    .post(URL_HACER_PUJA, JSON.stringify(puja))
+    .subscribe((val: any) => {
+      if (val.resultado == 'error') {
+        this.swalError();
+      } else {
+        this.swalCreado();
+      }
+    });
+  }
 
   swalCreado() {
     Swal.fire(
@@ -106,6 +110,6 @@ export class SubastasService {
       text: '¡Las credenciales son incorrectas!',
     }).then((result) => {
       window.location.reload();
-    });;
+    });
   }
 }

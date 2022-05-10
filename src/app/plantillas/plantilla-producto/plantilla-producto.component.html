@@ -34,8 +34,10 @@
       <button class="btnCompra" [routerLink]="['/carrito', producto.idProducto]">{{'plantillaProducto.comprar'
         |translate}}</button>
 
-      <button class="btnCompra" *ngIf="this.producto.Subasta==1" (click)="pujar(this.subasta, this.producto)">{{'plantillaProducto.pujar'
+      <button class="btnCompra" *ngIf="this.producto.Subasta==1" (click)="pujar(this.subasta, this.producto, this.datosUsuario)">{{'plantillaProducto.pujar'
         |translate}}</button>
+
+      <app-historial-pujas [subastaSelecc]="this.subasta.idSubasta"></app-historial-pujas>
 
     </div>
 

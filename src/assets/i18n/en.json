@@ -328,6 +328,9 @@
 
   "footer":"2021 Bid&Go — All rigths reserved.",
 
+  "historialPujas.titulo":"Bid History",
+  "historialPujas.cerrar":"Close",
+
   "politicas.titulo1": "Seller policies",
   "politicas.texto1": "Every time you create a listing, you'll need to choose a set of seller policies; that is, the payment, shipping and returns information intended for buyers. You have the ability to make the ad creation process—and the management of existing ads—more efficient; To do this, you just need to create policy templates in which you save your preferences in relation to each of the areas mentioned above. Seller policies are important because they tell the buyer how they can pay you, how long it will take to ship the item, what delivery services they offer (including information about shipping and packaging costs), and whether or not you accept returns. Instead of defining your preferences for each of these aspects in every ad you create, you can streamline the process by creating templates. Later, you can apply them during the creation of new listings or even use them to update multiple existing listings. If your seller policy preferences vary by item type, you can create different templates. This gives you flexibility, as you can specify different payment, shipping, or returns information depending on the item you're listing. To start using seller policies, you need to turn this option on.",
   "politicas.titulo2": "Return an item and request a refund",
