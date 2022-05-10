@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/productos/products.service';
+import { FormBuilder } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -8,13 +11,12 @@ import { ProductsService } from 'src/app/services/productos/products.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  //images = [1011, 1011, 1011].map((n) => `https://picsum.photos/id/${n}/900/500`);
   opened = false;
   listaProductos: any[] = [];
   producto: any;
   numberid :any;
   printnum: any;
+  buscadorInput!: FormGroup;
 
   closeSidenav(){
       this.opened = !this.opened;
@@ -23,6 +25,7 @@ export class HomeComponent implements OnInit {
 
   constructor(  
     private ProductsService: ProductsService,
+    public formBuilder: FormBuilder,
     ) { }
 
   ngOnInit(): void {
@@ -71,8 +74,44 @@ export class HomeComponent implements OnInit {
     }
 
 
+      //buscador
+  filtro: any;
+  ProductoBuscar: any;
+  splitArray: any;
+  i: any;
+  textoBuscador: any;
+  imputBuscador: any = undefined;
+
+  crearformInput() {
+    this.buscadorInput = this.formBuilder.group({
+      nombreBuscador: [''],
+    });
+  }
+
+  get nombreBuscador() {
+    return this.buscadorInput.get('nombreBuscador') as FormControl;
+  }
+
+  buscador(): any {
     
-  
+    this.nombreBuscador.valueChanges.subscribe((nombreBuscador) => {
+      this.imputBuscador = document.getElementById('buscadorId');
+      this.filtro = nombreBuscador.toUpperCase();
+      this.ProductoBuscar =
+        document.getElementsByClassName('NombreProducto');
+    
+      for (this.i = 0; this.i < this.ProductoBuscar.length; this.i++) {
+        var text = this.ProductoBuscar[this.i].innerText.split('\n');
+        if (text[0].toUpperCase().indexOf(this.filtro) > -1) {
+          this.ProductoBuscar[this.i].style.display = '';
+        } else {
+          this.ProductoBuscar[this.i].style.display = 'none';
+        }
+      }
+    });
+  }
+
+
 
 
 
