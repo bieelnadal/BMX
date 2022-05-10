@@ -125,7 +125,7 @@ export class CrearSubastaComponent implements OnInit {
           Imagen: this.imgSrc,
           Descripcion: this.crearSubastaForm.controls.descripcionProducto.value,
           idCategoria: this.crearSubastaForm.controls.categoria.value,
-          Precio: this.crearSubastaForm.controls.pujaInicial.value,
+          Precio: this.crearSubastaForm.controls.precioCompra.value,
           Subasta: 1,
         };
 
@@ -133,7 +133,7 @@ export class CrearSubastaComponent implements OnInit {
           idSubasta: 0,
           idComprador: 0,
           precioInicial: this.crearSubastaForm.controls.pujaInicial.value,
-          precioFinal: this.crearSubastaForm.controls.precioCompra.value,
+          precioFinal: this.crearSubastaForm.controls.pujaInicial.value,
           vendido: 0,
           fechaFinal: this.crearSubastaForm.controls.tiempoSubasta.value,
         };

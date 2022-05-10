@@ -46,6 +46,7 @@ import { LanguageInterceptor } from './interceptors/language.interceptor';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { SobreNosotrosComponent } from './plantillas/sobre-Nosotros/sobre-Nosotros.component';
+import { HistorialPujasComponent } from './plantillas/historial-pujas/historial-pujas.component';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader{
@@ -85,6 +86,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader{
     CrearSubastaComponent,
     PoliticasComponent,
     SobreNosotrosComponent,
+    HistorialPujasComponent,
   ],
   imports: [
     BrowserModule,

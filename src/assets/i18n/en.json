@@ -28,6 +28,8 @@
   "plantillaProducto.descripcion": "Product description",
   "plantillaProducto.nombreVendedor": "Seller name",
   "plantillaProducto.precio": "Price",
+  "plantillaProducto.precioFinal":"Fast Buy",
+  "plantillaProducto.pujar":"Bid Up",
   "plantillaProducto.comprar": "Buy",
 
   "editarDireccionModal.titulo": "Edit Address",

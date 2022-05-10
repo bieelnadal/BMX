@@ -28,6 +28,8 @@
   "plantillaProducto.descripcion": "Descripción del producto",
   "plantillaProducto.nombreVendedor": "Nombre del vendedor",
   "plantillaProducto.precio": "Precio",
+  "plantillaProducto.precioFinal":"Compra Rápida",
+  "plantillaProducto.pujar":"Pujar",
   "plantillaProducto.comprar": "Comprar",
 
   "editarDireccionModal.titulo": "Editar Dirección",
@@ -198,8 +200,8 @@
   "tablaVerificarProductos.descripcion": "Descripcion",
   "tablaVerificarProductos.categoria": "Categoria",
   "tablaVerificarProductos.fecha": "Fecha",
-  "tablaVerificarProductos.Precio": "Precio",
-  "tablaVerificarProductos.Imagen": "Imagen",
+  "tablaVerificarProductos.precio": "Precio",
+  "tablaVerificarProductos.imagen": "Imagen",
 
   "gestionUsuarios.gestion": "Gestión Usuarios",
   "gestionUsuarios.nombre": "Nombre",

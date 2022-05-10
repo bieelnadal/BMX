@@ -21,6 +21,8 @@ const URL_OBTENER_SUBASTA_ID =
 const URL_OBTENER_SUBASTAS_ADMIN =
   'http://localhost:8080/subastas/obtenerSubastaAdmin.php';
 
+const URL_OBTENER_SUBASTA_PRODUCTO_ID = 'http://localhost:8080/subastas/obtenerSubastaProductoId.php';
+
 const URL_BORRAR_SUBASTA = 'http://localhost:8080/subastas/borrarSubasta.php';
 
 const URL_EDITAR_SUBASTA = 'http://localhost:8080/subastas/editarProductos.php';
@@ -77,7 +79,13 @@ export class SubastasService {
       });
   }
 
-  obtenerSubastaId(idSubasta: any) {}
+  obtenerSubastaProductoId(idProducto: any) {
+    console.log(idProducto);
+    
+    return this.http.get(
+      URL_OBTENER_SUBASTA_PRODUCTO_ID + `?idProducto=${idProducto}`
+    );
+  }
 
   obtenerComprador() {}
 

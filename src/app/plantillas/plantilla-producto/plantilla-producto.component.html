@@ -24,13 +24,21 @@
 
     <div class="contBTN">
       <hr>
-      <h3 class="Precio">{{'plantillaProducto.precio' |translate}}: {{producto.Precio}}€</h3>
-      <button class="btnCompra" [routerLink]="['/carrito', producto.idProducto]">{{'plantillaProducto.comprar' |translate}}</button>
+      <h3 class="Precio" *ngIf="this.producto.Subasta==0">{{'plantillaProducto.precio' |translate}}:
+        {{producto.Precio}}€</h3>
+      <h3 class="Precio" *ngIf="this.producto.Subasta==1">{{'plantillaProducto.precioFinal' |translate}}:
+        {{producto.Precio}}€</h3>
+
+      <h3 class="Precio" *ngIf="this.producto.Subasta==1">{{'plantillaProducto.pujar' |translate}}: {{subasta.precioFinal}}€
+      </h3>
+      <button class="btnCompra" [routerLink]="['/carrito', producto.idProducto]">{{'plantillaProducto.comprar'
+        |translate}}</button>
+
+      <button class="btnCompra" *ngIf="this.producto.Subasta==1" (click)="pujar(this.subasta, this.producto)">{{'plantillaProducto.pujar'
+        |translate}}</button>
+
     </div>
 
   </div>
 </div>
 <app-footer></app-footer>
-
-
-
