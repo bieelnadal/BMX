@@ -2,10 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { Subasta } from 'src/app/interfaces/Subastas';
-import { LoginComponent } from 'src/app/identificacion/login/login.component';
 import { Producto } from '../../interfaces/Productos';
-
-const URL = 'http://localhost:8080/';
 
 const URL_CREAR_SUBASTA = 'http://localhost:8080/subastas/crearSubasta.php';
 
@@ -19,9 +16,9 @@ const URL_BORRAR_SUBASTA = 'http://localhost:8080/subastas/borrarSubasta.php';
 
 const URL_CREAR_PRODUCTO = 'http://localhost:8080/productos/crearProductos.php';
 
-const URL_OBTENER_PUJAS = 'http://localhost:8080/productos/obtenerPujas.php';
+const URL_OBTENER_PUJAS = 'http://localhost:8080/subastas/obtenerPujas.php';
 
-const URL_HACER_PUJA = 'http://localhost:8080/productos/hacerPuja.php';
+const URL_HACER_PUJA = 'http://localhost:8080/subastas/hacerPuja.php';
 
 @Injectable({
   providedIn: 'root',
