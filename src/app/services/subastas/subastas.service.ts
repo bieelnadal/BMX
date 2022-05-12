@@ -89,8 +89,10 @@ export class SubastasService {
           this.swalError();
         } else {
           this.swalPuja();
+
         }
       });
+      
   }
 
   swalPuja() {

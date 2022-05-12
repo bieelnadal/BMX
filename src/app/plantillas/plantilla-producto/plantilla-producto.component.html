@@ -45,7 +45,7 @@
         |translate}}</button>
 
       <button class="btnCompra" *ngIf="this.producto.Subasta==1"
-        (click)="pujar(this.subasta, this.producto, this.datosUsuario)">{{'plantillaProducto.pujar'
+        (click)="pujar(this.subasta, this.datosUsuarioLogin.idUsuario)">{{'plantillaProducto.pujar'
         |translate}}</button>
 
       <app-historial-pujas [subastaSelecc]="this.subasta.idSubasta"></app-historial-pujas>

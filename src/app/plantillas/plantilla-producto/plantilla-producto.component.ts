@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { Subasta } from '../../interfaces/Subastas';
 import { SubastasService } from 'src/app/services/subastas/subastas.service';
 import { Puja } from 'src/app/interfaces/Puja';
+import { TokenSesionService } from '../../services/tokenSesion/token-sesion.service';
 
 @Component({
   selector: 'app-plantilla-producto',
@@ -17,6 +18,8 @@ export class PlantillaProductoComponent implements OnInit {
   nombreProducto: any;
   idProducto: any;
   idVendedor: any;
+
+  datosUsuarioLogin: any;
 
   d: any;
   m: any;
@@ -65,14 +68,17 @@ export class PlantillaProductoComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private ProductsService: ProductsService,
-    private subastaServ: SubastasService
+    private subastaServ: SubastasService,
+    private tokenServ: TokenSesionService
   ) {}
 
   ngOnInit(): void {
+    this.obtenerDatosUsuario();
     this.nombreProducto = this._route.snapshot.paramMap.get('nombre');
     this.idProducto = this._route.snapshot.paramMap.get('id');
-    this.pasarIdProducto();
 
+    
+    this.pasarIdProducto();
     this.updateCountdownTime(this.subasta.fechaFinal);
     this.id = setInterval(() => {
       this.updateCountdownTime(this.subasta.fechaFinal);
@@ -103,7 +109,7 @@ export class PlantillaProductoComponent implements OnInit {
     );
   }
 
-  pujar(subasta: any, producto: any, datosUsuario: any) {
+  pujar(subasta: any, datosUsuario: any) {
     Swal.fire({
       text:
         '¿Cuánto dinero quieres pujar? Actualmente, la apuesta máxima es de ' +
@@ -112,12 +118,11 @@ export class PlantillaProductoComponent implements OnInit {
       input: 'number',
     }).then((result) => {
       console.log(result.value);
-      console.log(datosUsuario.idUsuario);
-      
+      console.log(datosUsuario);
 
       let puja: Puja = {
         idPuja: 0,
-        idUsuario: datosUsuario.idUsuario,
+        idUsuario: datosUsuario,
         Precio: result.value,
         Fecha: '',
         idSubasta: subasta.idSubasta,
@@ -125,7 +130,7 @@ export class PlantillaProductoComponent implements OnInit {
 
       if (result.value > subasta.precioFinal) {
         this.subastaServ.crearPuja(puja);
-        window.location.reload();
+        console.log(datosUsuario);
       } else {
         Swal.fire({
           icon: 'error',
@@ -136,6 +141,11 @@ export class PlantillaProductoComponent implements OnInit {
     });
   }
 
+  obtenerDatosUsuario() {
+    this.datosUsuarioLogin = this.tokenServ.getUsuario();
+    console.log(this.datosUsuario.idUsuario);
+    
+  }
   fecha(fechaBd: any) {
     let today = new Date();
 

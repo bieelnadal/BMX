@@ -167,7 +167,9 @@ export class CrearSubastaComponent implements OnInit {
       date = today.getFullYear() + "-0" + (today.getMonth() + 2) + "-" + today.getDate() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     }
     if (this.crearSubastaForm.controls.tiempoSubasta.value == 6) {
-      date = today.getFullYear() + "-0" + (today.getMonth() + 1) + "-" + today.getDate() + " " + today.getHours() + ":" + today.getMinutes() + ":" + (today.getSeconds()+30);
+      date = today.getFullYear() + "-0" + (today.getMonth() + 1) + "-" + today.getDate() + " " + today.getHours() + ":" + (today.getMinutes()+1) + ":" + today.getSeconds();
+      console.log(date);
+      
     }
 
     return date;
