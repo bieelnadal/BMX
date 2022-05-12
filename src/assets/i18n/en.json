@@ -68,6 +68,8 @@
   "historialVentasAdmin.subasta.si": "Yes",
 
   "editarProductoModal.titulo": "Edit user",
+  "editarProductoModal.tituloProducto": "Edit Product",
+  "editarProductoModal.tituloSubsata": "Edit Auction",
   "editarProductoModal.nombre": "Name",
   "editarProductoModal.nombre.required": "The name is a required field",
   "editarProductoModal.imagen": "Image",
