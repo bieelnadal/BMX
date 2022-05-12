@@ -28,11 +28,11 @@ export class HistorialPujasComponent implements OnInit {
 
   retornar() {
     this.modalService.dismissAll();
+    
   }
 
   obtenerPujas(){
-      console.log(this.subastaSelecc);
-    
+    this.listaPujas = [];
     this.subastaServ.obtenerPujas(this.subastaSelecc).subscribe((val:any) => {
       console.log(this.subastaSelecc);
       

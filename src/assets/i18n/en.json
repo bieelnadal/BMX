@@ -30,6 +30,7 @@
   "plantillaProducto.precio": "Price",
   "plantillaProducto.precioFinal":"Fast Buy",
   "plantillaProducto.pujar":"Bid Up",
+  "plantillaProducto.pujaAlta":"Highest Bid",
   "plantillaProducto.comprar": "Buy",
 
   "editarDireccionModal.titulo": "Edit Address",

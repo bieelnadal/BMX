@@ -19,12 +19,12 @@ $response = new Result();
 $json = file_get_contents('php://input');
 $Producto = json_decode($json);
 
-//$mifecha = date('Y-m-d H:i:s');
+$mifecha = date('Y-m-d H:i:s');
 
 
 // query
 $queryInsert = "INSERT INTO `producto`(`idProducto`, `idVendedor`, `Nombre`, `Imagen`, `Descripcion`, `idCategoria`, `Fecha`, `Estado`, `Activo`, `Precio`, `Subasta`)
-VALUES ( NULL,'$Producto->idVendedor','$Producto->Nombre','$Producto->Imagen', '$Producto->Descripcion' ,$Producto->idCategoria ,'dsa',0,0,$Producto->Precio,$Producto->Subasta)";
+VALUES ( NULL,'$Producto->idVendedor','$Producto->Nombre','$Producto->Imagen', '$Producto->Descripcion' ,$Producto->idCategoria ,'$mifecha',0,0,$Producto->Precio,$Producto->Subasta)";
 
 
 $resInsert = mysqli_query($con, $queryInsert);

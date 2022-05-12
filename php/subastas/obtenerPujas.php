@@ -20,7 +20,7 @@
   global $datos;
 
   // query
-  $query = "SELECT pujas.idPuja, pujas.idUsuario, pujas.Precio, pujas.Fecha, pujas.idSubasta,usuarios.Email FROM pujas, usuarios WHERE pujas.idUsuario=usuarios.idUsuario AND pujas.idSubasta ='$_GET[idSubasta]'";
+  $query = "SELECT pujas.idPuja, pujas.idUsuario, pujas.Precio, pujas.Fecha, pujas.idSubasta,usuarios.Email FROM pujas, usuarios WHERE pujas.idUsuario=usuarios.idUsuario AND pujas.idSubasta ='$_GET[idSubasta]' ORDER BY pujas.Fecha DESC";
   $registros = mysqli_query($con, $query);
   
   // si la query ha sido correcta hacemos fetch

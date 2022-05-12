@@ -5,12 +5,12 @@
 
 <ng-template #content let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">{{'historialPujas.titulo' | translate}}</h4>
+        <h2 class="modal-title">{{'historialPujas.titulo' | translate}}</h2>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
         <div *ngFor="let puja of listaPujas; let i = index">
-            <h1>{{puja.Email}} ha realizado una puja de {{puja.Precio}}€ el {{puja.Fecha}}</h1>
+            <p>{{puja.Email}} ha realizado una puja de {{puja.Precio}}€ el {{puja.Fecha}}</p>
         </div>
     </div>
     <div class="modal-footer">

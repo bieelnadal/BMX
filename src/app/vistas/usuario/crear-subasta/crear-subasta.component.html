@@ -45,7 +45,7 @@
     <label for="" class="input-label">Tiempo de subasta</label>
     <select class="option-select" formControlName="tiempoSubasta">
       <option value="0" selected disabled class="option-select">Escoge la duración de la subasta*</option>
-      <option value="1" class="option-select">12 horas</option>
+      <option value="1" class="option-select">1 hora</option>
       <option value="2" class="option-select">1 dia</option>
       <option value="3" class="option-select">3 dias</option>
       <option value="4" class="option-select">7 dias</option>
@@ -80,7 +80,7 @@
         <p *ngIf="form.imagenProducto.errors.required" class="color-validators">Campo obligatorio*</p>
       </div>
     </div>
-    <button type="submit" class="crear-ranking">Crear Producto</button>
+    <button type="submit" class="crear-ranking">Empezar Subasta</button>
   </form>
 </div>
 

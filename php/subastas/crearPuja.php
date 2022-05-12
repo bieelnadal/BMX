@@ -19,13 +19,16 @@ $response = new Result();
 $json = file_get_contents('php://input');
 $Puja = json_decode($json);
 
+$mifecha = date('Y-m-d H:i:s');
 
 // query
-$queryInsert = "INSERT INTO `pujas`(`idPuja`, `idUsuario`, `Precio`, `Fecha`, `idSubasta`) VALUES ($Puja->idPuja,$Puja->idUsuario,$Puja->Precio,'$Puja->Fecha',$Puja->idSubasta";
+$queryInsert = "INSERT INTO `pujas`(`idPuja`, `idUsuario`, `Precio`, `Fecha`, `idSubasta`) VALUES (NULL,'$Puja->idUsuario','$Puja->Precio','$mifecha','$Puja->idSubasta')";
 
+$queryUpdate = "UPDATE `subasta` SET precioFinal='$Puja->Precio' WHERE idSubasta='$Puja->idSubasta'";
 
 $resInsert = mysqli_query($con, $queryInsert);
 
+$resUpdate = mysqli_query($con, $queryUpdate);
 
 if ($resInsert) {
 

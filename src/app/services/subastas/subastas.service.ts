@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { Subasta } from 'src/app/interfaces/Subastas';
 import { Producto } from '../../interfaces/Productos';
+import { Puja } from 'src/app/interfaces/Puja';
 
 const URL_CREAR_SUBASTA = 'http://localhost:8080/subastas/crearSubasta.php';
 
@@ -16,16 +17,18 @@ const URL_BORRAR_SUBASTA = 'http://localhost:8080/subastas/borrarSubasta.php';
 
 const URL_CREAR_PRODUCTO = 'http://localhost:8080/productos/crearProductos.php';
 
+const URL_CREAR_PUJA = 'http://localhost:8080/subastas/crearPuja.php';
+
 const URL_OBTENER_PUJAS = 'http://localhost:8080/subastas/obtenerPujas.php';
 
-const URL_HACER_PUJA = 'http://localhost:8080/subastas/hacerPuja.php';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class SubastasService {
   idProducto: any;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   crearSubasta(Producto: Producto, Subasta: Subasta) {
     console.log('esta');
@@ -65,28 +68,38 @@ export class SubastasService {
   }
 
   obtenerSubastaProductoId(idProducto: any) {
-    console.log(idProducto);
 
     return this.http.get(
       URL_OBTENER_SUBASTA_PRODUCTO_ID + `?idProducto=${idProducto}`
     );
   }
 
-  obtenerComprador() {}
+  obtenerComprador() { }
 
   obtenerPujas(idSubasta: any) {
     return this.http.get(URL_OBTENER_PUJAS + `?idSubasta=${idSubasta}`);
   }
 
-  hacerPujas(puja:any){
+  crearPuja(Puja: Puja) {
+
     return this.http
-    .post(URL_HACER_PUJA, JSON.stringify(puja))
-    .subscribe((val: any) => {
-      if (val.resultado == 'error') {
-        this.swalError();
-      } else {
-        this.swalCreado();
-      }
+      .post(URL_CREAR_PUJA, JSON.stringify(Puja))
+      .subscribe((val: any) => {
+        if (val.resultado == 'error') {
+          this.swalError();
+        } else {
+          this.swalPuja();
+        }
+      });
+  }
+
+  swalPuja() {
+    Swal.fire(
+      'Producto creado!',
+      '¡Se ha registrado tu puja!',
+      'success'
+    ).then((result) => {
+      window.location.reload();
     });
   }
 

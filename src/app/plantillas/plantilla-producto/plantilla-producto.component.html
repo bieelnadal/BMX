@@ -20,6 +20,10 @@
     <p class="descVendedor">
       {{'plantillaProducto.nombreVendedor' | translate}}: {{datosUsuario.Nombre}} {{datosUsuario.Apellidos}}
     </p>
+    <h3>{{this.d}}</h3>
+    <h3>{{this.h}}</h3>
+    <h3>{{this.m}}</h3>
+    <h3>{{this.s}}</h3>
 
 
     <div class="contBTN">
@@ -29,12 +33,17 @@
       <h3 class="Precio" *ngIf="this.producto.Subasta==1">{{'plantillaProducto.precioFinal' |translate}}:
         {{producto.Precio}}€</h3>
 
-      <h3 class="Precio" *ngIf="this.producto.Subasta==1">{{'plantillaProducto.pujar' |translate}}: {{subasta.precioFinal}}€
+      <h3 class="Precio" *ngIf="this.producto.Subasta==1">{{'plantillaProducto.pujaAlta' |translate}}:
+        {{subasta.precioFinal}}€
       </h3>
+
+      
+
       <button class="btnCompra" [routerLink]="['/carrito', producto.idProducto]">{{'plantillaProducto.comprar'
         |translate}}</button>
 
-      <button class="btnCompra" *ngIf="this.producto.Subasta==1" (click)="pujar(this.subasta, this.producto, this.datosUsuario)">{{'plantillaProducto.pujar'
+      <button class="btnCompra" *ngIf="this.producto.Subasta==1"
+        (click)="pujar(this.subasta, this.producto, this.datosUsuario)">{{'plantillaProducto.pujar'
         |translate}}</button>
 
       <app-historial-pujas [subastaSelecc]="this.subasta.idSubasta"></app-historial-pujas>
