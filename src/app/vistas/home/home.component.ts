@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit {
   
             val.forEach((element: any) => {
               this.listaProductos.push(element);
+              this.printnum =numberid;
   
             });
           }
@@ -64,6 +65,9 @@ export class HomeComponent implements OnInit {
   
             val.forEach((element: any) => {
               this.listaProductos.push(element);
+              this.printnum =numberid;
+
+              
   
             });
           }
@@ -78,13 +82,10 @@ export class HomeComponent implements OnInit {
 
             val.forEach((element: any) => {
               this.listaProductos.push(element);
-
+              this.printnum =numberid;
             });
           }
         });
-        this.printnum =numberid;
-        console.log(this.printnum);
-        
       }
 
     } else if (numberid == 0) {
