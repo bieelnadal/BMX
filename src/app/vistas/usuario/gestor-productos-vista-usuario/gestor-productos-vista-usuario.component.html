@@ -12,19 +12,23 @@
         <h4 class="h4-nombre">{{prod.Nombre}}</h4><br><br><br>
         <h4 class="h4-precio">{{prod.Precio}}€</h4>
       </div>
-        <div class="desc">
-          <img class="img-table" src="{{prod.Imagen}}">
-          <label for="">{{'gestorProductosVistaUsuario.descripcion' |translate}}:</label>
-          <p>{{prod.Descripcion}}...</p>
-          <label for="">{{'gestorProductosVistaUsuario.fecha' |translate}}:</label>
-          <p>{{prod.Fecha}}</p>
-          <label for="">{{'gestorProductosVistaUsuario.categoria' |translate}}:</label>
-          <p>{{prod.nombreCategoria}}</p>
-          
+      <div class="desc">
+        <img class="img-table" src="{{prod.Imagen}}">
+        <label for="">{{'gestorProductosVistaUsuario.descripcion' |translate}}:</label>
+        <p>{{prod.Descripcion}}...</p>
+        <label for="">{{'gestorProductosVistaUsuario.fecha' |translate}}:</label>
+        <p>{{prod.Fecha}}</p>
+        <label for="">{{'gestorProductosVistaUsuario.categoria' |translate}}:</label>
+        <p>{{prod.nombreCategoria}}</p>
+
+      </div>
+      <div class="subsata?">
+        <h5 class="h5" *ngIf="prod.Subasta==0">{{'gestorProductosVistaUsuario.tipo.compra' |translate}}</h5>
+        <h5 class="h5" *ngIf="prod.Subasta==1">{{'gestorProductosVistaUsuario.tipo.subasta' |translate}}</h5><br><br>
+        <div *ngIf="prod.Estado==1">
+         <h4 class="vendido">Producto vendido</h4>
         </div>
-        <div class="subsata?">
-          <h5 class="h5" *ngIf="prod.Subasta==0">{{'gestorProductosVistaUsuario.tipo.compra' |translate}}</h5>
-          <h5 class="h5" *ngIf="prod.Subasta==1">{{'gestorProductosVistaUsuario.tipo.subasta' |translate}}</h5><br><br>
+        <div *ngIf="prod.Estado==0">
           <button class="button1">
             <app-borrar-producto [prodSelecc]="prod.idProducto"></app-borrar-producto>
           </button>
@@ -32,6 +36,7 @@
             <app-editar-producto-modal [prodSelecc]="prod"></app-editar-producto-modal>
           </button>
         </div>
+      </div>
     </div>
   </div>
 </div>
