@@ -207,6 +207,7 @@
   "tablaVerificarProductos.categoria": "Categoria",
   "tablaVerificarProductos.fecha": "Fecha",
   "tablaVerificarProductos.precio": "Precio",
+  "tablaVerificarProductos.tipo": "Tipo",
   "tablaVerificarProductos.imagen": "Imagen",
 
   "gestionUsuarios.gestion": "Gestión Usuarios",
@@ -225,6 +226,8 @@
   "gestionProductos.subasta": "Subasta",
   "gestionProductos.subasta.no": "No",
   "gestionProductos.subasta.si": "Si",
+  "gestionProductos.subasta.Compra": "Compra",
+  "gestionProductos.subasta.Subasta": "Subasta",
 
   "editarDireccion.nueva": "Nueva Direccion",
   "editarDireccion.predeterminado": "Predet.",

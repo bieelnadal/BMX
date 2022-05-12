@@ -105,13 +105,6 @@
       <h1 class="tineda" *ngIf="this.printnum ==7">{{'home.todocompra' | translate}}</h1>
       <div class="padre">
         <div class="centrar">
-
-
-
-
-
-
-
           <div class="card" *ngFor="let ProductoListado of listaProductos,  let i = index">
             <a [routerLink]="['/producto' ,ProductoListado.Nombre, ProductoListado.idProducto]" class="a_card">
 

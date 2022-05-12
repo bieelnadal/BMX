@@ -1,51 +1,65 @@
-
 <div class="container">
   <div class="row">
     <div class="col">
-    <h1>{{'tablaVerificarProductos.autentificar' |translate}}</h1>
-<table class="info-table">
-  <thead>
-    <tr>
-      <th></th>
-      <th>{{'tablaVerificarProductos.nombre' |translate}}</th>
-      <th>{{'tablaVerificarProductos.descripcion' |translate}}</th>
-      <th>{{'tablaVerificarProductos.categoria' |translate}}</th>
-      <th>{{'tablaVerificarProductos.fecha' |translate}}</th>
-      <th>{{'tablaVerificarProductos.precio' |translate}}</th>
-      <th>{{'tablaVerificarProductos.imagen' |translate}}</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let prod of listaProductosValidar; let i = index">
-      <td class="first"></td>
-      <td><h4>{{prod.Nombre}}</h4></td>
-      <td><h4>{{prod.Descripcion}}</h4></td>
-      <td><h4>{{prod.nombreCategoria}}</h4></td>
-      <td><h4>{{prod.Fecha}}</h4></td>
-      <td><h4>{{prod.Precio}}</h4></td>
-      <td><img class="img-table" src="{{prod.Imagen}}"></td>
-      <td class="last">
-        <button (click)="validarProducto(prod.idProducto)">
-          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg"
-            viewBox="0 0 16 16">
-            <path
-              d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
-          </svg>
-        </button>
-        <button (click)="denegarProducto(prod.idProducto)">
-          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg"
-            viewBox="0 0 16 16">
-            <path fill-rule="evenodd"
-              d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" />
-            <path fill-rule="evenodd"
-              d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z" />
-          </svg>
-        </button>
+      <h1>{{'tablaVerificarProductos.autentificar' |translate}}</h1>
+      <table class="info-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>{{'tablaVerificarProductos.nombre' |translate}}</th>
+            <th>{{'tablaVerificarProductos.descripcion' |translate}}</th>
+            <th>{{'tablaVerificarProductos.categoria' |translate}}</th>
+            <th>{{'tablaVerificarProductos.fecha' |translate}}</th>
+            <th>{{'tablaVerificarProductos.precio' |translate}}</th>
+            <th>{{'tablaVerificarProductos.tipo' |translate}}</th>
+            <th>{{'tablaVerificarProductos.imagen' |translate}}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prod of listaProductosValidar; let i = index">
+            <td class="first"></td>
+            <td>
+              <h4>{{prod.Nombre}}</h4>
+            </td>
+            <td>
+              <h4>{{prod.Descripcion}}</h4>
+            </td>
+            <td>
+              <h4>{{prod.nombreCategoria}}</h4>
+            </td>
+            <td>
+              <h4>{{prod.Fecha}}</h4>
+            </td>
+            <td>
+              <h4>{{prod.Precio}}</h4>
+            </td>
+            <td>
+              <h4 *ngIf="prod.Subasta==0">{{'gestionProductos.subasta.Compra' | translate}}</h4>
+              <h4 *ngIf="prod.Subasta==1">{{'gestionProductos.subasta.Subasta' | translate}}</h4>
+            </td>
+            <td><img class="img-table" src="{{prod.Imagen}}"></td>
+            <td class="last">
+              <button (click)="validarProducto(prod.idProducto)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                  class="bi bi-check-lg" viewBox="0 0 16 16">
+                  <path
+                    d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                </svg>
+              </button>
+              <button (click)="denegarProducto(prod.idProducto)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg"
+                  viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" />
+                  <path fill-rule="evenodd"
+                    d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z" />
+                </svg>
+              </button>
 
-      </td>
-    </tr>
-</table>
+            </td>
+          </tr>
+      </table>
     </div>
   </div>
 </div>

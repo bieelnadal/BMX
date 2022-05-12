@@ -207,6 +207,7 @@
   "tablaVerificarProductos.categoria":"Category",
   "tablaVerificarProductos.fecha":"Date",
   "tablaVerificarProductos.precio":"Price",
+  "tablaVerificarProductos.tipo": "Type",
   "tablaVerificarProductos.imagen":"Image",
 
   "gestionUsuarios.gestion":"User Management",
@@ -225,6 +226,8 @@
   "gestionProductos.subasta":"Auction",
   "gestionProductos.subasta.no":"No",
   "gestionProductos.subasta.si":"Yes",
+  "gestionProductos.subasta.Compra": "Sell",
+  "gestionProductos.subasta.Subasta": "Auction",
 
   "editarDireccion.nueva":"New Address",
   "editarDireccion.predeterminado":"Predet.",
