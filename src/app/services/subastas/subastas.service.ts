@@ -21,6 +21,7 @@ const URL_CREAR_PUJA = 'http://localhost:8080/subastas/crearPuja.php';
 
 const URL_OBTENER_PUJAS = 'http://localhost:8080/subastas/obtenerPujas.php';
 
+const URL_EDITAR_SUBASTA ="http://localhost:8080/subastas/editarSubasta.php";
 
 
 @Injectable({
@@ -54,6 +55,13 @@ export class SubastasService {
           });
       });
   }
+
+  editarSubasta(subasta: Subasta) {
+    console.log(subasta);
+
+    return this.http.put(URL_EDITAR_SUBASTA, JSON.stringify(subasta));
+  }
+
 
   obtenerProducto() {
     return this.http.get(URL_OBTENER_SUBASTAS);

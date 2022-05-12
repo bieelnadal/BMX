@@ -28,7 +28,7 @@
             <textarea formControlName="Descripcion"></textarea>
             <div *ngIf="form.Descripcion.errors">
                 <p *ngIf="form.Descripcion.errors.required">{{'editarProductoModal.descripcion.required' | translate}}.</p>
-            </div><br><br>  
+            </div><br><br>
 
             <label>{{'editarProductoModal.categoria' | translate}}</label><br>
             <select formControlName="idCategoria">
@@ -42,17 +42,7 @@
                 <p *ngIf="form.idCategoria.errors.required">{{'editarProductoModal.categoria.required' | translate}}.</p>
             </div><br><br>
 
-            <label for="" class="input-label">Precio de Compra</label><br>
-            <input type="number" maxlength="5" formControlName="Precio" class="" placeholder="Precio de Compra*"><br><br>
-            <div>
-              <div *ngIf="form.Precio.errors">
-                <p *ngIf="form.Precio.errors.required" class="color-validators">Campo obligatorio*</p>
-              </div>
-            </div>
-
             <label>{{'editarProductoModal.activo' | translate}}</label><br>
-            
-            
             <div>
                 <input type="radio" id="contactChoice1" formControlName="Activo" value="1"
                     [ngClass]="{ 'is-invalid': form.Activo.errors }">

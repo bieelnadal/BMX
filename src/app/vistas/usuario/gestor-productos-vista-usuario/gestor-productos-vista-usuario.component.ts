@@ -38,7 +38,7 @@ export class GestorProductosVistaUsuarioComponent implements OnInit {
 
   obtenerProductos() {
     this.listaProductos = [];
-    this.prodServ.obtenerProductosAdmin().subscribe((val: any) => {
+    this.prodServ.obtenerProductosUsuario().subscribe((val: any) => {
       this.producto = val;
       if (this.producto == null) {
       } else {
