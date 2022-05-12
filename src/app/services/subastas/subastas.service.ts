@@ -82,8 +82,6 @@ export class SubastasService {
     );
   }
 
-  obtenerComprador() { }
-
   obtenerPujas(idSubasta: any) {
     return this.http.get(URL_OBTENER_PUJAS + `?idSubasta=${idSubasta}`);
   }
@@ -103,6 +101,12 @@ export class SubastasService {
       
   }
 
+
+  subirGanador(){
+    
+  }
+
+
   swalPuja() {
     Swal.fire(
       'Producto creado!',
@@ -116,7 +120,7 @@ export class SubastasService {
   swalCreado() {
     Swal.fire(
       'Producto creado!',
-      '¡Se ha creado el nuevo Producto!',
+      '¡La subasta ha empezado!',
       'success'
     ).then((result) => {
       window.location.reload();

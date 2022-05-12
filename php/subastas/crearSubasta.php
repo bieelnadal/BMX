@@ -19,11 +19,10 @@ $response = new Result();
 $json = file_get_contents('php://input');
 $Subasta = json_decode($json);
 
-$mifecha = date('Y-m-d H:i:s');
 
 
 // query
-$queryInsert = "INSERT INTO `subasta`(`idComprador`, `precioInicial`, `precioFinal`, `vendido`, `fechaInicial`, `fechaFinal`, `idSubasta`, `idProducto`) VALUES ('$Subasta->idComprador','$Subasta->precioInicial','$Subasta->precioFinal',0,'$mifecha','$Subasta->fechaFinal',0,'$Subasta->idProducto')";
+$queryInsert = "INSERT INTO `subasta`(`idComprador`, `precioInicial`, `precioFinal`, `vendido`, `fechaInicial`, `fechaFinal`, `idSubasta`, `idProducto`) VALUES ('$Subasta->idComprador','$Subasta->precioInicial','$Subasta->precioFinal',0,'$Subasta->fechaInicial','$Subasta->fechaFinal',0,'$Subasta->idProducto')";
 
 
 $resInsert = mysqli_query($con, $queryInsert);

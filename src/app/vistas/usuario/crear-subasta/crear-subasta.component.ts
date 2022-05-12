@@ -14,6 +14,7 @@ import { Usuario } from 'src/app/interfaces/Usuario';
 import { Router } from '@angular/router';
 import { SubastasService } from 'src/app/services/subastas/subastas.service';
 
+
 @Component({
   selector: 'app-crear-subasta',
   templateUrl: './crear-subasta.component.html',
@@ -66,7 +67,7 @@ export class CrearSubastaComponent implements OnInit {
     private tokenServ: TokenSesionService,
     private subastaServ: SubastasService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.obtenerDatos();
@@ -110,7 +111,7 @@ export class CrearSubastaComponent implements OnInit {
   onSubmit(form: any) {
     let date: string = this.escogerDate();
     console.log(date);
-    
+
     this.submitted = true;
     if (
       this.crearSubastaForm.controls.pujaInicial.value >
@@ -121,6 +122,21 @@ export class CrearSubastaComponent implements OnInit {
       if (this.crearSubastaForm.valid) {
         let prod = {};
         let subasta = {};
+
+        let today = new Date();
+        const currentTime: string | any =
+          today.getFullYear() +
+          '-0' +
+          (today.getMonth() + 1) +
+          '-' +
+          today.getDate() +
+          ' ' +
+          today.getHours() +
+          ':' +
+          today.getMinutes() +
+          ':' +
+          today.getSeconds();
+
         prod = {
           idProducto: 0,
           idVendedor: this.datosUsuario.idUsuario,
@@ -138,10 +154,10 @@ export class CrearSubastaComponent implements OnInit {
           precioInicial: this.crearSubastaForm.controls.pujaInicial.value,
           precioFinal: this.crearSubastaForm.controls.pujaInicial.value,
           vendido: 0,
+          fechaInicial: currentTime,
           fechaFinal: date,
         };
         this.subastaServ.crearSubasta(prod, subasta);
-        
       } else {
       }
     }
@@ -150,26 +166,102 @@ export class CrearSubastaComponent implements OnInit {
   escogerDate(): string {
     let today = new Date();
 
-    let date: string = today.getFullYear() + "-0" + (today.getMonth() + 1) + "-" + today.getDate() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    let date: string =
+      today.getFullYear() +
+      '-0' +
+      (today.getMonth() + 1) +
+      '-' +
+      today.getDate() +
+      ' ' +
+      today.getHours() +
+      ':' +
+      today.getMinutes() +
+      ':' +
+      today.getSeconds();
     if (this.crearSubastaForm.controls.tiempoSubasta.value == 1) {
-      date = today.getFullYear() + "-0" + (today.getMonth() + 1) + "-" + today.getDate() + " " + (today.getHours() + 1) + ":" + today.getMinutes() + ":" + today.getSeconds();
+      date =
+        today.getFullYear() +
+        '-0' +
+        (today.getMonth() + 1) +
+        '-' +
+        today.getDate() +
+        ' ' +
+        (today.getHours() + 1) +
+        ':' +
+        today.getMinutes() +
+        ':' +
+        today.getSeconds();
     }
     if (this.crearSubastaForm.controls.tiempoSubasta.value == 2) {
-      date = today.getFullYear() + "-0" + (today.getMonth() + 1) + "-" + (today.getDate() + 1) + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      date =
+        today.getFullYear() +
+        '-0' +
+        (today.getMonth() + 1) +
+        '-' +
+        (today.getDate() + 1) +
+        ' ' +
+        today.getHours() +
+        ':' +
+        today.getMinutes() +
+        ':' +
+        today.getSeconds();
     }
     if (this.crearSubastaForm.controls.tiempoSubasta.value == 3) {
-      date = today.getFullYear() + "-0" + (today.getMonth() + 1) + "-" + (today.getDate() + 3) + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      date =
+        today.getFullYear() +
+        '-0' +
+        (today.getMonth() + 1) +
+        '-' +
+        (today.getDate() + 3) +
+        ' ' +
+        today.getHours() +
+        ':' +
+        today.getMinutes() +
+        ':' +
+        today.getSeconds();
     }
     if (this.crearSubastaForm.controls.tiempoSubasta.value == 4) {
-      date = today.getFullYear() + "-0" + (today.getMonth() + 1) + "-" + (today.getDate() + 7) + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      date =
+        today.getFullYear() +
+        '-0' +
+        (today.getMonth() + 1) +
+        '-' +
+        (today.getDate() + 7) +
+        ' ' +
+        today.getHours() +
+        ':' +
+        today.getMinutes() +
+        ':' +
+        today.getSeconds();
     }
     if (this.crearSubastaForm.controls.tiempoSubasta.value == 5) {
-      date = today.getFullYear() + "-0" + (today.getMonth() + 2) + "-" + today.getDate() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      date =
+        today.getFullYear() +
+        '-0' +
+        (today.getMonth() + 2) +
+        '-' +
+        today.getDate() +
+        ' ' +
+        today.getHours() +
+        ':' +
+        today.getMinutes() +
+        ':' +
+        today.getSeconds();
     }
     if (this.crearSubastaForm.controls.tiempoSubasta.value == 6) {
-      date = today.getFullYear() + "-0" + (today.getMonth() + 1) + "-" + today.getDate() + " " + today.getHours() + ":" + (today.getMinutes()+1) + ":" + today.getSeconds();
+      date =
+        today.getFullYear() +
+        '-0' +
+        (today.getMonth() + 1) +
+        '-' +
+        today.getDate() +
+        ' ' +
+        today.getHours() +
+        ':' +
+        (today.getMinutes() + 1) +
+        ':' +
+        today.getSeconds();
       console.log(date);
-      
     }
 
     return date;

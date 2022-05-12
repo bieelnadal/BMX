@@ -20,7 +20,8 @@
     <p class="descVendedor">
       {{'plantillaProducto.nombreVendedor' | translate}}: {{datosUsuario.Nombre}} {{datosUsuario.Apellidos}}
     </p>
-    <h2 class="titulo-tiempo">Tiempo Restante</h2>
+    <h2 class="titulo-tiempo" *ngIf="!this.finalizado">Tiempo Restante</h2>
+    <h2 class="titulo-tiempo" *ngIf="this.finalizado">Ha finalizado la subasta</h2>
     <div class="div-tiempo">
       <h3 class="tiempo" *ngIf="this.producto.Subasta==1"> {{this.d}} </h3>
       <h3 class="tiempo" *ngIf="this.producto.Subasta==1">: {{this.h}} </h3>

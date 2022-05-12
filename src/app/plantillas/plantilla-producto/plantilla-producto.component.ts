@@ -28,6 +28,8 @@ export class PlantillaProductoComponent implements OnInit {
 
   id: any;
 
+  finalizado:boolean  =false;
+
   producto: Producto = {
     idProducto: 0,
     idVendedor: 0,
@@ -77,7 +79,6 @@ export class PlantillaProductoComponent implements OnInit {
     this.nombreProducto = this._route.snapshot.paramMap.get('nombre');
     this.idProducto = this._route.snapshot.paramMap.get('id');
 
-    
     this.pasarIdProducto();
     this.updateCountdownTime(this.subasta.fechaFinal);
     this.id = setInterval(() => {
@@ -120,17 +121,33 @@ export class PlantillaProductoComponent implements OnInit {
       console.log(result.value);
       console.log(datosUsuario);
 
+      let today = new Date();
+      const currentTime: string | any =
+        today.getFullYear() +
+        '-0' +
+        (today.getMonth() + 1) +
+        '-' +
+        today.getDate() +
+        ' ' +
+        today.getHours() +
+        ':' +
+        today.getMinutes() +
+        ':' +
+        today.getSeconds();
+
       let puja: Puja = {
         idPuja: 0,
         idUsuario: datosUsuario,
         Precio: result.value,
-        Fecha: '',
+        Fecha: currentTime,
         idSubasta: subasta.idSubasta,
       };
 
+      console.log(result.value);
+      console.log(subasta.precioFinal);
+
       if (result.value > subasta.precioFinal) {
         this.subastaServ.crearPuja(puja);
-        console.log(datosUsuario);
       } else {
         Swal.fire({
           icon: 'error',
@@ -144,7 +161,6 @@ export class PlantillaProductoComponent implements OnInit {
   obtenerDatosUsuario() {
     this.datosUsuarioLogin = this.tokenServ.getUsuario();
     console.log(this.datosUsuario.idUsuario);
-    
   }
   fecha(fechaBd: any) {
     let today = new Date();
@@ -189,17 +205,36 @@ export class PlantillaProductoComponent implements OnInit {
 
     let remTime = fechaBase - current;
 
-    this.s = Math.floor(remTime / 1000);
-    this.m = Math.floor(this.s / 60);
-    this.h = Math.floor(this.m / 60);
-    this.d = Math.floor(this.h / 24);
+    if (current > fechaBase) {
+      this.finalizado = true;
 
-    this.h %= 24;
-    this.m %= 60;
-    this.s %= 60;
+      this.s='00';
+      this.h='00';
+      this.m='00';
+      this.d='00';
 
-    this.h = this.h < 10 ? '0' + this.h : this.h;
-    this.m = this.m < 10 ? '0' + this.m : this.m;
-    this.s = this.s < 10 ? '0' + this.s : this.s;
+      this.ganador();
+
+    } else {
+      this.finalizado = false;
+
+      this.s = Math.floor(remTime / 1000);
+      this.m = Math.floor(this.s / 60);
+      this.h = Math.floor(this.m / 60);
+      this.d = Math.floor(this.h / 24);
+
+      this.h %= 24;
+      this.m %= 60;
+      this.s %= 60;
+
+      this.h = this.h < 10 ? '0' + this.h : this.h;
+      this.m = this.m < 10 ? '0' + this.m : this.m;
+      this.s = this.s < 10 ? '0' + this.s : this.s;
+    }
+    
+  }
+
+  ganador(){
+    
   }
 }
