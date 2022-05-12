@@ -14,64 +14,100 @@ export class HomeComponent implements OnInit {
   opened = false;
   listaProductos: any[] = [];
   producto: any;
-  numberid :any;
+  numberid: any;
   printnum: any;
   buscadorInput!: FormGroup;
 
-  closeSidenav(){
-      this.opened = !this.opened;
-    }
+  closeSidenav() {
+    this.opened = !this.opened;
+  }
 
 
-  constructor(  
+  constructor(
     private ProductsService: ProductsService,
     public formBuilder: FormBuilder,
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.butttonid(0);
     console.log(this.listaProductos);
-    
-    
+
+
   }
 
 
 
-    butttonid(numberid:any){
-      
-      if (numberid !=0) {
-        this.listaProductos = [];
-        
+  butttonid(numberid: any) {
+
+    if (numberid != 0) {
+      this.listaProductos = [];
+
+
+      if (numberid == 6) { 
+        this.ProductsService.obtenersubasta().subscribe((val: any) => {
+          this.producto = val;
+          if (this.producto == null) {
+          } else {
+  
+            val.forEach((element: any) => {
+              this.listaProductos.push(element);
+              this.printnum =numberid;
+  
+            });
+          }
+        });
+
+      }else if(numberid == 7){
+        this.ProductsService.obtenerComprar().subscribe((val: any) => {
+          this.producto = val;
+          if (this.producto == null) {
+          } else {
+  
+            val.forEach((element: any) => {
+              this.listaProductos.push(element);
+              this.printnum =numberid;
+
+              
+  
+            });
+          }
+        });
+
+      } else {
         this.ProductsService.printarProductoId(numberid).subscribe((val: any) => {
           this.producto = val;
           if (this.producto == null) {
           } else {
             console.log(val);
-            
+
             val.forEach((element: any) => {
-                this.listaProductos.push(element);
-                
-            });
-          }
-        });
-         this.printnum = numberid;
-      } else if(numberid == 0){
-        this.listaProductos = [];
-        
-        this.ProductsService.obtenerProducto().subscribe((val: any) => {
-          this.producto = val;
-          if (this.producto == null) {
-          } else {
-            
-            val.forEach((element: any) => {
-                this.listaProductos.push(element);
-                
+              this.listaProductos.push(element);
+              this.printnum =numberid;
             });
           }
         });
       }
-      
+
+    } else if (numberid == 0) {
+      this.listaProductos = [];
+
+      this.ProductsService.obtenerProducto().subscribe((val: any) => {
+        this.producto = val;
+        if (this.producto == null) {
+        } else {
+
+          val.forEach((element: any) => {
+            this.listaProductos.push(element);
+
+          });
+        }
+      });
+
     }
+
+
+
+  }
 
 
 }

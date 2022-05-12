@@ -56,6 +56,10 @@ const URL_HISTORIAL_VENTAS = "http://localhost:8080/productos/historialVentas.ph
 
 const URL_PRINTAR_PRODUCTOS_ID ="http://localhost:8080/productos/printarProductosId.php";
 
+const URL_OBTENER_SUBASTA ="http://localhost:8080/productos/obtenerSubastas.php";
+
+const URL_OBTENER_COMPRAR ="http://localhost:8080/productos/obtenerCompar.php";
+
 @Injectable({
   providedIn: 'root',
 })
@@ -110,6 +114,14 @@ export class ProductsService {
 
   obtenerProducto() {
     return this.http.get(URL_OBTENER_PRODUCTO);
+  }
+
+  obtenersubasta() {
+    return this.http.get(URL_OBTENER_SUBASTA);
+  }
+
+  obtenerComprar() {
+    return this.http.get(URL_OBTENER_COMPRAR);
   }
 
   obtenerProductoValidar() {
