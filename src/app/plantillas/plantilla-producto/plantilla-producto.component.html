@@ -20,10 +20,10 @@
     <p class="descVendedor">
       {{'plantillaProducto.nombreVendedor' | translate}}: {{datosUsuario.Nombre}} {{datosUsuario.Apellidos}}
     </p>
-    <h3>{{this.d}}</h3>
-    <h3>{{this.h}}</h3>
-    <h3>{{this.m}}</h3>
-    <h3>{{this.s}}</h3>
+    <h3 class="" *ngIf="this.producto.Subasta==1">{{this.d}}</h3>
+    <h3 class="" *ngIf="this.producto.Subasta==1">{{this.h}}</h3>
+    <h3 class="" *ngIf="this.producto.Subasta==1">{{this.m}}</h3>
+    <h3 class="" *ngIf="this.producto.Subasta==1">{{this.s}}</h3>
 
 
     <div class="contBTN">

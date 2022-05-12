@@ -2,7 +2,7 @@
 class claseBD {
     private $servidor   = 'localhost';
     private $usuario    = 'root';
-    private $pass       = '';
+    private $pass       = 'usbw';
     private $bd         = 'projectebmx';
     private $con;
 

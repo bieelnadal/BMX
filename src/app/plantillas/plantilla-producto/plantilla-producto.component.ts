@@ -25,7 +25,6 @@ export class PlantillaProductoComponent implements OnInit {
 
   id: any;
 
-
   producto: Producto = {
     idProducto: 0,
     idVendedor: 0,
@@ -63,24 +62,21 @@ export class PlantillaProductoComponent implements OnInit {
     idAdmin: 0,
   };
 
-
   constructor(
     private _route: ActivatedRoute,
     private ProductsService: ProductsService,
     private subastaServ: SubastasService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.nombreProducto = this._route.snapshot.paramMap.get('nombre');
     this.idProducto = this._route.snapshot.paramMap.get('id');
     this.pasarIdProducto();
 
-
     this.updateCountdownTime(this.subasta.fechaFinal);
     this.id = setInterval(() => {
       this.updateCountdownTime(this.subasta.fechaFinal);
     }, 1000);
-
   }
 
   pasarIdProducto() {
@@ -96,7 +92,6 @@ export class PlantillaProductoComponent implements OnInit {
               this.subasta = val.data;
               this.updateCountdownTime(this.subasta.fechaFinal);
             });
-
         }
         this.idVendedor = this.producto.idVendedor;
         this.ProductsService.PasarVendedorId(this.idVendedor).subscribe(
@@ -106,12 +101,9 @@ export class PlantillaProductoComponent implements OnInit {
         );
       }
     );
-
   }
 
   pujar(subasta: any, producto: any, datosUsuario: any) {
-
-
     Swal.fire({
       text:
         '¿Cuánto dinero quieres pujar? Actualmente, la apuesta máxima es de ' +
@@ -130,43 +122,57 @@ export class PlantillaProductoComponent implements OnInit {
       };
 
       if (result.value > subasta.precioFinal) {
-
         this.subastaServ.crearPuja(puja);
       } else {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
           text: '¡Puja incorrecta!',
-        })
+        });
       }
-
-
     });
   }
-
 
   fecha(fechaBd: any) {
     let today = new Date();
 
-
-    let date: string = today.getFullYear() + "-0" + (today.getMonth() + 1) + "-" + today.getDate() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-
+    let date: string =
+      today.getFullYear() +
+      '-0' +
+      (today.getMonth() + 1) +
+      '-' +
+      today.getDate() +
+      ' ' +
+      today.getHours() +
+      ':' +
+      today.getMinutes() +
+      ':' +
+      today.getSeconds();
 
     if (fechaBd > date) {
-      console.log("mas alto");
+      console.log('mas alto');
     } else {
-      console.log("menor");
+      console.log('menor');
     }
-
   }
 
   updateCountdownTime(fechaBd: any) {
     let today = new Date();
-    const currentTime: string | any = today.getFullYear() + "-0" + (today.getMonth() + 1) + "-" + today.getDate() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    const currentTime: string | any =
+      today.getFullYear() +
+      '-0' +
+      (today.getMonth() + 1) +
+      '-' +
+      today.getDate() +
+      ' ' +
+      today.getHours() +
+      ':' +
+      today.getMinutes() +
+      ':' +
+      today.getSeconds();
 
     let fechaBase: any = new Date(fechaBd);
     let current: any = new Date(currentTime);
-
 
     let remTime = fechaBase - current;
 
@@ -179,13 +185,8 @@ export class PlantillaProductoComponent implements OnInit {
     this.m %= 60;
     this.s %= 60;
 
-    this.h = (this.h < 10) ? "0" + this.h : this.h;
-    this.m = (this.m < 10) ? "0" + this.m : this.m;
-    this.s = (this.s < 10) ? "0" + this.s : this.s;
-
+    this.h = this.h < 10 ? '0' + this.h : this.h;
+    this.m = this.m < 10 ? '0' + this.m : this.m;
+    this.s = this.s < 10 ? '0' + this.s : this.s;
   }
-
-
 }
-
-
