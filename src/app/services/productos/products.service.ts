@@ -60,6 +60,8 @@ const URL_OBTENER_SUBASTA ="http://localhost:8080/productos/obtenerSubastas.php"
 
 const URL_OBTENER_COMPRAR ="http://localhost:8080/productos/obtenerCompar.php";
 
+const URL_OBTENER_SUBASTA_ADMIN ="http://localhost:8080/productos/obtenerSubastasAdmin.php";
+
 @Injectable({
   providedIn: 'root',
 })
@@ -129,8 +131,11 @@ export class ProductsService {
   }
 
   obtenerProductosAdmin() {
-    console.log('Hola');
     return this.http.get(URL_OBTENER_PRODUCTO_ADMIN);
+  }
+
+  obtenerSubastaAdmin() {
+    return this.http.get(URL_OBTENER_SUBASTA_ADMIN);
   }
 
   borrarProducto(idProducto: any) {
