@@ -11,7 +11,10 @@
 
   "home.vender": "Vender",
   "home.subastar": "Subastar",
-  "home.buscar-categoria": "Buscar por categoria",
+  "home.buscar-categoria": "Comprar por categoria",
+  "home.categoria": "Categoria",
+  "home.todo-comprar": "Comprar",
+  "home.todo-subastar": "Subastar",
   "home.todo": "Todo",
   "home.vehiculos": "Vehículos",
   "home.relojes": "Relojes",
@@ -24,6 +27,8 @@
   "home.todosfotografia":"Fotografia",
   "home.todoselectrodomesticos":"Electrodomesticos",
   "home.todoropa": "Ropa",
+  "home.todoSubasta": "Subastar",
+  "home.todocompra": "Comprar",
 
   "plantillaProducto.descripcion": "Descripción del producto",
   "plantillaProducto.nombreVendedor": "Nombre del vendedor",

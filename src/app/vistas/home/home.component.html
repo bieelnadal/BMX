@@ -46,11 +46,22 @@
   </div>
 
   <mat-sidenav-container>
-    <mat-sidenav [(opened)]="opened" *ngIf="opened">
+    <mat-sidenav [(opened)]="opened" *ngIf="opened"><br>
       <h1 class="h1-desplegable">{{'home.buscar-categoria' | translate}}</h1>
+      <br>
       <ul>
         <li class="li-categoria"><button class="button-categoria" (click)="butttonid(0)">· {{'home.todo' |
             translate}}</button></li>
+        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(7)">· {{'home.todo-comprar' |
+            translate}}</button></li>
+        <li class="li-categoria"><button class="button-categoria" (click)="butttonid(6)">· {{'home.todo-subastar' |
+            translate}}</button></li>
+
+      </ul>
+      <br><br>
+      <h1 class="h1-desplegable">{{'home.buscar-categoria' | translate}}</h1>
+      <br>
+      <ul>
         <li class="li-categoria"><button class="button-categoria" (click)="butttonid(1)">· {{'home.vehiculos' |
             translate}}</button></li>
         <li class="li-categoria"><button class="button-categoria" (click)="butttonid(2)">· {{'home.relojes' |
@@ -83,13 +94,15 @@
       <!--contenido-->
       <br><br><br>
 
-        
+
       <h1 class="tineda" *ngIf="this.printnum ==null">{{'home.todos' | translate}}</h1>
       <h1 class="tineda" *ngIf="this.printnum ==1">{{'home.todosvehiculos' | translate}}</h1>
       <h1 class="tineda" *ngIf="this.printnum ==2">{{'home.todosrelojes' | translate}}</h1>
       <h1 class="tineda" *ngIf="this.printnum ==3">{{'home.todosfotografia' | translate}}</h1>
       <h1 class="tineda" *ngIf="this.printnum ==4">{{'home.todoselectrodomesticos' | translate}}</h1>
       <h1 class="tineda" *ngIf="this.printnum ==5">{{'home.todoropa' | translate}}</h1>
+      <h1 class="tineda" *ngIf="this.printnum ==6">{{'home.todoSubasta' | translate}}</h1>
+      <h1 class="tineda" *ngIf="this.printnum ==7">{{'home.todocompra' | translate}}</h1>
       <div class="padre">
         <div class="centrar">
 

@@ -11,8 +11,11 @@
 
   "home.vender": "Sell",
   "home.subastar": "Auction",
-  "home.buscar-categoria": "Search by Category",
+  "home.buscar-categoria": "Shop by Category",
+  "home.categoria": "Category",
   "home.todo": "Everything",
+  "home.todo-comprar": "Shop",
+  "home.todo-subastar": "Auction",
   "home.vehiculos": "Vehicles",
   "home.relojes": "Watches",
   "home.fotografia": "Cameras and Photography",
@@ -24,6 +27,8 @@
   "home.todosfotografia":"Photography",
   "home.todoselectrodomesticos":"Appliances",
   "home.todoropa": "Clothes",
+  "home.todoSubasta": "Auction",
+  "home.todocompra": "Shop",
 
   "plantillaProducto.descripcion": "Product description",
   "plantillaProducto.nombreVendedor": "Seller name",
