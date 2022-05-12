@@ -141,6 +141,7 @@ export class CrearSubastaComponent implements OnInit {
           fechaFinal: date,
         };
         this.subastaServ.crearSubasta(prod, subasta);
+        
       } else {
       }
     }
@@ -164,6 +165,9 @@ export class CrearSubastaComponent implements OnInit {
     }
     if (this.crearSubastaForm.controls.tiempoSubasta.value == 5) {
       date = today.getFullYear() + "-0" + (today.getMonth() + 2) + "-" + today.getDate() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    }
+    if (this.crearSubastaForm.controls.tiempoSubasta.value == 6) {
+      date = today.getFullYear() + "-0" + (today.getMonth() + 1) + "-" + today.getDate() + " " + today.getHours() + ":" + today.getMinutes() + ":" + (today.getSeconds()+30);
     }
 
     return date;
