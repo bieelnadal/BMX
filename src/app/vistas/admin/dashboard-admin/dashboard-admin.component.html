@@ -5,7 +5,6 @@
   <div class="sidebar">
 
     <div class="menu-sidebar"><button [routerLink]="['/home']" class="contenido-sidebar">{{'dashboard.home' | translate}}</button></div>
-    <div class="menu-sidebar"><button onclick="window.location.href='https://bielnadal.me/src/Acceder/login.php'" class="contenido-sidebar">{{'dashboard.soporte' | translate}}</button></div>
     <div class="menu-sidebar"><button class="contenido-sidebar" (click)="mostrarValidarProductos()">{{'dashboard.gestionProductos' | translate}}</button></div>
     <div *ngIf="this.flagGP">
       <button class="contenido-sidebar" (click)="mostrarTablaVerificacionProductos()" [disabled]="this.productosNoVerificados==0">{{'dashboard.validacionProductos' | translate}}</button>
