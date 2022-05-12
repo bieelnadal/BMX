@@ -112,6 +112,8 @@ export class PlantillaProductoComponent implements OnInit {
       input: 'number',
     }).then((result) => {
       console.log(result.value);
+      console.log(datosUsuario.idUsuario);
+      
 
       let puja: Puja = {
         idPuja: 0,
@@ -123,6 +125,7 @@ export class PlantillaProductoComponent implements OnInit {
 
       if (result.value > subasta.precioFinal) {
         this.subastaServ.crearPuja(puja);
+        window.location.reload();
       } else {
         Swal.fire({
           icon: 'error',

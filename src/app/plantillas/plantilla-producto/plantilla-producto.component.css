@@ -88,7 +88,6 @@ hr{
 }
 
 .contBTN{
-  padding-top: 15%;
   padding-bottom: 21.4%;
   align-items: center;
   position: relative;
@@ -102,4 +101,23 @@ hr{
   color: rgb(160, 160, 160);
   font-size: 15px;
   text-align: center;
+}
+
+.div-tiempo{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tiempo{
+  margin: 10px;
+}
+
+.titulo-tiempo{
+  margin-top: 50px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
