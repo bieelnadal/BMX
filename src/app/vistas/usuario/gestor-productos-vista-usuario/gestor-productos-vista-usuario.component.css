@@ -14,6 +14,12 @@ border-radius: 5px;
 margin: 15px;
 }
 
+.vendido{
+  float: right;
+  margin-right: 10px;
+  color: green;
+}
+
 .h4-nombre{
   color: var(--verdeprincipal);
   margin: 10px;
