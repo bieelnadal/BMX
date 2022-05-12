@@ -22,6 +22,7 @@ import { GuardService } from './services/guard/guard.service';
 import { CrearSubastaComponent } from './vistas/usuario/crear-subasta/crear-subasta.component';
 import { PoliticasComponent } from './plantillas/politicas/politicas.component';
 import { SobreNosotrosComponent } from './plantillas/sobre-Nosotros/sobre-Nosotros.component';
+import { GestionSubastasComponent } from './vistas/admin/gestion-subastas/gestion-subastas.component';
 
 
 const routes: Routes = [
@@ -46,7 +47,8 @@ const routes: Routes = [
   { path: 'subasta', component: PlantillaSubastaComponent,canActivate:[GuardService] },
   { path: 'crear-Subasta', component: CrearSubastaComponent, canActivate:[GuardService]},
   { path: 'politicas-privacidad', component: PoliticasComponent},
-  { path: 'sobre-nosotros', component: SobreNosotrosComponent}
+  { path: 'sobre-nosotros', component: SobreNosotrosComponent},
+  { path: 'gestion-subastas', component: GestionSubastasComponent}
 
 ];
 

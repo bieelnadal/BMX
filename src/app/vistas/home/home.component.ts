@@ -74,45 +74,4 @@ export class HomeComponent implements OnInit {
     }
 
 
-      //buscador
-  filtro: any;
-  ProductoBuscar: any;
-  splitArray: any;
-  i: any;
-  textoBuscador: any;
-  imputBuscador: any = undefined;
-
-  crearformInput() {
-    this.buscadorInput = this.formBuilder.group({
-      nombreBuscador: [''],
-    });
-  }
-
-  get nombreBuscador() {
-    return this.buscadorInput.get('nombreBuscador') as FormControl;
-  }
-
-  buscador(): any {
-    
-    this.nombreBuscador.valueChanges.subscribe((nombreBuscador) => {
-      this.imputBuscador = document.getElementById('buscadorId');
-      this.filtro = nombreBuscador.toUpperCase();
-      this.ProductoBuscar =
-        document.getElementsByClassName('NombreProducto');
-    
-      for (this.i = 0; this.i < this.ProductoBuscar.length; this.i++) {
-        var text = this.ProductoBuscar[this.i].innerText.split('\n');
-        if (text[0].toUpperCase().indexOf(this.filtro) > -1) {
-          this.ProductoBuscar[this.i].style.display = '';
-        } else {
-          this.ProductoBuscar[this.i].style.display = 'none';
-        }
-      }
-    });
-  }
-
-
-
-
-
 }

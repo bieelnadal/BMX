@@ -40,6 +40,7 @@ export class DashboardAdminComponent implements OnInit {
 
   gestionProductosVisual: boolean = false;
   gestionUsuariosVisual: boolean = false;
+  gestionSubastaVisual: boolean = false;
   gestionVerificacionProductos: boolean = false;
   historialVentasProductos: boolean = false;
 
@@ -86,6 +87,7 @@ export class DashboardAdminComponent implements OnInit {
       this.gestionUsuariosVisual = false;
       this.gestionVerificacionProductos = false;
       this.historialVentasProductos = false;
+      this.gestionSubastaVisual =false;
       this.flagGP = true;
     } else {
       this.gestionProductosVisual = false;
@@ -99,6 +101,7 @@ export class DashboardAdminComponent implements OnInit {
       this.gestionProductosVisual = false;
       this.gestionVerificacionProductos = false;
       this.historialVentasProductos = false;
+      this.gestionSubastaVisual =false;
       this.flagGU = true;
       this.flagGP = false;
     } else {
@@ -107,12 +110,29 @@ export class DashboardAdminComponent implements OnInit {
     }
   }
 
+
+  mostrarGestionSubastas() {
+    if (this.gestionSubastaVisual == false) {
+      this.gestionSubastaVisual = true;
+      this.gestionProductosVisual = false;
+      this.gestionVerificacionProductos = false;
+      this.historialVentasProductos = false;
+      this.flagGU = true;
+      this.flagGP = false;
+    } else {
+      this.gestionSubastaVisual = false;
+      this.flagGU = false;
+    }
+  }
+
+
   mostrarTablaVerificacionProductos() {
     if (this.gestionVerificacionProductos == false) {
       this.gestionVerificacionProductos = true;
       this.gestionUsuariosVisual = false;
       this.gestionProductosVisual = false;
       this.historialVentasProductos = false;
+      this.gestionSubastaVisual =false;
       this.flagGU = false;
       this.flagGP = true;
     } else {
@@ -128,6 +148,7 @@ export class DashboardAdminComponent implements OnInit {
       this.gestionProductosVisual = false;
       this.gestionVerificacionProductos = false;
       this.flagGU = false;
+      this.gestionSubastaVisual =false;
     } else {
       this.historialVentasProductos = false;
     }

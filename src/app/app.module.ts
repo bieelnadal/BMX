@@ -47,6 +47,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { SobreNosotrosComponent } from './plantillas/sobre-Nosotros/sobre-Nosotros.component';
 import { HistorialPujasComponent } from './plantillas/historial-pujas/historial-pujas.component';
+import { GestionSubastasComponent } from './vistas/admin/gestion-subastas/gestion-subastas.component';
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader{
@@ -87,6 +88,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader{
     PoliticasComponent,
     SobreNosotrosComponent,
     HistorialPujasComponent,
+    GestionSubastasComponent,
   ],
   imports: [
     BrowserModule,

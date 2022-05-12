@@ -14,7 +14,7 @@
     <div class="menu-sidebar"><button class="contenido-sidebar" (click)="mostrarGestionProductos()">{{'dashboard.gestionUsuarios' | translate}}</button></div>
     <div *ngIf="this.flagGU">
     </div>
-    <div class="menu-sidebar"><button class="contenido-sidebar" (click)="swalPronto()">{{'dashboard.gestionSubastas' | translate}}</button></div>
+    <div class="menu-sidebar"><button  class="contenido-sidebar" (click)="mostrarGestionSubastas()">{{'dashboard.gestionSubastas' | translate}}</button></div>
   </div>
 </div>
 <div class="separador2">
@@ -81,6 +81,10 @@
     </div>
     <div *ngIf="this.historialVentasProductos">
       <app-historial-ventas-admin></app-historial-ventas-admin>
+    </div>
+
+    <div *ngIf="this.gestionSubastaVisual">
+      <app-gestion-subastas></app-gestion-subastas>
     </div>
   </div>
 </div>
