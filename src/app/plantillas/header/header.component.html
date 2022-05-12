@@ -32,7 +32,6 @@
                     <ul class="dropdown" >
                         <li><a [routerLink]="['/perfil-usuario']" *ngIf="this.datosUsuario.idAdmin ==0">{{'header.perfil' | translate}}</a></li>
                         <li><a [routerLink]="['/perfil-admin']" *ngIf="this.datosUsuario.idAdmin ==1">{{'header.perfil' | translate}}</a></li>
-                        <li><a href="https://bielnadal.me/src/Acceder/login.php">{{'header.tiquets' |translate}}</a></li>
                         <li><a [routerLink]="['/gestion-prodcutos-Usuario']">{{'header.ventas' |translate}}</a></li>
                         <li><a [routerLink]="['/historial-ventas']">{{'header.pedidos' | translate}}</a></li>
                         <li><a (click)="swalSalir()" >{{'header.cerrarSesion' | translate}}</a></li>
