@@ -1,87 +1,95 @@
 <app-header></app-header>
-<h1>Empezar Subasta:</h1>
+<h1>{{'crearSubasta.titulo' | translate}}:</h1>
 <div class="centrar">
-  
-  <form [formGroup]="crearSubastaForm" (ngSubmit)="onSubmit(crearSubastaForm.value)">
-    
 
-    <label for="" class="input-label">Nombre</label>
+  <form [formGroup]="crearSubastaForm" (ngSubmit)="onSubmit(crearSubastaForm.value)">
+
+
+    <label for="" class="input-label">{{'crearSubasta.nombre' | translate}}</label>
     <input type="text" maxlength="100" formControlName="nombreProducto" class=""
-      placeholder="Nombre de la Subasta*"><br><br>
+      placeholder="{{'crearSubasta.nombre.placeholder' | translate}}"><br><br>
     <div>
       <div *ngIf="this.submitted && form.nombreProducto.errors">
-        <p *ngIf="form.nombreProducto.errors.required" class="color-validators">Campo obligatorio*</p>
-        <p *ngIf="form.nombreProducto.errors.minlength" class="color-validators">¡Ay! El nombre debe tener al menos 3
-          caracteres*</p>
+        <p *ngIf="form.nombreProducto.errors.required" class="color-validators">{{'crearSubasta.nombre.required' |
+          translate}}</p>
+        <p *ngIf="form.nombreProducto.errors.minlength" class="color-validators">{{'crearSubasta.nombre.minlength' |
+          translate}}</p>
       </div>
     </div>
 
-    <label for="" class="input-label">Descripción</label>
+    <label for="" class="input-label">{{'crearSubasta.descripcion' | translate}}</label>
     <input type="text" maxlength="500" formControlName="descripcionProducto" class=""
-      placeholder="Descripcion Subasta*"><br><br>
+      placeholder="{{'crearSubasta.descripcion.placeholder' | translate}}"><br><br>
     <div>
       <div *ngIf="this.submitted && form.descripcionProducto.errors">
-        <p *ngIf="form.descripcionProducto.errors.required" class="color-validators"> Campo obligatorio*</p>
-        <p *ngIf="form.descripcionProducto.errors.minlength" class="color-validators">¡Ay! La descripción del producto debe contener al
-          menos 5 caracteres*</p>
+        <p *ngIf="form.descripcionProducto.errors.required" class="color-validators">
+          {{'crearSubasta.descripcion.required' | translate}}</p>
+        <p *ngIf="form.descripcionProducto.errors.minlength" class="color-validators">
+          {{'crearSubasta.descripcion.minlength' | translate}}</p>
       </div>
     </div>
 
-    <label for="" class="input-label">Categoria</label>
+    <label for="" class="input-label">{{'crearSubasta.categoria' | translate}}</label>
     <select class="option-select" formControlName="categoria">
-      <option value="0" disabled class="option-select">Escoge una Categoria*</option>
-      <option value="1" class="option-select">Vehiculos</option>
-      <option value="2" class="option-select">Relojes</option>
-      <option value="3" class="option-select">Cámaras y fotografia</option>
-      <option value="4" class="option-select">Electrodomésticos</option>
-      <option value="5" class="option-select">Ropa</option>
+      <option value="0" disabled class="option-select">{{'crearSubasta.categoria.0' | translate}}</option>
+      <option value="1" class="option-select">{{'crearSubasta.categoria.1' | translate}}</option>
+      <option value="2" class="option-select">{{'crearSubasta.categoria.2' | translate}}</option>
+      <option value="3" class="option-select">{{'crearSubasta.categoria.3' | translate}}</option>
+      <option value="4" class="option-select">{{'crearSubasta.categoria.4' | translate}}</option>
+      <option value="5" class="option-select">{{'crearSubasta.categoria.5' | translate}}</option>
     </select><br><br>
     <div>
       <div *ngIf="this.submitted && form.categoria.errors">
-        <p *ngIf="form.categoria.errors.required" class="color-validators">Campo obligatorio*</p>
+        <p *ngIf="form.categoria.errors.required" class="color-validators">{{'crearSubasta.categoria.required' |
+          translate}}</p>
       </div>
     </div>
 
-    <label for="" class="input-label">Tiempo de subasta</label>
+    <label for="" class="input-label">{{'crearSubasta.tiempo' | translate}}</label>
     <select class="option-select" formControlName="tiempoSubasta">
-      <option value="0" selected disabled class="option-select">Escoge la duración de la subasta*</option>
-      <option value="1" class="option-select">1 hora</option>
-      <option value="2" class="option-select">1 dia</option>
-      <option value="3" class="option-select">3 dias</option>
-      <option value="4" class="option-select">7 dias</option>
-      <option value="5" class="option-select">30 dias</option>
-      <option value="6" class="option-select">30 segundos</option>
+      <option value="0" selected disabled class="option-select">{{'crearSubasta.tiempo.0' | translate}}</option>
+      <option value="6" class="option-select">{{'crearSubasta.tiempo.6' | translate}}</option>
+      <option value="1" class="option-select">{{'crearSubasta.tiempo.1' | translate}}</option>
+      <option value="2" class="option-select">{{'crearSubasta.tiempo.2' | translate}}</option>
+      <option value="3" class="option-select">{{'crearSubasta.tiempo.3' | translate}}</option>
+      <option value="4" class="option-select">{{'crearSubasta.tiempo.4' | translate}}</option>
+      <option value="5" class="option-select">{{'crearSubasta.tiempo.5' | translate}}</option>
     </select>
     <div>
       <div *ngIf="this.submitted && form.tiempoSubasta.errors">
-        <p *ngIf="form.tiempoSubasta.errors.required" class="color-validators">Campo obligatorio*</p>
+        <p *ngIf="form.tiempoSubasta.errors.required" class="color-validators">{{'crearSubasta.tiempo.required' |
+          translate}}</p>
       </div>
     </div>
 
-    <label for="" class="input-label">Puja Inicial</label>
-    <input type="number" maxlength="5" formControlName="pujaInicial" class="" placeholder="Precio Inicial Subasta*"><br><br>
+    <label for="" class="input-label">{{'crearSubasta.precioInicial' | translate}}</label>
+    <input type="number" maxlength="5" formControlName="pujaInicial" class=""
+      placeholder="{{'crearSubasta.precioInicial.placeholder' | translate}}"><br><br>
     <div>
       <div *ngIf="this.submitted && form.pujaInicial.errors">
-        <p *ngIf="form.pujaInicial.errors.required" class="color-validators">Campo obligatorio*</p>
+        <p *ngIf="form.pujaInicial.errors.required" class="color-validators">{{'crearSubasta.precioInicial.required' |
+          translate}}</p>
       </div>
     </div>
 
-    <label for="" class="input-label">Precio de Compra</label>
-    <input type="number" maxlength="5" formControlName="precioCompra" class="" placeholder="Precio de Compra*"><br><br>
+    <label for="" class="input-label">{{'crearSubasta.precioCompra' | translate}}</label>
+    <input type="number" maxlength="5" formControlName="precioCompra" class=""
+      placeholder="{{'crearSubasta.precioCompra.placeholder' | translate}}"><br><br>
     <div>
       <div *ngIf="this.submitted && form.precioCompra.errors">
-        <p *ngIf="form.precioCompra.errors.required" class="color-validators">Campo obligatorio*</p>
+        <p *ngIf="form.precioCompra.errors.required" class="color-validators">{{'crearSubasta.precioCompra.required' |
+          translate}}</p>
       </div>
     </div>
 
-    <label for="">Imagen</label><br>
+    <label for="">{{'crearSubasta.imagen' | translate}}</label><br>
     <input type="file" formControlName="imagenProducto" (change)="readURL($event)"><br><br>
     <div>
       <div *ngIf="this.submitted && form.imagenProducto.errors">
-        <p *ngIf="form.imagenProducto.errors.required" class="color-validators">Campo obligatorio*</p>
+        <p *ngIf="form.imagenProducto.errors.required" class="color-validators">{{'crearSubasta.imagen.required' |
+          translate}}</p>
       </div>
     </div>
-    <button type="submit" class="crear-ranking">Empezar Subasta</button>
+    <button type="submit" class="crear-ranking">{{'crearSubasta.crear' | translate}}</button>
   </form>
 </div>
-

@@ -23,6 +23,8 @@ const URL_OBTENER_PUJAS = 'http://localhost:8080/subastas/obtenerPujas.php';
 
 const URL_EDITAR_SUBASTA ="http://localhost:8080/subastas/editarSubasta.php";
 
+const URL_GANADOR_SUBASTA = "http://localhost:8080/subastas/ganadorSubasta.php";
+
 
 @Injectable({
   providedIn: 'root',
@@ -101,9 +103,9 @@ export class SubastasService {
       
   }
 
-
-  subirGanador(){
+  subirGanador(idSubasta:any, idProducto:any){
     
+    return this.http.get(URL_GANADOR_SUBASTA + `?idSubasta=${idSubasta}&idProducto=${idProducto}`);
   }
 
 

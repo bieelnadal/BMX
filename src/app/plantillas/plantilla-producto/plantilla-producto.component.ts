@@ -160,7 +160,7 @@ export class PlantillaProductoComponent implements OnInit {
 
   obtenerDatosUsuario() {
     this.datosUsuarioLogin = this.tokenServ.getUsuario();
-    console.log(this.datosUsuario.idUsuario);
+    console.log(this.datosUsuarioLogin.idUsuario);
   }
   fecha(fechaBd: any) {
     let today = new Date();
@@ -235,6 +235,19 @@ export class PlantillaProductoComponent implements OnInit {
   }
 
   ganador(){
+    console.log(this.subasta.idSubasta);
+    console.log(this.producto.idProducto);
     
+    
+    this.subastaServ.subirGanador(this.subasta.idSubasta, this.producto.idProducto).subscribe((val:any)=>{
+      if (val.resultado == 'error') {
+        console.log("error");
+        
+      } else {
+        console.log("bien");
+        
+
+      }
+    });
   }
 }
