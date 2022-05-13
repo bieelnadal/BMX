@@ -69,7 +69,7 @@
   "historialVentasAdmin.subasta.no": "No",
   "historialVentasAdmin.subasta.si": "Yes",
   "historialVentas.comprado": "type: selled",
-  "historialVentas.subastado": "tipo: Auctioned",
+  "historialVentas.subastado": "type: Auctioned",
 
   "editarProductoModal.titulo": "Edit user",
   "editarProductoModal.tituloProducto": "Edit Product",
