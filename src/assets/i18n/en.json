@@ -66,6 +66,8 @@
   "historialVentasAdmin.transaccion.4": "to the buyer with email",
   "historialVentasAdmin.subasta.no": "No",
   "historialVentasAdmin.subasta.si": "Yes",
+  "historialVentas.comprado": "type: selled",
+  "historialVentas.subastado": "tipo: Auctioned",
 
   "editarProductoModal.titulo": "Edit user",
   "editarProductoModal.tituloProducto": "Edit Product",

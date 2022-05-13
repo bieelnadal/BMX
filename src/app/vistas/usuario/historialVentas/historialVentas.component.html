@@ -14,6 +14,8 @@
                             <h4 class="p-venta"> {{prod.Precio}}€</h4><br><br><br><br>
                             <p class="desc-venta">{{prod.Descripcion}} ...</p>
                         </div>
+                        <h5 *ngIf="this.prod.Subasta == 1">{{'historialVentas.subastado' | translate}}</h5>
+                        <h5 *ngIf="this.prod.Subasta == 0">{{'historialVentas.comprado' | translate}}</h5>
                         <button (click)="desplegableVentas(prod)">{{'historialVentas.verMas' | translate}}<svg xmlns="http://www.w3.org/2000/svg"
                                 width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
                                 <path

@@ -153,6 +153,8 @@
   "historialVentas.nombreVendedor": "Nombre Vendedor",
   "historialVentas.emailVendedor": "Email Vendedor",
   "historialVentas.direccion": "Direccion de envio",
+  "historialVentas.comprado": "tipo: Comprado",
+  "historialVentas.subastado": "tipo: Subastado",
 
   "gestorProductosVistaUsuario.gestor": "Gestor Productos",
   "gestorProductosVistaUsuario.descripcion": "Descripcion",

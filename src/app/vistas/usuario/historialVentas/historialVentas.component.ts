@@ -97,6 +97,8 @@ export class HistorialVentasComponent implements OnInit {
         
         val.forEach((element: any) => {
             this.listaProductos.push(element);
+            console.log(this.listaProductos);
+            
         }); 
       }
     });
