@@ -180,9 +180,9 @@ export class ProductsService {
     );
   }
 
-  PasarVendedorId(idVendedor: any) {
+  PasarVendedorId(idVendedor: any) { 
     return this.http.get(
-      URL_OBTENER_VENDEDOR_ID + `?idDireccion=${idVendedor}`
+      URL_OBTENER_VENDEDOR_ID + `?idVendedor=${idVendedor}`
     );
   }
 

@@ -22,7 +22,7 @@ $response = new Result();
 global $datos;
 
 // query
-$query = "SELECT * FROM `usuarios` WHERE idUsuario ='$_GET[idDireccion]'";
+$query = "SELECT * FROM `usuarios` WHERE idUsuario ='$_GET[idVendedor]'";
 $registros = mysqli_query($con, $query);
 
 // si la query ha sido correcta hacemos fetch

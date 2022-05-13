@@ -55,6 +55,18 @@ export class CarritoComponent implements OnInit {
     idAdmin: 1,
   };
 
+  datosVendedor: Usuario = {
+    idUsuario: 0,
+    Nombre: '',
+    Apellidos: '',
+    Email: '',
+    Passcode: '',
+    idDireccion: 0,
+    Imagen: '',
+    DNI: '',
+    idAdmin: 1,
+  };
+
   cojerDireccion:Direccion ={
     idDireccion: 0,
     Direccion: '',
@@ -93,6 +105,7 @@ export class CarritoComponent implements OnInit {
     this.pasarIdProducto();
     this.obtenerDirecciones();
     this.pasarIdUsuairoId();
+    
   }
 
   obtenerDatos() {
@@ -119,11 +132,22 @@ export class CarritoComponent implements OnInit {
     });
   }
 
+  obtenerIdVendedor(){
+    this.ProductsService.PasarVendedorId(this.idVendedor).subscribe(
+      (val: any) => {
+        this.datosVendedor = val.data;
+        
+      }
+    );
+  }
 
 
   pasarIdProducto() {
     this.ProductsService.PasarProductoId(this.idProducto).subscribe((val: any) => {
       this.producto = val.data;
+      this.idVendedor=this.producto.idVendedor;
+      this.obtenerIdVendedor();
+      
 
     });
   }
@@ -133,6 +157,7 @@ export class CarritoComponent implements OnInit {
       this.producto = val.data;
          
     });
+  
   } 
   /*cojer usuario direccion*/ 
 
@@ -191,8 +216,6 @@ export class CarritoComponent implements OnInit {
     }
   this.ProductsService.registrarCarrito(this.carrito);
   this.router.navigate(['home']);   
-
-
   }
 
 

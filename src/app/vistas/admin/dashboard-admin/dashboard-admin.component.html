@@ -23,20 +23,17 @@
       <div class="separador-divs">
         <div class="retangulo">
           <h2>{{'dashboard.clientesRegistrados' | translate}}</h2>
-          <div class="centrar-grafico">
-            <div class="piechart">
+
               <div class="contenido-grafico-texto">
-                <h3>{{this.totalUsuarios}}</h3>
+                <h3>{{this.totalUsuarios}} Clientes</h3>
               </div>
-            </div>
-          </div>
+
         </div>
         <div class="retangulo">
           <h2>{{'dashboard.productosVenta' | translate}}</h2>
-          <div class="centrar-grafico">
-            <div class="piechart">
+
               <div class="contenido-grafico-texto">
-                <h3>{{this.totalProductos}}</h3>
+                <h3>{{this.totalProductos}} Productos</h3>
                 <button (click)="mostrarTablaVerificacionProductos()" type="button" class="btn btn-warning" *ngIf="this.productosNoVerificados>0"><svg
                     xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
@@ -45,22 +42,17 @@
                     <path
                       d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z" />
                   </svg>{{'dashboard.noverificados.1' | translate}} {{this.productosNoVerificados}} {{'dashboard.noverificados.2' | translate}}</button>
-              </div>
-
-            </div>
           </div>
 
         </div>
         <div class="retangulo">
           <h2>{{'dashboard.productosSubasta' | translate}}</h2>
-          <div class="centrar-grafico">
-            <div class="piechart">
+
               <div class="contenido-grafico-texto">
-                <h3>{{this.totalProductosSubasta}}</h3>
+                <h3>{{this.totalProductosSubasta}} Subastas</h3>
               </div>
 
-            </div>
-          </div>
+
 
         </div>
       </div>
