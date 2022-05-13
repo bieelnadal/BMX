@@ -116,10 +116,15 @@
                 </div>
               </div>
               <h1 class="NombreProducto">{{ProductoListado.Nombre}}</h1>
-              <p>{{ProductoListado.Descripcion}}</p>
-              <p class="price">{{ProductoListado.Precio}}€</p>
+              <p class="Descripcion">{{ProductoListado.Descripcion}}</p>
+
+              <div *ngIf="this.ProductoListado.Subasta == 0">
+                <p class="price">{{ProductoListado.Precio}}€</p>
+              </div>
+
               <div *ngIf="this.ProductoListado.Subasta == 1">
-                <p>o Mejor oferta</p>
+                <p class="price">Precio de compra directa : {{ProductoListado.Precio}}€</p>
+                <p>Producto en subasta</p>
               </div>
             </a>
           </div>

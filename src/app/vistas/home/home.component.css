@@ -287,3 +287,7 @@ color: rgb(45, 44, 44);
    text-align: center;
    color: var(--dorado);
  }
+
+ .Descripcion{
+   padding: 0px 50px 0px 50px;
+ }
