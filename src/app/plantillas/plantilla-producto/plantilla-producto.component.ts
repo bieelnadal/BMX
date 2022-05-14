@@ -28,7 +28,7 @@ export class PlantillaProductoComponent implements OnInit {
 
   id: any;
 
-  finalizado:boolean  =false;
+  finalizado: boolean = false;
 
   producto: Producto = {
     idProducto: 0,
@@ -72,7 +72,7 @@ export class PlantillaProductoComponent implements OnInit {
     private ProductsService: ProductsService,
     private subastaServ: SubastasService,
     private tokenServ: TokenSesionService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.obtenerDatosUsuario();
@@ -145,7 +145,6 @@ export class PlantillaProductoComponent implements OnInit {
 
       console.log(result.value);
       console.log(subasta.precioFinal);
-
       if (result.value > subasta.precioFinal) {
         this.subastaServ.crearPuja(puja);
       } else {
@@ -155,6 +154,7 @@ export class PlantillaProductoComponent implements OnInit {
           text: '¡Puja incorrecta!',
         });
       }
+
     });
   }
 
@@ -208,10 +208,10 @@ export class PlantillaProductoComponent implements OnInit {
     if (current > fechaBase) {
       this.finalizado = true;
 
-      this.s='00';
-      this.h='00';
-      this.m='00';
-      this.d='00';
+      this.s = '00';
+      this.h = '00';
+      this.m = '00';
+      this.d = '00';
 
       this.ganador();
 
@@ -231,21 +231,21 @@ export class PlantillaProductoComponent implements OnInit {
       this.m = this.m < 10 ? '0' + this.m : this.m;
       this.s = this.s < 10 ? '0' + this.s : this.s;
     }
-    
+
   }
 
-  ganador(){
+  ganador() {
     console.log(this.subasta.idSubasta);
     console.log(this.producto.idProducto);
-    
-    
-    this.subastaServ.subirGanador(this.subasta.idSubasta, this.producto.idProducto).subscribe((val:any)=>{
+
+
+    this.subastaServ.subirGanador(this.subasta.idSubasta, this.producto.idProducto).subscribe((val: any) => {
       if (val.resultado == 'error') {
         console.log("error");
-        
+
       } else {
         console.log("bien");
-        
+
 
       }
     });

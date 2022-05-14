@@ -42,10 +42,10 @@
 
 
 
-      <button class="btnCompra" [routerLink]="['/carrito', producto.idProducto]">{{'plantillaProducto.comprar'
+      <button class="btnCompra" [routerLink]="['/carrito', producto.idProducto]" [disabled]="this.producto.Estado==1 || this.datosUsuarioLogin.idUsuario == this.producto.idVendedor">{{'plantillaProducto.comprar'
         |translate}}</button>
 
-      <button class="btnCompra" *ngIf="this.producto.Subasta==1"
+      <button class="btnCompra" *ngIf="this.producto.Subasta==1" [disabled]="this.producto.Estado==1 || this.datosUsuarioLogin.idUsuario == this.producto.idVendedor"
         (click)="pujar(this.subasta, this.datosUsuarioLogin.idUsuario)">{{'plantillaProducto.pujar'
         |translate}}</button>
 
