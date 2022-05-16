@@ -25,7 +25,7 @@
           <h2>{{'dashboard.clientesRegistrados' | translate}}</h2>
 
               <div class="contenido-grafico-texto">
-                <h3>{{this.totalUsuarios}} Clientes</h3>
+                <h3>{{this.totalUsuarios}} {{'dashboard.clientes' | translate}}</h3>
               </div>
 
         </div>
@@ -33,7 +33,7 @@
           <h2>{{'dashboard.productosVenta' | translate}}</h2>
 
               <div class="contenido-grafico-texto">
-                <h3>{{this.totalProductos}} Productos</h3>
+                <h3>{{this.totalProductos}} {{'dashboard.productos' | translate}}</h3>
                 <button (click)="mostrarTablaVerificacionProductos()" type="button" class="btn btn-warning" *ngIf="this.productosNoVerificados>0"><svg
                     xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
@@ -49,7 +49,7 @@
           <h2>{{'dashboard.productosSubasta' | translate}}</h2>
 
               <div class="contenido-grafico-texto">
-                <h3>{{this.totalProductosSubasta}} Subastas</h3>
+                <h3>{{this.totalProductosSubasta}} {{'dashboard.subastas' | translate}}</h3>
               </div>
 
 

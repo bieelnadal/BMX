@@ -26,7 +26,7 @@
         <h5 class="h5" *ngIf="prod.Subasta==0">{{'gestorProductosVistaUsuario.tipo.compra' |translate}}</h5>
         <h5 class="h5" *ngIf="prod.Subasta==1">{{'gestorProductosVistaUsuario.tipo.subasta' |translate}}</h5><br><br>
         <div *ngIf="prod.Estado==1">
-         <h4 class="vendido">Producto vendido</h4>
+         <h4 class="vendido">{{'gestorProductosVistaUsuario.vendido' | translate}}</h4>
         </div>
         <div *ngIf="prod.Estado==0">
           <button class="button1">
