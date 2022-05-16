@@ -15,7 +15,6 @@ export class GuardService implements CanActivate  {
   canActivate(): boolean {
     if (!this.authService.isAuthenticated()) {
       this.swal();
-   //   this.router.navigate(['login']);
       return false;
     }
     return true;
