@@ -253,7 +253,7 @@
   "editarDireccion.codigoPostal": "Codigo Postal",
   "editarDireccion.codigoPostal.placeholder": "Codigo Postal",
   "editarDireccion.codigoPostal.required": "Mmmmm... parece que este campo es obligatorio*",
-  "ediatDireccion.value": "Añadir Dirección",
+  "editarDireccion.value": "Añadir Dirección",
 
   "editarDatosUsuarioModal.titulo": "Editar Usuario",
   "editarDatosUsuarioModal.nombre": "Nombre",
