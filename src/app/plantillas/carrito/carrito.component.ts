@@ -199,7 +199,7 @@ export class CarritoComponent implements OnInit {
       this.carrito.idDireccion = this.cojerDireccion.idDireccion;
       this.carrito.emailCompador = this.datosUsuario.Email;
       this.carrito.emailVendedor = this.datosUsuario.Email;
-      this.carrito.IdVendedor = this.datosUsuario.idUsuario;
+      this.carrito.IdVendedor = this.datosVendedor.idUsuario;
       
 
     } else {
@@ -210,7 +210,7 @@ export class CarritoComponent implements OnInit {
       this.carrito.idDireccion = this.idDireccion;
       this.carrito.emailCompador = this.datosUsuario.Email;
       this.carrito.emailVendedor = this.datosUsuario.Email;
-      this.carrito.IdVendedor = this.datosUsuario.idUsuario;
+      this.carrito.IdVendedor = this.datosVendedor.idUsuario;
 
       
     }

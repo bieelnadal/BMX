@@ -187,6 +187,8 @@ export class ProductsService {
   }
 
   PasarHistorialVenta(idVendedor: any) {
+    console.log(idVendedor);
+    
     return this.http.get(URL_HISTORIAL_VENTAS_ID + `?idVendedor=${idVendedor}`);
   }
 

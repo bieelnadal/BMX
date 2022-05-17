@@ -66,6 +66,16 @@ export class HistorialVentasComponent implements OnInit {
     emailCompador: '',
     emailVendedor: '',
   }
+  idcarrito: Carrito = {
+    idCarrito: 0,
+    Precio: 0,
+    idUsuario: 0,
+    idProducto: 0,
+    idDireccion: 0,
+    IdVendedor: 0,
+    emailCompador: '',
+    emailVendedor: '',
+  }
 
 
   constructor(
@@ -78,6 +88,9 @@ export class HistorialVentasComponent implements OnInit {
   ngOnInit() {
     this.obtenerDatos();
     this.idVendedor =this.datosUsuario.idUsuario;
+    console.log(this.idVendedor);
+    
+    
     this.pasarIdProducto();
     
 
@@ -91,7 +104,7 @@ export class HistorialVentasComponent implements OnInit {
   pasarIdProducto() {
     this.listaProductos = [];
     this.ProductsService.PasarHistorialVenta(this.idVendedor).subscribe((val: any) => {
-      this.producto = val;
+      this.producto = val;   
       if (this.producto == null) {
       } else {
         

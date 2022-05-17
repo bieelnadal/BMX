@@ -117,6 +117,7 @@ export class DashboardAdminComponent implements OnInit {
       this.gestionProductosVisual = false;
       this.gestionVerificacionProductos = false;
       this.historialVentasProductos = false;
+      this.gestionUsuariosVisual =false;
       this.flagGU = true;
       this.flagGP = false;
     } else {

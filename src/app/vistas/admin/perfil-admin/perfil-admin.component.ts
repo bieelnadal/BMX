@@ -5,6 +5,8 @@ import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.se
 import { Usuario } from 'src/app/interfaces/Usuario';
 import { AuthService } from 'src/app/services/autentificacion/auth.service';
 import { Router } from '@angular/router';
+import { DireccService } from 'src/app/services/direcciones/direcc.service';
+import { Direccion } from 'src/app/interfaces/Direccion';
 
 @Component({
   selector: 'app-perfil-admin',
@@ -24,6 +26,17 @@ export class PerfilAdminComponent implements OnInit {
     idAdmin: 1,
   };
 
+
+  cojerDireccion:Direccion ={
+    idDireccion: 0,
+    Direccion: '',
+    Pais: 0,
+    Localidad: '',
+    codigoPostal: 0,
+    idUsuario: 0,
+    Predeterminado:0,
+  }
+
   direciones!: FormGroup;
 
   constructor(
@@ -32,6 +45,7 @@ export class PerfilAdminComponent implements OnInit {
     private tokenServ: TokenSesionService,
     private authServ: AuthService,
     private router: Router,
+    private direccService: DireccService,
   ) { }
 
   mostrarDesplegableVisual: boolean = false;
@@ -55,7 +69,17 @@ export class PerfilAdminComponent implements OnInit {
 
   obtenerDatos() {
     this.datosUsuario = this.tokenServ.getUsuario();
+    this.pasarIdUsuairoId();
   }
+
+  pasarIdUsuairoId() {
+    this.direccService.obtenerUsuarioId(this.datosUsuario.idUsuario).subscribe((val: any) => {
+      this.cojerDireccion = val.data;
+
+    });
+  }
+
+
 
   cerrarSesion() {
     this.authServ.cerrarSesion();

@@ -22,7 +22,7 @@
         <br>
         <p class="info-perfil">{{'perfilAdmin.email' |translate}}: {{this.datosUsuario.Email}}</p>
         <br>
-        <p class="info-perfil">{{'perfilAdmin.direccion' |translate}}: {{this.datosUsuario.Nombre}}</p>
+        <p class="info-perfil" *ngIf="this.cojerDireccion.Direccion !=null">{{'perfilAdmin.direccion' |translate}}: {{this.cojerDireccion.Direccion}}</p>
       </div>
     </div>
     <div class="alinar-contenido">
