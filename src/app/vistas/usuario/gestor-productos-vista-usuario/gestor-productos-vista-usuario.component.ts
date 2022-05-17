@@ -3,6 +3,8 @@ import { Usuario } from 'src/app/interfaces/Usuario';
 import { UsersService } from 'src/app/services/usuarios/users.service';
 import { Producto } from 'src/app/interfaces/Productos';
 import { ProductsService } from 'src/app/services/productos/products.service';
+import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.service';
+
 
 @Component({
   selector: 'app-gestor-productos-vista-usuario',
@@ -10,6 +12,7 @@ import { ProductsService } from 'src/app/services/productos/products.service';
   styleUrls: ['./gestor-productos-vista-usuario.component.css']
 })
 export class GestorProductosVistaUsuarioComponent implements OnInit {
+
   datosProducto: Producto = {
     idProducto: 0,
     idVendedor: 0,
@@ -24,16 +27,59 @@ export class GestorProductosVistaUsuarioComponent implements OnInit {
     Subasta: 0,
   };
 
+  
+  datosUsuario: Usuario = {
+    idUsuario: 0,
+    Nombre: '',
+    Apellidos: '',
+    Email: '',
+    Passcode: '',
+    idDireccion: 0,
+    Imagen: '',
+    DNI: '',
+    idAdmin: 1,
+  };
+
   listaProductos: any[] = [];
   producto: any;
+  idVendedor:any;
+
 
   constructor(
-    private userServ: UsersService,
-    private prodServ: ProductsService
+    private prodServ: ProductsService,
+    private tokenServ: TokenSesionService,
   ) {}
 
   ngOnInit() {
-    this.obtenerProductos();
+    this.obtenerDatos();
+    this.idVendedor =this.datosUsuario.idUsuario;
+    this.pasarIdProducto();
+    console.log(this.listaProductos);
+    
+    //this.obtenerProductos();
+  }
+
+  obtenerDatos() {
+    this.datosUsuario = this.tokenServ.getUsuario();
+
+  }
+
+  pasarIdProducto() {
+    this.listaProductos = [];
+    console.log(this.idVendedor);
+    
+    this.prodServ.PasarMisVenta(this.idVendedor).subscribe((val: any) => {
+      this.producto = val;   
+      if (this.producto == null) {      
+      } else {
+        
+        val.forEach((element: any) => {
+            this.listaProductos.push(element);
+
+            
+        }); 
+      }
+    });
   }
 
   obtenerProductos() {

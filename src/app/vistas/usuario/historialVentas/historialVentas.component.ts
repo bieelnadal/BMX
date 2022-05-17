@@ -103,9 +103,13 @@ export class HistorialVentasComponent implements OnInit {
   
   pasarIdProducto() {
     this.listaProductos = [];
+    console.log(this.idVendedor);
+    
     this.ProductsService.PasarHistorialVenta(this.idVendedor).subscribe((val: any) => {
       this.producto = val;   
       if (this.producto == null) {
+        console.log(this.producto);
+        
       } else {
         
         val.forEach((element: any) => {

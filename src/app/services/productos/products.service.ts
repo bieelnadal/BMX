@@ -64,6 +64,8 @@ const URL_OBTENER_SUBASTA_ADMIN ="http://localhost:8080/productos/obtenerSubasta
 
 const URL_OBTENER_PRODUCTO_USUARIO ="http://localhost:8080/productos/obtenerProductosUsuario.php";
 
+const URL_OBTENER_PRODUCTO_MIS_VENTAS ="http://localhost:8080/productos/obtenerMisVentas.php";
+
 @Injectable({
   providedIn: 'root',
 })
@@ -187,9 +189,11 @@ export class ProductsService {
   }
 
   PasarHistorialVenta(idVendedor: any) {
-    console.log(idVendedor);
-    
     return this.http.get(URL_HISTORIAL_VENTAS_ID + `?idVendedor=${idVendedor}`);
+  }
+
+  PasarMisVenta(idVendedor: any) {
+    return this.http.get(URL_OBTENER_PRODUCTO_MIS_VENTAS + `?idVendedor=${idVendedor}`);
   }
 
 
