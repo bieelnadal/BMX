@@ -22,10 +22,6 @@ a {
   text-decoration: none;
 }
 
-strong {
-  font-weight: bold;
-}
-
 p {
   margin: 0.75rem 0 0;
   font-size: 15px;
@@ -44,14 +40,6 @@ input,
 button {
   border: 0 none;
   outline: 0 none;
-}
-
-button {
-
-}
-
-button:hover,
-button:focus {
 }
 
 img,
@@ -88,9 +76,9 @@ button,
   display: none;
 }
 
-.titulo-carrito{
-    color: var(--dorado);
-    font-size: 30px;
+.titulo-carrito {
+  color: var(--dorado);
+  font-size: 30px;
 }
 
 main {
@@ -123,29 +111,6 @@ label {
   margin-bottom: 0.3125rem;
 }
 
-.promo-code-field {
-  border: 1px solid #ccc;
-  padding: 0.5rem;
-  text-transform: uppercase;
-  transition: all 0.2s linear;
-  width: 48%;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-  -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-}
-
-.promo-code-field:hover,
-.promo-code-field:focus {
-  border: 1px solid #999;
-}
-
-.promo-code-cta {
-  border-radius: 4px;
-  font-size: 0.625rem;
-  margin-left: 0.625rem;
-  padding: 0.6875rem 1.25rem 0.625rem;
-}
 
 .basket-labels {
   border-top: 1px solid #ccc;
@@ -166,24 +131,13 @@ li {
   font-size: 20px;
 }
 
-li.price:before,
-li.subtotal:before {
-  content: '';
-}
-
 .item {
   width: 55%;
 }
 
-.price,
-.quantity,
-.subtotal {
+.price {
   width: 15%;
   font-size: 20px;
-}
-
-.subtotal {
-  text-align: right;
 }
 
 .remove {
@@ -235,14 +189,6 @@ li.subtotal:before {
   box-sizing: border-box;
 }
 
-.quantity-field {
-  background-color: #ccc;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  font-size: 0.625rem;
-  padding: 2px;
-  width: 3.75rem;
-}
 
 aside {
   float: right;
@@ -268,7 +214,6 @@ aside {
   text-align: center;
 }
 
-.summary-subtotal,
 .summary-total {
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
@@ -278,42 +223,14 @@ aside {
   padding: 0.5rem 0;
 }
 
-.subtotal-title,
-.subtotal-value,
 .total-title,
-.total-value,
-.promo-title,
-.promo-value {
+.total-value {
   color: #111;
   float: left;
   width: 50%;
   font-size: 20px;
 }
 
-.summary-promo {
-  -webkit-transition: all .3s ease;
-  -moz-transition: all .3s ease;
-  -o-transition: all .3s ease;
-  transition: all .3s ease;
-}
-
-.promo-title {
-  float: left;
-  width: 70%;
-}
-
-.promo-value {
-  color: #8B0000;
-  float: left;
-  text-align: right;
-  width: 30%;
-}
-
-.summary-delivery {
-  padding-bottom: 3rem;
-}
-
-.subtotal-value,
 .total-value {
   text-align: right;
 }
@@ -340,18 +257,8 @@ aside {
   color: white;
 }
 
-.summary-delivery-selection {
-  border: 1px solid #eee;
-  border-radius: 4px;
-  display: block;
-  font-size: 0.625rem;
-  height: 34px;
-  width: 100%;
-}
-
-
-
 @media screen and (max-width: 640px) {
+
   aside,
   .basket,
   .summary,
@@ -359,41 +266,42 @@ aside {
   .remove {
     width: 100%;
   }
+
   .basket-labels {
     display: none;
   }
+
   .basket-module {
     margin-bottom: 1rem;
   }
+
   .item {
     margin-bottom: 1rem;
   }
+
   .product-image {
     width: 40%;
   }
+
   .product-details {
     width: 60%;
   }
-  .price,
-  .subtotal {
+
+  .price {
     width: 33%;
   }
-  .quantity {
-    text-align: center;
-    width: 34%;
-  }
-  .quantity-field {
-    float: none;
-  }
+
   .remove {
     bottom: 0;
     text-align: left;
     margin-top: 0.75rem;
     position: relative;
   }
+
   .remove button {
     padding: 0;
   }
+
   .summary {
     margin-top: 1.25rem;
     position: relative;
@@ -404,6 +312,7 @@ aside {
   aside {
     padding: 0 1rem 0 0;
   }
+
   .summary {
     width: 28%;
   }
@@ -413,19 +322,20 @@ aside {
   main {
     width: 100%;
   }
+
   .product-details {
     padding: 0 1rem;
   }
 }
 
-.direccion-escojer{
+.direccion-escojer {
   cursor: pointer;
   border-radius: 5px;
   margin: 5px;
-  
+
 }
 
-.direccprint{
+.direccprint {
   font-size: 17px;
   margin-left: 5px;
   border: none;
@@ -434,48 +344,41 @@ aside {
   background-color: transparent;
 }
 
- .direccprint:hover {
+.direccprint:hover {
   color: var(--dorado);
   background-color: transparent;
- /* font-size: 20px;*/
 
 }
 
 .direccprint:focus {
   color: var(--white);
   background-color: var(--verdeprincipal);
- /* font-size: 20px;*/
 
 }
 
-.buttonDireccion{
+.buttonDireccion {
   background: transparent;
   cursor: pointer;
   transition: 1s;
   float: right;
   color: #666;
 }
-.buttonDireccion:hover{
+
+.buttonDireccion:hover {
   color: var(--dorado);
   transition: 0.5s;
 }
 
-.titulo-direccion{
+.titulo-direccion {
   float: left;
   margin-right: 25px;
   color: var(--dorado);
 }
 
-.texto-direccionPre{
- margin-left: 15px;
+.texto-direccionPre {
+  margin-left: 15px;
 }
-.contenidoDireccion{
+
+.contenidoDireccion {
   width: auto;
 }
-
-
-
-
-
-
-

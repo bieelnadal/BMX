@@ -2,41 +2,6 @@ body {
     background-color: var(--white);
 }
 
-.contenedor-perfil {
-    display: flex;
-    padding-bottom: 150px;
-    margin: 10%;
-}
-
-.separador1 {
-    border-radius: 10px 0px 0px 10px;
-    width: 30%;
-    background-color: var(--verdeprincipal);
-     display: absolute  ;
-    align-items: center;
-    justify-content: center;
-}
-
-.separador2 {
-
-    border-radius: 0px 10px 10px 0px;
-    width: 80%;
-    background-color: var(--morning-blue);
-}
-
-.posicion-imagen-perfil {
-    width: 30%;
-    margin: 11px;
-}
-
-.imagen-perfil {
-    margin: 5%;
-}
-
-img {
-    margin: 25%;
-    width: 100%;
-}
 
 h1 {
     color: white;
@@ -44,23 +9,6 @@ h1 {
     margin-bottom: 50px;
 }
 
-.button-direciones {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #0398EC;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 15px;
-    padding: 10px;
-    color: white;
-    width: 90%;
-    margin-left: 11px;
-    transition: 1s;
-    cursor: pointer;
-    margin: 11px;
-}
 button{
     background-color: var(--verdeprincipal);
     border: none;
@@ -68,54 +16,6 @@ button{
     color: white;
     border-radius: 5px;
     font-size: 15px;
-}
-
-.button-editar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #31EC03;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 15px;
-    padding: 10px;
-    color: white;
-    width: 90%;
-    margin-left: 11px;
-    transition: 1s;
-    cursor: pointer;
-}
-
-.button-cerrar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #EC1C03;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 15px;
-    padding: 10px;
-    color: white;
-    width: 90%;
-    cursor: pointer;
-    margin: 11px;
-}
-
-.button-editar:hover {
-    transition: 0.5s;
-    background-color: var(--dorado);
-}
-
-.button-cerrar:hover {
-    transition: 0.5s;
-    background-color: var(--dorado);
-}
-
-.button-direciones:hover {
-    transition: 0.5s;
-    background-color: var(--dorado);
 }
 
 h3 {
@@ -126,19 +26,6 @@ h3 {
 p {
     color: white;
     margin-left: 20px;
-}
-
-.informacion {
-    border-radius: 0px 10px 10px 0px;
-    width: 100%;
-    background-color: var(--morning-blue);
-}
-
-.direciones {
-    margin: 20px;
-    border-radius: 0px 10px 10px 0px;
-    width: 80%;
-    background-color: var(--morning-blue);
 }
 
 input[type="text"] {
@@ -243,30 +130,6 @@ input[type="password"] {
     text-align: center;
 }
 
-select {
-    margin: 5px;
-    height: 3rem;
-    background-clip: padding-box;
-    background-color: rgb(255, 255, 255);
-    border-radius: 0.25rem;
-    border: 1px solid rgb(204, 204, 204);
-    color: black;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    font-size: 1.0625rem;
-    line-height: 1.5rem;
-    font-weight: 400;
-    outline: none;
-    padding: 0px -1.5rem;
-    font-family: "Playfair Display", serif;
-    text-align: left;
-    transition: border 0.3s ease 0s, background-color 0.3s ease 0s,
-        color 0.3s ease 0s, box-shadow 0.3s ease 0s;
-    width: 100%;
-    text-align: center;
-}
-
 input[type="submit"] {
     box-shadow: 0 3px 6px 0 rgb(32 33 36 / 28%);
     margin: 15px;
@@ -284,10 +147,6 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-h5 {
-    color: white;
-}
-
 label {
     color: white;
     margin: 10px;
@@ -299,47 +158,6 @@ label {
     justify-content: center;
 }
 
-.agregarDirecion{
-    box-shadow: 0 3px 6px 0 rgb(32 33 36 / 28%);
-    margin: 15px;
-    float: right;
-    background-color: var(--verdeprincipal);
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 15px;
-    padding: 10px;
-    color: var(--white);
-    width: 20%;
-    margin-left: 11px;
-    transition: 1s;
-    cursor: pointer;
-
-}
-
-.card-direcion{
-    margin: 5px;
-    width: 30%;
-    height: auto;
-    background: var(--verdeprincipal);
-    -webkit-backdrop-filter: blur(6px);
-    box-shadow: 0 3px 6px 0 rgb(32 33 36 / 28%);
-    border-radius: 5px;
-    border: none;
-}
-.contenido-card{
-    margin: 10px;
-}
-
-.texto-card{
-    margin: 10px;
-    color: white !important;
-}
-.agregar-card{
-    color: white;
-
-}
-
 a{
     color: white !important;
     cursor: pointer;
@@ -349,17 +167,6 @@ a{
     width: 80%;
     margin: 5px;
 }
-
-.validaciones{
-    color: #af1402;
-    text-align: center;
-}
-
-.info-perfil{
-    font-size: 18px;
-    margin-left: 35px;
-}
-
 
 body {
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
