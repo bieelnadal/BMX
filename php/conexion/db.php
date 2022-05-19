@@ -1,9 +1,11 @@
 <?php
 class claseBD {
-    private $servidor   = 'localhost';
-    private $usuario    = 'root';
-    private $pass       = '';
-    private $bd         = 'projectebmx';
+
+
+    private $servidor   = 'sql504.main-hosting.eu';
+    private $usuario    = 'u540256914_bmxbo';
+    private $pass       = 'Bielito1234';
+    private $bd         = 'u540256914_projectebmxbo';
     private $con;
 
     // se carga en el constructor la conexión
