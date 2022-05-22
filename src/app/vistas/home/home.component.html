@@ -47,7 +47,7 @@
 
   <mat-sidenav-container>
     <mat-sidenav [(opened)]="opened" *ngIf="opened"><br>
-      <h1 class="h1-desplegable">{{'home.buscar-categoria' | translate}}</h1>
+      <h1 class="h1-desplegable">{{'home.buscar-venta' | translate}}</h1>
       <br>
       <ul>
         <li class="li-categoria"><button class="button-categoria" (click)="butttonid(0)">· {{'home.todo' |
@@ -123,8 +123,8 @@
               </div>
 
               <div *ngIf="this.ProductoListado.Subasta == 1">
-                <p class="price">Precio de compra directa : {{ProductoListado.Precio}}€</p>
-                <p>Producto en subasta</p>
+                <p class="price">{{'home.compra-directa' | translate}} : {{ProductoListado.Precio}}€</p>
+                <p>{{'home.producto-subasta' | translate}}</p>
               </div>
             </a>
           </div>

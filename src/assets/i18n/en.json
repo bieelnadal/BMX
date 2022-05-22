@@ -11,7 +11,8 @@
 
   "home.vender": "Sell",
   "home.subastar": "Auction",
-  "home.buscar-categoria": "Shop by Category",
+  "home.buscar-venta": "Filter by type of buy",
+  "home.buscar-categoria": "Filter by Category",
   "home.categoria": "Category",
   "home.todo": "Everything",
   "home.todo-comprar": "Shop",
@@ -29,6 +30,8 @@
   "home.todoropa": "Clothes",
   "home.todoSubasta": "Auction",
   "home.todocompra": "Shop",
+  "home.compra-directa":"Direct buy price",
+  "home.producto-subasta":"Auction product",
 
   "plantillaProducto.descripcion": "Product description",
   "plantillaProducto.nombreVendedor": "Seller name",
@@ -147,9 +150,9 @@
   "dashboard.noverificados.1": "Missing",
   "dashboard.noverificados.2": "Products to validate",
   "dashboard.productosSubasta": "Auction Products",
-  "dashboard.subastas":"Auctions",
-  "dashboard.clientes":"Clients",
-  "dashboard.productos":"Products",
+  "dashboard.subastas": "Auctions",
+  "dashboard.clientes": "Clients",
+  "dashboard.productos": "Products",
 
   "historialVentas.pedidos": "My Orders",
   "historialVentas.verMas": "See More",

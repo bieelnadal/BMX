@@ -11,7 +11,8 @@
 
   "home.vender": "Vender",
   "home.subastar": "Subastar",
-  "home.buscar-categoria": "Comprar por categoria",
+  "home.buscar-venta": "Filtrar por tipo de compra",
+  "home.buscar-categoria": "Filtrar por categoria",
   "home.categoria": "Categoria",
   "home.todo-comprar": "Comprar",
   "home.todo-subastar": "Subastar",
@@ -29,6 +30,8 @@
   "home.todoropa": "Ropa",
   "home.todoSubasta": "Subastar",
   "home.todocompra": "Comprar",
+  "home.compra-directa":"Precio de compra directa",
+  "home.producto-subasta":"Producto en Subasta",
 
   "plantillaProducto.descripcion": "Descripción del producto",
   "plantillaProducto.nombreVendedor": "Nombre del vendedor",
@@ -145,9 +148,9 @@
   "dashboard.noverificados.1": "Faltan",
   "dashboard.noverificados.2": "Productos por validar",
   "dashboard.productosSubasta": "Productos en subasta",
-  "dashboard.subastas":"Subastas",
-  "dashboard.clientes":"Clientes",
-  "dashboard.productos":"Productos",
+  "dashboard.subastas": "Subastas",
+  "dashboard.clientes": "Clientes",
+  "dashboard.productos": "Productos",
 
   "historialVentas.pedidos": "Mis Pedidos",
   "historialVentas.verMas": "Ver Mas",
