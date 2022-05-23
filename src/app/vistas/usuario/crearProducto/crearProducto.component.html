@@ -5,7 +5,7 @@
 
 
     <label for="" class="input-label">{{'crearProducto.nombre' |translate}}</label>
-    <input type="text" maxlength="100" formControlName="NombreProducto" class=""
+    <input type="text" maxlength="50" formControlName="NombreProducto" class=""
       placeholder="{{'crearProducto.nombre.placeholder' |translate}}"><br><br>
     <div>
       <div *ngIf="this.submitted && form.NombreProducto.errors">
@@ -17,7 +17,7 @@
     </div>
 
     <label for="" class="input-label">{{'crearProducto.descripcion' |translate}}</label>
-    <input type="text" maxlength="500" formControlName="DescripcionProducto" class=""
+    <input type="text" maxlength="150" formControlName="DescripcionProducto" class=""
       placeholder="{{'crearProducto.descripcion.placeholder' |translate}}"><br><br>
     <div>
       <div *ngIf="this.submitted && form.DescripcionProducto.errors">

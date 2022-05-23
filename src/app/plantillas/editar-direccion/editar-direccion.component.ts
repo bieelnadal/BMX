@@ -97,13 +97,15 @@ export class EditarDireccionComponent implements OnInit {
       confirmButtonText: '¡Establecer Predeterminada!',
     }).then((result) => {
       if (result.isConfirmed) {
+        this.direccService.editarPredeterminado(direccion);
         Swal.fire(
           '¡Dirección actualizada!',
           'Tu dirección predeterminada ha sido cambiada con éxito.',
           'success'
+          
         );
-        this.direccService.editarPredeterminado(direccion);
         window.location.reload();
+        
       }
     });
   }
@@ -122,7 +124,6 @@ export class EditarDireccionComponent implements OnInit {
       };
       this.direccService.registrarDireccion(nuevaDireccion);
       this.direcciones.reset();
-      window.location.reload();
     }
 
   }

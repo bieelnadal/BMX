@@ -100,7 +100,7 @@ export class CrearProductoComponent implements OnInit {
 
   crearProductoNuevo(): any {
     this.submitted = true;
-    if (this.PrecioProducto.value > 0) {
+    if (this.PrecioProducto.value > 0 && this.PrecioProducto.value< 1000000) {
       this.producto.idVendedor = this.datosUsuario.idUsuario;
       this.producto.Nombre = this.nombreProducto.value;
       this.producto.Imagen = this.imgSrc;
@@ -128,12 +128,11 @@ export class CrearProductoComponent implements OnInit {
     }
   }
 
-
   swalError() {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'Algo no funciona bien, perdone la molestias!',
+      text: 'Algunos campos nos son correctos, el precio no puede ser mayhor a 1m!',
     })
   }
 
