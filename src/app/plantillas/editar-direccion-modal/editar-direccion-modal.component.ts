@@ -4,6 +4,7 @@ import { DireccService } from '../../services/direcciones/direcc.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Direccion } from 'src/app/interfaces/Direccion';
 import { TokenSesionService } from 'src/app/services/tokenSesion/token-sesion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-direccion-modal',
@@ -86,7 +87,14 @@ export class EditarDireccionModalComponent implements OnInit {
         Predeterminado: 0,
       };
       this.direccServ.editarDireccion(newDirecc);
-      window.location.reload();
+      Swal.fire(
+        '¡Dirección actualizada!',
+        'Tu dirección ha sido actualizada con éxito.',
+        'success'
+
+      ).then((result) => {
+        window.location.reload();
+      });
     } else {
       console.log('No es válido');
     }
