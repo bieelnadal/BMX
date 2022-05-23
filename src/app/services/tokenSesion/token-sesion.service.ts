@@ -4,7 +4,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
-const REFRESCAR_TOKEN = 'http://localhost:8080/JWT/refrescarToken.php';
+const REFRESCAR_TOKEN = 'https://api-bmx.herokuapp.com/JWT/refrescarToken.php';
 
 @Injectable({
   providedIn: 'root',

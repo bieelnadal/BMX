@@ -3,26 +3,26 @@ import { Direccion } from 'src/app/interfaces/Direccion';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 
-const URL = 'http://localhost:8080/';
+const URL = 'https://api-bmx.herokuapp.com/';
 
 const URL_CREAR_DIRECCION =
-  'http://localhost:8080/direcciones/crearDireccion.php';
+  'https://api-bmx.herokuapp.com/direcciones/crearDireccion.php';
 const URL_MODIFICAR_DIRECCION =
-  'http://localhost:8080/direcciones/modificarDireccion.php';
+  'https://api-bmx.herokuapp.com/direcciones/modificarDireccion.php';
 const URL_BORRAR_DIRECCION =
-  'http://localhost:8080/direcciones/borrarDireccion.php';
+  'https://api-bmx.herokuapp.com/direcciones/borrarDireccion.php';
 
 const URL_LEER_DIRECCION =
-  'http://localhost:8080/direcciones/obtenerDireccion.php';
+  'https://api-bmx.herokuapp.com/direcciones/obtenerDireccion.php';
 
 const URL_OBTENER_DIRECCION_ID =
-  'http://localhost:8080/direcciones/obtenerDireccionId.php';
+  'https://api-bmx.herokuapp.com/direcciones/obtenerDireccionId.php';
 
 const URL_MODIFICAR_PREDETERMINADO =
-  'http://localhost:8080/direcciones/establecerPredeterminado.php';
+  'https://api-bmx.herokuapp.com/direcciones/establecerPredeterminado.php';
 
 const URL_OBTENER_USUARIO_ID = 
-  'http://localhost:8080/direcciones/obtenerIdUsuarioDireccion.php';
+  'https://api-bmx.herokuapp.com/direcciones/obtenerIdUsuarioDireccion.php';
 
 
 @Injectable({

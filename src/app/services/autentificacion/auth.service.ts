@@ -5,8 +5,10 @@ import { Usuario } from '../../interfaces/Usuario';
 import { TokenSesionService } from '../tokenSesion/token-sesion.service';
 import Swal from 'sweetalert2';
 
-const URL_LOGIN = 'http://localhost:8080/identificacion/login.php';
-const URL_REGISTER = 'http://localhost:8080/identificacion/register.php';
+
+
+const URL_LOGIN = 'https://api-bmx.herokuapp.com/identificacion/login.php';
+const URL_REGISTER = 'https://api-bmx.herokuapp.com/identificacion/register.php';
 
 @Injectable({
   providedIn: 'root',

@@ -5,25 +5,25 @@ import { Subasta } from 'src/app/interfaces/Subastas';
 import { Producto } from '../../interfaces/Productos';
 import { Puja } from 'src/app/interfaces/Puja';
 
-const URL_CREAR_SUBASTA = 'http://localhost:8080/subastas/crearSubasta.php';
+const URL_CREAR_SUBASTA = 'https://api-bmx.herokuapp.com/subastas/crearSubasta.php';
 
 const URL_OBTENER_SUBASTAS =
-  'http://localhost:8080/subastas/obtenerSubastas.php';
+  'https://api-bmx.herokuapp.com/subastas/obtenerSubastas.php';
 
 const URL_OBTENER_SUBASTA_PRODUCTO_ID =
-  'http://localhost:8080/subastas/obtenerSubastaProductoId.php';
+  'https://api-bmx.herokuapp.com/subastas/obtenerSubastaProductoId.php';
 
-const URL_BORRAR_SUBASTA = 'http://localhost:8080/subastas/borrarSubasta.php';
+const URL_BORRAR_SUBASTA = 'https://api-bmx.herokuapp.com/subastas/borrarSubasta.php';
 
-const URL_CREAR_PRODUCTO = 'http://localhost:8080/productos/crearProductos.php';
+const URL_CREAR_PRODUCTO = 'https://api-bmx.herokuapp.com/productos/crearProductos.php';
 
-const URL_CREAR_PUJA = 'http://localhost:8080/subastas/crearPuja.php';
+const URL_CREAR_PUJA = 'https://api-bmx.herokuapp.com/subastas/crearPuja.php';
 
-const URL_OBTENER_PUJAS = 'http://localhost:8080/subastas/obtenerPujas.php';
+const URL_OBTENER_PUJAS = 'https://api-bmx.herokuapp.com/subastas/obtenerPujas.php';
 
-const URL_EDITAR_SUBASTA ="http://localhost:8080/subastas/editarSubasta.php";
+const URL_EDITAR_SUBASTA ="https://api-bmx.herokuapp.com/subastas/editarSubasta.php";
 
-const URL_GANADOR_SUBASTA = "http://localhost:8080/subastas/ganadorSubasta.php";
+const URL_GANADOR_SUBASTA = "https://api-bmx.herokuapp.com/subastas/ganadorSubasta.php";
 
 
 @Injectable({

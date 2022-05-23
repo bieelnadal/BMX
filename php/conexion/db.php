@@ -1,16 +1,16 @@
 <?php
 class claseBD {
 
+    //BD en remoto (No borrar)
+    private $servidor   = 'sql504.main-hosting.eu';
+    private $usuario    = 'u540256914_bmxbo';
+    private $pass       = 'Bielito1234';
+    private $bd         = 'u540256914_projectebmxbo';
 
-    // private $servidor   = 'sql504.main-hosting.eu';
-    // private $usuario    = 'u540256914_bmxbo';
-    // private $pass       = 'Bielito1234';
-    // private $bd         = 'u540256914_projectebmxbo';
-
-    private $servidor   = 'localhost';
-    private $usuario    = 'root';
-    private $pass       = '';
-    private $bd         = 'projectebmx';
+    // private $servidor   = 'localhost';
+    // private $usuario    = 'root';
+    // private $pass       = '';
+    // private $bd         = 'projectebmx';
 
     
     private $con;

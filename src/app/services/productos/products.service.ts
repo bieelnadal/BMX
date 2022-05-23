@@ -5,66 +5,66 @@ import { Producto } from 'src/app/interfaces/Productos';
 import { Carrito } from 'src/app/interfaces/Carrito';
 import { LoginComponent } from 'src/app/identificacion/login/login.component';
 
-const URL = 'http://localhost:8080/';
+const URL = 'https://api-bmx.herokuapp.com/';
 
-const URL_CREAR_PRODUCTO = 'http://localhost:8080/productos/crearProductos.php';
+const URL_CREAR_PRODUCTO = 'https://api-bmx.herokuapp.com/productos/crearProductos.php';
 
-const URL_CREAR_CARRITO = 'http://localhost:8080/productos/tramitesCarrito.php';
+const URL_CREAR_CARRITO = 'https://api-bmx.herokuapp.com/productos/tramitesCarrito.php';
 
 const URL_OBTENER_PRODUCTO =
-  'http://localhost:8080/productos/obtenerProductos.php';
+  'https://api-bmx.herokuapp.com/productos/obtenerProductos.php';
 
 const URL_CONTAR_PRODUCTOS =
-  'http://localhost:8080/productos/contarProductos.php';
+  'https://api-bmx.herokuapp.com/productos/contarProductos.php';
 
 const URL_CONTAR_PRODUCTOS_SUBASTA =
-  'http://localhost:8080/productos/contarProductosSubasta.php';
+  'https://api-bmx.herokuapp.com/productos/contarProductosSubasta.php';
 
 const URL_OBTENER_PRODUCTO_ID =
-  'http://localhost:8080/productos/obtenerProductoId.php';
+  'https://api-bmx.herokuapp.com/productos/obtenerProductoId.php';
 
 const URL_OBTENER_VENDEDOR_ID =
-  'http://localhost:8080/productos/obtenerVendedorId.php';
+  'https://api-bmx.herokuapp.com/productos/obtenerVendedorId.php';
 
 const URL_CAMBIAR_ESTADO_PRODUCTO =
-  'http://localhost:8080/productos/cambiarEstado.php';
+  'https://api-bmx.herokuapp.com/productos/cambiarEstado.php';
 
 const URL_CONTAR_PRODUCTOS_SIN_VERIFICAR =
-  'http://localhost:8080/productos/contarProductosSinVerificar.php';
+  'https://api-bmx.herokuapp.com/productos/contarProductosSinVerificar.php';
 
 const URL_OBTENER_PRODUCTO_ADMIN =
-  'http://localhost:8080/productos/obtenerProductosAdmin.php';
+  'https://api-bmx.herokuapp.com/productos/obtenerProductosAdmin.php';
 
 const URL_HISTORIAL_VENTAS_ID =
-  'http://localhost:8080/productos/historialVentasPorId.php';
+  'https://api-bmx.herokuapp.com/productos/historialVentasPorId.php';
 
 const URL_BORRAR_PRODUCTO =
-  'http://localhost:8080/productos/borrarProducto.php';
+  'https://api-bmx.herokuapp.com/productos/borrarProducto.php';
 
 const URL_EDITAR_PRODUCTO =
-  'http://localhost:8080/productos/editarProducto.php';
+  'https://api-bmx.herokuapp.com/productos/editarProducto.php';
 
-const URL_OBTENER_VENDEDOR_INFO ="http://localhost:8080/productos/obtenerVendedorInfo.php";
+const URL_OBTENER_VENDEDOR_INFO ="https://api-bmx.herokuapp.com/productos/obtenerVendedorInfo.php";
 
-const URL_OBTENER_DIRECCION ="http://localhost:8080/productos/obtenerDireccionCarrito.php";
+const URL_OBTENER_DIRECCION ="https://api-bmx.herokuapp.com/productos/obtenerDireccionCarrito.php";
 
-const URL_OBTENER_PRODUCTOS_VALIDAR ="http://localhost:8080/productos/obtenerProductosValidacion.php";
+const URL_OBTENER_PRODUCTOS_VALIDAR ="https://api-bmx.herokuapp.com/productos/obtenerProductosValidacion.php";
 
-const URL_VALIDAR_PRODUCTO = "http://localhost:8080/productos/validarProducto.php";
+const URL_VALIDAR_PRODUCTO = "https://api-bmx.herokuapp.com/productos/validarProducto.php";
 
-const URL_HISTORIAL_VENTAS = "http://localhost:8080/productos/historialVentas.php";
+const URL_HISTORIAL_VENTAS = "https://api-bmx.herokuapp.com/productos/historialVentas.php";
 
-const URL_PRINTAR_PRODUCTOS_ID ="http://localhost:8080/productos/printarProductosId.php";
+const URL_PRINTAR_PRODUCTOS_ID ="https://api-bmx.herokuapp.com/productos/printarProductosId.php";
 
-const URL_OBTENER_SUBASTA ="http://localhost:8080/productos/obtenerSubastas.php";
+const URL_OBTENER_SUBASTA ="https://api-bmx.herokuapp.com/productos/obtenerSubastas.php";
 
-const URL_OBTENER_COMPRAR ="http://localhost:8080/productos/obtenerCompar.php";
+const URL_OBTENER_COMPRAR ="https://api-bmx.herokuapp.com/productos/obtenerCompar.php";
 
-const URL_OBTENER_SUBASTA_ADMIN ="http://localhost:8080/productos/obtenerSubastasAdmin.php";
+const URL_OBTENER_SUBASTA_ADMIN ="https://api-bmx.herokuapp.com/productos/obtenerSubastasAdmin.php";
 
-const URL_OBTENER_PRODUCTO_USUARIO ="http://localhost:8080/productos/obtenerProductosUsuario.php";
+const URL_OBTENER_PRODUCTO_USUARIO ="https://api-bmx.herokuapp.com/productos/obtenerProductosUsuario.php";
 
-const URL_OBTENER_PRODUCTO_MIS_VENTAS ="http://localhost:8080/productos/obtenerMisVentas.php";
+const URL_OBTENER_PRODUCTO_MIS_VENTAS ="https://api-bmx.herokuapp.com/productos/obtenerMisVentas.php";
 
 @Injectable({
   providedIn: 'root',

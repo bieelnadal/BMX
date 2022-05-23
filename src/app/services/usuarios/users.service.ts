@@ -4,27 +4,27 @@ import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
-const URL = 'http://localhost:8080/';
+const URL = 'https://api-bmx.herokuapp.com/';
 
 // URLS CREAR, LEER, EDITAR, BORRAR
 const URL_REGISTRAR_USUARIO =
-  'http://localhost:8080/identificacion/register.php'; //URL REGISTRAR USUARIO
-const URL_EMAIL_EXISTE = 'http://localhost:8080/usuarios/emailExiste.php'; //URL EMAIL EXISTE
-const URL_DNI_EXISTE = 'http://localhost:8080/usuarios/dniExiste.php'; // URL COMPROBAR DNI EXISTE
-const URL_PASS_EXISTE = 'http://localhost:8080/usuarios/passcodeExiste.php'; //URL COMPROBAR CONTRASEÑA EXISTE
-const URL_CONTAR_USER = 'http://localhost:8080/usuarios/contarUsuarios.php'; //URL CONTAR USUARIO
+  'https://api-bmx.herokuapp.com/identificacion/register.php'; //URL REGISTRAR USUARIO
+const URL_EMAIL_EXISTE = 'https://api-bmx.herokuapp.com/usuarios/emailExiste.php'; //URL EMAIL EXISTE
+const URL_DNI_EXISTE = 'https://api-bmx.herokuapp.com/usuarios/dniExiste.php'; // URL COMPROBAR DNI EXISTE
+const URL_PASS_EXISTE = 'https://api-bmx.herokuapp.com/usuarios/passcodeExiste.php'; //URL COMPROBAR CONTRASEÑA EXISTE
+const URL_CONTAR_USER = 'https://api-bmx.herokuapp.com/usuarios/contarUsuarios.php'; //URL CONTAR USUARIO
 const URL_VALIDAR_EMAIL =
-  'http://localhost:8080/usuarios/validarEmailExiste.php'; //URL VALIDAR EMAIL
+  'https://api-bmx.herokuapp.com/usuarios/validarEmailExiste.php'; //URL VALIDAR EMAIL
 const URL_MODIFICAR_USUARIO =
-  'http://localhost:8080/usuarios/modificarUsuario.php'; //URL UPDATE USUARIO
+  'https://api-bmx.herokuapp.com/usuarios/modificarUsuario.php'; //URL UPDATE USUARIO
 
 const URL_OBTENER_USUARIOS =
-  'http://localhost:8080/usuarios/obtenerUsuarios.php'; // OBTENER LOS USUARIOS
+  'https://api-bmx.herokuapp.com/usuarios/obtenerUsuarios.php'; // OBTENER LOS USUARIOS
 
 const URL_OBTENER_USUARIO_ID =
-  'http://localhost:8080/usuarios/obtenerUsuarioId.php';
+  'https://api-bmx.herokuapp.com/usuarios/obtenerUsuarioId.php';
 
-const URL_BORRAR_USUARIO = 'http://localhost:8080/usuarios/borrarUsuario.php';
+const URL_BORRAR_USUARIO = 'https://api-bmx.herokuapp.com/usuarios/borrarUsuario.php';
 
 @Injectable({
   providedIn: 'root',
