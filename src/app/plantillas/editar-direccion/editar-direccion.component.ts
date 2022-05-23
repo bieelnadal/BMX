@@ -124,6 +124,7 @@ export class EditarDireccionComponent implements OnInit {
       };
       this.direccService.registrarDireccion(nuevaDireccion);
       this.direcciones.reset();
+      window.location.reload();
     }
 
   }
