@@ -39,7 +39,7 @@ export class EditarDireccionComponent implements OnInit {
     public fb: FormBuilder,
     private tokenServ: TokenSesionService,
     private direccService: DireccService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.obtenerDatos();
@@ -102,10 +102,12 @@ export class EditarDireccionComponent implements OnInit {
           '¡Dirección actualizada!',
           'Tu dirección predeterminada ha sido cambiada con éxito.',
           'success'
-          
-        );
-        window.location.reload();
-        
+
+        ).then((result) => {
+          window.location.reload();
+        });
+
+
       }
     });
   }
@@ -141,13 +143,16 @@ export class EditarDireccionComponent implements OnInit {
       confirmButtonText: '¡Borrar!',
     }).then((result) => {
       if (result.isConfirmed) {
+        this.direccService.borrarDireccion(idDirecc);
         Swal.fire(
           '¡Dirección borrada!',
           'La dirección ha sido borrado con éxito.',
           'success'
-        );
-        this.direccService.borrarDireccion(idDirecc);
-        window.location.reload();
+        ).then((result) => {
+          window.location.reload();
+        });
+
+
       }
     });
   }
